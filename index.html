@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shakti Develops | Command Desk Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+  <style>
+    :root { 
+      /* Midnight Aurora Palette */
+      --text-main: #ffffff; --text-muted: #cbd5e1;
+      --glass-panel: rgba(10, 15, 30, 0.85); --glass-card: rgba(20, 30, 50, 0.6); --glass-border: rgba(255, 255, 255, 0.15);
+      
+      /* Vibrant Luminous Accents */
+      --neon-emerald: #10b981; --neon-ruby: #f43f5e; --neon-blue: #0ea5e9; --neon-gold: #f59e0b; --neon-purple: #8b5cf6;
+      --btn-blue: linear-gradient(135deg, #0ea5e9, #2563eb);
+      --btn-green: linear-gradient(135deg, #10b981, #059669);
+      --btn-red: linear-gradient(135deg, #f43f5e, #be123c);
+    }
+    
+    * { box-sizing: border-box; font-family: 'Nunito', sans-serif; }
+    
+    body { 
+      margin: 0; padding: 10px; display: flex; justify-content: center; align-items: center; min-height: 100vh;
+      color: var(--text-main); overflow: hidden; background-color: #020617; 
+    }
+
+    /* 🌌 TEXTURED LIVE BACKGROUND ORBS */
+    .bg-orbs { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -2; filter: blur(100px); }
+    .orb { position: absolute; border-radius: 50%; opacity: 0.65; animation: rotateOrb 30s infinite linear; }
+    .orb-1 { width: 55vw; height: 55vw; background: #4c1d95; top: -15vh; left: -5vw; } 
+    .orb-2 { width: 45vw; height: 45vw; background: #be123c; bottom: -10vh; right: -5vw; animation-direction: reverse; animation-duration: 35s; } 
+    .orb-3 { width: 40vw; height: 40vw; background: #047857; top: 20vh; left: 20vw; animation-direction: normal; animation-duration: 40s; } 
+    .orb-4 { width: 30vw; height: 30vw; background: #0284c7; top: 40vh; right: 15vw; animation-duration: 25s; } 
+    @keyframes rotateOrb { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.15); } 100% { transform: rotate(360deg) scale(1); } }
+
+    .noise-overlay {
+      position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* 💎 MAIN DECK WITH PULSING GLOW */
+    @keyframes deckGlow {
+      0% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 40px rgba(56, 189, 248, 0.05), inset 0 1px 3px rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.1); }
+      50% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 60px rgba(139, 92, 246, 0.2), inset 0 1px 3px rgba(255,255,255,0.3); border-color: rgba(139, 92, 246, 0.3); }
+      100% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 40px rgba(56, 189, 248, 0.05), inset 0 1px 3px rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.1); }
+    }
+    .deck { 
+      background: var(--glass-panel); width: 1400px; max-width: 98vw; height: 97vh;
+      padding: 12px 20px 12px 20px; border-radius: 24px; border: 1px solid var(--glass-border); border-top: 1px solid rgba(255,255,255,0.4);
+      backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px);
+      animation: deckGlow 6s infinite alternate;
+      display: flex; flex-direction: column; position: relative; overflow: hidden;
+      background-image: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 50%);
+    }
+
+    /* --- BEAUTIFUL HEADER & BRANDING --- */
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-shrink: 0;}
+    
+    .title-area { display: flex; align-items: center; gap: 15px; }
+    .title-area h1 { font-weight: 900; text-transform: uppercase; margin: 0; font-size: 22pt; letter-spacing: 1px; background: linear-gradient(135deg, #ffffff, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(56, 189, 248, 0.4)); display: flex; align-items: center; gap: 8px;}
+    
+    /* ✨ STUNNING SHAKTI DEVELOPS BADGE */
+    @keyframes brandGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .brand-badge { 
+      background: linear-gradient(270deg, #8b5cf6, #0ea5e9, #10b981, #8b5cf6);
+      background-size: 300% 300%; animation: brandGradient 6s ease infinite;
+      padding: 4px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.5);
+      color: #fff; font-size: 9pt; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4), inset 0 2px 4px rgba(255,255,255,0.4);
+      display: inline-flex; align-items: center; gap: 6px; text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+    .brand-badge .sparkle { font-size: 11pt; animation: spinSparkle 3s infinite linear; }
+    @keyframes spinSparkle { 0% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.2) rotate(180deg); } 100% { transform: scale(1) rotate(360deg); } }
+
+    .status-pill { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-emerald); padding: 6px 12px; border-radius: 8px; font-size: 7.5pt; font-weight: 900; color: #fff; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); text-transform: uppercase; }
+    .status-dot { width: 8px; height: 8px; background: var(--neon-emerald); border-radius: 50%; box-shadow: 0 0 10px var(--neon-emerald); animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.5); } 100% { opacity: 1; transform: scale(1); } }
+
+    /* --- 🌤️ WEATHER TIMELINE BAR --- */
+    .stat-bar-ultra {
+      display: flex; align-items: center; background: rgba(0,0,0,0.5); border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1); padding: 6px 15px; margin-bottom: 10px; flex-shrink: 0;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.6); position: relative; overflow: hidden;
+    }
+    .stat-bar-ultra::after { content: ''; position: absolute; top:0; left:0; right:0; height: 1px; background: linear-gradient(90deg, transparent, var(--neon-blue), transparent); opacity: 0.5;}
+    
+    .stat-bar-title { display: flex; align-items: center; gap: 6px; font-size: 7.5pt; font-weight: 900; color: var(--neon-blue); margin-right: 25px; text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0;}
+    .stat-bar-items { display: flex; flex: 1; justify-content: flex-start; align-items: center; overflow: hidden; gap: 15px;}
+    
+    .weather-pill { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
+    .weather-pill .lbl { font-size: 6.5pt; color: var(--text-muted); font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
+    .weather-pill .val { font-size: 9.5pt; font-weight: 900; color: #fff; display: flex; align-items: center; gap: 4px;}
+    
+    .wp-blue { background: rgba(14, 165, 233, 0.15); border-color: rgba(14, 165, 233, 0.4); }
+    .wp-gold { background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.4); }
+    .wp-purple { background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.4); }
+
+    /* DASHBOARD GRID */
+    .dashboard-grid { display: flex; gap: 15px; flex-grow: 1; min-height: 0; }
+
+    /* --- LEFT: DESK PANEL --- */
+    .desk-panel { width: 340px; display: flex; flex-direction: column; gap: 10px; height: 100%; overflow: hidden; }
+    
+    .widget {
+      background: var(--glass-card); border: 1px solid var(--glass-border); border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,255,0.05); transition: all 0.3s;
+      position: relative; overflow: hidden; flex-shrink: 0; 
+    }
+    .widget:hover { border-color: rgba(255,255,255,0.3); background: rgba(30, 41, 59, 0.7); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); }
+    .w-title { font-size: 7.5pt; font-weight: 900; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;}
+    
+    /* ⏱️ LOCAL TERMINAL */
+    .terminal-widget { padding: 0; display: flex; flex-direction: column; }
+    .terminal-header { padding: 8px 15px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.3); }
+    .terminal-body { display: flex; padding: 12px 15px; gap: 10px; align-items: center; background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent); }
+    .t-time-section { flex: 1.4; display: flex; flex-direction: column; align-items: flex-start; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 10px;}
+    .t-weather-section { flex: 0.6; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-left: 5px; }
+    
+    .tod-badge { font-size: 6.5pt; padding: 2px 6px; border-radius: 4px; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 4px; box-shadow: inset 0 1px 3px rgba(255,255,255,0.2); margin-bottom: 4px;}
+    .tod-morning { background: var(--btn-blue); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .tod-afternoon { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .tod-evening { background: var(--btn-red); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .tod-night { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+
+    .time-large { font-size: 24pt; font-weight: 900; color: var(--text-main); line-height: 1; margin-bottom: 2px; text-shadow: 0 4px 15px rgba(56, 189, 248, 0.4); letter-spacing: -1px;}
+    .time-large span { color: var(--neon-blue); font-size: 12pt; margin-left: 8px;} 
+    .date-sub { font-size: 8.5pt; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+    .w-icon-large { font-size: 22pt; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); line-height: 1; margin-bottom: 2px;}
+    .w-temp { font-weight: 900; font-size: 12pt; color: var(--text-main); }
+    .w-desc { font-size: 6.5pt; color: #fff; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; background: rgba(245, 158, 11, 0.4); padding: 2px 6px; border-radius: 4px; margin-top: 2px; border: 1px solid rgba(255,255,255,0.2);}
+
+    /* 📰 MANUAL SCROLLING NEWS FEEDS */
+    .news-container { flex: 1; display: flex; flex-direction: column; min-height: 0; padding: 10px 15px; position: relative;}
+    
+    .news-feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 6px; }
+    .news-feed::-webkit-scrollbar { width: 5px; }
+    .news-feed::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); border-radius: 10px; }
+    .news-feed::-webkit-scrollbar-thumb { background: var(--btn-blue); border-radius: 10px; }
+    
+    .news-item { 
+      background: rgba(0,0,0,0.5); padding: 8px 10px; border-radius: 8px; 
+      border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #0ea5e9; 
+      display: flex; flex-direction: column; gap: 4px; transition: 0.2s; flex-shrink: 0;
+    }
+    .news-item:hover { background: rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.2); box-shadow: 0 4px 10px rgba(0,0,0,0.4);}
+    
+    .news-badge { font-size: 6pt; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; display: inline-block; padding: 2px 6px; border-radius: 4px; color: #fff; background: var(--btn-blue); box-shadow: 0 0 8px rgba(14, 165, 233, 0.4); border: 1px solid rgba(255,255,255,0.2);}
+    .news-badge.india { background: linear-gradient(135deg, #f97316, #ea580c); box-shadow: 0 0 8px rgba(249, 115, 22, 0.4); }
+    .news-item.india { border-left-color: #f97316; }
+
+    .news-title { font-size: 7.5pt; color: var(--text-main); font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-shadow: 0 1px 2px rgba(0,0,0,0.8);}
+    .news-meta { font-size: 6pt; color: #10b981; font-weight: 800; display: flex; align-items: center; letter-spacing: 0.5px;}
+
+    /* --- RIGHT: RENAMER OPERATIONS --- */
+    .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(0,0,0,0.4); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 12px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.8); position: relative; overflow: hidden;}
+
+    /* 🎛️ EMPTY STATE QUICK-LAUNCH DASHBOARD */
+    #setupScreen { flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; gap: 15px; }
+    
+    .tools-grid { display: grid; grid-template-columns: 240px 1fr 1.2fr; gap: 12px; flex: 1; min-height: 0; }
+    
+    .tool-box { background: rgba(0,0,0,0.5); border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); padding: 12px; display: flex; flex-direction: column; box-shadow: inset 0 5px 20px rgba(0,0,0,0.8); overflow: hidden; }
+    .tool-header { font-size: 8pt; font-weight: 900; color: var(--neon-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.1);}
+
+    /* Calculator Widget */
+    .calc-screen { background: rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; font-family: monospace; font-size: 16pt; text-align: right; margin-bottom: 10px; color: var(--neon-emerald); box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); height: 45px; display: flex; align-items: center; justify-content: flex-end; overflow: hidden;}
+    .calc-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; flex: 1;}
+    .calc-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #fff; font-weight: 900; font-size: 11pt; cursor: pointer; transition: 0.1s; display: flex; align-items: center; justify-content: center;}
+    .calc-btn:hover { background: rgba(255,255,255,0.15); transform: scale(1.05); }
+    .calc-btn:active { transform: scale(0.95); }
+    .calc-btn.op { background: rgba(14, 165, 233, 0.2); color: var(--neon-blue); border-color: rgba(14, 165, 233, 0.4);}
+    .calc-btn.eq { background: rgba(16, 185, 129, 0.2); color: var(--neon-emerald); border-color: rgba(16, 185, 129, 0.4); grid-column: span 2;}
+    .calc-btn.clear { background: rgba(244, 63, 94, 0.2); color: var(--neon-ruby); border-color: rgba(244, 63, 94, 0.4); grid-column: span 2;}
+
+    /* To-Do Widget */
+    .todo-input-row { display: flex; gap: 6px; margin-bottom: 10px; }
+    .todo-input-row input { flex: 1; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color: #fff; font-size: 9pt; outline: none; }
+    .todo-input-row button { background: var(--btn-blue); border: none; color: #fff; border-radius: 6px; padding: 0 12px; font-weight: 900; cursor: pointer; }
+    .todo-list { flex: 1; overflow-y: auto; padding-right: 5px; display: flex; flex-direction: column; gap: 6px;}
+    .todo-list::-webkit-scrollbar { width: 4px; }
+    .todo-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+    .todo-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05); padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; transition: 0.2s;}
+    .todo-item.done span { text-decoration: line-through; opacity: 0.5; }
+    .todo-item input[type="checkbox"] { cursor: pointer; accent-color: var(--neon-emerald); }
+    .todo-item span { flex: 1; word-break: break-word;}
+    .todo-item .del-btn { cursor: pointer; color: var(--neon-ruby); font-weight: bold; padding: 0 5px; font-size: 10pt;}
+
+    /* Scratchpad */
+    #scratchpad { flex: 1; background: transparent; border: none; outline: none; color: var(--text-main); font-family: 'Nunito', monospace; font-size: 10pt; line-height: 1.6; resize: none; width: 100%;}
+    #scratchpad::placeholder { color: rgba(255,255,255,0.2); }
+
+    .mount-section { background: rgba(14, 165, 233, 0.1); border: 1px dashed var(--neon-blue); border-radius: 14px; padding: 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; box-shadow: inset 0 0 20px rgba(14, 165, 233, 0.15); flex-shrink: 0;}
+
+    #workspace { display: none; flex-grow: 1; flex-direction: column; gap: 10px; height: 100%; min-height: 0;}
+    
+    /* 🛠️ PERFECT IMAGE CONTAINER WITH CROPPER OVERRIDES */
+    .image-container { 
+      flex: 1; min-height: 0; background-color: #0b1120;
+      background-image: linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+      background-size: 40px 40px; border-radius: 14px; border: 1px solid var(--glass-border);
+      display: flex; justify-content: center; align-items: center; overflow: hidden; 
+      padding: 10px; box-shadow: inset 0 10px 50px rgba(0,0,0,0.9); position: relative;
+    }
+    
+    .image-container img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+
+    /* Customizing Cropper.js */
+    .cropper-view-box, .cropper-face { border-radius: 8px; }
+    .cropper-line { background-color: var(--neon-emerald); opacity: 0.8; }
+    .cropper-point { background-color: var(--neon-blue); width: 8px; height: 8px; border-radius: 50%; opacity: 1; }
+    .cropper-point.point-se { width: 12px; height: 12px; right: -4px; bottom: -4px; }
+    .cropper-bg { background-image: none !important; background-color: rgba(0,0,0,0.8); }
+
+    /* --- BEAUTIFUL GRADIENT BUTTONS --- */
+    .btn-pro { 
+      height: auto; cursor: pointer; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3);
+      color: white; font-weight: 900; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 1px;
+      display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.3);
+    }
+    .btn-pro:hover { transform: translateY(-2px); filter: brightness(1.15); box-shadow: 0 10px 20px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.4); }
+    .btn-pro:active { transform: translateY(1px); filter: brightness(0.95); box-shadow: none !important; }
+    
+    .blue-btn { background: var(--btn-blue); padding: 14px 30px; font-size: 11pt; border-radius: 12px;}
+    .green-btn { background: var(--btn-green); }
+    .red-btn { background: var(--btn-red); padding: 0 15px; font-size: 8pt; border-radius: 8px;}
+
+    .rotate-btn {
+      position: absolute; top: 12px; right: 12px; background: var(--btn-blue); border: 1px solid rgba(255,255,255,0.3);
+      color: #fff; padding: 6px 12px; border-radius: 8px; font-weight: 900; cursor: pointer; transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.8); z-index: 10; letter-spacing: 1px; font-size: 7.5pt; text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    }
+    .rotate-btn:hover { filter: brightness(1.2); transform: scale(1.05); }
+    .rotate-btn:active { transform: scale(0.95); }
+
+    /* --- HORIZONTAL CONTROL PANEL WITH ENHANCED BATCH QUEUE --- */
+    .control-panel { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;}
+    
+    .stat-box-op { background: var(--glass-card); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);}
+    
+    /* 🌟 LIVELY BATCH QUEUE BOX 🌟 */
+    .batch-queue-box {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+      border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.15), inset 0 2px 15px rgba(0,0,0,0.6);
+      padding: 10px 15px; display: flex; align-items: center; gap: 15px; position: relative; overflow: hidden;
+    }
+    .batch-queue-box::before {
+      content: ''; position: absolute; top:0; left:-100%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+      animation: sweep 3s infinite; pointer-events: none;
+    }
+    @keyframes sweep { 100% { left: 200%; } }
+
+    .bq-title { 
+      margin: 0; font-size: 8pt; color: var(--neon-blue); text-transform: uppercase; 
+      letter-spacing: 1.5px; white-space: nowrap; display: flex; align-items: center; gap: 6px; font-weight: 900;
+    }
+    .bq-title .icon { font-size: 10pt; filter: drop-shadow(0 0 5px var(--neon-blue)); animation: pulse 2s infinite; }
+
+    .progress-wrapper { 
+      background: rgba(0,0,0,0.7); overflow: hidden; box-shadow: inset 0 3px 6px rgba(0,0,0,0.9); 
+      border: 1px solid rgba(255,255,255,0.1); flex: 1; margin: 0; height: 10px; border-radius: 20px;
+    }
+    .progress-fill { 
+      height: 100%; background: linear-gradient(90deg, #0ea5e9, #10b981, #0ea5e9); 
+      background-size: 200% 100%; animation: progressGlow 2s linear infinite; width: 0%; 
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+      box-shadow: 0 0 10px var(--neon-emerald), inset 0 0 5px rgba(255,255,255,0.5); border-radius: 20px;
+    }
+    @keyframes progressGlow { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+    
+    .progress-text { 
+      font-size: 14pt; font-weight: 900; background: linear-gradient(135deg, #fff, var(--text-muted)); 
+      -webkit-background-clip: text; color: transparent; line-height: 1; margin: 0; letter-spacing: 1px;
+    }
+
+    .input-row { display: flex; gap: 8px; width: 100%; align-items: stretch; position: relative;}
+    
+    input[type="text"] { 
+      flex: 1; padding: 10px 15px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.2); 
+      font-weight: 900; font-size: 14pt; color: #fff; background: rgba(0, 0, 0, 0.7); 
+      outline: none; transition: 0.3s; text-align: center; color-scheme: dark;
+      box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.9); 
+    }
+    input[type="text"]:focus { 
+      background: rgba(0, 0, 0, 0.9); border-color: var(--neon-blue); 
+      box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.4); 
+    }
+
+    #toast {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+      background: rgba(15, 23, 42, 0.95); border: 1px solid var(--neon-emerald); color: var(--text-main);
+      padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 9pt; letter-spacing: 1px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.9), 0 0 20px rgba(16, 185, 129, 0.3);
+      opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 1000;
+      display: flex; align-items: center; gap: 8px; text-transform: uppercase;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    .sd-wrapper { display: flex; justify-content: center; width: 100%; padding: 6px 0 0 0; flex-shrink: 0;}
+    .sd-watermark { display: inline-flex; align-items: center; gap: 10px; font-family: 'Nunito', sans-serif; color: rgba(255,255,255,0.5); transition: all 0.5s; cursor: default; }
+    .sd-watermark:hover { color: var(--neon-blue); filter: drop-shadow(0 0 5px var(--neon-blue));}
+    .sd-diamond { width: 4px; height: 4px; border: 1.5px solid currentColor; background-color: currentColor; transform: rotate(45deg); transition: all 0.5s;}
+    .sd-watermark:hover .sd-diamond { transform: rotate(-135deg); background-color: transparent; }
+    .sd-text { font-size: 6.5pt; letter-spacing: 3px; text-transform: uppercase; font-weight: 900; display: flex; align-items: center; }
+    .sd-text span { font-weight: 300; margin-left: 4px; }
+  </style>
+</head>
+<body>
+
+  <div id="toast">✅ Action Successful</div>
+
+  <div class="bg-orbs"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div><div class="orb orb-4"></div></div>
+  <div class="noise-overlay"></div>
+
+  <div class="deck" id="mainDeck">
+    
+    <div class="header">
+      <div class="title-area">
+        <div class="brand-badge"><span class="sparkle">✨</span> Shakti Develops 🚀💎</div>
+        <h1>📦 Dispatch Command</h1>
+      </div>
+      <div class="status-pill">
+        <div class="status-dot"></div> ⚡ ENGINE SECURE
+      </div>
+    </div>
+
+    <div class="stat-bar-ultra">
+      <div class="stat-bar-title">🌤️ SURAT FORECAST <div class="status-dot" style="background:var(--neon-blue); box-shadow:0 0 8px var(--neon-blue); width:6px; height:6px;"></div></div>
+      <div class="stat-bar-items" id="weather-timeline">
+        <span style="color: rgba(255,255,255,0.5); font-size: 7.5pt; font-style: italic;">Intercepting Meteorological Data...</span>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      
+      <div class="desk-panel">
+        
+        <div class="widget terminal-widget">
+          <div class="terminal-header w-title" style="margin:0;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span>⏱️ Local Command</span>
+            </div>
+            <span style="color:var(--neon-gold); font-size: 6.5pt;">LIVE SYNC</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-time-section">
+              <span id="local-tod" class="tod-badge">--</span>
+              <div class="time-large" id="live-time">00:00<span>00</span></div>
+              <div class="date-sub" id="live-date">-- --- ----</div>
+            </div>
+            <div class="t-weather-section">
+              <div class="w-icon-large" id="weather-icon">🌍</div>
+              <div class="w-temp" id="weather-temp">--°C</div>
+              <div class="w-desc" id="weather-desc">Surat</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget news-container">
+          <div class="w-title">
+            <div style="display: flex; align-items: center; gap: 6px; color: var(--neon-gold);">
+              <span>🏏 Cricket Top Stories</span>
+            </div>
+            <span style="color:var(--neon-blue); font-size: 6.5pt; display: flex; align-items: center; gap: 4px;">
+               <div style="width: 5px; height: 5px; background: var(--neon-blue); border-radius: 50%; animation: pulse 2s infinite;"></div> SYNCED
+            </span>
+          </div>
+          <div class="news-feed" id="cricket-feed">
+            <div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px; font-style: italic;">
+              Intercepting Cricinfo...
+            </div>
+          </div>
+        </div>
+
+        <div class="widget news-container">
+          <div class="w-title">
+            <div style="display: flex; align-items: center; gap: 6px; color: var(--neon-gold);">
+              <span>📰 India Breaking News</span>
+            </div>
+            <span style="color:var(--neon-blue); font-size: 6.5pt; display: flex; align-items: center; gap: 4px;">
+               <div style="width: 5px; height: 5px; background: var(--neon-blue); border-radius: 50%; animation: pulse 2s infinite;"></div> SYNCED
+            </span>
+          </div>
+          <div class="news-feed" id="india-feed">
+            <div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px; font-style: italic;">
+              Intercepting National Data...
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="ops-panel">
+        
+        <div id="setupScreen">
+          
+          <div class="tools-grid">
+            
+            <div class="tool-box">
+              <div class="tool-header">🧮 Desk Calculator</div>
+              <div class="calc-screen" id="calc-screen">0</div>
+              <div class="calc-keys">
+                <button class="calc-btn" onclick="calcPress('7')">7</button>
+                <button class="calc-btn" onclick="calcPress('8')">8</button>
+                <button class="calc-btn" onclick="calcPress('9')">9</button>
+                <button class="calc-btn op" onclick="calcPress('/')">÷</button>
+                <button class="calc-btn" onclick="calcPress('4')">4</button>
+                <button class="calc-btn" onclick="calcPress('5')">5</button>
+                <button class="calc-btn" onclick="calcPress('6')">6</button>
+                <button class="calc-btn op" onclick="calcPress('*')">×</button>
+                <button class="calc-btn" onclick="calcPress('1')">1</button>
+                <button class="calc-btn" onclick="calcPress('2')">2</button>
+                <button class="calc-btn" onclick="calcPress('3')">3</button>
+                <button class="calc-btn op" onclick="calcPress('-')">-</button>
+                <button class="calc-btn clear" onclick="calcPress('C')">C</button>
+                <button class="calc-btn" onclick="calcPress('0')">0</button>
+                <button class="calc-btn op" onclick="calcPress('+')">+</button>
+                <button class="calc-btn eq" style="grid-column: span 4;" onclick="calcPress('=')">=</button>
+              </div>
+            </div>
+
+            <div class="tool-box">
+              <div class="tool-header">📋 Target Checklist</div>
+              <div class="todo-input-row">
+                <input type="text" id="todo-input" placeholder="Add task or reminder..." autocomplete="off">
+                <button onclick="addTodo()">+</button>
+              </div>
+              <div class="todo-list" id="todo-list"></div>
+            </div>
+
+            <div class="tool-box">
+              <div class="tool-header">
+                <span>📝 Scratchpad</span>
+                <span style="font-size: 5.5pt; color: var(--neon-emerald); background: rgba(16,185,129,0.1); padding: 2px 6px; border-radius: 4px;">AUTO-SAVED</span>
+              </div>
+              <textarea id="scratchpad" placeholder="Type quick notes, shipping weights, or temporary data here... (Stays saved even if you close the window)"></textarea>
+            </div>
+
+          </div>
+
+          <div class="mount-section">
+            <h2 style="margin: 0; font-size: 15pt; color: var(--text-main);">Initialize Auto-Renamer</h2>
+            <p style="margin: 0; font-size: 9pt; color: var(--text-muted);">Select today's dispatch folder to begin the 1x1 auto-crop & rename workflow.</p>
+            <button class="btn-pro blue-btn" onclick="selectFolder()" style="margin-top: 8px;">📁 Mount Image Directory</button>
+          </div>
+
+        </div>
+
+        <div id="workspace">
+          <div class="image-container">
+            <button class="rotate-btn" onclick="manualRotate()" title="Rotate Image 90 Degrees">🔄 ROTATE 90°</button>
+            <img id="slipImage" src="" alt="Courier Slip Preview">
+          </div>
+          
+          <div class="control-panel">
+            
+            <div class="batch-queue-box">
+              <h3 class="bq-title"><span class="icon">⚡</span> Batch Queue</h3>
+              <div class="progress-wrapper"><div class="progress-fill" id="progressBar"></div></div>
+              <div class="progress-text"><span id="currentIndex">0</span> <span style="color:rgba(255,255,255,0.3); font-size: 11pt; margin: 0 4px;">/</span> <span id="totalImages">0</span></div>
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: stretch; width: 100%;">
+              <div class="stat-box-op" style="flex: 1; padding: 6px 12px; display: flex; align-items: center; gap: 10px;">
+                <h3 style="margin: 0; font-size: 7.5pt; color: #fff; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">🎯 Target Order #</h3>
+                <div class="input-row">
+                  <input type="text" id="renameInput" placeholder="TYPE ORDER #" autocomplete="off">
+                  <button class="btn-pro red-btn" onclick="undoLastAction()" title="Undo Last Entry">
+                    <span>⏪ UNDO</span>
+                  </button>
+                </div>
+              </div>
+              <button class="btn-pro green-btn" id="btnFinish" onclick="finishAndExport()" style="width: auto; flex-shrink: 0;">✅ Export Batch</button>
+            </div>
+
+            <div style="font-size: 6.5pt; color: var(--text-muted); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin-top: 2px;">
+                <b style="color:var(--neon-emerald)">ENTER ↵</b> to Crop & Advance | 
+                <b style="color:var(--neon-gold)">SHIFT + ENTER ↵</b> to Skip Crop (Save Full Image) | 
+                <b style="color:var(--neon-ruby)">CTRL + Z</b> to Undo
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sd-wrapper">
+      <div class="sd-watermark">
+        <div class="sd-diamond"></div>
+        <div class="sd-text">SHAKTI <span>DEVELOPS</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('mainDeck').addEventListener('mousemove', e => {
+      const rect = e.target.getBoundingClientRect();
+      const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+      e.target.style.setProperty('--x', `${x}px`); e.target.style.setProperty('--y', `${y}px`);
+    });
+
+    function calcPress(val) {
+      const screen = document.getElementById('calc-screen');
+      if (val === 'C') { screen.innerText = '0'; return; }
+      if (val === '=') {
+        try { screen.innerText = Function("return " + screen.innerText)(); } 
+        catch(e) { screen.innerText = 'Err'; }
+        return;
+      }
+      if (screen.innerText === '0' || screen.innerText === 'Err') screen.innerText = val;
+      else screen.innerText += val;
+    }
+
+    let todos = JSON.parse(localStorage.getItem('shakti_todos')) || [];
+    const todoListEl = document.getElementById('todo-list');
+    const todoInput = document.getElementById('todo-input');
+
+    function renderTodos() {
+      todoListEl.innerHTML = '';
+      todos.forEach((t, i) => {
+        const item = document.createElement('div');
+        item.className = `todo-item ${t.done ? 'done' : ''}`;
+        item.innerHTML = `
+          <input type="checkbox" ${t.done ? 'checked' : ''} onchange="toggleTodo(${i})">
+          <span>${t.text}</span>
+          <div class="del-btn" onclick="delTodo(${i})">×</div>
+        `;
+        todoListEl.appendChild(item);
+      });
+      localStorage.setItem('shakti_todos', JSON.stringify(todos));
+    }
+    
+    function addTodo() {
+      if(!todoInput.value.trim()) return;
+      todos.push({text: todoInput.value.trim(), done: false});
+      todoInput.value = '';
+      renderTodos();
+    }
+    
+    function toggleTodo(index) { todos[index].done = !todos[index].done; renderTodos(); }
+    function delTodo(index) { todos.splice(index, 1); renderTodos(); }
+    
+    todoInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') addTodo(); });
+    renderTodos();
+
+    const pad = document.getElementById('scratchpad');
+    pad.value = localStorage.getItem('shakti_notes') || '';
+    pad.addEventListener('input', () => localStorage.setItem('shakti_notes', pad.value));
+
+    function showToast(message, color = 'var(--neon-emerald)') {
+      const toast = document.getElementById('toast');
+      toast.innerHTML = message;
+      toast.style.borderColor = color;
+      toast.style.boxShadow = `0 10px 30px rgba(0,0,0,0.9), 0 0 20px ${color}60`;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function getTimeOfDayInfo(timeZone) {
+      const date = new Date();
+      const str = date.toLocaleString('en-US', { timeZone, hour12: false, hour: 'numeric' });
+      const hour = parseInt(str, 10);
+      if (hour >= 5 && hour < 12) return { text: "MORNING", class: "tod-morning" };
+      if (hour >= 12 && hour < 17) return { text: "AFTERNOON", class: "tod-afternoon" };
+      if (hour >= 17 && hour < 21) return { text: "EVENING", class: "tod-evening" };
+      return { text: "NIGHT", class: "tod-night" };
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+      const [time, period] = timeStr.split(' ');
+      const [hrs, mins, secs] = time.split(':');
+      document.getElementById('live-time').innerHTML = `${hrs}:${mins}<span>${secs} ${period}</span>`;
+      document.getElementById('live-date').innerText = now.toLocaleDateString('en-IN', { weekday: 'long', day: '2-digit', month: 'short', year: 'numeric' });
+      const localInfo = getTimeOfDayInfo('Asia/Kolkata');
+      const localBadge = document.getElementById('local-tod');
+      localBadge.className = `tod-badge ${localInfo.class}`; localBadge.innerText = localInfo.text;
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    async function fetchWeather() {
+      try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&current_weather=true');
+        const data = await res.json();
+        const temp = Math.round(data.current_weather.temperature);
+        const code = data.current_weather.weathercode;
+        let emoji = '🌤️'; let desc = 'Clear';
+        if (code === 0) { emoji = '☀️'; desc = 'Sunny'; }
+        else if (code > 0 && code <= 3) { emoji = '⛅'; desc = 'Cloudy'; }
+        else if (code >= 61 && code <= 67) { emoji = '🌧️'; desc = 'Rain'; }
+        else if (code >= 95) { emoji = '⛈️'; desc = 'Storm'; }
+        document.getElementById('weather-icon').innerText = emoji;
+        document.getElementById('weather-temp').innerText = `${temp}°C`;
+        document.getElementById('weather-desc').innerText = desc;
+      } catch (err) { }
+    }
+    fetchWeather();
+    setInterval(fetchWeather, 600000);
+
+    async function fetchWeatherTimeline() {
+      try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&hourly=temperature_2m,relativehumidity_2m&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FKolkata');
+        const data = await res.json();
+        const currentHour = new Date().getHours();
+        
+        let nextPeriodLabel = "Tonight"; let targetHour = 19; let pClass = "wp-purple"; let icon = "🌙";
+        if (currentHour < 12) { nextPeriodLabel = "Afternoon"; targetHour = 14; pClass = "wp-gold"; icon = "☀️"; }
+        else if (currentHour < 17) { nextPeriodLabel = "Evening"; targetHour = 19; pClass = "wp-blue"; icon = "⛅"; }
+        else if (currentHour < 21) { nextPeriodLabel = "Tonight"; targetHour = 23; pClass = "wp-purple"; icon = "🌌"; }
+        else { nextPeriodLabel = "Tomorrow AM"; targetHour = 8; pClass = "wp-blue"; icon = "🌤️"; } 
+
+        let nextTemp = targetHour < data.hourly.temperature_2m.length ? Math.round(data.hourly.temperature_2m[targetHour]) : "--";
+        const humidity = Math.round(data.hourly.relativehumidity_2m[currentHour]);
+        
+        const tmrwMax = Math.round(data.daily.temperature_2m_max[1]);
+        const day3Max = Math.round(data.daily.temperature_2m_max[2]);
+        const day3Name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date(data.daily.time[2]).getDay()];
+
+        const html = `
+          <div class="weather-pill ${pClass}">
+            <span class="lbl">Expect ${nextPeriodLabel}</span> <span class="val">${icon} ${nextTemp}°C</span>
+          </div>
+          <div class="weather-pill">
+            <span class="lbl">Tomorrow</span> <span class="val">☀️ ${tmrwMax}°C</span>
+          </div>
+          <div class="weather-pill">
+            <span class="lbl">${day3Name}</span> <span class="val">⛅ ${day3Max}°C</span>
+          </div>
+          <div class="weather-pill" style="border-color: rgba(255,255,255,0.2);">
+            <span class="lbl">Humidity</span> <span class="val">💧 ${humidity}%</span>
+          </div>
+        `;
+        document.getElementById('weather-timeline').innerHTML = html;
+      } catch (err) {
+        document.getElementById('weather-timeline').innerHTML = "<span style='color:rgba(255,255,255,0.5); font-size: 7.5pt;'>Weather System Offline</span>";
+      }
+    }
+    fetchWeatherTimeline();
+
+    async function fetchCricketNews() {
+      const feedContainer = document.getElementById('cricket-feed');
+      try {
+        const cricRes = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.espncricinfo.com/rss/content/story/feeds/0.xml');
+        const cricData = await cricRes.json();
+        feedContainer.innerHTML = '';
+        if (cricData.items) {
+          cricData.items.slice(0, 10).forEach(news => {
+            const timeStr = new Date(news.pubDate).toLocaleTimeString('en-IN', { weekday: 'short', day: '2-digit', month: 'short', hour: '2-digit', minute:'2-digit'});
+            feedContainer.innerHTML += `<a href="${news.link}" target="_blank" style="text-decoration: none;"><div class="news-item"><div style="display: flex; justify-content: space-between; align-items: center;"><span class="news-meta">🕒 ${timeStr}</span></div><div class="news-title">${news.title}</div></div></a>`;
+          });
+        }
+      } catch (err) { feedContainer.innerHTML = '<div style="text-align:center; color: var(--neon-ruby); font-size: 8pt; padding: 20px;">Comms Offline</div>'; }
+    }
+    fetchCricketNews();
+
+    async function fetchIndiaNews() {
+      const feedContainer = document.getElementById('india-feed');
+      try {
+        const newsRes = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en');
+        const newsData = await newsRes.json();
+        feedContainer.innerHTML = '';
+        if (newsData.items) {
+          newsData.items.slice(0, 10).forEach(news => {
+            let cleanTitle = news.title.split(' - ')[0];
+            const timeStr = new Date(news.pubDate).toLocaleTimeString('en-IN', { weekday: 'short', day: '2-digit', month: 'short', hour: '2-digit', minute:'2-digit'});
+            feedContainer.innerHTML += `<a href="${news.link}" target="_blank" style="text-decoration: none;"><div class="news-item india"><div style="display: flex; justify-content: space-between; align-items: center;"><span class="news-meta">🕒 ${timeStr}</span></div><div class="news-title">${cleanTitle}</div></div></a>`;
+          });
+        }
+      } catch (err) { feedContainer.innerHTML = '<div style="text-align:center; color: var(--neon-ruby); font-size: 8pt; padding: 20px;">Comms Offline</div>'; }
+    }
+    fetchIndiaNews();
+
+    // --- 📦 AUTONOMOUS PERMANENT RENAMER + 1x1 CROPPER ENGINE ---
+    let images = []; 
+    let currentIndex = 0; 
+    let renameMap = []; 
+    let directoryHandle = null;
+    let cropper = null; 
+    let currentImgObj = new Image();
+
+    async function selectFolder() {
+      try {
+        directoryHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
+        images = []; renameMap = []; currentIndex = 0;
+        
+        for await (const entry of directoryHandle.values()) {
+          if (entry.kind === 'file') {
+            const ext = entry.name.split('.').pop().toLowerCase();
+            if (['jpg', 'jpeg', 'png', 'webp'].includes(ext)) {
+              const file = await entry.getFile();
+              images.push(file);
+            }
+          }
+        }
+        if (images.length === 0) return alert("⚠️ No images found in the selected folder.");
+        
+        document.getElementById('totalImages').innerText = images.length;
+        document.getElementById('setupScreen').style.display = 'none'; 
+        document.getElementById('workspace').style.display = 'flex';   
+        loadNextImage();
+        showToast("📁 Directory Linked Successfully", "var(--neon-emerald)");
+      } catch (error) {
+        if (error.name !== 'AbortError') alert("❌ Could not access folder. Please grant permissions.");
+      }
+    }
+
+    function initCropper() {
+      const imgElement = document.getElementById('slipImage');
+      if (cropper) { cropper.destroy(); } 
+      
+      cropper = new Cropper(imgElement, {
+        aspectRatio: 6 / 5,
+        viewMode: 1,
+        dragMode: 'move',
+        autoCropArea: 1,
+        center: true,
+        guides: false,
+        highlight: false,
+        background: false,
+        toggleDragModeOnDblclick: false,
+        ready: function () {
+          const containerData = cropper.getContainerData();
+          const cropBoxData = cropper.getCropBoxData();
+          // Move crop box 20% to the right
+          cropBoxData.left = containerData.width * 0.20;
+          cropper.setCropBoxData(cropBoxData);
+        }
+      });
+    }
+
+    function manualRotate() {
+      if(cropper) {
+        cropper.rotate(90);
+        showToast("🔄 Rotated 90°", "var(--neon-blue)");
+      }
+    }
+
+    // INTERCEPT AND FORCE LANDSCAPE ROTATION BEFORE CROPPER
+    function loadNextImage() {
+      if (currentIndex >= images.length) return finishAndExport();
+      
+      const file = images[currentIndex];
+      const imgUrl = URL.createObjectURL(file);
+      
+      currentImgObj = new Image();
+      currentImgObj.onload = function() {
+        let isPortrait = currentImgObj.naturalHeight > currentImgObj.naturalWidth;
+        
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Physically rotate to landscape if needed
+        if (isPortrait) {
+          canvas.width = currentImgObj.naturalHeight; 
+          canvas.height = currentImgObj.naturalWidth;
+          ctx.translate(canvas.width / 2, canvas.height / 2);
+          ctx.rotate(-90 * Math.PI / 180);
+          ctx.drawImage(currentImgObj, -currentImgObj.naturalWidth / 2, -currentImgObj.naturalHeight / 2);
+        } else {
+          canvas.width = currentImgObj.naturalWidth; 
+          canvas.height = currentImgObj.naturalHeight;
+          ctx.drawImage(currentImgObj, 0, 0);
+        }
+        
+        const imgElement = document.getElementById('slipImage');
+        imgElement.onload = function() { initCropper(); };
+        imgElement.src = canvas.toDataURL('image/jpeg', 0.9);
+      };
+      
+      currentImgObj.src = imgUrl;
+
+      document.getElementById('currentIndex').innerText = currentIndex + 1;
+      const pct = ((currentIndex) / images.length) * 100;
+      document.getElementById('progressBar').style.width = `${pct}%`;
+
+      const input = document.getElementById('renameInput');
+      input.value = '';
+      input.focus();
+    }
+
+    function undoLastAction() {
+      if (renameMap.length === 0 || currentIndex === 0) {
+        return showToast("⚠️ Nothing to Undo", "var(--neon-ruby)");
+      }
+      renameMap.pop();
+      currentIndex--;
+      loadNextImage();
+      showToast("⏪ Undid Last Order", "var(--neon-gold)");
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('workspace').style.display === 'flex') {
+        
+        if (e.ctrlKey && (e.key === 'z' || e.key === 'Z')) {
+          e.preventDefault();
+          undoLastAction();
+        }
+        
+        if (e.key === 'Enter') {
+          const input = document.getElementById('renameInput');
+          if (document.activeElement !== input) input.focus();
+          
+          const orderNum = input.value.trim();
+          if (orderNum === '') return;
+          
+          const currentFile = images[currentIndex];
+          let extension = currentFile.name.split('.').pop();
+          let finalBlobPromise;
+
+          if (e.shiftKey) {
+            finalBlobPromise = new Promise(resolve => {
+               cropper.clear(); 
+               cropper.getCroppedCanvas().toBlob(blob => { resolve(blob); }, 'image/jpeg', 0.9);
+               showToast("⚡ Full Image Saved (Crop Skipped)", "var(--neon-gold)");
+            });
+            extension = 'jpg';
+          } else {
+            finalBlobPromise = new Promise(resolve => {
+               cropper.getCroppedCanvas({}).toBlob(blob => { resolve(blob); }, 'image/jpeg', 0.9);
+               showToast("✂️ Square Crop Saved", "var(--neon-emerald)");
+            });
+            extension = 'jpg';
+          }
+          
+          renameMap.push({ 
+            originalName: currentFile.name, 
+            newName: `${orderNum}.${extension}`, 
+            blobPromise: finalBlobPromise 
+          });
+          
+          currentIndex++;
+          loadNextImage();
+        }
+      }
+    });
+
+    async function processAndSaveImage(fileData) {
+      const { originalName, newName, blobPromise } = fileData;
+      try {
+        const finalBlob = await blobPromise;
+        const fileHandle = await directoryHandle.getFileHandle(newName, { create: true });
+        const writable = await fileHandle.createWritable();
+        await writable.write(finalBlob);
+        await writable.close();
+
+        if (originalName !== newName) {
+          await directoryHandle.removeEntry(originalName);
+        }
+      } catch (e) { console.error("Error saving file:", e); }
+    }
+
+    async function finishAndExport() {
+      if (renameMap.length === 0) return showToast("⚠️ No files were processed.", "var(--neon-ruby)");
+
+      document.getElementById('progressBar').style.width = `100%`;
+      const btnFinish = document.getElementById('btnFinish');
+      btnFinish.style.pointerEvents = "none"; 
+      btnFinish.style.background = "linear-gradient(135deg, #1e293b, #334155)";
+
+      for (let i = 0; i < renameMap.length; i++) {
+        btnFinish.innerHTML = `⏳ SAVING ${i + 1} / ${renameMap.length}...`;
+        await processAndSaveImage(renameMap[i]);
+      }
+
+      document.getElementById('workspace').innerHTML = `
+        <div style="width: 100%; text-align: center; margin-top: 10px; background: rgba(0,0,0,0.5); padding: 50px 40px; border-radius: 24px; border: 1px solid var(--glass-border); box-shadow: inset 0 10px 40px rgba(0,0,0,0.8);">
+          <div style="font-size: 70px; margin-bottom: 20px; filter: drop-shadow(0 5px 20px rgba(16, 185, 129, 0.6));">✅</div>
+          <h1 style="color: var(--neon-emerald); font-size: 34pt; margin: 0 0 15px 0; text-shadow: 0 2px 20px rgba(16, 185, 129, 0.4);">Batch Successfully Rendered!</h1>
+          <p style="font-size: 13.5pt; color: var(--text-main); font-weight: 800; margin-bottom: 12px; letter-spacing: 0.5px;">
+            All <b style="color: var(--neon-gold);">${renameMap.length}</b> slips have been <span style="color:var(--neon-blue);">cropped, rotated, renamed, and saved</span>.
+          </p>
+          <p style="font-size: 11pt; color: var(--text-muted); margin-bottom: 45px; font-weight: 600;">
+            The original messy files have been successfully deleted from your local folder.
+          </p>
+          <button class="btn-pro blue-btn" style="margin: 0 auto; height: 60px; font-size: 12pt;" onclick="location.reload()">🔄 Initialize New Session</button>
+        </div>
+      `;
+      showToast("✅ All Files Permanently Saved!", "var(--neon-emerald)");
+    }
+  </script>
+</body>
+</html>
