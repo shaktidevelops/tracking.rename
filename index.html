@@ -26,13 +26,6 @@
       color: var(--text-main); overflow: hidden; background-color: #020617; 
     }
 
-    /* PURE CSS TEXTURES (Bulletproof & Highly Visible) */
-    .tex-circuit { background-image: radial-gradient(circle at center, rgba(14,165,233,0.1) 0, transparent 60%), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 100% 100%, 25px 25px, 25px 25px; }
-    .tex-dots { background-image: radial-gradient(rgba(255,255,255,0.12) 1.5px, transparent 1.5px); background-size: 14px 14px; }
-    .tex-grid { background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 20px 20px; }
-    .tex-hex { background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); }
-    .tex-topo { background-image: repeating-radial-gradient(circle at 0 0, transparent 0, rgba(255,255,255,0.03) 8px, transparent 9px, transparent 18px); }
-
     .bg-orbs { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -2; filter: blur(100px); }
     .orb { position: absolute; border-radius: 50%; opacity: 0.65; animation: rotateOrb 30s infinite linear; }
     .orb-1 { width: 55vw; height: 55vw; background: #4c1d95; top: -15vh; left: -5vw; } 
@@ -69,15 +62,10 @@
     @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.5); } 100% { opacity: 1; transform: scale(1); } }
 
     /* GLOBAL TICKER MARQUEE */
-    .ticker-wrap { width: 100%; background: rgba(0,0,0,0.8); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; padding: 6px 0; margin-bottom: 12px; display: flex; box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; flex-shrink: 0; }
-    .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; width: 80px; height: 100%; z-index: 2; }
+    .ticker-wrap { width: 100%; background: rgba(0,0,0,0.8); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; height: 35px; margin-bottom: 12px; display: flex; align-items: center; box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; flex-shrink: 0; }
+    .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; width: 80px; height: 100%; z-index: 2; pointer-events: none;}
     .ticker-wrap::before { left: 0; background: linear-gradient(90deg, rgba(10,15,30,1), transparent); }
     .ticker-wrap::after { right: 0; background: linear-gradient(-90deg, rgba(10,15,30,1), transparent); }
-    .ticker { display: flex; width: max-content; animation: tickerScroll 40s linear infinite; }
-    .ticker:hover { animation-play-state: paused; }
-    @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .tick-item { display: inline-flex; align-items: center; gap: 6px; font-size: 8.5pt; font-family: monospace; font-weight: 900; letter-spacing: 1px; margin-right: 60px; color: var(--text-muted); }
-    .tick-up { color: var(--neon-emerald); } .tick-down { color: var(--neon-ruby); }
 
     /* DASHBOARD GRID */
     .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(0,0,0,0.4); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 12px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.8); position: relative; overflow: hidden; width: 100%; min-height: 0;}
@@ -89,14 +77,13 @@
     }
     
     .bento-item { background: var(--glass-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); padding: 14px; display: flex; flex-direction: column; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,255,0.05); position: relative; overflow: hidden; min-height: 0;}
-    .bento-item::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; }
     .bento-item > * { position: relative; z-index: 2; }
     
     .tool-header { font-size: 8pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
 
     /* 1. LOCAL SURAT */
     .bento-local { grid-column: 1 / 2; grid-row: 1 / 2; background-color: rgba(0,0,0,0.7); border-color: rgba(14,165,233,0.3); }
-    .bento-local::before { @extend .tex-circuit; background-image: radial-gradient(circle at center, rgba(14,165,233,0.1) 0, transparent 60%), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 100% 100%, 25px 25px, 25px 25px;}
+    .bento-local::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(circle at center, rgba(14,165,233,0.1) 0, transparent 60%), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 100% 100%, 25px 25px, 25px 25px; }
     .local-content { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding-top: 5px; }
     
     .tod-badge { font-size: 6.5pt; padding: 3px 10px; border-radius: 6px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; display: inline-flex; align-items: center; box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 0 10px rgba(0,0,0,0.5); margin-bottom: 8px; color:#fff;}
@@ -108,13 +95,10 @@
     
     .weather-local-box { display: flex; gap: 12px; align-items: center; background: rgba(0,0,0,0.6); padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(56,189,248,0.2); box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; overflow: hidden;}
     .weather-local-box::after { content:''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background: linear-gradient(90deg, transparent, var(--neon-blue), transparent); opacity: 0.5;}
-    .sun-box-local { display: flex; flex-direction: column; gap: 4px; padding-left: 10px; border-left: 1px solid rgba(255,255,255,0.1); margin-left: 5px; }
-    .sun-item-local { font-size: 7.5pt; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 4px; white-space: nowrap;}
-    .sun-item-local span { color: var(--neon-gold); font-family: monospace; }
 
     /* 2. WORLD CLOCKS */
     .bento-clocks { grid-column: 1 / 2; grid-row: 2 / 4; border-color: rgba(255,255,255,0.1); }
-    .bento-clocks::before { @extend .tex-dots; background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px); background-size: 16px 16px; }
+    .bento-clocks::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px); background-size: 16px 16px;}
     .wc-list { display: flex; flex-direction: column; gap: 4px; overflow-y: auto; padding-right: 5px; flex: 1; min-height: 0; }
     .wc-list::-webkit-scrollbar { width: 0; }
     .wc-card { padding: 10px 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 5px rgba(255,255,255,0.05), 0 4px 10px rgba(0,0,0,0.3); flex-shrink: 0; position: relative; overflow: hidden;}
@@ -133,37 +117,32 @@
     .wc-sec { font-size: 8pt; color: var(--text-muted); }
     .wc-ampm { font-size: 7pt; color: var(--neon-gold); margin-left: 2px;}
 
-    /* 3. MARKET DELTA (LIVE YAHOO API DATA) */
+    /* 3. MARKET DELTA (TRADINGVIEW LIVE) */
     .bento-market { grid-column: 2 / 3; grid-row: 1 / 2; border-color: rgba(245,158,11,0.2); }
-    .bento-market::before { @extend .tex-hex; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); }
+    .bento-market::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); }
     .bento-market .tool-header { color: var(--neon-gold); border-bottom-color: rgba(245,158,11,0.2);}
-    .market-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; flex: 1; min-height: 0;}
-    .m-card { background: linear-gradient(180deg, rgba(30,41,59,0.8), rgba(0,0,0,0.6)); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; position: relative; overflow: hidden; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5); justify-content: center;}
-    .m-bg-pattern { position: absolute; right: -5px; bottom: -10px; font-size: 45pt; opacity: 0.15; z-index: 0; filter: grayscale(50%); user-select: none;}
-    .m-header { display: flex; justify-content: space-between; align-items: center; z-index: 1;}
-    .m-name { font-size: 8pt; font-weight: 900; letter-spacing: 1px; color: #fff; z-index: 1;}
-    .m-prev { font-size: 6.5pt; color: var(--text-muted); font-family: monospace; z-index: 1;}
-    .m-live { font-size: 14pt; font-weight: 900; font-family: monospace; color: #fff; margin-top: 4px; z-index: 1; text-shadow: 0 2px 5px rgba(0,0,0,0.8); transition: color 0.3s;}
-    .m-change { display: inline-flex; align-items: center; font-size: 7.5pt; font-weight: 900; padding: 3px 8px; border-radius: 6px; margin-top: 6px; z-index: 1; width: fit-content; letter-spacing: 0.5px; transition: all 0.3s;}
-    
-    .pill-up { background: rgba(16, 185, 129, 0.2); color: var(--neon-emerald); border: 1px solid rgba(16, 185, 129, 0.4); }
-    .pill-down { background: rgba(244, 63, 94, 0.2); color: var(--neon-ruby); border: 1px solid rgba(244, 63, 94, 0.4); }
+    .market-grid { flex: 1; min-height: 0; width: 100%; overflow: hidden; border-radius: 8px; }
 
-    /* 4. PREMIUM PANCHANG (REAL GUJARATI WIDGETS PROPERLY INTEGRATED) */
+    /* 4. PREMIUM PANCHANG (ORIGINAL RESTORED) */
     .bento-panchang { grid-column: 3 / 4; grid-row: 1 / 2; background-color: rgba(0,0,0,0.7); border-color: rgba(167, 139, 250, 0.3); overflow: hidden;}
-    .bento-panchang::before { @extend .tex-grid; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 20px 20px;}
+    .bento-panchang::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 20px 20px;}
     .bento-panchang .tool-header { color: var(--neon-purple); border-bottom-color: rgba(167, 139, 250, 0.2);}
     
-    .panchang-core { flex: 1; display: flex; gap: 15px; overflow-x: auto; overflow-y: hidden; height: 100%; width: 100%; padding-bottom: 5px; }
-    .panchang-core::-webkit-scrollbar { height: 8px; }
-    .panchang-core::-webkit-scrollbar-thumb { background: rgba(167, 139, 250, 0.5); border-radius: 10px; }
-    
-    /* Authentic background added to iframes so text doesn't disappear in the dark theme */
-    .p-frame { border: none; border-radius: 10px; background: #FFF9E6; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); flex-shrink: 0; }
+    .panchang-core { z-index: 2; position: relative; display: flex; flex-direction: column; gap: 10px; height: 100%; justify-content: space-between;}
+    .moon-box { width: 55px; height: 55px; border-radius: 50%; background: #1e293b; box-shadow: inset -12px 0px 8px #f8fafc, inset -20px 0px 15px rgba(255,255,255,0.4), 0 0 15px rgba(255,255,255,0.2); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0;}
+    .moon-craters { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: rgba(0,0,0,0.08); box-shadow: 18px 22px 0 3px rgba(0,0,0,0.08), 28px 12px 0 5px rgba(0,0,0,0.1); right: 12px; top: 12px; }
+    .sun-box { display: flex; justify-content: space-between; background: rgba(0,0,0,0.5); border-radius: 8px; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.05); }
+    .sun-item { display: flex; align-items: center; gap: 6px; font-size: 8pt; font-weight: 800; color: #fff;}
+    .sun-item span { color: var(--neon-gold); font-family: monospace;}
+    .choghadiya-row { display: flex; gap: 8px; width: 100%; flex-shrink: 0;}
+    .chog-box { flex: 1; padding: 6px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; border: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.3); justify-content: center;}
+    .chog-box.live { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(14,165,233,0.15)); border-color: var(--neon-emerald); box-shadow: 0 0 10px rgba(16,185,129,0.2); transform: scale(1.05); z-index: 2; }
+    .ch-lbl { font-size: 6pt; font-weight: 900; color: var(--text-muted); letter-spacing: 1px; }
+    .ch-val { font-size: 8pt; font-weight: 900; letter-spacing: 0.5px; margin-top: 2px; text-transform: uppercase;}
 
     /* 5. 3-DAY ATMOSPHERIC ARRAY */
     .bento-weather { grid-column: 2 / 4; grid-row: 2 / 3; display: flex; flex-direction: column; min-height: 0; background-color: rgba(0,0,0,0.8); border-color: rgba(56, 189, 248, 0.2);}
-    .bento-weather::before { @extend .tex-topo; background-image: repeating-radial-gradient(circle at 0 0, transparent 0, rgba(255,255,255,0.03) 10px, transparent 11px, transparent 20px); }
+    .bento-weather::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: repeating-radial-gradient(circle at 0 0, transparent 0, rgba(255,255,255,0.03) 10px, transparent 11px, transparent 20px); }
     .bento-weather .tool-header { color: var(--neon-blue); border-bottom-color: rgba(56,189,248,0.2);}
     
     .forecast-row { display: flex; justify-content: space-between; gap: 12px; flex: 1; align-items: stretch; min-height: 0; }
@@ -182,7 +161,7 @@
 
     /* 6. MOUNT BUTTON */
     .bento-mount { grid-column: 2 / 4; grid-row: 3 / 4; cursor: pointer; background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(16, 185, 129, 0.2)); border: 1px solid var(--neon-blue); display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: inset 0 0 20px rgba(14, 165, 233, 0.1); padding: 10px;}
-    .bento-mount::before { @extend .tex-dots; background-image: radial-gradient(rgba(255,255,255,0.1) 1.5px, transparent 1.5px); background-size: 12px 12px; }
+    .bento-mount::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(rgba(255,255,255,0.1) 1.5px, transparent 1.5px); background-size: 12px 12px; }
     .bento-mount:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4), inset 0 0 30px rgba(16, 185, 129, 0.2); border-color: var(--neon-emerald); }
     .bento-mount:active { transform: translateY(2px); }
     .mount-icon { font-size: 32pt; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); animation: bounce 3s infinite;}
@@ -194,7 +173,7 @@
     /* 7. VERTICAL NEWS */
     .news-wrapper { grid-column: 4 / 5; grid-row: 1 / 4; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
     .bento-news { flex: 1; min-height: 0; border-color: rgba(255,255,255,0.08); background: rgba(0,0,0,0.6);}
-    .bento-news::before { @extend .tex-dots; background-image: radial-gradient(rgba(255,255,255,0.06) 1.5px, transparent 1.5px); background-size: 16px 16px;}
+    .bento-news::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(rgba(255,255,255,0.06) 1.5px, transparent 1.5px); background-size: 16px 16px;}
     
     .news-feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px; z-index: 2; position: relative;}
     .news-feed::-webkit-scrollbar { width: 4px; }
@@ -215,6 +194,9 @@
     .btn-pro:hover { transform: translateY(-2px); filter: brightness(1.15); box-shadow: 0 10px 20px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.4); } .btn-pro:active { transform: translateY(1px); filter: brightness(0.95); box-shadow: none !important; }
     .blue-btn { background: var(--btn-blue); padding: 14px 30px; font-size: 11pt; border-radius: 12px;} .green-btn { background: var(--btn-green); } .red-btn { background: var(--btn-red); padding: 0 15px; font-size: 8pt; border-radius: 8px;}
     .rotate-btn { position: absolute; top: 12px; right: 12px; background: var(--btn-blue); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 12px; border-radius: 8px; font-weight: 900; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.8); z-index: 10; letter-spacing: 1px; font-size: 7.5pt; text-shadow: 0 1px 2px rgba(0,0,0,0.8); } .rotate-btn:hover { filter: brightness(1.2); transform: scale(1.05); } .rotate-btn:active { transform: scale(0.95); }
+
+    .tag-btn { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); color: var(--text-muted); padding: 6px 10px; border-radius: 6px; font-size: 7.5pt; font-weight: 900; cursor: pointer; transition: 0.2s; white-space: nowrap; }
+    .tag-btn:hover { background: rgba(255,255,255,0.1); border-color: var(--neon-blue); color: #fff; }
 
     .control-panel { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;}
     .stat-box-op { background: var(--glass-card); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);}
@@ -262,8 +244,26 @@
     </div>
 
     <div class="ticker-wrap">
-      <div class="ticker" id="global-ticker">
-        <div class="tick-item">Connecting to Market Data Server...</div>
+      <div class="tradingview-widget-container" style="width: 100%; height: 100%;">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+          "symbols": [
+            { "description": "RELIANCE", "proName": "NSE:RELIANCE" },
+            { "description": "TCS", "proName": "NSE:TCS" },
+            { "description": "HDFCBANK", "proName": "NSE:HDFCBANK" },
+            { "description": "ICICIBANK", "proName": "NSE:ICICIBANK" },
+            { "description": "INFY", "proName": "NSE:INFY" },
+            { "description": "ITC", "proName": "NSE:ITC" },
+            { "description": "SBI", "proName": "NSE:SBIN" }
+          ],
+          "showSymbolLogo": true,
+          "isTransparent": true,
+          "displayMode": "adaptive",
+          "colorTheme": "dark",
+          "locale": "in"
+        }
+        </script>
       </div>
     </div>
 
@@ -285,11 +285,6 @@
               <div style="display: flex; flex-direction: column;">
                 <div id="weather-temp" style="font-size: 16pt; font-weight: 900; line-height: 1; color: #fff;">--°C</div>
                 <div id="weather-desc" style="font-size: 7.5pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; margin-top: 4px;">Syncing</div>
-              </div>
-              
-              <div class="sun-box-local">
-                <div class="sun-item-local">🌅 <span id="api-sunrise">05:58 AM</span></div>
-                <div class="sun-item-local">🌇 <span id="api-sunset">07:22 PM</span></div>
               </div>
             </div>
           </div>
@@ -327,24 +322,63 @@
 
         <div class="bento-item bento-market">
           <div class="tool-header">📈 Market Delta (Live Data)</div>
-          <div class="market-grid" id="marketGrid">
-            <div style="grid-column: 1 / -1; display:flex; justify-content:center; align-items:center; color: var(--text-muted); font-size: 8.5pt; height: 100%;">
-                Intercepting Live Yahoo Finance Streams...
+          <div class="market-grid">
+            <div class="tradingview-widget-container" style="width: 100%; height: 100%;">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+              {
+                "width": "100%",
+                "height": "100%",
+                "symbolsGroups": [
+                  {
+                    "name": "Indian Markets",
+                    "originalName": "Indices",
+                    "symbols": [
+                      { "name": "BSE:SENSEX", "displayName": "SENSEX" },
+                      { "name": "NSE:NIFTY", "displayName": "NIFTY 50" },
+                      { "name": "MCX:GOLD1!", "displayName": "GOLD" },
+                      { "name": "MCX:SILVER1!", "displayName": "SILVER" },
+                      { "name": "FX_IDC:USDINR", "displayName": "USD/INR" },
+                      { "name": "FX_IDC:EURINR", "displayName": "EUR/INR" }
+                    ]
+                  }
+                ],
+                "showSymbolLogo": true,
+                "isTransparent": true,
+                "colorTheme": "dark",
+                "locale": "in"
+              }
+              </script>
             </div>
           </div>
         </div>
 
         <div class="bento-item bento-panchang">
           <div class="tool-header" style="justify-content: space-between;">
-            <span>🌌 Premium Panchang & Jatakam</span>
-            <span style="font-size: 6.5pt; color: var(--neon-purple); border: 1px solid var(--neon-purple); padding: 2px 6px; border-radius: 4px;">LIVE FROM MYPANCHANG</span>
+            <span>🌌 Premium Panchang</span>
+            <span style="font-size: 6.5pt; color: var(--neon-purple); border: 1px solid var(--neon-purple); padding: 2px 6px; border-radius: 4px;">VIKRAM SAMVAT 2083</span>
           </div>
           
           <div class="panchang-core">
-            <iframe class="p-frame" src="http://www.mypanchang.com/mobilewidget.php?cityname=Surat-India&color=452603&displaymode=full" scrolling="yes" width="220px" height="100%"></iframe>
-            <iframe class="p-frame" src="http://www.mypanchang.com/mobilehorawidget.php?cityname=Surat-India&color=452603" scrolling="yes" width="180px" height="100%"></iframe>
-            <iframe class="p-frame" src="http://www.mypanchang.com/jatakam/currentpos.php" scrolling="yes" width="360px" height="100%"></iframe>
-            <iframe class="p-frame" src="http://www.mypanchang.com/jatakam/kundliwidget.php" scrolling="yes" width="380px" height="100%"></iframe>
+            <div style="display: flex; gap: 15px; align-items: center; background: rgba(0,0,0,0.5); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);">
+              <div class="moon-box"><div class="moon-craters"></div></div>
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <div style="font-size: 11pt; font-weight: 900; color: var(--neon-gold); letter-spacing: 1px;">અષાઢ સુદ ત્રીજ</div>
+                <div style="font-size: 8pt; color: #fff; font-weight: 800; margin: 4px 0;">Ashadha Shukla Tritiya</div>
+                <div style="font-size: 7.5pt; color: var(--text-muted); font-family: monospace;">Waxing Crescent (16%)</div>
+              </div>
+            </div>
+            
+            <div class="sun-box">
+              <div class="sun-item">🌅 Sunrise: <span id="api-sunrise">05:58 AM</span></div>
+              <div class="sun-item">🌇 Sunset: <span id="api-sunset">07:22 PM</span></div>
+            </div>
+            
+            <div class="choghadiya-row">
+              <div class="chog-box prev"><span class="ch-lbl">PREVIOUS</span><span class="ch-val" id="ch-prev">--</span></div>
+              <div class="chog-box live"><span class="ch-lbl">LIVE NOW</span><span class="ch-val" id="ch-live">--</span></div>
+              <div class="chog-box next"><span class="ch-lbl">NEXT</span><span class="ch-val" id="ch-next">--</span></div>
+            </div>
           </div>
         </div>
 
@@ -390,12 +424,23 @@
           </div>
 
           <div style="display: flex; gap: 10px; align-items: stretch; width: 100%;">
-            <div class="stat-box-op" style="flex: 1; padding: 6px 12px; display: flex; align-items: center; gap: 10px;">
-              <h3 style="margin: 0; font-size: 7.5pt; color: #fff; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">🎯 Target Order #</h3>
-              <div class="input-row">
-                <input type="text" id="renameInput" placeholder="TYPE ORDER #" autocomplete="off">
-                <button class="btn-pro red-btn" onclick="undoLastAction()" title="Undo Last Entry"><span>⏪ UNDO</span></button>
+            <div class="stat-box-op" style="flex: 1; padding: 6px 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+              
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <h3 style="margin: 0; font-size: 7.5pt; color: #fff; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">🎯 Target Order #</h3>
+                <div class="input-row" style="width: 250px;">
+                  <input type="text" id="renameInput" placeholder="TYPE ORDER #" autocomplete="off">
+                </div>
               </div>
+
+              <div class="quick-tags" style="display: flex; gap: 6px;">
+                  <button class="tag-btn" onclick="appendTag('-FRONT')">+ FRONT</button>
+                  <button class="tag-btn" onclick="appendTag('-BACK')">+ BACK</button>
+                  <button class="tag-btn" onclick="appendTag('-SLIP')">+ SLIP</button>
+                  <button class="tag-btn" style="border-color: rgba(244, 63, 94, 0.4); color: var(--neon-ruby);" onclick="appendTag('-DEFECT')">+ DEFECT</button>
+              </div>
+
+              <button class="btn-pro red-btn" onclick="undoLastAction()" title="Undo Last Entry"><span>⏪ UNDO</span></button>
             </div>
             <button class="btn-pro green-btn" id="btnFinish" onclick="finishAndExport()" style="width: auto; flex-shrink: 0;">✅ Export Batch</button>
           </div>
@@ -429,6 +474,13 @@
       toast.innerHTML = message; toast.style.borderColor = color;
       toast.style.boxShadow = `0 10px 30px rgba(0,0,0,0.9), 0 0 20px ${color}60`;
       toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Quick Append Function for the new tags
+    function appendTag(val) {
+        const input = document.getElementById('renameInput');
+        input.value += val;
+        input.focus();
     }
 
     // --- GLOBAL CLOCKS & LOCAL TIME ---
@@ -472,70 +524,36 @@
     }
     setInterval(updateClocks, 1000); updateClocks();
 
-    // --- REAL LIVE MARKET DELTA FETCH (Using open cors proxy for Yahoo Finance) ---
-    async function fetchLiveMarketData() {
-        const assets = [
-            { id: 'sensex', symbol: '^BSESN', name: 'SENSEX', icon: '📈' },
-            { id: 'nifty', symbol: '^NSEI', name: 'NIFTY', icon: '📊' },
-            { id: 'gold', symbol: 'GC=F', name: 'GOLD', icon: '🥇' },
-            { id: 'silver', symbol: 'SI=F', name: 'SILVER', icon: '🥈' },
-            { id: 'usd', symbol: 'INR=X', name: 'USD / INR', icon: '💵' },
-            { id: 'eur', symbol: 'EURINR=X', name: 'EUR / INR', icon: '💶' }
-        ];
+    // --- LIVE CHOGHADIYA CALCULATOR (RESTORED) ---
+    function updateChoghadiya() {
+      const now = new Date();
+      const h = now.getHours() + now.getMinutes() / 60;
+      const choghadiyas = [
+          {name: "UDVEG", color: "var(--neon-ruby)"}, {name: "CHAL", color: "var(--neon-blue)"},
+          {name: "LABH", color: "var(--neon-emerald)"}, {name: "AMRUT", color: "var(--neon-gold)"},
+          {name: "KAAL", color: "var(--neon-ruby)"}, {name: "SHUBH", color: "var(--neon-emerald)"},
+          {name: "ROG", color: "var(--neon-ruby)"}
+      ];
+      
+      let idx = Math.floor((h - 6) / 1.5);
+      if (idx < 0 || h >= 18) idx = Math.abs(idx) % choghadiyas.length; 
+      else idx = idx % choghadiyas.length;
+      
+      let prevIdx = (idx - 1 + choghadiyas.length) % choghadiyas.length;
+      let nextIdx = (idx + 1) % choghadiyas.length;
 
-        const container = document.getElementById('marketGrid');
-        
-        try {
-            // Using allorigins.win to bypass CORS for client-side API requests
-            const promises = assets.map(async asset => {
-                const url = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${asset.symbol}?interval=1d&range=2d`)}`;
-                const res = await fetch(url);
-                const rawJson = await res.json();
-                const data = JSON.parse(rawJson.contents);
-                const meta = data.chart.result[0].meta;
-                return { ...asset, livePrice: meta.regularMarketPrice, prevClose: meta.chartPreviousClose };
-            });
-
-            const results = await Promise.all(promises);
-            container.innerHTML = '';
-            let tickerHtml = '';
-
-            results.forEach(asset => {
-                const change = asset.livePrice - asset.prevClose;
-                const pct = (change / asset.prevClose) * 100;
-                
-                const isUp = change >= 0;
-                const pillClass = isUp ? 'pill-up' : 'pill-down';
-                const arrow = isUp ? '▲' : '▼';
-                const sign = isUp ? '+' : '';
-
-                // Generate Market Card
-                container.innerHTML += `
-                    <div class="m-card">
-                        <div class="m-bg-pattern">${asset.icon}</div>
-                        <div class="m-header"><span class="m-name">${asset.name}</span> <span class="m-prev">Prev: ${asset.prevClose.toLocaleString('en-IN', {maximumFractionDigits:2})}</span></div>
-                        <div class="m-live" style="color: ${isUp ? 'var(--neon-emerald)' : 'var(--neon-ruby)'}">${asset.livePrice.toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2})}</div>
-                        <div class="m-change ${pillClass}">${arrow} ${sign}${change.toLocaleString('en-IN', {maximumFractionDigits:2})} (${sign}${pct.toFixed(2)}%)</div>
-                    </div>
-                `;
-
-                // Add data to the global top ticker
-                const tickClass = isUp ? 'tick-up' : 'tick-down';
-                tickerHtml += `<div class="tick-item">${asset.name} <span class="${tickClass}">${arrow} ${asset.livePrice.toLocaleString('en-IN', {maximumFractionDigits:2})} (${sign}${pct.toFixed(2)}%)</span></div>`;
-            });
-
-            // Replicate for seamless infinite marquee scroll
-            document.getElementById('global-ticker').innerHTML = tickerHtml + tickerHtml + tickerHtml + tickerHtml + tickerHtml;
-
-        } catch(e) {
-            console.error("Failed to fetch market data:", e);
-            container.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--neon-ruby);padding:20px;">Market API Connection Blocked. Will retry in 60s.</div>`;
-        }
+      document.getElementById('ch-prev').innerText = choghadiyas[prevIdx].name;
+      document.getElementById('ch-prev').style.color = choghadiyas[prevIdx].color;
+      
+      document.getElementById('ch-live').innerText = choghadiyas[idx].name;
+      document.getElementById('ch-live').style.color = choghadiyas[idx].color;
+      
+      document.getElementById('ch-next').innerText = choghadiyas[nextIdx].name;
+      document.getElementById('ch-next').style.color = choghadiyas[nextIdx].color;
     }
-    fetchLiveMarketData();
-    setInterval(fetchLiveMarketData, 60000); // Live sync every 60 seconds
+    setInterval(updateChoghadiya, 60000); updateChoghadiya();
 
-    // --- WEATHER API (Corrected Open-Meteo logic with full textures) ---
+    // --- WEATHER API (FIXED TEXTURES & DATA MAPPING) ---
     const weatherEmojis = {
         0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️',
         51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️',
@@ -564,7 +582,6 @@
         container.innerHTML = '';
         
         for(let i=0; i<3; i++) {
-            // Safely parse date
             const [y, m, d] = data.daily.time[i].split('-');
             const dateObj = new Date(y, m - 1, d);
             
@@ -574,7 +591,6 @@
             const min = Math.round(data.daily.temperature_2m_min[i]);
             const wind = Math.round(data.daily.windspeed_10m_max[i]);
             
-            // Safely handle precipitation array just in case it is omitted
             let rain = 0;
             if(data.daily.precipitation_probability_max && data.daily.precipitation_probability_max[i] != null) {
                 rain = data.daily.precipitation_probability_max[i];
@@ -694,6 +710,7 @@
         ready: function () {
           const containerData = cropper.getContainerData();
           const cropBoxData = cropper.getCropBoxData();
+          /* 0.30 CROP POSITION PRESERVED */
           cropBoxData.left = containerData.width * 0.30;
           cropper.setCropBoxData(cropBoxData);
         }
