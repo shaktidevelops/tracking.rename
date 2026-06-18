@@ -49,7 +49,7 @@
       100% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 40px rgba(56, 189, 248, 0.05), inset 0 1px 3px rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.1); }
     }
     .deck { 
-      background: var(--glass-panel); width: 1400px; max-width: 98vw; height: 97vh;
+      background: var(--glass-panel); width: 1450px; max-width: 98vw; height: 97vh;
       padding: 12px 20px 12px 20px; border-radius: 24px; border: 1px solid var(--glass-border); border-top: 1px solid rgba(255,255,255,0.4);
       backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px);
       animation: deckGlow 6s infinite alternate;
@@ -63,7 +63,6 @@
     .title-area { display: flex; align-items: center; gap: 15px; }
     .title-area h1 { font-weight: 900; text-transform: uppercase; margin: 0; font-size: 22pt; letter-spacing: 1px; background: linear-gradient(135deg, #ffffff, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(56, 189, 248, 0.4)); display: flex; align-items: center; gap: 8px;}
     
-    /* ✨ STUNNING SHAKTI DEVELOPS BADGE */
     @keyframes brandGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     .brand-badge { 
       background: linear-gradient(270deg, #8b5cf6, #0ea5e9, #10b981, #8b5cf6);
@@ -99,104 +98,101 @@
     .wp-gold { background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.4); }
     .wp-purple { background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.4); }
 
-    /* DASHBOARD GRID */
-    .dashboard-grid { display: flex; gap: 15px; flex-grow: 1; min-height: 0; }
-
-    /* --- LEFT: DESK PANEL --- */
-    .desk-panel { width: 340px; display: flex; flex-direction: column; gap: 10px; height: 100%; overflow: hidden; }
+    /* DASHBOARD GRID - PURE FULL WIDTH */
+    .dashboard-grid { display: flex; flex-grow: 1; min-height: 0; width: 100%;}
     
-    .widget {
-      background: var(--glass-card); border: 1px solid var(--glass-border); border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,255,0.05); transition: all 0.3s;
-      position: relative; overflow: hidden; flex-shrink: 0; 
-    }
-    .widget:hover { border-color: rgba(255,255,255,0.3); background: rgba(30, 41, 59, 0.7); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); }
-    .w-title { font-size: 7.5pt; font-weight: 900; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;}
-    
-    /* ⏱️ LOCAL TERMINAL */
-    .terminal-widget { padding: 0; display: flex; flex-direction: column; }
-    .terminal-header { padding: 8px 15px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.3); }
-    .terminal-body { display: flex; padding: 12px 15px; gap: 10px; align-items: center; background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent); }
-    .t-time-section { flex: 1.4; display: flex; flex-direction: column; align-items: flex-start; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 10px;}
-    .t-weather-section { flex: 0.6; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-left: 5px; }
-    
-    .tod-badge { font-size: 6.5pt; padding: 2px 6px; border-radius: 4px; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 4px; box-shadow: inset 0 1px 3px rgba(255,255,255,0.2); margin-bottom: 4px;}
-    .tod-morning { background: var(--btn-blue); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
-    .tod-afternoon { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
-    .tod-evening { background: var(--btn-red); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
-    .tod-night { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    /* --- THE FULL SCREEN OPERATIONS PANEL --- */
+    .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(0,0,0,0.4); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 12px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.8); position: relative; overflow: hidden; width: 100%;}
 
-    .time-large { font-size: 24pt; font-weight: 900; color: var(--text-main); line-height: 1; margin-bottom: 2px; text-shadow: 0 4px 15px rgba(56, 189, 248, 0.4); letter-spacing: -1px;}
-    .time-large span { color: var(--neon-blue); font-size: 12pt; margin-left: 8px;} 
-    .date-sub { font-size: 8.5pt; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-
-    .w-icon-large { font-size: 22pt; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); line-height: 1; margin-bottom: 2px;}
-    .w-temp { font-weight: 900; font-size: 12pt; color: var(--text-main); }
-    .w-desc { font-size: 6.5pt; color: #fff; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; background: rgba(245, 158, 11, 0.4); padding: 2px 6px; border-radius: 4px; margin-top: 2px; border: 1px solid rgba(255,255,255,0.2);}
-
-    /* 📰 MANUAL SCROLLING NEWS FEEDS */
-    .news-container { flex: 1; display: flex; flex-direction: column; min-height: 0; padding: 10px 15px; position: relative;}
+    /* 🎛️ BENTO BOX DASHBOARD (EMPTY STATE) */
+    #setupScreen { flex-grow: 1; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 140px 180px minmax(0, 1fr); gap: 15px; width: 100%; }
     
-    .news-feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 6px; }
-    .news-feed::-webkit-scrollbar { width: 5px; }
-    .news-feed::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); border-radius: 10px; }
-    .news-feed::-webkit-scrollbar-thumb { background: var(--btn-blue); border-radius: 10px; }
+    .bento-item { background: var(--glass-card); border-radius: 16px; border: 1px solid var(--glass-border); padding: 15px; display: flex; flex-direction: column; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,255,0.05); transition: all 0.3s; position: relative; overflow: hidden; }
+    .bento-item:hover { border-color: rgba(255,255,255,0.3); background: rgba(30, 41, 59, 0.7); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); }
     
-    .news-item { 
-      background: rgba(0,0,0,0.5); padding: 8px 10px; border-radius: 8px; 
-      border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #0ea5e9; 
-      display: flex; flex-direction: column; gap: 4px; transition: 0.2s; flex-shrink: 0;
-    }
-    .news-item:hover { background: rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.2); box-shadow: 0 4px 10px rgba(0,0,0,0.4);}
+    .tool-header { font-size: 8pt; font-weight: 900; color: var(--neon-gold); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1);}
+
+    /* Row 1 Widgets */
+    .bento-terminal { grid-column: span 1; padding: 0;}
+    .terminal-header { padding: 8px 15px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.3); font-size: 7.5pt; font-weight: 900; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: flex; justify-content: space-between;}
+    .terminal-body { display: flex; padding: 10px 15px; gap: 5px; align-items: center; height: 100%; background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent); }
+    .t-time-section { flex: 1.3; display: flex; flex-direction: column; align-items: flex-start; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 5px;}
+    .t-weather-section { flex: 0.7; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-left: 10px; }
     
-    .news-badge { font-size: 6pt; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; display: inline-block; padding: 2px 6px; border-radius: 4px; color: #fff; background: var(--btn-blue); box-shadow: 0 0 8px rgba(14, 165, 233, 0.4); border: 1px solid rgba(255,255,255,0.2);}
-    .news-badge.india { background: linear-gradient(135deg, #f97316, #ea580c); box-shadow: 0 0 8px rgba(249, 115, 22, 0.4); }
-    .news-item.india { border-left-color: #f97316; }
+    .tod-badge { font-size: 6pt; padding: 2px 6px; border-radius: 4px; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 4px; box-shadow: inset 0 1px 3px rgba(255,255,255,0.2); margin-bottom: 4px;}
+    .tod-morning { background: var(--btn-blue); color: #fff; }
+    .tod-afternoon { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff;}
+    .tod-evening { background: var(--btn-red); color: #fff; }
+    .tod-night { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; }
 
-    .news-title { font-size: 7.5pt; color: var(--text-main); font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-shadow: 0 1px 2px rgba(0,0,0,0.8);}
-    .news-meta { font-size: 6pt; color: #10b981; font-weight: 800; display: flex; align-items: center; letter-spacing: 0.5px;}
-
-    /* --- RIGHT: RENAMER OPERATIONS --- */
-    .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(0,0,0,0.4); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 12px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.8); position: relative; overflow: hidden;}
-
-    /* 🎛️ EMPTY STATE QUICK-LAUNCH DASHBOARD */
-    #setupScreen { flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; gap: 15px; }
+    .time-large { font-size: 20pt; font-weight: 900; color: var(--text-main); line-height: 1; margin-bottom: 2px; text-shadow: 0 4px 15px rgba(56, 189, 248, 0.4); letter-spacing: -1px;}
+    .time-large span { color: var(--neon-blue); font-size: 10pt; margin-left: 4px;} 
+    .date-sub { font-size: 7.5pt; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
     
-    .tools-grid { display: grid; grid-template-columns: 240px 1fr 1.2fr; gap: 12px; flex: 1; min-height: 0; }
-    
-    .tool-box { background: rgba(0,0,0,0.5); border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); padding: 12px; display: flex; flex-direction: column; box-shadow: inset 0 5px 20px rgba(0,0,0,0.8); overflow: hidden; }
-    .tool-header { font-size: 8pt; font-weight: 900; color: var(--neon-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    .w-icon-large { font-size: 20pt; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); line-height: 1; margin-bottom: 2px;}
+    .w-temp { font-weight: 900; font-size: 11pt; color: var(--text-main); }
+    .w-desc { font-size: 6pt; color: #fff; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; background: rgba(245, 158, 11, 0.4); padding: 2px 6px; border-radius: 4px; margin-top: 2px; border: 1px solid rgba(255,255,255,0.2);}
 
-    /* Calculator Widget */
-    .calc-screen { background: rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; font-family: monospace; font-size: 16pt; text-align: right; margin-bottom: 10px; color: var(--neon-emerald); box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); height: 45px; display: flex; align-items: center; justify-content: flex-end; overflow: hidden;}
-    .calc-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; flex: 1;}
-    .calc-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #fff; font-weight: 900; font-size: 11pt; cursor: pointer; transition: 0.1s; display: flex; align-items: center; justify-content: center;}
+    .bento-worldclock { grid-column: span 1; }
+    .wc-container { display: flex; flex-direction: column; gap: 8px; justify-content: center; height: 100%;}
+    .wc-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);}
+    .wc-city { font-size: 8pt; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;}
+    .wc-time { font-size: 11pt; font-weight: 900; color: #fff; font-family: monospace;}
+
+    .bento-mount { grid-column: span 2; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, rgba(14, 165, 233, 0.15), transparent); border: 1px dashed var(--neon-blue); box-shadow: inset 0 0 30px rgba(14, 165, 233, 0.1);}
+    .bento-mount h2 { margin: 0 0 5px 0; font-size: 18pt; color: var(--text-main); letter-spacing: 1px; text-shadow: 0 2px 10px rgba(14, 165, 233, 0.5);}
+    .bento-mount p { margin: 0 0 15px 0; font-size: 9.5pt; color: var(--text-muted); text-align: center;}
+
+    /* Row 2 Widgets */
+    .bento-markets { grid-column: span 1; }
+    .market-list { display: flex; flex-direction: column; gap: 8px; height: 100%; justify-content: center;}
+    .market-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; background: rgba(0,0,0,0.4); border-radius: 6px; border-left: 3px solid #334155;}
+    .m-name { font-size: 8pt; font-weight: 900; color: var(--text-main); letter-spacing: 0.5px;}
+    .m-val { font-size: 9pt; font-weight: 900; font-family: monospace; letter-spacing: 0.5px;}
+
+    .bento-calc { grid-column: span 1; }
+    .calc-screen { background: rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px; font-family: monospace; font-size: 16pt; text-align: right; margin-bottom: 8px; color: var(--neon-emerald); box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); height: 40px; display: flex; align-items: center; justify-content: flex-end; overflow: hidden;}
+    .calc-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; flex: 1;}
+    .calc-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #fff; font-weight: 900; font-size: 10pt; cursor: pointer; transition: 0.1s; display: flex; align-items: center; justify-content: center;}
     .calc-btn:hover { background: rgba(255,255,255,0.15); transform: scale(1.05); }
     .calc-btn:active { transform: scale(0.95); }
     .calc-btn.op { background: rgba(14, 165, 233, 0.2); color: var(--neon-blue); border-color: rgba(14, 165, 233, 0.4);}
     .calc-btn.eq { background: rgba(16, 185, 129, 0.2); color: var(--neon-emerald); border-color: rgba(16, 185, 129, 0.4); grid-column: span 2;}
     .calc-btn.clear { background: rgba(244, 63, 94, 0.2); color: var(--neon-ruby); border-color: rgba(244, 63, 94, 0.4); grid-column: span 2;}
 
-    /* To-Do Widget */
-    .todo-input-row { display: flex; gap: 6px; margin-bottom: 10px; }
-    .todo-input-row input { flex: 1; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color: #fff; font-size: 9pt; outline: none; }
+    .bento-todo { grid-column: span 1; }
+    .todo-input-row { display: flex; gap: 6px; margin-bottom: 8px; }
+    .todo-input-row input { flex: 1; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.6); color: #fff; font-size: 8.5pt; outline: none; }
     .todo-input-row button { background: var(--btn-blue); border: none; color: #fff; border-radius: 6px; padding: 0 12px; font-weight: 900; cursor: pointer; }
     .todo-list { flex: 1; overflow-y: auto; padding-right: 5px; display: flex; flex-direction: column; gap: 6px;}
     .todo-list::-webkit-scrollbar { width: 4px; }
     .todo-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
-    .todo-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05); padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; transition: 0.2s;}
+    .todo-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05); padding: 6px 10px; border-radius: 6px; font-size: 8pt; transition: 0.2s;}
     .todo-item.done span { text-decoration: line-through; opacity: 0.5; }
     .todo-item input[type="checkbox"] { cursor: pointer; accent-color: var(--neon-emerald); }
     .todo-item span { flex: 1; word-break: break-word;}
     .todo-item .del-btn { cursor: pointer; color: var(--neon-ruby); font-weight: bold; padding: 0 5px; font-size: 10pt;}
 
-    /* Scratchpad */
-    #scratchpad { flex: 1; background: transparent; border: none; outline: none; color: var(--text-main); font-family: 'Nunito', monospace; font-size: 10pt; line-height: 1.6; resize: none; width: 100%;}
+    .bento-scratch { grid-column: span 1; }
+    #scratchpad { flex: 1; background: transparent; border: none; outline: none; color: var(--text-main); font-family: 'Nunito', monospace; font-size: 9.5pt; line-height: 1.5; resize: none; width: 100%;}
     #scratchpad::placeholder { color: rgba(255,255,255,0.2); }
 
-    .mount-section { background: rgba(14, 165, 233, 0.1); border: 1px dashed var(--neon-blue); border-radius: 14px; padding: 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; box-shadow: inset 0 0 20px rgba(14, 165, 233, 0.15); flex-shrink: 0;}
+    /* Row 3 Widgets (News) */
+    .bento-news { grid-column: span 2; display: flex; flex-direction: column; min-height: 0;}
+    .news-feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 6px; }
+    .news-feed::-webkit-scrollbar { width: 5px; }
+    .news-feed::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); border-radius: 10px; }
+    .news-feed::-webkit-scrollbar-thumb { background: var(--btn-blue); border-radius: 10px; }
+    .news-item { background: rgba(0,0,0,0.5); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #0ea5e9; display: flex; flex-direction: column; gap: 4px; transition: 0.2s; flex-shrink: 0; }
+    .news-item:hover { background: rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.2); box-shadow: 0 4px 10px rgba(0,0,0,0.4);}
+    .news-badge { font-size: 6pt; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; display: inline-block; padding: 2px 6px; border-radius: 4px; color: #fff; background: var(--btn-blue); box-shadow: 0 0 8px rgba(14, 165, 233, 0.4); border: 1px solid rgba(255,255,255,0.2);}
+    .news-badge.india { background: linear-gradient(135deg, #f97316, #ea580c); box-shadow: 0 0 8px rgba(249, 115, 22, 0.4); }
+    .news-item.india { border-left-color: #f97316; }
+    .news-title { font-size: 8pt; color: var(--text-main); font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-shadow: 0 1px 2px rgba(0,0,0,0.8);}
+    .news-meta { font-size: 6.5pt; color: #10b981; font-weight: 800; display: flex; align-items: center; letter-spacing: 0.5px;}
 
-    #workspace { display: none; flex-grow: 1; flex-direction: column; gap: 10px; height: 100%; min-height: 0;}
+    /* 🎛️ ACTIVE WORKSPACE (FULL WIDTH) */
+    #workspace { display: none; flex-grow: 1; flex-direction: column; gap: 10px; height: 100%; min-height: 0; width: 100%;}
     
     /* 🛠️ PERFECT IMAGE CONTAINER WITH CROPPER OVERRIDES */
     .image-container { 
@@ -341,115 +337,107 @@
 
     <div class="dashboard-grid">
       
-      <div class="desk-panel">
-        
-        <div class="widget terminal-widget">
-          <div class="terminal-header w-title" style="margin:0;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span>⏱️ Local Command</span>
-            </div>
-            <span style="color:var(--neon-gold); font-size: 6.5pt;">LIVE SYNC</span>
-          </div>
-          <div class="terminal-body">
-            <div class="t-time-section">
-              <span id="local-tod" class="tod-badge">--</span>
-              <div class="time-large" id="live-time">00:00<span>00</span></div>
-              <div class="date-sub" id="live-date">-- --- ----</div>
-            </div>
-            <div class="t-weather-section">
-              <div class="w-icon-large" id="weather-icon">🌍</div>
-              <div class="w-temp" id="weather-temp">--°C</div>
-              <div class="w-desc" id="weather-desc">Surat</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="widget news-container">
-          <div class="w-title">
-            <div style="display: flex; align-items: center; gap: 6px; color: var(--neon-gold);">
-              <span>🏏 Cricket Top Stories</span>
-            </div>
-            <span style="color:var(--neon-blue); font-size: 6.5pt; display: flex; align-items: center; gap: 4px;">
-               <div style="width: 5px; height: 5px; background: var(--neon-blue); border-radius: 50%; animation: pulse 2s infinite;"></div> SYNCED
-            </span>
-          </div>
-          <div class="news-feed" id="cricket-feed">
-            <div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px; font-style: italic;">
-              Intercepting Cricinfo...
-            </div>
-          </div>
-        </div>
-
-        <div class="widget news-container">
-          <div class="w-title">
-            <div style="display: flex; align-items: center; gap: 6px; color: var(--neon-gold);">
-              <span>📰 India Breaking News</span>
-            </div>
-            <span style="color:var(--neon-blue); font-size: 6.5pt; display: flex; align-items: center; gap: 4px;">
-               <div style="width: 5px; height: 5px; background: var(--neon-blue); border-radius: 50%; animation: pulse 2s infinite;"></div> SYNCED
-            </span>
-          </div>
-          <div class="news-feed" id="india-feed">
-            <div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px; font-style: italic;">
-              Intercepting National Data...
-            </div>
-          </div>
-        </div>
-
-      </div>
-
       <div class="ops-panel">
         
         <div id="setupScreen">
           
-          <div class="tools-grid">
-            
-            <div class="tool-box">
-              <div class="tool-header">🧮 Desk Calculator</div>
-              <div class="calc-screen" id="calc-screen">0</div>
-              <div class="calc-keys">
-                <button class="calc-btn" onclick="calcPress('7')">7</button>
-                <button class="calc-btn" onclick="calcPress('8')">8</button>
-                <button class="calc-btn" onclick="calcPress('9')">9</button>
-                <button class="calc-btn op" onclick="calcPress('/')">÷</button>
-                <button class="calc-btn" onclick="calcPress('4')">4</button>
-                <button class="calc-btn" onclick="calcPress('5')">5</button>
-                <button class="calc-btn" onclick="calcPress('6')">6</button>
-                <button class="calc-btn op" onclick="calcPress('*')">×</button>
-                <button class="calc-btn" onclick="calcPress('1')">1</button>
-                <button class="calc-btn" onclick="calcPress('2')">2</button>
-                <button class="calc-btn" onclick="calcPress('3')">3</button>
-                <button class="calc-btn op" onclick="calcPress('-')">-</button>
-                <button class="calc-btn clear" onclick="calcPress('C')">C</button>
-                <button class="calc-btn" onclick="calcPress('0')">0</button>
-                <button class="calc-btn op" onclick="calcPress('+')">+</button>
-                <button class="calc-btn eq" style="grid-column: span 4;" onclick="calcPress('=')">=</button>
+          <div class="bento-item bento-terminal">
+            <div class="terminal-header">
+              <span>⏱️ Local Command</span>
+              <span style="color:var(--neon-gold);">LIVE SYNC</span>
+            </div>
+            <div class="terminal-body">
+              <div class="t-time-section">
+                <span id="local-tod" class="tod-badge">--</span>
+                <div class="time-large" id="live-time">00:00<span>00</span></div>
+                <div class="date-sub" id="live-date">-- --- ----</div>
+              </div>
+              <div class="t-weather-section">
+                <div class="w-icon-large" id="weather-icon">🌍</div>
+                <div class="w-temp" id="weather-temp">--°C</div>
+                <div class="w-desc" id="weather-desc">Surat</div>
               </div>
             </div>
-
-            <div class="tool-box">
-              <div class="tool-header">📋 Target Checklist</div>
-              <div class="todo-input-row">
-                <input type="text" id="todo-input" placeholder="Add task or reminder..." autocomplete="off">
-                <button onclick="addTodo()">+</button>
-              </div>
-              <div class="todo-list" id="todo-list"></div>
-            </div>
-
-            <div class="tool-box">
-              <div class="tool-header">
-                <span>📝 Scratchpad</span>
-                <span style="font-size: 5.5pt; color: var(--neon-emerald); background: rgba(16,185,129,0.1); padding: 2px 6px; border-radius: 4px;">AUTO-SAVED</span>
-              </div>
-              <textarea id="scratchpad" placeholder="Type quick notes, shipping weights, or temporary data here... (Stays saved even if you close the window)"></textarea>
-            </div>
-
           </div>
 
-          <div class="mount-section">
-            <h2 style="margin: 0; font-size: 15pt; color: var(--text-main);">Initialize Auto-Renamer</h2>
-            <p style="margin: 0; font-size: 9pt; color: var(--text-muted);">Select today's dispatch folder to begin the 1x1 auto-crop & rename workflow.</p>
-            <button class="btn-pro blue-btn" onclick="selectFolder()" style="margin-top: 8px;">📁 Mount Image Directory</button>
+          <div class="bento-item bento-worldclock">
+            <div class="tool-header">🌐 Global Time</div>
+            <div class="wc-container">
+              <div class="wc-item"><span class="wc-city">New York</span><span class="wc-time" id="time-ny">--:--</span></div>
+              <div class="wc-item"><span class="wc-city">London</span><span class="wc-time" id="time-lon">--:--</span></div>
+              <div class="wc-item"><span class="wc-city">Tokyo</span><span class="wc-time" id="time-tyo">--:--</span></div>
+            </div>
+          </div>
+
+          <div class="bento-item bento-mount">
+            <h2>Initialize Auto-Renamer</h2>
+            <p>Select today's dispatch folder to begin the 1x1 auto-crop workflow.</p>
+            <button class="btn-pro blue-btn" onclick="selectFolder()">📁 Mount Image Directory</button>
+          </div>
+
+          <div class="bento-item bento-markets">
+            <div class="tool-header">📈 Markets <span style="font-size:5pt; color:var(--neon-ruby); border:1px solid var(--neon-ruby); padding:2px 4px; border-radius:4px;">SIMULATED</span></div>
+            <div class="market-list">
+              <div class="market-item" style="border-color: var(--neon-emerald);"><span class="m-name">NIFTY 50</span> <span class="m-val" style="color:var(--neon-emerald)">▲ 22,514.00</span></div>
+              <div class="market-item" style="border-color: var(--neon-ruby);"><span class="m-name">USD / INR</span> <span class="m-val" style="color:var(--neon-ruby)">▼ 83.45</span></div>
+              <div class="market-item" style="border-color: var(--neon-gold);"><span class="m-name">GOLD (10g)</span> <span class="m-val" style="color:var(--neon-gold)">▲ 72,100</span></div>
+            </div>
+          </div>
+
+          <div class="bento-item bento-calc">
+            <div class="tool-header">🧮 Desk Calculator</div>
+            <div class="calc-screen" id="calc-screen">0</div>
+            <div class="calc-keys">
+              <button class="calc-btn" onclick="calcPress('7')">7</button>
+              <button class="calc-btn" onclick="calcPress('8')">8</button>
+              <button class="calc-btn" onclick="calcPress('9')">9</button>
+              <button class="calc-btn op" onclick="calcPress('/')">÷</button>
+              <button class="calc-btn" onclick="calcPress('4')">4</button>
+              <button class="calc-btn" onclick="calcPress('5')">5</button>
+              <button class="calc-btn" onclick="calcPress('6')">6</button>
+              <button class="calc-btn op" onclick="calcPress('*')">×</button>
+              <button class="calc-btn" onclick="calcPress('1')">1</button>
+              <button class="calc-btn" onclick="calcPress('2')">2</button>
+              <button class="calc-btn" onclick="calcPress('3')">3</button>
+              <button class="calc-btn op" onclick="calcPress('-')">-</button>
+              <button class="calc-btn clear" onclick="calcPress('C')">C</button>
+              <button class="calc-btn" onclick="calcPress('0')">0</button>
+              <button class="calc-btn op" onclick="calcPress('+')">+</button>
+              <button class="calc-btn eq" style="grid-column: span 4;" onclick="calcPress('=')">=</button>
+            </div>
+          </div>
+
+          <div class="bento-item bento-todo">
+            <div class="tool-header">📋 Target Checklist</div>
+            <div class="todo-input-row">
+              <input type="text" id="todo-input" placeholder="Add task..." autocomplete="off">
+              <button onclick="addTodo()">+</button>
+            </div>
+            <div class="todo-list" id="todo-list"></div>
+          </div>
+
+          <div class="bento-item bento-scratch">
+            <div class="tool-header">
+              <span>📝 Scratchpad</span>
+              <span style="font-size: 5.5pt; color: var(--neon-emerald); background: rgba(16,185,129,0.1); padding: 2px 6px; border-radius: 4px;">AUTO-SAVED</span>
+            </div>
+            <textarea id="scratchpad" placeholder="Type quick notes, tracking IDs, or temporary data here..."></textarea>
+          </div>
+
+          <div class="bento-item bento-news">
+            <div class="tool-header">
+              <span>🏏 Cricket Top Stories</span>
+              <span style="color:var(--neon-blue); font-size: 6.5pt; display: flex; align-items: center; gap: 4px;"><div style="width: 5px; height: 5px; background: var(--neon-blue); border-radius: 50%; animation: pulse 2s infinite;"></div> SYNCED</span>
+            </div>
+            <div class="news-feed" id="cricket-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px;">Intercepting Cricinfo...</div></div>
+          </div>
+
+          <div class="bento-item bento-news">
+            <div class="tool-header">
+              <span>📰 India Breaking News</span>
+              <span style="color:var(--neon-blue); font-size: 6.5pt; display: flex; align-items: center; gap: 4px;"><div style="width: 5px; height: 5px; background: var(--neon-blue); border-radius: 50%; animation: pulse 2s infinite;"></div> SYNCED</span>
+            </div>
+            <div class="news-feed" id="india-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px;">Intercepting National Data...</div></div>
           </div>
 
         </div>
@@ -507,6 +495,7 @@
       e.target.style.setProperty('--x', `${x}px`); e.target.style.setProperty('--y', `${y}px`);
     });
 
+    // --- CALCULATOR ---
     function calcPress(val) {
       const screen = document.getElementById('calc-screen');
       if (val === 'C') { screen.innerText = '0'; return; }
@@ -519,6 +508,7 @@
       else screen.innerText += val;
     }
 
+    // --- TO-DO LIST ---
     let todos = JSON.parse(localStorage.getItem('shakti_todos')) || [];
     const todoListEl = document.getElementById('todo-list');
     const todoInput = document.getElementById('todo-input');
@@ -547,14 +537,15 @@
     
     function toggleTodo(index) { todos[index].done = !todos[index].done; renderTodos(); }
     function delTodo(index) { todos.splice(index, 1); renderTodos(); }
-    
     todoInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') addTodo(); });
     renderTodos();
 
+    // --- SCRATCHPAD ---
     const pad = document.getElementById('scratchpad');
     pad.value = localStorage.getItem('shakti_notes') || '';
     pad.addEventListener('input', () => localStorage.setItem('shakti_notes', pad.value));
 
+    // --- TOASTS ---
     function showToast(message, color = 'var(--neon-emerald)') {
       const toast = document.getElementById('toast');
       toast.innerHTML = message;
@@ -564,6 +555,7 @@
       setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
+    // --- CLOCKS ---
     function getTimeOfDayInfo(timeZone) {
       const date = new Date();
       const str = date.toLocaleString('en-US', { timeZone, hour12: false, hour: 'numeric' });
@@ -576,6 +568,7 @@
 
     function updateClock() {
       const now = new Date();
+      // Local
       const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
       const [time, period] = timeStr.split(' ');
       const [hrs, mins, secs] = time.split(':');
@@ -584,9 +577,15 @@
       const localInfo = getTimeOfDayInfo('Asia/Kolkata');
       const localBadge = document.getElementById('local-tod');
       localBadge.className = `tod-badge ${localInfo.class}`; localBadge.innerText = localInfo.text;
+      
+      // World Clocks
+      document.getElementById('time-ny').innerText = now.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute:'2-digit', hour12: false});
+      document.getElementById('time-lon').innerText = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/London', hour: '2-digit', minute:'2-digit', hour12: false});
+      document.getElementById('time-tyo').innerText = now.toLocaleTimeString('ja-JP', { timeZone: 'Asia/Tokyo', hour: '2-digit', minute:'2-digit', hour12: false});
     }
     setInterval(updateClock, 1000); updateClock();
 
+    // --- WEATHER API ---
     async function fetchWeather() {
       try {
         const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&current_weather=true');
@@ -646,6 +645,7 @@
     }
     fetchWeatherTimeline();
 
+    // --- NEWS APIS ---
     async function fetchCricketNews() {
       const feedContainer = document.getElementById('cricket-feed');
       try {
@@ -730,8 +730,8 @@
         ready: function () {
           const containerData = cropper.getContainerData();
           const cropBoxData = cropper.getCropBoxData();
-          // Move crop box 20% to the right
-          cropBoxData.left = containerData.width * 0.20;
+          // Move crop box exactly 10% to the right
+          cropBoxData.left = containerData.width * 0.1;
           cropper.setCropBoxData(cropBoxData);
         }
       });
@@ -826,7 +826,7 @@
           } else {
             finalBlobPromise = new Promise(resolve => {
                cropper.getCroppedCanvas({}).toBlob(blob => { resolve(blob); }, 'image/jpeg', 0.9);
-               showToast("✂️ Square Crop Saved", "var(--neon-emerald)");
+               showToast("✂️ Custom Crop Saved", "var(--neon-emerald)");
             });
             extension = 'jpg';
           }
