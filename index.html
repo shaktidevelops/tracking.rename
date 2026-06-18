@@ -17,13 +17,6 @@
       --btn-blue: linear-gradient(135deg, #0ea5e9, #2563eb);
       --btn-green: linear-gradient(135deg, #10b981, #059669);
       --btn-red: linear-gradient(135deg, #f43f5e, #be123c);
-
-      /* Unique Card Textures */
-      --tex-circuit: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0z' fill='none'/%3E%3Cpath d='M2 2h2v2H2zm4 4h2v2H6zm4 4h2v2h-2zm4 4h2v2h-2z' fill='rgba(56,189,248,0.05)'/%3E%3C/svg%3E");
-      --tex-dots: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
-      --tex-hex: url("data:image/svg+xml,%3Csvg width='28' height='49' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v13.2l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9z' fill='rgba(255,255,255,0.03)' fill-rule='evenodd'/%3E%3C/svg%3E");
-      --tex-topo: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10q20 20 40 0t40 0' stroke='rgba(255,255,255,0.03)' fill='none'/%3E%3Cpath d='M10 30q20 20 40 0t40 0' stroke='rgba(255,255,255,0.02)' fill='none'/%3E%3Cpath d='M10 50q20 20 40 0t40 0' stroke='rgba(255,255,255,0.03)' fill='none'/%3E%3C/svg%3E");
-      --tex-grid: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0H0v20h20V0zm-1 1v18H1V1h18z' fill='rgba(168,85,247,0.04)'/%3E%3C/svg%3E");
     }
     
     * { box-sizing: border-box; font-family: 'Nunito', sans-serif; }
@@ -32,6 +25,13 @@
       margin: 0; padding: 10px; display: flex; justify-content: center; align-items: center; min-height: 100vh;
       color: var(--text-main); overflow: hidden; background-color: #020617; 
     }
+
+    /* PURE CSS TEXTURES (Bulletproof & Highly Visible) */
+    .tex-circuit { background-image: radial-gradient(circle at center, rgba(14,165,233,0.1) 0, transparent 60%), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 100% 100%, 25px 25px, 25px 25px; }
+    .tex-dots { background-image: radial-gradient(rgba(255,255,255,0.12) 1.5px, transparent 1.5px); background-size: 14px 14px; }
+    .tex-grid { background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 20px 20px; }
+    .tex-hex { background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); }
+    .tex-topo { background-image: repeating-radial-gradient(circle at 0 0, transparent 0, rgba(255,255,255,0.03) 8px, transparent 9px, transparent 18px); }
 
     .bg-orbs { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -2; filter: blur(100px); }
     .orb { position: absolute; border-radius: 50%; opacity: 0.65; animation: rotateOrb 30s infinite linear; }
@@ -68,12 +68,12 @@
     .status-dot { width: 8px; height: 8px; background: var(--neon-emerald); border-radius: 50%; box-shadow: 0 0 10px var(--neon-emerald); animation: pulse 1.5s infinite; }
     @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.5); } 100% { opacity: 1; transform: scale(1); } }
 
-    /* GLOBAL TICKER MARQUEE (INSTANT + SLOW) */
+    /* GLOBAL TICKER MARQUEE */
     .ticker-wrap { width: 100%; background: rgba(0,0,0,0.8); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; padding: 6px 0; margin-bottom: 12px; display: flex; box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; flex-shrink: 0; }
     .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; width: 80px; height: 100%; z-index: 2; }
     .ticker-wrap::before { left: 0; background: linear-gradient(90deg, rgba(10,15,30,1), transparent); }
     .ticker-wrap::after { right: 0; background: linear-gradient(-90deg, rgba(10,15,30,1), transparent); }
-    .ticker { display: flex; width: max-content; animation: tickerScroll 50s linear infinite; }
+    .ticker { display: flex; width: max-content; animation: tickerScroll 40s linear infinite; }
     .ticker:hover { animation-play-state: paused; }
     @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .tick-item { display: inline-flex; align-items: center; gap: 6px; font-size: 8.5pt; font-family: monospace; font-weight: 900; letter-spacing: 1px; margin-right: 60px; color: var(--text-muted); }
@@ -89,30 +89,36 @@
     }
     
     .bento-item { background: var(--glass-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); padding: 14px; display: flex; flex-direction: column; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,255,0.05); position: relative; overflow: hidden; min-height: 0;}
-    .tool-header { font-size: 8pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; z-index: 2; position: relative;}
+    .bento-item::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; }
+    .bento-item > * { position: relative; z-index: 2; }
+    
+    .tool-header { font-size: 8pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
 
     /* 1. LOCAL SURAT */
-    .bento-local { grid-column: 1 / 2; grid-row: 1 / 2; background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(0,0,0,0.8)); border-color: rgba(14,165,233,0.3); }
-    .bento-local::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background-image: var(--tex-circuit); opacity: 0.6; z-index: 1; mix-blend-mode: overlay; pointer-events: none;}
-    .local-content { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding-top: 5px; z-index: 2; position: relative;}
+    .bento-local { grid-column: 1 / 2; grid-row: 1 / 2; background-color: rgba(0,0,0,0.7); border-color: rgba(14,165,233,0.3); }
+    .bento-local::before { @extend .tex-circuit; background-image: radial-gradient(circle at center, rgba(14,165,233,0.1) 0, transparent 60%), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 100% 100%, 25px 25px, 25px 25px;}
+    .local-content { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding-top: 5px; }
     
     .tod-badge { font-size: 6.5pt; padding: 3px 10px; border-radius: 6px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; display: inline-flex; align-items: center; box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 0 10px rgba(0,0,0,0.5); margin-bottom: 8px; color:#fff;}
     .tod-morning { background: var(--btn-blue); } .tod-afternoon { background: linear-gradient(135deg, #f59e0b, #d97706); } .tod-evening { background: var(--btn-red); } .tod-night { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
     
-    .time-large { font-size: 34pt; font-weight: 900; line-height: 1; letter-spacing: -1px; font-family: monospace; background: linear-gradient(to bottom right, #fff, #38bdf8); -webkit-background-clip: text; color: transparent; filter: drop-shadow(0 4px 10px rgba(56, 189, 248, 0.4));}
+    .time-large { font-size: 38pt; font-weight: 900; line-height: 1; letter-spacing: -1px; font-family: monospace; background: linear-gradient(to bottom right, #fff, #38bdf8); -webkit-background-clip: text; color: transparent; filter: drop-shadow(0 4px 10px rgba(56, 189, 248, 0.4));}
     .time-large span { font-size: 14pt; margin-left: 6px; color: var(--neon-blue); -webkit-text-fill-color: var(--neon-blue);} 
-    .time-large .sec { font-size: 14pt; color: var(--neon-emerald); -webkit-text-fill-color: var(--neon-emerald); animation: pulseSec 1s infinite;}
-    @keyframes pulseSec { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .time-large .sec { font-size: 14pt; color: var(--neon-emerald); -webkit-text-fill-color: var(--neon-emerald); opacity: 0.8; }
     
-    .weather-local-box { display: flex; gap: 15px; align-items: center; background: rgba(0,0,0,0.6); padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(56,189,248,0.2); box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; overflow: hidden;}
+    .weather-local-box { display: flex; gap: 12px; align-items: center; background: rgba(0,0,0,0.6); padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(56,189,248,0.2); box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; overflow: hidden;}
     .weather-local-box::after { content:''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background: linear-gradient(90deg, transparent, var(--neon-blue), transparent); opacity: 0.5;}
+    .sun-box-local { display: flex; flex-direction: column; gap: 4px; padding-left: 10px; border-left: 1px solid rgba(255,255,255,0.1); margin-left: 5px; }
+    .sun-item-local { font-size: 7.5pt; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 4px; white-space: nowrap;}
+    .sun-item-local span { color: var(--neon-gold); font-family: monospace; }
 
-    /* 2. WORLD CLOCKS (EXPANDED) */
-    .bento-clocks { grid-column: 1 / 2; grid-row: 2 / 4; background-image: var(--tex-dots); border-color: rgba(255,255,255,0.1); }
-    .wc-list { display: flex; flex-direction: column; gap: 4px; overflow-y: auto; padding-right: 5px; flex: 1; min-height: 0; z-index: 2; position: relative;}
+    /* 2. WORLD CLOCKS */
+    .bento-clocks { grid-column: 1 / 2; grid-row: 2 / 4; border-color: rgba(255,255,255,0.1); }
+    .bento-clocks::before { @extend .tex-dots; background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px); background-size: 16px 16px; }
+    .wc-list { display: flex; flex-direction: column; gap: 4px; overflow-y: auto; padding-right: 5px; flex: 1; min-height: 0; }
     .wc-list::-webkit-scrollbar { width: 0; }
     .wc-card { padding: 10px 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 5px rgba(255,255,255,0.05), 0 4px 10px rgba(0,0,0,0.3); flex-shrink: 0; position: relative; overflow: hidden;}
-    .wc-card::before { content:''; position: absolute; left:0; top:0; width:4px; height:100%; }
+    .wc-card::before { content:''; position: absolute; left:0; top:0; width:4px; height:100%; z-index: 1;}
     .wc-ny { background: linear-gradient(90deg, rgba(15,23,42,0.9), rgba(153,27,27,0.3)); } .wc-ny::before { background: #fb7185; }
     .wc-lon { background: linear-gradient(90deg, rgba(15,23,42,0.9), rgba(30,58,138,0.3)); } .wc-lon::before { background: #60a5fa; }
     .wc-dxb { background: linear-gradient(90deg, rgba(15,23,42,0.9), rgba(133,77,14,0.3)); } .wc-dxb::before { background: #fcd34d; }
@@ -127,45 +133,42 @@
     .wc-sec { font-size: 8pt; color: var(--text-muted); }
     .wc-ampm { font-size: 7pt; color: var(--neon-gold); margin-left: 2px;}
 
-    /* 3. MARKET DELTA */
-    .bento-market { grid-column: 2 / 3; grid-row: 1 / 2; background-image: var(--tex-hex); border-color: rgba(245,158,11,0.2); }
+    /* 3. MARKET DELTA (LIVE YAHOO API DATA) */
+    .bento-market { grid-column: 2 / 3; grid-row: 1 / 2; border-color: rgba(245,158,11,0.2); }
+    .bento-market::before { @extend .tex-hex; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); }
     .bento-market .tool-header { color: var(--neon-gold); border-bottom-color: rgba(245,158,11,0.2);}
-    .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: 1; min-height: 0; z-index: 2; position: relative;}
+    .market-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; flex: 1; min-height: 0;}
     .m-card { background: linear-gradient(180deg, rgba(30,41,59,0.8), rgba(0,0,0,0.6)); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; position: relative; overflow: hidden; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5); justify-content: center;}
-    .m-bg-pattern { position: absolute; right: -5px; bottom: -10px; font-size: 45pt; opacity: 0.15; z-index: 0; filter: grayscale(50%);}
+    .m-bg-pattern { position: absolute; right: -5px; bottom: -10px; font-size: 45pt; opacity: 0.15; z-index: 0; filter: grayscale(50%); user-select: none;}
     .m-header { display: flex; justify-content: space-between; align-items: center; z-index: 1;}
     .m-name { font-size: 8pt; font-weight: 900; letter-spacing: 1px; color: #fff; z-index: 1;}
     .m-prev { font-size: 6.5pt; color: var(--text-muted); font-family: monospace; z-index: 1;}
-    .m-live { font-size: 14pt; font-weight: 900; font-family: monospace; color: #fff; margin-top: 4px; z-index: 1; text-shadow: 0 2px 5px rgba(0,0,0,0.8);}
-    .m-change { display: inline-flex; align-items: center; font-size: 7.5pt; font-weight: 900; padding: 3px 8px; border-radius: 6px; margin-top: 6px; z-index: 1; width: fit-content; letter-spacing: 0.5px;}
+    .m-live { font-size: 14pt; font-weight: 900; font-family: monospace; color: #fff; margin-top: 4px; z-index: 1; text-shadow: 0 2px 5px rgba(0,0,0,0.8); transition: color 0.3s;}
+    .m-change { display: inline-flex; align-items: center; font-size: 7.5pt; font-weight: 900; padding: 3px 8px; border-radius: 6px; margin-top: 6px; z-index: 1; width: fit-content; letter-spacing: 0.5px; transition: all 0.3s;}
+    
+    .pill-up { background: rgba(16, 185, 129, 0.2); color: var(--neon-emerald); border: 1px solid rgba(16, 185, 129, 0.4); }
+    .pill-down { background: rgba(244, 63, 94, 0.2); color: var(--neon-ruby); border: 1px solid rgba(244, 63, 94, 0.4); }
 
-    /* 4. PREMIUM PANCHANG (UPGRADED) */
-    .bento-panchang { grid-column: 3 / 4; grid-row: 1 / 2; background: linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(0,0,0,0.8)); border-color: rgba(167, 139, 250, 0.3); display: flex; flex-direction: column;}
-    .bento-panchang::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background-image: var(--tex-grid); opacity: 0.8; z-index: 1; pointer-events: none;}
+    /* 4. PREMIUM PANCHANG (REAL GUJARATI WIDGETS PROPERLY INTEGRATED) */
+    .bento-panchang { grid-column: 3 / 4; grid-row: 1 / 2; background-color: rgba(0,0,0,0.7); border-color: rgba(167, 139, 250, 0.3); overflow: hidden;}
+    .bento-panchang::before { @extend .tex-grid; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 20px 20px;}
     .bento-panchang .tool-header { color: var(--neon-purple); border-bottom-color: rgba(167, 139, 250, 0.2);}
     
-    .panchang-core { z-index: 2; position: relative; display: flex; flex-direction: column; gap: 10px; height: 100%; justify-content: space-between;}
-    .moon-box { width: 55px; height: 55px; border-radius: 50%; background: #1e293b; box-shadow: inset -12px 0px 8px #f8fafc, inset -20px 0px 15px rgba(255,255,255,0.4), 0 0 15px rgba(255,255,255,0.2); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0;}
-    .moon-craters { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: rgba(0,0,0,0.08); box-shadow: 18px 22px 0 3px rgba(0,0,0,0.08), 28px 12px 0 5px rgba(0,0,0,0.1); right: 12px; top: 12px; }
+    .panchang-core { flex: 1; display: flex; gap: 15px; overflow-x: auto; overflow-y: hidden; height: 100%; width: 100%; padding-bottom: 5px; }
+    .panchang-core::-webkit-scrollbar { height: 8px; }
+    .panchang-core::-webkit-scrollbar-thumb { background: rgba(167, 139, 250, 0.5); border-radius: 10px; }
     
-    .sun-box { display: flex; justify-content: space-between; background: rgba(0,0,0,0.5); border-radius: 8px; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.05); }
-    .sun-item { display: flex; align-items: center; gap: 6px; font-size: 8pt; font-weight: 800; color: #fff;}
-    .sun-item span { color: var(--neon-gold); font-family: monospace;}
+    /* Authentic background added to iframes so text doesn't disappear in the dark theme */
+    .p-frame { border: none; border-radius: 10px; background: #FFF9E6; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); flex-shrink: 0; }
 
-    .choghadiya-row { display: flex; gap: 8px; width: 100%; flex-shrink: 0;}
-    .chog-box { flex: 1; padding: 6px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; border: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.3); justify-content: center;}
-    .chog-box.live { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(14,165,233,0.15)); border-color: var(--neon-emerald); box-shadow: 0 0 10px rgba(16,185,129,0.2); transform: scale(1.05); z-index: 2; }
-    .ch-lbl { font-size: 6pt; font-weight: 900; color: var(--text-muted); letter-spacing: 1px; }
-    .ch-val { font-size: 8pt; font-weight: 900; letter-spacing: 0.5px; margin-top: 2px; text-transform: uppercase;}
-
-    /* 5. 3-DAY ATMOSPHERIC ARRAY (WEATHER) */
-    .bento-weather { grid-column: 2 / 4; grid-row: 2 / 3; display: flex; flex-direction: column; min-height: 0; background: linear-gradient(180deg, rgba(15,23,42,0.8), rgba(0,0,0,0.9)); border-color: rgba(56, 189, 248, 0.2);}
-    .bento-weather::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background-image: var(--tex-topo); opacity: 0.6; z-index: 1; pointer-events: none;}
+    /* 5. 3-DAY ATMOSPHERIC ARRAY */
+    .bento-weather { grid-column: 2 / 4; grid-row: 2 / 3; display: flex; flex-direction: column; min-height: 0; background-color: rgba(0,0,0,0.8); border-color: rgba(56, 189, 248, 0.2);}
+    .bento-weather::before { @extend .tex-topo; background-image: repeating-radial-gradient(circle at 0 0, transparent 0, rgba(255,255,255,0.03) 10px, transparent 11px, transparent 20px); }
     .bento-weather .tool-header { color: var(--neon-blue); border-bottom-color: rgba(56,189,248,0.2);}
     
-    .forecast-row { display: flex; justify-content: space-between; gap: 12px; flex: 1; align-items: stretch; min-height: 0; z-index: 2; position: relative;}
-    .fc-day { flex: 1; background: rgba(255,255,255,0.03); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; padding: 10px 5px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; position: relative; overflow: hidden; min-height: 0; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.4); backdrop-filter: blur(10px);}
-    .fc-day:hover { border-color: rgba(56,189,248,0.4); transform: translateY(-2px); background: rgba(255,255,255,0.06);}
+    .forecast-row { display: flex; justify-content: space-between; gap: 12px; flex: 1; align-items: stretch; min-height: 0; }
+    .fc-day { flex: 1; background-color: rgba(255,255,255,0.03); background-image: repeating-radial-gradient(circle at center, transparent 0, rgba(255,255,255,0.02) 8px, transparent 9px, transparent 15px); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; padding: 10px 5px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; position: relative; overflow: hidden; min-height: 0; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.4); backdrop-filter: blur(10px);}
+    .fc-day:hover { border-color: rgba(56,189,248,0.4); transform: translateY(-2px); background-color: rgba(255,255,255,0.06);}
     .fc-lbl { font-size: 8.5pt; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px;}
     .fc-icon { font-size: 26pt; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); margin: 2px 0;}
     
@@ -177,32 +180,21 @@
     .fc-xtra { font-size: 6.5pt; font-weight: 800; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; background: rgba(6, 182, 212, 0.1); padding: 3px 6px; border-radius: 6px; border: 1px solid rgba(6, 182, 212, 0.2);}
     .fc-rain { color: var(--neon-blue); background: rgba(14, 165, 233, 0.1); border-color: rgba(14, 165, 233, 0.2); }
 
-    /* 6. MYNTRA DISPATCH VELOCITY (MOTIVATION REPLACEMENT) */
-    .bento-target { grid-column: 2 / 3; grid-row: 3 / 4; display: flex; flex-direction: row; justify-content: space-between; align-items: center; background: linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(0,0,0,0.8)); border-color: rgba(16, 185, 129, 0.3); padding: 10px 20px;}
-    .bento-target::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background-image: var(--tex-dots); opacity: 0.5; z-index: 1; pointer-events: none;}
-    
-    .target-info { display: flex; flex-direction: column; z-index: 2;}
-    .target-title { font-size: 10pt; font-weight: 900; color: var(--neon-emerald); text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 6px;}
-    .target-sub { font-size: 7.5pt; color: #fff; font-weight: 800; margin-top: 4px; letter-spacing: 0.5px;}
-    
-    /* CSS Radial Progress */
-    .progress-ring { width: 60px; height: 60px; border-radius: 50%; background: conic-gradient(var(--neon-emerald) 80%, rgba(255,255,255,0.1) 0); display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; box-shadow: 0 0 15px rgba(16,185,129,0.3);}
-    .progress-inner { width: 48px; height: 48px; border-radius: 50%; background: #0b1120; display: flex; justify-content: center; align-items: center; font-size: 9pt; font-weight: 900; color: #fff; font-family: monospace;}
-
-    /* 7. MOUNT BUTTON */
-    .bento-mount { grid-column: 3 / 4; grid-row: 3 / 4; cursor: pointer; background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(16, 185, 129, 0.2)); border: 1px solid var(--neon-blue); display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 15px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: inset 0 0 20px rgba(14, 165, 233, 0.1); padding: 10px; z-index: 2;}
-    .bento-mount:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4), inset 0 0 30px rgba(16, 185, 129, 0.2); border-color: var(--neon-emerald); }
-    .bento-mount:active { transform: translateY(2px) scale(0.98); }
-    .mount-icon { font-size: 24pt; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); animation: bounce 3s infinite;}
+    /* 6. MOUNT BUTTON */
+    .bento-mount { grid-column: 2 / 4; grid-row: 3 / 4; cursor: pointer; background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(16, 185, 129, 0.2)); border: 1px solid var(--neon-blue); display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: inset 0 0 20px rgba(14, 165, 233, 0.1); padding: 10px;}
+    .bento-mount::before { @extend .tex-dots; background-image: radial-gradient(rgba(255,255,255,0.1) 1.5px, transparent 1.5px); background-size: 12px 12px; }
+    .bento-mount:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4), inset 0 0 30px rgba(16, 185, 129, 0.2); border-color: var(--neon-emerald); }
+    .bento-mount:active { transform: translateY(2px); }
+    .mount-icon { font-size: 32pt; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); animation: bounce 3s infinite;}
     .mount-text { display: flex; flex-direction: column; text-align: left; }
-    .m-title { font-weight: 900; color: #fff; font-size: 10pt; text-transform: uppercase; letter-spacing: 1px; }
-    .m-sub { font-size: 6.5pt; font-weight: 800; color: var(--neon-emerald); letter-spacing: 1.5px; }
+    .m-title { font-weight: 900; color: #fff; font-size: 14pt; text-transform: uppercase; letter-spacing: 1px; }
+    .m-sub { font-size: 8pt; font-weight: 800; color: var(--neon-emerald); letter-spacing: 2px; }
     @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
-    /* 8. VERTICAL NEWS (SPLIT & UPGRADED) */
+    /* 7. VERTICAL NEWS */
     .news-wrapper { grid-column: 4 / 5; grid-row: 1 / 4; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
-    .bento-news { flex: 1; min-height: 0; border-color: rgba(255,255,255,0.08); background: rgba(0,0,0,0.5);}
-    .bento-news::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background-image: var(--tex-dots); opacity: 0.3; z-index: 1; pointer-events: none;}
+    .bento-news { flex: 1; min-height: 0; border-color: rgba(255,255,255,0.08); background: rgba(0,0,0,0.6);}
+    .bento-news::before { @extend .tex-dots; background-image: radial-gradient(rgba(255,255,255,0.06) 1.5px, transparent 1.5px); background-size: 16px 16px;}
     
     .news-feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px; z-index: 2; position: relative;}
     .news-feed::-webkit-scrollbar { width: 4px; }
@@ -270,32 +262,8 @@
     </div>
 
     <div class="ticker-wrap">
-      <div class="ticker">
-        <div class="tick-item">RELIANCE <span class="tick-up">▲ 2,950 (+1.2%)</span></div>
-        <div class="tick-item">TCS <span class="tick-down">▼ 3,840 (-0.4%)</span></div>
-        <div class="tick-item">HDFCBANK <span class="tick-up">▲ 1,450 (+0.8%)</span></div>
-        <div class="tick-item">ICICIBANK <span class="tick-up">▲ 1,120 (+1.5%)</span></div>
-        <div class="tick-item">BHARTIARTL <span class="tick-up">▲ 1,320 (+0.5%)</span></div>
-        <div class="tick-item">SBIN <span class="tick-down">▼ 830 (-1.1%)</span></div>
-        <div class="tick-item">INFY <span class="tick-up">▲ 1,420 (+0.9%)</span></div>
-        <div class="tick-item">LIC <span class="tick-up">▲ 980 (+2.1%)</span></div>
-        <div class="tick-item">ITC <span class="tick-down">▼ 430 (-0.2%)</span></div>
-        <div class="tick-item">HINDUNILVR <span class="tick-up">▲ 2,250 (+0.4%)</span></div>
-        <div class="tick-item">LT <span class="tick-up">▲ 3,450 (+1.8%)</span></div>
-        <div class="tick-item">BAJFINANCE <span class="tick-down">▼ 6,800 (-1.5%)</span></div>
-        
-        <div class="tick-item">RELIANCE <span class="tick-up">▲ 2,950 (+1.2%)</span></div>
-        <div class="tick-item">TCS <span class="tick-down">▼ 3,840 (-0.4%)</span></div>
-        <div class="tick-item">HDFCBANK <span class="tick-up">▲ 1,450 (+0.8%)</span></div>
-        <div class="tick-item">ICICIBANK <span class="tick-up">▲ 1,120 (+1.5%)</span></div>
-        <div class="tick-item">BHARTIARTL <span class="tick-up">▲ 1,320 (+0.5%)</span></div>
-        <div class="tick-item">SBIN <span class="tick-down">▼ 830 (-1.1%)</span></div>
-        <div class="tick-item">INFY <span class="tick-up">▲ 1,420 (+0.9%)</span></div>
-        <div class="tick-item">LIC <span class="tick-up">▲ 980 (+2.1%)</span></div>
-        <div class="tick-item">ITC <span class="tick-down">▼ 430 (-0.2%)</span></div>
-        <div class="tick-item">HINDUNILVR <span class="tick-up">▲ 2,250 (+0.4%)</span></div>
-        <div class="tick-item">LT <span class="tick-up">▲ 3,450 (+1.8%)</span></div>
-        <div class="tick-item">BAJFINANCE <span class="tick-down">▼ 6,800 (-1.5%)</span></div>
+      <div class="ticker" id="global-ticker">
+        <div class="tick-item">Connecting to Market Data Server...</div>
       </div>
     </div>
 
@@ -311,11 +279,17 @@
               <div class="time-large" id="live-time">00:00<span class="sec">00</span><span>AM</span></div>
               <div class="date-sub" id="live-date" style="font-size: 9pt; color: var(--text-muted); margin-top: 4px; font-weight: 800;">Thu, 18 Jun 2026</div>
             </div>
+            
             <div class="weather-local-box">
               <div id="weather-icon" style="font-size: 26pt; filter: drop-shadow(0 0 10px rgba(56,189,248,0.5)); line-height: 1;">☀️</div>
               <div style="display: flex; flex-direction: column;">
                 <div id="weather-temp" style="font-size: 16pt; font-weight: 900; line-height: 1; color: #fff;">--°C</div>
                 <div id="weather-desc" style="font-size: 7.5pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; margin-top: 4px;">Syncing</div>
+              </div>
+              
+              <div class="sun-box-local">
+                <div class="sun-item-local">🌅 <span id="api-sunrise">05:58 AM</span></div>
+                <div class="sun-item-local">🌇 <span id="api-sunset">07:22 PM</span></div>
               </div>
             </div>
           </div>
@@ -352,61 +326,25 @@
         </div>
 
         <div class="bento-item bento-market">
-          <div class="tool-header">📈 Market Delta</div>
-          <div class="market-grid">
-            <div class="m-card">
-              <div class="m-bg-pattern">📊</div>
-              <div class="m-header"><span class="m-name">SENSEX</span> <span class="m-prev">Prev: 74,228</span></div>
-              <div class="m-live">74,680.50</div>
-              <div class="m-change pill-up">▲ +452.50 (+0.6%)</div>
-            </div>
-            <div class="m-card">
-              <div class="m-bg-pattern">🥈</div>
-              <div class="m-header"><span class="m-name">SILVER (1kg)</span> <span class="m-prev">Prev: 90,400</span></div>
-              <div class="m-live">91,150</div>
-              <div class="m-change pill-up">▲ +750 (+0.8%)</div>
-            </div>
-            <div class="m-card">
-              <div class="m-bg-pattern">💵</div>
-              <div class="m-header"><span class="m-name">USD / INR</span> <span class="m-prev">Prev: 83.60</span></div>
-              <div class="m-live">83.45</div>
-              <div class="m-change pill-down">▼ -0.15 (-0.2%)</div>
-            </div>
-            <div class="m-card">
-              <div class="m-bg-pattern">💶</div>
-              <div class="m-header"><span class="m-name">EUR / INR</span> <span class="m-prev">Prev: 89.85</span></div>
-              <div class="m-live">90.12</div>
-              <div class="m-change pill-up">▲ +0.27 (+0.3%)</div>
+          <div class="tool-header">📈 Market Delta (Live Data)</div>
+          <div class="market-grid" id="marketGrid">
+            <div style="grid-column: 1 / -1; display:flex; justify-content:center; align-items:center; color: var(--text-muted); font-size: 8.5pt; height: 100%;">
+                Intercepting Live Yahoo Finance Streams...
             </div>
           </div>
         </div>
 
         <div class="bento-item bento-panchang">
           <div class="tool-header" style="justify-content: space-between;">
-            <span>🌌 Premium Panchang</span>
-            <span style="font-size: 6.5pt; color: var(--neon-purple); border: 1px solid var(--neon-purple); padding: 2px 6px; border-radius: 4px;">VIKRAM SAMVAT 2083</span>
+            <span>🌌 Premium Panchang & Jatakam</span>
+            <span style="font-size: 6.5pt; color: var(--neon-purple); border: 1px solid var(--neon-purple); padding: 2px 6px; border-radius: 4px;">LIVE FROM MYPANCHANG</span>
           </div>
           
           <div class="panchang-core">
-            <div style="display: flex; gap: 15px; align-items: center; background: rgba(0,0,0,0.5); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);">
-              <div class="moon-box"><div class="moon-craters"></div></div>
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <div style="font-size: 11pt; font-weight: 900; color: var(--neon-gold); letter-spacing: 1px;">અષાઢ સુદ ત્રીજ</div>
-                <div style="font-size: 8pt; color: #fff; font-weight: 800; margin: 4px 0;">Ashadha Shukla Tritiya</div>
-                <div style="font-size: 7.5pt; color: var(--text-muted); font-family: monospace;">Waxing Crescent (16%)</div>
-              </div>
-            </div>
-            
-            <div class="sun-box">
-              <div class="sun-item">🌅 Sunrise: <span id="api-sunrise">05:58 AM</span></div>
-              <div class="sun-item">🌇 Sunset: <span id="api-sunset">07:22 PM</span></div>
-            </div>
-            
-            <div class="choghadiya-row">
-              <div class="chog-box prev"><span class="ch-lbl">PREVIOUS</span><span class="ch-val" id="ch-prev">--</span></div>
-              <div class="chog-box live"><span class="ch-lbl">LIVE NOW</span><span class="ch-val" id="ch-live">--</span></div>
-              <div class="chog-box next"><span class="ch-lbl">NEXT</span><span class="ch-val" id="ch-next">--</span></div>
-            </div>
+            <iframe class="p-frame" src="http://www.mypanchang.com/mobilewidget.php?cityname=Surat-India&color=452603&displaymode=full" scrolling="yes" width="220px" height="100%"></iframe>
+            <iframe class="p-frame" src="http://www.mypanchang.com/mobilehorawidget.php?cityname=Surat-India&color=452603" scrolling="yes" width="180px" height="100%"></iframe>
+            <iframe class="p-frame" src="http://www.mypanchang.com/jatakam/currentpos.php" scrolling="yes" width="360px" height="100%"></iframe>
+            <iframe class="p-frame" src="http://www.mypanchang.com/jatakam/kundliwidget.php" scrolling="yes" width="380px" height="100%"></iframe>
           </div>
         </div>
 
@@ -417,21 +355,11 @@
           </div>
         </div>
 
-        <div class="bento-item bento-target">
-          <div class="target-info">
-            <div class="target-title">⚡ DISPATCH VELOCITY</div>
-            <div class="target-sub">Myntra Daily Operations Target</div>
-          </div>
-          <div class="progress-ring">
-            <div class="progress-inner">80%</div>
-          </div>
-        </div>
-
         <div class="bento-item bento-mount" onclick="selectFolder()">
           <div class="mount-icon">📁</div>
           <div class="mount-text">
             <div class="m-title">Mount Directory</div>
-            <div class="m-sub">INITIATE FOCUS MODE</div>
+            <div class="m-sub">INITIATE DISPATCH FOCUS MODE</div>
           </div>
         </div>
 
@@ -503,7 +431,7 @@
       toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
-    // --- GLOBAL CLOCKS & LOCAL TIME (WITH SECONDS) ---
+    // --- GLOBAL CLOCKS & LOCAL TIME ---
     function formatTime12WithSeconds(date, zone) {
         let parts = new Intl.DateTimeFormat('en-US', { timeZone: zone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }).formatToParts(date);
         let h = parts.find(p => p.type === 'hour').value;
@@ -522,7 +450,6 @@
 
     function updateClocks() {
       const now = new Date();
-      // Local Time (Surat)
       let localFormat = formatTime12WithSeconds(now, 'Asia/Kolkata');
       document.getElementById('live-time').innerHTML = `${localFormat.time}<span class="sec">${localFormat.sec}</span><span>${localFormat.ampm}</span>`;
       document.getElementById('live-date').innerText = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }).format(now);
@@ -536,7 +463,6 @@
       const localBadge = document.getElementById('local-tod');
       localBadge.className = `tod-badge ${todInfo.class}`; localBadge.innerText = todInfo.text;
 
-      // World Clocks
       const zones = { 'ny': 'America/New_York', 'lon': 'Europe/London', 'dxb': 'Asia/Dubai', 'sgp': 'Asia/Singapore', 'tyo': 'Asia/Tokyo', 'syd': 'Australia/Sydney' };
       for (let [id, zone] of Object.entries(zones)) {
           let tData = formatTime12WithSeconds(now, zone);
@@ -546,36 +472,70 @@
     }
     setInterval(updateClocks, 1000); updateClocks();
 
-    // --- LIVE CHOGHADIYA CALCULATOR (PREV, LIVE, NEXT) ---
-    function updateChoghadiya() {
-      const now = new Date();
-      const h = now.getHours() + now.getMinutes() / 60;
-      const choghadiyas = [
-          {name: "UDVEG", color: "var(--neon-ruby)"}, {name: "CHAL", color: "var(--neon-blue)"},
-          {name: "LABH", color: "var(--neon-emerald)"}, {name: "AMRUT", color: "var(--neon-gold)"},
-          {name: "KAAL", color: "var(--neon-ruby)"}, {name: "SHUBH", color: "var(--neon-emerald)"},
-          {name: "ROG", color: "var(--neon-ruby)"}
-      ];
-      
-      let idx = Math.floor((h - 6) / 1.5);
-      if (idx < 0 || h >= 18) idx = Math.abs(idx) % choghadiyas.length; 
-      else idx = idx % choghadiyas.length;
-      
-      let prevIdx = (idx - 1 + choghadiyas.length) % choghadiyas.length;
-      let nextIdx = (idx + 1) % choghadiyas.length;
+    // --- REAL LIVE MARKET DELTA FETCH (Using open cors proxy for Yahoo Finance) ---
+    async function fetchLiveMarketData() {
+        const assets = [
+            { id: 'sensex', symbol: '^BSESN', name: 'SENSEX', icon: '📈' },
+            { id: 'nifty', symbol: '^NSEI', name: 'NIFTY', icon: '📊' },
+            { id: 'gold', symbol: 'GC=F', name: 'GOLD', icon: '🥇' },
+            { id: 'silver', symbol: 'SI=F', name: 'SILVER', icon: '🥈' },
+            { id: 'usd', symbol: 'INR=X', name: 'USD / INR', icon: '💵' },
+            { id: 'eur', symbol: 'EURINR=X', name: 'EUR / INR', icon: '💶' }
+        ];
 
-      document.getElementById('ch-prev').innerText = choghadiyas[prevIdx].name;
-      document.getElementById('ch-prev').style.color = choghadiyas[prevIdx].color;
-      
-      document.getElementById('ch-live').innerText = choghadiyas[idx].name;
-      document.getElementById('ch-live').style.color = choghadiyas[idx].color;
-      
-      document.getElementById('ch-next').innerText = choghadiyas[nextIdx].name;
-      document.getElementById('ch-next').style.color = choghadiyas[nextIdx].color;
+        const container = document.getElementById('marketGrid');
+        
+        try {
+            // Using allorigins.win to bypass CORS for client-side API requests
+            const promises = assets.map(async asset => {
+                const url = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${asset.symbol}?interval=1d&range=2d`)}`;
+                const res = await fetch(url);
+                const rawJson = await res.json();
+                const data = JSON.parse(rawJson.contents);
+                const meta = data.chart.result[0].meta;
+                return { ...asset, livePrice: meta.regularMarketPrice, prevClose: meta.chartPreviousClose };
+            });
+
+            const results = await Promise.all(promises);
+            container.innerHTML = '';
+            let tickerHtml = '';
+
+            results.forEach(asset => {
+                const change = asset.livePrice - asset.prevClose;
+                const pct = (change / asset.prevClose) * 100;
+                
+                const isUp = change >= 0;
+                const pillClass = isUp ? 'pill-up' : 'pill-down';
+                const arrow = isUp ? '▲' : '▼';
+                const sign = isUp ? '+' : '';
+
+                // Generate Market Card
+                container.innerHTML += `
+                    <div class="m-card">
+                        <div class="m-bg-pattern">${asset.icon}</div>
+                        <div class="m-header"><span class="m-name">${asset.name}</span> <span class="m-prev">Prev: ${asset.prevClose.toLocaleString('en-IN', {maximumFractionDigits:2})}</span></div>
+                        <div class="m-live" style="color: ${isUp ? 'var(--neon-emerald)' : 'var(--neon-ruby)'}">${asset.livePrice.toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2})}</div>
+                        <div class="m-change ${pillClass}">${arrow} ${sign}${change.toLocaleString('en-IN', {maximumFractionDigits:2})} (${sign}${pct.toFixed(2)}%)</div>
+                    </div>
+                `;
+
+                // Add data to the global top ticker
+                const tickClass = isUp ? 'tick-up' : 'tick-down';
+                tickerHtml += `<div class="tick-item">${asset.name} <span class="${tickClass}">${arrow} ${asset.livePrice.toLocaleString('en-IN', {maximumFractionDigits:2})} (${sign}${pct.toFixed(2)}%)</span></div>`;
+            });
+
+            // Replicate for seamless infinite marquee scroll
+            document.getElementById('global-ticker').innerHTML = tickerHtml + tickerHtml + tickerHtml + tickerHtml + tickerHtml;
+
+        } catch(e) {
+            console.error("Failed to fetch market data:", e);
+            container.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--neon-ruby);padding:20px;">Market API Connection Blocked. Will retry in 60s.</div>`;
+        }
     }
-    setInterval(updateChoghadiya, 60000); updateChoghadiya();
+    fetchLiveMarketData();
+    setInterval(fetchLiveMarketData, 60000); // Live sync every 60 seconds
 
-    // --- WEATHER API (Current + 3 Day + Sunrise/Sunset) ---
+    // --- WEATHER API (Corrected Open-Meteo logic with full textures) ---
     const weatherEmojis = {
         0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️',
         51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️',
@@ -592,27 +552,33 @@
         const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode,windspeed_10m_max,precipitation_probability_max,sunrise,sunset&timezone=Asia%2FKolkata');
         const data = await res.json();
         
-        // Update Local Command Weather
         const curr = data.current_weather;
         document.getElementById('weather-temp').innerText = `${Math.round(curr.temperature)}°C`;
         document.getElementById('weather-icon').innerText = weatherEmojis[curr.weathercode] || '☀️';
         document.getElementById('weather-desc').innerText = curr.weathercode <= 3 ? "Clear Sky" : "Overcast";
 
-        // Update Sunrise & Sunset in Panchang Box
         document.getElementById('api-sunrise').innerText = formatApiTime(data.daily.sunrise[0]);
         document.getElementById('api-sunset').innerText = formatApiTime(data.daily.sunset[0]);
 
-        // Update 3-Day Forecast Array
         const container = document.getElementById('forecast-row');
         container.innerHTML = '';
+        
         for(let i=0; i<3; i++) {
-            const dateObj = new Date(data.daily.time[i]);
+            // Safely parse date
+            const [y, m, d] = data.daily.time[i].split('-');
+            const dateObj = new Date(y, m - 1, d);
+            
             const dayName = i === 0 ? 'TODAY' : dateObj.toLocaleDateString('en-US', {weekday: 'short'}).toUpperCase();
             const icon = weatherEmojis[data.daily.weathercode[i]] || '⛅';
             const max = Math.round(data.daily.temperature_2m_max[i]);
             const min = Math.round(data.daily.temperature_2m_min[i]);
             const wind = Math.round(data.daily.windspeed_10m_max[i]);
-            const rain = data.daily.precipitation_probability_max[i] || 0;
+            
+            // Safely handle precipitation array just in case it is omitted
+            let rain = 0;
+            if(data.daily.precipitation_probability_max && data.daily.precipitation_probability_max[i] != null) {
+                rain = data.daily.precipitation_probability_max[i];
+            }
             
             container.innerHTML += `
               <div class="fc-day">
@@ -629,11 +595,13 @@
               </div>
             `;
         }
-      } catch(e) { }
+      } catch(e) { 
+        document.getElementById('forecast-row').innerHTML = '<div style="color:var(--neon-ruby); text-align:center; width:100%; padding: 20px;">Meteorological API Error</div>';
+      }
     }
     fetchWeatherAll();
 
-    // --- SPLIT NEWS STREAM (Exact Date/Time Formatting) ---
+    // --- SPLIT NEWS STREAM ---
     function formatNewsDate(isoString) {
         const d = new Date(isoString);
         const day = String(d.getDate()).padStart(2,'0');
@@ -669,8 +637,8 @@
             });
           }
         };
-        renderNews(indData, 'india-feed', '#f97316'); // Orange
-        renderNews(cricData, 'cricket-feed', '#0ea5e9'); // Blue
+        renderNews(indData, 'india-feed', '#f97316'); 
+        renderNews(cricData, 'cricket-feed', '#0ea5e9'); 
       } catch (err) { }
     }
     fetchSplitNews();
@@ -726,7 +694,7 @@
         ready: function () {
           const containerData = cropper.getContainerData();
           const cropBoxData = cropper.getCropBoxData();
-          cropBoxData.left = containerData.width * 0.1;
+          cropBoxData.left = containerData.width * 0.30;
           cropper.setCropBoxData(cropBoxData);
         }
       });
