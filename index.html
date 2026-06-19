@@ -503,7 +503,7 @@
 
     // --- GLOBAL CLOCKS & HORIZON BARS ---
     function formatTime12(date, zone) {
-        let parts = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: true }).formatToParts(date);
+        let parts = new Intl.DateTimeFormat('en-IN', { timeZone: zone, hour: '2-digit', minute: '2-digit', hour12: true }).formatToParts(date);
         let h = parts.find(p => p.type === 'hour').value;
         let m = parts.find(p => p.type === 'minute').value;
         let ampm = parts.find(p => p.type === 'dayPeriod').value;
