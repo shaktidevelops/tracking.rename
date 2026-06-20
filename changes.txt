@@ -2,4 +2,4 @@
 2. currencies strong and weak still not solved. what is your problem. you say I will keep this and solve but no result coming.
 3. add a div for the previous Diwali also so can see the difference.
 4. maadarchod kuchha to sahi kar, gemini ki limit bhi reset nahi ho rahi hai subscription lene ke baad ke bhi, bhosdike.
-every marquee different data have different color or back color and have emoji or element related to the event.
+every marquee different data have different color or back color and have emoji or element related to the even backcolor or texture should be related to the event.t.
