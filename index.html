@@ -66,7 +66,6 @@
     .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; width: 60px; height: 100%; z-index: 2; pointer-events: none;}
     .ticker-wrap::before { left: 0; background: linear-gradient(90deg, rgba(0,0,0,1), transparent); }
     .ticker-wrap::after { right: 0; background: linear-gradient(-90deg, rgba(0,0,0,1), transparent); }
-    /* Speed drastically reduced for 20 currencies */
     .ticker-track { display: flex; gap: 60px; width: max-content; animation: scrollTicker 150s linear infinite; font-size: 7.5pt; font-weight: 800; font-family: monospace; align-items: center; height: 100%;}
     .ticker-item { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;}
     .ticker-item .val { color: var(--neon-emerald); font-weight: 900;}
@@ -78,7 +77,6 @@
     #setupScreen { 
       flex-grow: 1; display: grid; gap: 12px; width: 100%; min-height: 0;
       grid-template-columns: 320px 1.2fr 1.6fr; 
-      /* INCREASED ROW 1 HEIGHT TO 320px FOR MORE VISIBILITY */
       grid-template-rows: 320px minmax(0, 1fr) 85px;
     }
     
@@ -87,7 +85,7 @@
     
     .tool-header { font-size: 8pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
 
-    /* 1. LOCAL SURAT (BEAUTIFUL FORMATTING) */
+    /* 1. LOCAL SURAT */
     .bento-local { grid-column: 1 / 2; grid-row: 1 / 2; background: rgba(10, 15, 30, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-color: rgba(14,165,233,0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 2px 20px rgba(14, 165, 233, 0.15);}
     .bento-local::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(circle at center, rgba(14,165,233,0.1) 0, transparent 60%), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 100% 100%, 25px 25px, 25px 25px; }
     .local-content { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding-top: 5px; }
@@ -102,8 +100,6 @@
     .weather-local-box { display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden; margin-top: auto;}
     
     .wl-top { display: flex; align-items: center; gap: 12px; padding-bottom: 6px;}
-    
-    /* Beautiful Local Command Grid Update */
     .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
     .wl-metric { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.6); transition: 0.3s;}
     .wl-metric:hover { border-color: rgba(56,189,248,0.4); background: rgba(0,0,0,0.7); transform: translateY(-1px);}
@@ -125,7 +121,7 @@
     .wc-dot { position: absolute; top: -3px; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff, 0 0 20px var(--neon-blue); transform: translateX(-50%); transition: left 1s ease-out; z-index: 2;}
     .wc-dot::after { content:''; position: absolute; width: 2px; height: 15px; background: rgba(255,255,255,0.5); left: 4px; top: -15px; pointer-events: none; }
 
-    /* 3. PREMIUM PANCHANG (TOP OF MIDDLE COLUMN) */
+    /* 3. PREMIUM PANCHANG */
     .bento-panchang { grid-column: 2 / 3; grid-row: 1 / 2; background-color: rgba(0,0,0,0.7); border-color: rgba(167, 139, 250, 0.3); overflow: hidden;}
     .bento-panchang::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 20px 20px;}
     .bento-panchang .tool-header { color: var(--neon-purple); border-bottom-color: rgba(167, 139, 250, 0.2); margin-bottom: 6px;}
@@ -162,7 +158,7 @@
 
     .next-vrat { text-align: center; font-size: 6.5pt; font-weight: 900; color: var(--neon-purple); letter-spacing: 1px; text-transform: uppercase; background: rgba(167, 139, 250, 0.1); border: 1px dashed rgba(167, 139, 250, 0.4); padding: 4px; border-radius: 4px; margin-top: auto;}
 
-    /* 4. 7-DAY ATMOSPHERIC ARRAY (DYNAMIC COLORING) */
+    /* 4. 7-DAY ATMOSPHERIC ARRAY */
     .bento-weather { grid-column: 2 / 3; grid-row: 2 / 3; display: flex; flex-direction: column; min-height: 0; background-color: rgba(0,0,0,0.8); border-color: rgba(56, 189, 248, 0.2);}
     .bento-weather::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: repeating-radial-gradient(circle at 0 0, transparent 0, rgba(255,255,255,0.03) 10px, transparent 11px, transparent 20px); }
     .bento-weather .tool-header { color: var(--neon-blue); border-bottom-color: rgba(56,189,248,0.2); margin-bottom: 4px;}
@@ -179,7 +175,7 @@
     .ft-icon { font-size: 11pt; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));}
     .ft-temp { display: flex; gap: 4px; justify-content: center; font-size: 8.5pt;}
 
-    /* 5. MOUNT BUTTON (HARDWARE SWITCH REDESIGN) */
+    /* 5. MOUNT BUTTON */
     .bento-mount { grid-column: 2 / 3; grid-row: 3 / 4; cursor: pointer; background: #0f172a; border: 2px solid #334155; padding: 10px; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; transition: all 0.1s; border-radius: 16px; box-shadow: 0 8px 0 #020617, 0 15px 20px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; z-index: 1;}
     .bento-mount::before { content: ''; position: absolute; width: 150%; height: 150%; background: conic-gradient(from 0deg, transparent, var(--neon-emerald), transparent 30%); top: -25%; left: -25%; animation: rotateGlow 4s linear infinite; z-index: -1; opacity: 0.5;}
     .bento-mount::after { content: ''; position: absolute; inset: 2px; background: #0f172a; border-radius: 14px; z-index: -1; box-shadow: inset 0 5px 20px rgba(0,0,0,0.5); }
@@ -194,7 +190,7 @@
     .m-sub { font-size: 7.5pt; font-weight: 800; color: var(--neon-emerald); letter-spacing: 2px; }
     @keyframes pulseLight { 0%, 100% { filter: drop-shadow(0 0 5px var(--neon-emerald)); } 50% { filter: drop-shadow(0 0 20px var(--neon-emerald)); } }
 
-    /* 6. VERTICAL NEWS (2x2 GRID IN RIGHT COLUMN) */
+    /* 6. VERTICAL NEWS */
     .news-wrapper { grid-column: 3 / 4; grid-row: 1 / 4; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; min-height: 0; }
     .bento-news { flex: 1; min-height: 0; border-color: rgba(255,255,255,0.08); background: rgba(0,0,0,0.6);}
     .bento-news::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(rgba(255,255,255,0.06) 1.5px, transparent 1.5px); background-size: 16px 16px;}
@@ -230,10 +226,8 @@
     @keyframes progressGlow { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
     .progress-text { font-size: 14pt; font-weight: 900; background: linear-gradient(135deg, #fff, var(--text-muted)); -webkit-background-clip: text; color: transparent; line-height: 1; margin: 0; letter-spacing: 1px;}
 
-    /* UNDO BUTTON ALIGNMENT FIX */
     .input-row { display: flex; gap: 8px; width: 100%; align-items: stretch; position: relative; height: 45px;}
     
-    /* UPPERCASE ENFORCEMENT */
     input[type="text"] { flex: 1; padding: 0 15px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.2); font-weight: 900; font-size: 14pt; color: #fff; background: rgba(0, 0, 0, 0.7); outline: none; transition: 0.3s; text-align: center; color-scheme: dark; box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.9); text-transform: uppercase; height: 100%;}
     input[type="text"]:focus { background: rgba(0, 0, 0, 0.9); border-color: var(--neon-blue); box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.4); }
 
@@ -483,7 +477,7 @@
       toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
-    // --- LIVE FOREX TICKER (20 CURRENCIES WITH SYMBOLS) ---
+    // --- LIVE FOREX TICKER ---
     async function fetchForex() {
       try {
         const res = await fetch('https://open.er-api.com/v6/latest/USD');
@@ -499,14 +493,13 @@
         let html = '';
         Object.keys(symbols).forEach(code => {
             if(rates[code] && rates.INR) {
-                // Calculate INR value for 1 unit of foreign currency
                 let inrValue = rates.INR / rates[code];
                 html += `<div class="ticker-item"><span style="color:var(--text-muted)">${code}</span> <span class="val">${symbols[code]}1 = ₹${inrValue.toFixed(2)}</span></div>`;
             }
         });
         
         const track = document.getElementById('forex-track');
-        track.innerHTML = html + html + html; // Duplicated for seamless slow scrolling
+        track.innerHTML = html + html + html; 
       } catch(e) { console.error("Forex fetch error:", e); }
     }
     fetchForex();
@@ -567,10 +560,11 @@
 
     let globalSunrise = null; let globalSunset = null;
 
-    // --- TRUE LIVE PANCHANG & ASTROLOGY CALCULATOR ---
+    // --- TRUE LIVE PANCHANG & ASTROLOGY (VEDIC SIDEREAL FIX) ---
     function updatePanchangCore() {
       const now = new Date();
       
+      // Calculate Tropical Astronomical Longitudes
       const JD = now.getTime() / 86400000 + 2440587.5;
       const d = JD - 2451545.0;
       const rad = Math.PI / 180;
@@ -587,19 +581,30 @@
       let moonLong = (L_moon + 6.289 * Math.sin(M_moon * rad) - 1.274 * Math.sin((M_moon - 2*D_moon) * rad) + 0.658 * Math.sin(2*D_moon * rad)) % 360;
       if (moonLong < 0) moonLong += 360;
       
-      let tithiLong = moonLong - sunLong;
+      // APPLY LAHIRI AYANAMSA (Precession of Equinoxes) FOR VEDIC NIRAYANA CALCULATION
+      const currentYear = now.getFullYear() + (now.getMonth() / 12);
+      const ayanamsa = 24.1 + (currentYear - 2000) * 0.01396;
+      
+      let vedicSun = sunLong - ayanamsa;
+      if (vedicSun < 0) vedicSun += 360;
+      
+      let vedicMoon = moonLong - ayanamsa;
+      if (vedicMoon < 0) vedicMoon += 360;
+
+      // Distance between Sun and Moon defines Tithi
+      let tithiLong = vedicMoon - vedicSun;
       if (tithiLong < 0) tithiLong += 360;
       
       const tithiIndex = Math.floor(tithiLong / 12); 
-      const nakshatraIndex = Math.floor(moonLong / (360/27)); 
-      const rashiIndex = Math.floor(moonLong / 30); 
+      const nakshatraIndex = Math.floor(vedicMoon / (360/27)); 
+      const rashiIndex = Math.floor(vedicMoon / 30); 
       
       const rashis = ["MESHA", "VRISHABHA", "MITHUNA", "KARKA", "SIMHA", "KANYA", "TULA", "VRISHCHIKA", "DHANU", "MAKARA", "KUMBHA", "MEENA"];
       const nakshatras = ["ASHVINI", "BHARANI", "KRITTIKA", "ROHINI", "MRIGASHIRSHA", "ARDRA", "PUNARVASU", "PUSHYA", "ASHLESHA", "MAGHA", "PURVA PHALGUNI", "UTTARA PHALGUNI", "HASTA", "CHITRA", "SVATI", "VISHAKHA", "ANURADHA", "JYESHTHA", "MULA", "PURVA ASHADHA", "UTTARA ASHADHA", "SHRAVANA", "DHANISHTHA", "SHATABHISHA", "PURVA BHADRAPADA", "UTTARA BHADRAPADA", "REVATI"];
       const tithisGu = ["સુદ એકમ", "સુદ બીજ", "સુદ ત્રીજ", "સુદ ચોથ", "સુદ પાંચમ", "સુદ છઠ", "સુદ સાતમ", "સુદ આઠમ", "સુદ નોમ", "સુદ દશમ", "સુદ એકાદશી", "સુદ બારસ", "સુદ તેરસ", "સુદ ચૌદશ", "પૂનમ", "વદ એકમ", "વદ બીજ", "વદ ત્રીજ", "વદ ચોથ", "વદ પાંચમ", "વદ છઠ", "વદ સાતમ", "વદ આઠમ", "વદ નોમ", "વદ દશમ", "વદ એકાદશી", "વદ બારસ", "વદ તેરસ", "વદ ચૌદશ", "અમાસ"];
 
       const gujMonths = ["વૈશાખ", "જેઠ", "અષાઢ", "શ્રાવણ", "ભાદરવો", "આસો", "કારતક", "માગશર", "પોષ", "મહા", "ફાગણ", "ચૈત્ર"];
-      const monthIndex = Math.floor(sunLong / 30);
+      const monthIndex = Math.floor(vedicSun / 30);
       const currentGujMonth = gujMonths[monthIndex];
 
       const vsYear = now.getMonth() >= 10 ? now.getFullYear() + 57 : now.getFullYear() + 56;
@@ -642,7 +647,7 @@
       
       percent = Math.max(0, Math.min(1, percent));
       
-      // Calculate position on arc (using sine wave for smooth height)
+      // Calculate position on arc
       body.style.left = `${percent * 100}%`;
       const archHeight = Math.sin(percent * Math.PI) * 100;
       body.style.top = `${100 - archHeight}%`;
@@ -730,7 +735,6 @@
 
     function formatApiTime(isoString) { return new Date(isoString).toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit', hour12:true}); }
     
-    // Logic for Color Formatting
     const getColorHigh = (t) => t >= 35 ? '#ef4444' : t >= 30 ? '#f97316' : '#f59e0b';
     const getColorLow = (t) => t <= 20 ? '#0ea5e9' : t <= 25 ? '#38bdf8' : '#cbd5e1';
     const getColorRain = (r) => r > 50 ? '#0ea5e9' : r > 20 ? '#38bdf8' : 'rgba(255,255,255,0.4)';
@@ -777,7 +781,6 @@
             const rain = data.daily.precipitation_probability_max[i] || 0;
             const wind = Math.round(data.current.wind_speed_10m); 
             
-            // Apply Dynamic Color Logic
             const highColor = getColorHigh(max);
             const lowColor = getColorLow(min);
             const rainColor = getColorRain(rain);
