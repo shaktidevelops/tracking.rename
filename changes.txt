@@ -1,10 +1,4 @@
-No code generation. Clear first all points.
-
-1. Next Diwali live countdown and live fire-crackers. Give me options for live countdowns & fire crackers and make that potion look like a grand festival.
-2. Next single or 2-3 Indian public holiday indicator (should have symbol related to that holiday.) possible with date (short week day, dd-MM)?
-3. Stronger and weaker currencies are still not different. I can't judge them, you have not updated that logic?
-4. make moon a bit bigger and adjust all details accordingly except set-rise portion.
-5. reduce atmospheric row height just by 5%.
-6. give top padding a little bit to temperature, it's mixing with date. and reduce 5% height of that 4 details boxes (humidity, etc.).
-7. After rotation image upper side shows and lower side out side crop not visible. is possible to drop image upside and asjut into crop area? Simple funda is if rotate full image must be in image container then I will zoom in or out if required.
-8. Why can't have related background color with textures of all different blocks?
+1. remove 📅 UPCOMING HOLIDAYS block but keep that Indian holiday list.
+2. currencies strong and weak still not solved. what is your problem. you say I will keep this and solve but no result coming.
+3. add a div for the previous Diwali also so can see the difference.
+4. maadarchod kuchha to sahi kar, gemini ki limit bhi reset nahi ho rahi hai subscription lene ke baad ke bhi, bhosdike.
