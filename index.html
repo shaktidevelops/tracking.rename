@@ -11,7 +11,7 @@
   <style>
     :root { 
       --text-main: #ffffff; --text-muted: #cbd5e1;
-      --glass-panel: rgba(10, 15, 30, 0.85); --glass-card: rgba(15, 23, 42, 0.6); 
+      --glass-panel: rgba(10, 15, 30, 0.85); --glass-card: rgba(15, 23, 42, 0.7); 
       --neon-emerald: #10b981; --neon-ruby: #f43f5e; --neon-blue: #0ea5e9; --neon-gold: #f59e0b; --neon-purple: #a855f7; --neon-cyan: #06b6d4;
       --btn-blue: linear-gradient(135deg, #0ea5e9, #2563eb);
       --btn-green: linear-gradient(135deg, #10b981, #059669);
@@ -20,63 +20,85 @@
     
     * { box-sizing: border-box; font-family: 'Nunito', sans-serif; }
     
+    /* MAIN BODY WITH VISIBLE HEXAGON TEXTURE */
     body { margin: 0; padding: 10px; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: var(--text-main); overflow: hidden; background-color: #020617; }
+    body::before { content: ''; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.15; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg width='40' height='69.28203230275509' viewBox='0 0 40 69.28203230275509' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338bdf8' fill-opacity='1'%3E%3Cpath d='M40 17.3205081l-10 5.7735027V34.6410162l10 5.7735027V17.3205081zm-20 34.6410162l-10-5.7735027V34.6410162l10-5.7735027v11.5470054zm10-5.7735027l-10 5.7735027-10-5.7735027v-11.5470054l10-5.7735027 10 5.7735027v11.5470054zM20 51.9615242l10 5.7735027V69.2820323l-10-5.7735027v-11.5470054zm0-69.2820323l10 5.7735027V0L20-5.7735027v11.5470054zM0 17.3205081l10 5.7735027V34.6410162L0 28.8675135V17.3205081zM0 51.9615242l10 5.7735027V69.2820323L0 63.5085296V51.9615242z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
 
     .bg-orbs { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -2; filter: blur(100px); }
     .orb { position: absolute; border-radius: 50%; opacity: 0.65; animation: rotateOrb 30s infinite linear; }
     .orb-1 { width: 55vw; height: 55vw; background: #4c1d95; top: -15vh; left: -5vw; } 
     .orb-2 { width: 45vw; height: 45vw; background: #be123c; bottom: -10vh; right: -5vw; animation-direction: reverse; animation-duration: 35s; } 
     .orb-3 { width: 40vw; height: 40vw; background: #047857; top: 20vh; left: 20vw; animation-direction: normal; animation-duration: 40s; } 
-    .orb-4 { width: 30vw; height: 30vw; background: #0284c7; top: 40vh; right: 15vw; animation-duration: 25s; } 
     @keyframes rotateOrb { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.15); } 100% { transform: rotate(360deg) scale(1); } }
-    .noise-overlay { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0.08; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
 
     @keyframes deckGlow { 0% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 40px rgba(56, 189, 248, 0.05), inset 0 1px 3px rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.1); } 50% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 60px rgba(139, 92, 246, 0.2), inset 0 1px 3px rgba(255,255,255,0.3); border-color: rgba(139, 92, 246, 0.3); } 100% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 40px rgba(56, 189, 248, 0.05), inset 0 1px 3px rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.1); } }
     
-    .deck { background: var(--glass-panel); width: 1580px; max-width: 99vw; height: 97vh; padding: 12px 20px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.15); border-top: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); animation: deckGlow 6s infinite alternate; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .deck { background: var(--glass-panel); width: 1580px; max-width: 99vw; height: 97vh; padding: 12px 20px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.2); border-top: 1px solid rgba(255,255,255,0.5); backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); animation: deckGlow 6s infinite alternate; display: flex; flex-direction: column; position: relative; overflow: hidden; }
 
-    /* HEADER & LIVE DIWALI TIMER */
-    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-shrink: 0;}
-    .title-area { display: flex; align-items: center; gap: 15px; }
-    .title-area h1 { font-weight: 900; text-transform: uppercase; margin: 0; font-size: 22pt; letter-spacing: 1px; background: linear-gradient(135deg, #ffffff, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(56, 189, 248, 0.4)); display: flex; align-items: center; gap: 8px;}
+    /* HEADER & ORIGINAL ANIMATED BRANDING */
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-shrink: 0;}
+    .title-area { display: flex; align-items: center; gap: 20px; }
     
-    .diwali-pill { border: 1px solid var(--neon-gold); background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(220, 38, 38, 0.3)); box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); padding: 8px 18px; border-radius: 8px; font-weight: 900; color: #fff; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; position: relative; overflow: hidden; }
-    .diwali-pill .d-date { color: var(--neon-gold); font-size: 7.5pt; text-transform: uppercase; border-right: 1px solid rgba(255,255,255,0.2); padding-right: 10px; margin-right: 2px;}
-    .diwali-pill .d-time { font-family: monospace; font-size: 11pt; letter-spacing: 2px; filter: drop-shadow(0 0 5px var(--neon-gold));}
-    .diwali-pill::before, .diwali-pill::after { content: '✨'; position: absolute; font-size: 14px; filter: drop-shadow(0 0 5px var(--neon-gold)); animation: firecracker 1.2s infinite alternate ease-in-out; opacity: 0; }
-    .diwali-pill::before { left: 4px; top: -4px; animation-delay: 0s; } .diwali-pill::after { right: 4px; bottom: -4px; animation-delay: 0.6s; }
+    .brand-badge { 
+      background: linear-gradient(270deg, #8b5cf6, #0ea5e9, #10b981, #f59e0b, #8b5cf6); 
+      background-size: 300% 300%; animation: brandGradient 6s ease infinite;
+      padding: 6px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.5); 
+      color: #fff; font-size: 11pt; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4), inset 0 2px 4px rgba(255,255,255,0.4); 
+      display: inline-flex; align-items: center; gap: 6px; text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+    @keyframes brandGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+    .title-area h1 { font-weight: 900; text-transform: uppercase; margin: 0; font-size: 20pt; letter-spacing: 1px; background: linear-gradient(135deg, #ffffff, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(56, 189, 248, 0.4)); display: flex; align-items: center; gap: 8px;}
+    
+    /* DUAL DIWALI DASHBOARD (Both now highly beautiful) */
+    .diwali-hub { display: flex; gap: 15px; align-items: stretch; }
+    .diwali-pill { padding: 6px 16px; border-radius: 8px; font-weight: 900; display: flex; align-items: center; gap: 12px; position: relative; overflow: hidden; border: 1px solid;}
+    
+    .prev-pill { background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(217, 70, 239, 0.3)); border-color: #d946ef; box-shadow: 0 0 20px rgba(217, 70, 239, 0.4), inset 0 2px 10px rgba(255,255,255,0.2); }
+    .prev-pill .d-label { font-size: 5.5pt; color: #fbcfe8; letter-spacing: 1px; }
+    .prev-pill .d-val { font-size: 11pt; color: #fff; font-family: monospace; letter-spacing: 1px; filter: drop-shadow(0 0 5px #d946ef);}
+    
+    .next-pill { background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(220, 38, 38, 0.3)); border-color: var(--neon-gold); box-shadow: 0 0 20px rgba(245, 158, 11, 0.5), inset 0 2px 10px rgba(255,255,255,0.2); }
+    .next-pill .d-label { font-size: 5.5pt; color: var(--neon-gold); letter-spacing: 1px; }
+    .next-pill .d-time { font-family: monospace; font-size: 12pt; letter-spacing: 1.5px; color: #fff; filter: drop-shadow(0 0 5px var(--neon-gold));}
+    .next-pill::before, .next-pill::after { content: '✨'; position: absolute; font-size: 14px; filter: drop-shadow(0 0 5px var(--neon-gold)); animation: firecracker 1.2s infinite alternate ease-in-out; opacity: 0; z-index: 1;}
+    .next-pill::before { left: 4px; top: -2px; animation-delay: 0s; } .next-pill::after { right: 4px; bottom: -2px; animation-delay: 0.6s; }
     @keyframes firecracker { 0% { transform: scale(0.5) translateY(5px); opacity: 0; } 50% { opacity: 1; } 100% { transform: scale(1.5) translateY(-5px); opacity: 0; } }
 
-    /* UPCOMING HOLIDAY SCROLL STRIP (10 Items) */
-    .holiday-strip-container { width: 100%; display: flex; align-items: center; gap: 10px; margin-bottom: 8px; overflow: hidden; border-radius: 6px; background: rgba(0,0,0,0.4); padding: 4px; border: 1px solid rgba(255,255,255,0.05);}
-    .holiday-label { font-size: 6.5pt; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--neon-purple); padding: 4px 10px; border-radius: 4px; background: rgba(168,85,247,0.3); white-space: nowrap; box-shadow: 0 0 10px rgba(168,85,247,0.4); z-index: 2;}
-    .holiday-track-wrap { flex: 1; overflow: hidden; position: relative; display: flex; align-items: center;}
-    .holiday-items { display: flex; gap: 20px; font-size: 7pt; font-family: monospace; font-weight: 800; color: var(--text-muted); align-items: center; white-space: nowrap; animation: scrollHoliday 40s linear infinite; padding-left: 10px;}
-    .h-item { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); padding: 3px 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); }
-    .h-item span { color: #fff; }
-    @keyframes scrollHoliday { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    /* STATIC, FULL-WIDTH TOP 5 HOLIDAY STRIP */
+    .holiday-strip-container { width: 100%; display: flex; align-items: center; margin-bottom: 8px; border-radius: 8px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 15px rgba(0,0,0,0.9); padding: 8px;}
+    .holiday-items { display: flex; justify-content: space-between; width: 100%; font-size: 7.5pt; font-family: monospace; font-weight: 800;}
+    .h-item { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 6px 12px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: 1px solid; margin: 0 6px; white-space: nowrap;}
+    .h-item span { font-weight: 900; letter-spacing: 0.5px;}
 
-    /* WIDER FOREX TICKER (Universal Format: 1 USD = ₹83.50) */
-    .ticker-wrap { width: 100%; height: 38px; background: rgba(0,0,0,0.9); border-radius: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden; margin-bottom: 12px; display: flex; align-items: center; box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; flex-shrink: 0; }
-    .ticker-track { display: flex; gap: 15px; width: max-content; animation: scrollTicker 180s linear infinite; font-size: 8.5pt; font-family: monospace; align-items: center; height: 100%; padding-right: 15px;}
-    .ticker-item { display: inline-flex; align-items: center; gap: 10px; padding: 6px 20px; border-radius: 20px; font-weight: 900; letter-spacing: 1px; color: #fff; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); white-space: nowrap;}
-    .ticker-flag { width: 22px; height: 16px; border-radius: 2px; box-shadow: 0 0 5px rgba(0,0,0,0.8); object-fit: cover;}
-    .ticker-item span { color: var(--neon-gold); }
-    @keyframes scrollTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    /* STATIC, FULL-WIDTH TOP 5 CURRENCY STRIP */
+    .ticker-wrap { width: 100%; display: flex; align-items: center; margin-bottom: 12px; background: rgba(0,0,0,0.7); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 15px rgba(0,0,0,0.9); padding: 8px;}
+    .ticker-track { display: flex; justify-content: space-between; width: 100%; }
+    .ticker-item { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 8px; border-radius: 8px; font-weight: 900; letter-spacing: 1px; white-space: nowrap; box-shadow: 0 4px 10px rgba(0,0,0,0.5); margin: 0 6px; font-size: 9pt; font-family: monospace;}
+    .ticker-flag { width: 24px; height: 18px; border-radius: 2px; box-shadow: 0 0 5px rgba(0,0,0,0.8); object-fit: cover;}
+    
+    .curr-strong { background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(0,0,0,0.5)); border: 1px solid #10b981; }
+    .curr-strong span.val { color: #10b981; }
+    .curr-strong .arrow { color: #10b981; text-shadow: 0 0 8px #10b981; }
+    
+    .curr-weak { background: linear-gradient(135deg, rgba(244, 63, 94, 0.25), rgba(0,0,0,0.5)); border: 1px solid #f43f5e; }
+    .curr-weak span.val { color: #fb7185; }
+    .curr-weak .arrow { color: #fb7185; text-shadow: 0 0 8px #f43f5e; }
+    .base-cur { color: #fff; }
 
     /* DASHBOARD GRID */
-    .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(0,0,0,0.4); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 12px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.8); position: relative; overflow: hidden; width: 100%; min-height: 0;}
-    #setupScreen { flex-grow: 1; display: grid; gap: 12px; width: 100%; min-height: 0; grid-template-columns: 320px 1.2fr 1.6fr; grid-template-rows: 320px minmax(0, 1fr) 85px; }
+    .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(0,0,0,0.5); border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); padding: 12px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.8); position: relative; overflow: hidden; width: 100%; min-height: 0;}
+    #setupScreen { flex-grow: 1; display: grid; gap: 12px; width: 100%; min-height: 0; grid-template-columns: 320px 1.2fr 1.6fr; grid-template-rows: 320px minmax(0, 1fr) 95px; }
     
-    /* DISTINCT BACKGROUNDS FOR EVERY BENTO BOX */
-    .bento-item { background: var(--glass-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); padding: 14px; display: flex; flex-direction: column; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,255,0.05); position: relative; overflow: hidden; min-height: 0;}
+    /* BENTO BOX BASE */
+    .bento-item { border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); padding: 14px; display: flex; flex-direction: column; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255,255,255,0.1); position: relative; overflow: hidden; min-height: 0;}
     .bento-item > * { position: relative; z-index: 2; }
-    
-    /* SEPARATED HEADER STYLING */
-    .tool-header { font-size: 7.5pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin: -6px -6px 12px -6px; padding: 10px 14px; background: rgba(0,0,0,0.7); border-radius: 8px; border-bottom: 2px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
+    .tool-header { font-size: 7.5pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin: -6px -6px 12px -6px; padding: 10px 14px; background: rgba(0,0,0,0.8); border-radius: 8px; border-bottom: 2px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5); backdrop-filter: blur(10px);}
 
-    /* 1. LOCAL SURAT (Deep Slate & Blue Radial) */
-    .bento-local { grid-column: 1 / 2; grid-row: 1 / 2; border-color: rgba(14,165,233,0.4); background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.25), rgba(2, 6, 23, 0.95)); box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 2px 20px rgba(14, 165, 233, 0.15);}
+    /* 1. LOCAL SURAT (Highly visible Radar Texture) */
+    .bento-local { grid-column: 1 / 2; grid-row: 1 / 2; border-color: rgba(14,165,233,0.5); background: linear-gradient(135deg, rgba(2, 6, 23, 0.95), rgba(14, 165, 233, 0.2)); box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 2px 20px rgba(14, 165, 233, 0.2);}
+    .bento-local::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.3; background-image: radial-gradient(rgba(14, 165, 233, 0.4) 1px, transparent 1px); background-size: 20px 20px; }
     .bento-local .tool-header { border-bottom-color: var(--neon-blue); color: var(--neon-blue); }
     .local-content { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
     .tod-badge { font-size: 6.5pt; padding: 3px 10px; border-radius: 6px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; display: inline-flex; align-items: center; box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 0 10px rgba(0,0,0,0.5); margin-bottom: 8px; color:#fff;}
@@ -86,98 +108,101 @@
     .weather-local-box { display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden; margin-top: auto;}
     .wl-top { display: flex; align-items: center; gap: 12px; padding-bottom: 6px; margin-top: 15px;}
     .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; }
-    .wl-metric { background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); padding: 6px 10px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.6); transition: 0.3s;}
+    .wl-metric { background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.1); padding: 6px 10px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); transition: 0.3s;}
     .wl-metric-title { font-size: 6pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; margin-bottom: 1px;}
     .wl-metric-val { font-size: 9.5pt; color: #fff; font-family: monospace; font-weight: 900; }
 
-    /* 2. GLOBAL NODES (Beautiful World Map Background & Glass Cards) */
-    .bento-clocks { grid-column: 1 / 2; grid-row: 2 / 4; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(0, 0, 0, 0.95)); border-color: rgba(167, 139, 250, 0.4); }
+    /* 2. GLOBAL NODES (Highly Visible Dotted Map) */
+    .bento-clocks { grid-column: 1 / 2; grid-row: 2 / 4; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(0, 0, 0, 0.98)); border-color: rgba(167, 139, 250, 0.5); }
     .bento-clocks .tool-header { border-bottom-color: var(--neon-purple); color: var(--neon-purple); }
-    .bento-clocks::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.15; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .bento-clocks::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.3; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a855f7' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
     .wc-list { display: flex; flex-direction: column; gap: 8px; overflow-y: auto; padding-right: 5px; flex: 1; min-height: 0; }
     .wc-list::-webkit-scrollbar { width: 0; }
-    .wc-card { background: rgba(255,255,255,0.05); padding: 8px 12px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 10px rgba(255,255,255,0.05), 0 4px 10px rgba(0,0,0,0.5); backdrop-filter: blur(10px); flex-shrink: 0; position: relative; overflow: hidden; transition: 0.3s;}
-    .wc-card:hover { border-color: var(--neon-purple); transform: translateX(2px); background: rgba(255,255,255,0.08);}
+    .wc-card { background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(255,255,255,0.15); box-shadow: inset 0 2px 10px rgba(255,255,255,0.05), 0 4px 10px rgba(0,0,0,0.7); backdrop-filter: blur(10px); flex-shrink: 0; position: relative; overflow: hidden; transition: 0.3s;}
     .wc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
     .wc-city { font-weight: 900; font-size: 8pt; color: #fff; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 6px;}
     .wc-time { font-size: 9.5pt; font-family: monospace; font-weight: 900; color: var(--neon-blue); text-shadow: 0 0 5px rgba(14, 165, 233, 0.5);}
-    .wc-bar-container { position: relative; height: 3px; background: rgba(0,0,0,0.5); border-radius: 4px; overflow: hidden;}
+    .wc-bar-container { position: relative; height: 3px; background: rgba(0,0,0,0.6); border-radius: 4px; overflow: hidden;}
     .wc-progress { position: absolute; height: 100%; left: 0; background: linear-gradient(90deg, #38bdf8, #8b5cf6, #f43f5e); box-shadow: 0 0 10px #8b5cf6; }
     .wc-dot { position: absolute; top: -3.5px; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff, 0 0 20px var(--neon-purple); transform: translateX(-50%); transition: left 1s ease-out; z-index: 2;}
 
-    /* 3. PREMIUM PANCHANG (Deep Cosmos Texture) */
-    .bento-panchang { grid-column: 2 / 3; grid-row: 1 / 2; background: radial-gradient(circle at bottom right, rgba(167, 139, 250, 0.2), rgba(2, 6, 23, 0.95)); border-color: rgba(167, 139, 250, 0.4); overflow: hidden;}
+    /* 3. PREMIUM PANCHANG (Highly Visible Starfield Texture) */
+    .bento-panchang { grid-column: 2 / 3; grid-row: 1 / 2; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(167, 139, 250, 0.2)); border-color: rgba(167, 139, 250, 0.5); overflow: hidden;}
+    .bento-panchang::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.4; background-image: radial-gradient(white 1px, transparent 1px); background-size: 30px 30px; background-position: 0 0, 15px 15px; }
     .bento-panchang .tool-header { border-bottom-color: var(--neon-gold); color: var(--neon-gold); }
     .panchang-core { z-index: 2; position: relative; display: flex; flex-direction: column; gap: 8px; height: 100%; justify-content: space-between;}
     .moon-box { width: 60px; height: 60px; border-radius: 50%; background: #e2e8f0; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); flex-shrink: 0; box-shadow: 0 0 15px rgba(255,255,255,0.2); transition: box-shadow 1.5s ease-in-out; }
     .moon-craters { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.15); box-shadow: 14px 20px 0 3px rgba(0,0,0,0.1), 24px 10px 0 4px rgba(0,0,0,0.15); right: 8px; top: 8px; z-index: 1;}
     .panchang-info-stack { display: flex; flex-direction: column; gap: 3px; justify-content: center; flex: 1;}
-    .astro-rashi { font-size: 6.5pt; color: var(--neon-cyan); font-family: monospace; font-weight: 800; background: rgba(6,182,212,0.1); padding: 2px 6px; border-radius: 4px; display: inline-block; border: 1px solid rgba(6,182,212,0.2); width: max-content;}
-    .sky-arch-container { position: relative; height: 65px; margin: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); overflow: hidden;}
+    .astro-rashi { font-size: 6.5pt; color: var(--neon-cyan); font-family: monospace; font-weight: 800; background: rgba(6,182,212,0.15); padding: 2px 6px; border-radius: 4px; display: inline-block; border: 1px solid rgba(6,182,212,0.3); width: max-content;}
+    .sky-arch-container { position: relative; height: 65px; margin: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.2); overflow: hidden;}
     .sky-arch-path { position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
     .astro-body { position: absolute; width: 14px; height: 14px; border-radius: 50%; top: 100%; left: 0%; transform: translate(-50%, -50%); transition: all 1s ease-out; z-index: 5;}
     .arch-label { position: absolute; bottom: 2px; font-size: 6pt; color: var(--text-muted); font-weight: 800; display: flex; align-items: center; gap: 4px;}
     .arch-label.left { left: 0; } .arch-label.right { right: 0; }
     .arch-label span { color: #fff; font-family: monospace; font-size: 7pt;}
-    .kaal-trackers { display: flex; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.6); padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .kaal-trackers { display: flex; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.7); padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
     .kaal-row { display: flex; align-items: center; gap: 8px; }
     .kaal-lbl { font-size: 6.5pt; font-weight: 900; color: var(--text-muted); width: 35px; }
-    .kaal-bar-bg { flex: 1; height: 5px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative; overflow: hidden; }
+    .kaal-bar-bg { flex: 1; height: 5px; background: rgba(255,255,255,0.2); border-radius: 4px; position: relative; overflow: hidden; }
     .kaal-segment { position: absolute; height: 100%; top: 0; border-radius: 4px; transition: 0.3s;}
     .rahu-seg { background: var(--neon-ruby); box-shadow: 0 0 8px var(--neon-ruby); }
     .yama-seg { background: var(--neon-gold); box-shadow: 0 0 8px var(--neon-gold); }
     @keyframes pulseWarning { 0% { opacity: 0.5; } 50% { opacity: 1; filter: brightness(1.5); } 100% { opacity: 0.5; } }
     .pulse-alert { animation: pulseWarning 1.5s infinite; }
     .choghadiya-row { display: flex; gap: 6px; width: 100%; flex-shrink: 0;}
-    .chog-box { flex: 1; padding: 4px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; border: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.5); justify-content: center;}
-    .chog-box.live { background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(14,165,233,0.2)); border-color: var(--neon-emerald); box-shadow: 0 0 10px rgba(16,185,129,0.2); z-index: 2; }
+    .chog-box { flex: 1; padding: 4px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.6); justify-content: center;}
+    .chog-box.live { background: linear-gradient(135deg, rgba(16,185,129,0.25), rgba(14,165,233,0.25)); border-color: var(--neon-emerald); box-shadow: 0 0 10px rgba(16,185,129,0.4); z-index: 2; }
     .ch-lbl { font-size: 5.5pt; font-weight: 900; color: var(--text-muted); letter-spacing: 1px; }
     .ch-val { font-size: 7.5pt; font-weight: 900; letter-spacing: 0.5px; margin-top: 1px; text-transform: uppercase;}
 
-    /* 4. 7-DAY ATMOSPHERIC ARRAY (Twilight Gradient) */
-    .bento-weather { grid-column: 2 / 3; grid-row: 2 / 3; display: flex; flex-direction: column; min-height: 0; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(249, 115, 22, 0.15)); border-color: rgba(56, 189, 248, 0.3);}
+    /* 4. 7-DAY ATMOSPHERIC ARRAY (Diagonal Lines Texture) */
+    .bento-weather { grid-column: 2 / 3; grid-row: 2 / 3; display: flex; flex-direction: column; min-height: 0; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(249, 115, 22, 0.15)); border-color: rgba(56, 189, 248, 0.4);}
+    .bento-weather::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.15; background: repeating-linear-gradient( 45deg, transparent, transparent 10px, rgba(255,255,255,0.2) 10px, rgba(255,255,255,0.2) 11px ); }
     .bento-weather .tool-header { border-bottom-color: var(--neon-cyan); color: var(--neon-cyan); }
     .forecast-table { display: flex; flex-direction: column; gap: 4px; flex: 1; min-height: 0;}
     .ft-row, .ft-header { display: grid; grid-template-columns: 2.5fr 1fr 2.5fr 2fr 1.5fr 1fr; align-items: center; text-align: center; font-size: 7.5pt;}
-    .ft-header { color: var(--neon-cyan); font-weight: 900; letter-spacing: 1px; border-bottom: 1px solid rgba(56,189,248,0.2); padding-bottom: 4px; margin-bottom: 2px; }
-    .ft-row { padding: 4px 4px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03); transition: 0.2s; font-family: monospace; font-weight: 800; background: rgba(0,0,0,0.4);}
-    .ft-row:nth-child(even) { background: rgba(0,0,0,0.6); }
+    .ft-header { color: var(--neon-cyan); font-weight: 900; letter-spacing: 1px; border-bottom: 1px solid rgba(56,189,248,0.3); padding-bottom: 4px; margin-bottom: 2px; }
+    .ft-row { padding: 4px 4px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); transition: 0.2s; font-family: monospace; font-weight: 800; background: rgba(0,0,0,0.6);}
+    .ft-row:nth-child(even) { background: rgba(0,0,0,0.8); }
     .ft-day { text-align: left; padding-left: 8px; font-family: 'Nunito', sans-serif; color: #fff; font-weight: 900; text-transform: uppercase; font-size: 7.5pt;}
     .ft-icon { font-size: 11pt; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));}
     .ft-temp { display: flex; gap: 4px; justify-content: center; font-size: 8.5pt;}
 
-    /* 5. MOUNT BUTTON */
-    .bento-mount { grid-column: 2 / 3; grid-row: 3 / 4; cursor: pointer; background: #0f172a; border: 2px solid #334155; padding: 10px; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; transition: all 0.1s; border-radius: 16px; box-shadow: 0 8px 0 #020617, 0 15px 20px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; z-index: 1;}
-    .bento-mount::before { content: ''; position: absolute; width: 150%; height: 150%; background: conic-gradient(from 0deg, transparent, var(--neon-emerald), transparent 30%); top: -25%; left: -25%; animation: rotateGlow 4s linear infinite; z-index: -1; opacity: 0.5;}
-    .bento-mount::after { content: ''; position: absolute; inset: 2px; background: #0f172a; border-radius: 14px; z-index: -1; box-shadow: inset 0 5px 20px rgba(0,0,0,0.5); }
+    /* 5. MOUNT DIRECTORY (Massive Overhaul - Super Attractive & Lively) */
+    .bento-mount { grid-column: 2 / 3; grid-row: 3 / 4; cursor: pointer; background: linear-gradient(135deg, #064e3b, #022c22); border: 2px solid #10b981; padding: 10px; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 16px; box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), inset 0 0 20px rgba(16, 185, 129, 0.2); position: relative; overflow: hidden; z-index: 1;}
+    .bento-mount::before { content: ''; position: absolute; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent, var(--neon-emerald), transparent 40%); top: -50%; left: -50%; animation: rotateGlow 3s linear infinite; z-index: -1; opacity: 0.8;}
+    .bento-mount::after { content: ''; position: absolute; inset: 3px; background: linear-gradient(135deg, #064e3b, #022c22); border-radius: 12px; z-index: -1; box-shadow: inset 0 5px 20px rgba(0,0,0,0.8); }
     @keyframes rotateGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    .bento-mount:active { transform: translateY(8px); box-shadow: 0 0 0 #020617, 0 5px 10px rgba(0,0,0,0.5), inset 0 1px 5px rgba(0,0,0,0.8); }
-    .mount-icon { font-size: 28pt; filter: drop-shadow(0 0 10px var(--neon-emerald)); animation: pulseLight 2s infinite;}
-    .mount-text { display: flex; flex-direction: column; text-align: left; }
-    .m-title { font-weight: 900; color: #fff; font-size: 13pt; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);}
-    .m-sub { font-size: 7.5pt; font-weight: 800; color: var(--neon-emerald); letter-spacing: 2px; }
+    .bento-mount:hover { transform: scale(1.02); box-shadow: 0 0 40px rgba(16, 185, 129, 0.7), inset 0 0 30px rgba(16, 185, 129, 0.5); border-color: #34d399;}
+    .bento-mount:active { transform: scale(0.98); }
+    .mount-icon { font-size: 34pt; filter: drop-shadow(0 0 15px var(--neon-emerald)); animation: pulseLight 1.5s infinite alternate;}
+    .mount-text { display: flex; flex-direction: column; text-align: left; z-index: 2;}
+    .m-title { font-weight: 900; color: #fff; font-size: 16pt; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.9);}
+    .m-sub { font-size: 8.5pt; font-weight: 900; color: #6ee7b7; letter-spacing: 3px; text-shadow: 0 0 5px rgba(16, 185, 129, 0.8);}
+    @keyframes pulseLight { 0% { filter: drop-shadow(0 0 10px var(--neon-emerald)) scale(1); } 100% { filter: drop-shadow(0 0 25px var(--neon-emerald)) scale(1.1); } }
 
-    /* 6. VERTICAL NEWS (Color Themed Gradients) */
+    /* 6. VERTICAL NEWS GRIDS */
     .news-wrapper { grid-column: 3 / 4; grid-row: 1 / 4; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; min-height: 0; }
-    .bento-news { flex: 1; min-height: 0; border: 1px solid rgba(255,255,255,0.1); }
+    .bento-news { flex: 1; min-height: 0; border: 1px solid rgba(255,255,255,0.2); }
     
-    #box-india { background: radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.2), rgba(2, 6, 23, 0.95)); border-color: rgba(249, 115, 22, 0.3); }
+    #box-india { background: radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.25), rgba(2, 6, 23, 0.95)); border-color: rgba(249, 115, 22, 0.4); }
     #box-india .tool-header { border-bottom-color: #f97316; color: #f97316; }
     
-    #box-cric { background: radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.2), rgba(2, 6, 23, 0.95)); border-color: rgba(14, 165, 233, 0.3); }
+    #box-cric { background: radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.25), rgba(2, 6, 23, 0.95)); border-color: rgba(14, 165, 233, 0.4); }
     #box-cric .tool-header { border-bottom-color: #0ea5e9; color: #0ea5e9; }
     
-    #box-world { background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.2), rgba(2, 6, 23, 0.95)); border-color: rgba(168, 85, 247, 0.3); }
+    #box-world { background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.25), rgba(2, 6, 23, 0.95)); border-color: rgba(168, 85, 247, 0.4); }
     #box-world .tool-header { border-bottom-color: #a855f7; color: #a855f7; }
     
-    #box-sports { background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.2), rgba(2, 6, 23, 0.95)); border-color: rgba(16, 185, 129, 0.3); }
+    #box-sports { background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.25), rgba(2, 6, 23, 0.95)); border-color: rgba(16, 185, 129, 0.4); }
     #box-sports .tool-header { border-bottom-color: #10b981; color: #10b981; }
 
     .news-feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px; z-index: 2; position: relative;}
     .news-feed::-webkit-scrollbar { width: 4px; }
-    .news-feed::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
-    .news-item { background: rgba(0,0,0,0.5); padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 4px; transition: 0.2s; text-decoration: none; cursor: pointer; box-shadow: inset 0 2px 5px rgba(255,255,255,0.02);}
-    .news-item:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); transform: translateX(-2px);}
+    .news-feed::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+    .news-item { background: rgba(0,0,0,0.6); padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 4px; transition: 0.2s; text-decoration: none; cursor: pointer; box-shadow: inset 0 2px 5px rgba(255,255,255,0.05);}
+    .news-item:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); transform: translateX(-2px);}
     .news-title { font-size: 7.5pt; color: var(--text-main); font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .news-meta { font-size: 6pt; font-family: monospace; font-weight: 900; color: #10b981;}
 
@@ -216,25 +241,42 @@
     
     <div class="header">
       <div class="title-area">
-        <div class="brand-badge">✨ Shakti Develops 🚀💎</div>
+        <div class="brand-badge"><span class="sparkle">✨</span> Shakti Develops 🚀💎</div>
         <h1>📦 Dispatch Command</h1>
       </div>
-      <div class="diwali-pill">
-        <span style="font-size: 12pt; z-index: 2;">🪔</span> 
-        <span class="d-date" style="z-index: 2;">08-NOV-26</span>
-        <span class="d-time" id="diwali-timer" style="z-index: 2;">--D --:--:--</span>
+      
+      <div class="diwali-hub">
+        <div class="diwali-pill prev-pill">
+          <span style="font-size: 14pt;">🔙</span> 
+          <div style="display:flex; flex-direction:column; align-items:flex-start;">
+            <span class="d-label">LAST DIWALI (20 OCT 25)</span>
+            <span class="d-val" id="prev-diwali-timer">-- DAYS AGO</span>
+          </div>
+        </div>
+        
+        <div class="diwali-pill next-pill">
+          <span style="font-size: 14pt; z-index: 2;">🪔</span> 
+          <div style="display:flex; flex-direction:column; align-items:flex-start; z-index: 2;">
+            <span class="d-label">NEXT DIWALI (08 NOV 26)</span>
+            <span class="d-time" id="next-diwali-timer">--D --:--:--</span>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="holiday-strip-container">
-       <div class="holiday-label">📅 UPCOMING HOLIDAYS</div>
-       <div class="holiday-track-wrap">
-           <div class="holiday-items" id="holiday-track"></div>
+       <div class="holiday-items" id="holiday-track">
+           <div class="h-item" style="background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(0,0,0,0.5)); border-color: #10b981; color: #fff;">🕌 <span>MUHARRAM: FRI 26-06</span></div>
+           <div class="h-item" style="background: linear-gradient(90deg, rgba(255,153,51,0.3), rgba(255,255,255,0.2), rgba(19,136,8,0.3)); border-color: rgba(255,255,255,0.5); color: #fff;">🇮🇳 <span>IND DAY: SAT 15-08</span></div>
+           <div class="h-item" style="background: linear-gradient(135deg, rgba(14,165,233,0.3), rgba(0,0,0,0.5)); border-color: #0ea5e9; color: #fff;">🌙 <span>ID-E-MILAD: WED 26-08</span></div>
+           <div class="h-item" style="background: linear-gradient(135deg, rgba(234,179,8,0.3), rgba(0,0,0,0.5)); border-color: #eab308; color: #fff;">🏺 <span>JANMASHTAMI: FRI 04-09</span></div>
+           <div class="h-item" style="background: rgba(255,255,255,0.1); border-color: #cbd5e1; color: #fff;">🕊️ <span>GANDHI JAYANTI: FRI 02-10</span></div>
        </div>
     </div>
 
     <div class="ticker-wrap">
-      <div class="ticker-track" id="forex-track"></div>
+      <div class="ticker-track" id="forex-track">
+          </div>
     </div>
 
     <div class="ops-panel">
@@ -288,7 +330,7 @@
             <span id="panchang-samvat" style="font-size: 6pt; color: #fff; background: rgba(167, 139, 250, 0.4); padding: 2px 6px; border-radius: 4px;">VIKRAM SAMVAT</span>
           </div>
           <div class="panchang-core">
-            <div style="display: flex; gap: 15px; align-items: center; background: rgba(0,0,0,0.6); padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+            <div style="display: flex; gap: 15px; align-items: center; background: rgba(0,0,0,0.6); padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
               <div id="dynamic-moon" class="moon-box"><div class="moon-craters"></div></div>
               <div class="panchang-info-stack">
                 <div style="font-size: 11pt; font-weight: 900; color: var(--neon-gold); letter-spacing: 1px; line-height: 1;"><span id="panchang-month" style="color:#fff; margin-right:4px;"></span><span id="panchang-tithi">--</span></div>
@@ -301,7 +343,7 @@
             </div>
             
             <div class="sky-arch-container">
-               <svg class="sky-arch-path" viewBox="0 0 100 65" preserveAspectRatio="none"><path d="M 0 65 Q 50 0 100 65" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="2 3"/></svg>
+               <svg class="sky-arch-path" viewBox="0 0 100 65" preserveAspectRatio="none"><path d="M 0 65 Q 50 0 100 65" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="2 3"/></svg>
                <div id="astro-body" class="astro-body"></div>
                <div class="arch-label left">🌅 <span id="api-sunrise">--:--</span></div>
                <div class="arch-label right"><span id="api-sunset">--:--</span> 🌇</div>
@@ -403,67 +445,59 @@
       toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
-    // --- LIVE DIWALI PRECISION TIMER ---
-    function updateDiwaliTimer() {
-        const diwaliDate = new Date("2026-11-08T00:00:00").getTime();
+    // --- LIVE DIWALI DUAL HUB ---
+    function updateDiwaliDualTimer() {
         const now = new Date().getTime();
-        const distance = diwaliDate - now;
-
-        if (distance < 0) {
-            document.getElementById('diwali-timer').innerText = "HAPPY DIWALI!";
-            return;
+        
+        const prevDiwaliDate = new Date("2025-10-20T00:00:00").getTime();
+        const prevDiff = now - prevDiwaliDate;
+        if(prevDiff > 0) {
+            const daysPassed = Math.floor(prevDiff / (1000 * 60 * 60 * 24));
+            document.getElementById('prev-diwali-timer').innerText = `${daysPassed} DAYS AGO`;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-        const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-        const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+        const nextDiwaliDate = new Date("2026-11-08T00:00:00").getTime();
+        const nextDiff = nextDiwaliDate - now;
 
-        document.getElementById('diwali-timer').innerText = `${days}D ${hours}:${minutes}:${seconds}`;
+        if (nextDiff < 0) {
+            document.getElementById('next-diwali-timer').innerText = "HAPPY DIWALI!";
+        } else {
+            const days = Math.floor(nextDiff / (1000 * 60 * 60 * 24));
+            const hours = String(Math.floor((nextDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            const minutes = String(Math.floor((nextDiff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            const seconds = String(Math.floor((nextDiff % (1000 * 60)) / 1000)).padStart(2, '0');
+            document.getElementById('next-diwali-timer').innerText = `${days}D ${hours}:${minutes}:${seconds}`;
+        }
     }
-    setInterval(updateDiwaliTimer, 1000); updateDiwaliTimer();
+    setInterval(updateDiwaliDualTimer, 1000); updateDiwaliDualTimer();
 
-    // --- 10 INDIAN PUBLIC HOLIDAYS STRIP ---
-    function updateHolidays() {
-        const holidays = [
-            { d: new Date("2026-01-26"), n: "REPUBLIC DAY", i: "🇮🇳" }, { d: new Date("2026-03-03"), n: "HOLI", i: "🎨" },
-            { d: new Date("2026-08-15"), n: "IND DAY", i: "🇮🇳" }, { d: new Date("2026-08-28"), n: "RAKSHA BANDHAN", i: "🎗️" },
-            { d: new Date("2026-09-04"), n: "JANMASHTAMI", i: "🪈" }, { d: new Date("2026-10-02"), n: "GANDHI JAYANTI", i: "🕊️" },
-            { d: new Date("2026-10-18"), n: "DUSSEHRA", i: "🏹" }, { d: new Date("2026-11-08"), n: "DIWALI", i: "🪔" },
-            { d: new Date("2026-12-25"), n: "CHRISTMAS", i: "🎄" }, { d: new Date("2027-01-14"), n: "MAKAR SANKRANTI", i: "🪁" },
-            { d: new Date("2027-03-22"), n: "HOLI", i: "🎨" }
-        ];
-        const now = new Date();
-        const upcoming = holidays.filter(h => h.d >= now).slice(0, 10);
-        let html = "";
-        upcoming.forEach(h => {
-            let day = h.d.toLocaleDateString('en-IN', {weekday: 'short'}).toUpperCase();
-            let dd = String(h.d.getDate()).padStart(2,'0'); let mm = String(h.d.getMonth()+1).padStart(2,'0');
-            html += `<div class="h-item">${h.i} <span>${h.n}: ${day} ${dd}-${mm}</span></div>`;
-        });
-        document.getElementById('holiday-track').innerHTML = html + html; 
-    }
-    updateHolidays();
-
-    // --- UNIVERSAL FOREX TICKER (1 FOREX = ₹ INR) ---
+    // --- HARDCODED TOP 5 MAJOR CURRENCIES (Static Full-Width Grid) ---
     async function fetchForex() {
       try {
         const res = await fetch('https://open.er-api.com/v6/latest/USD');
         const data = await res.json();
         const rates = data.rates;
-        const flagMap = { USD: 'us', EUR: 'eu', GBP: 'gb', JPY: 'jp', CHF: 'ch', CNY: 'cn', AUD: 'au', CAD: 'ca', SGD: 'sg', HKD: 'hk', AED: 'ae', SAR: 'sa', KWD: 'kw', OMR: 'om', BHD: 'bh', QAR: 'qa', THB: 'th', MYR: 'my', IDR: 'id', NZD: 'nz' };
+        const majorCurrencies = ['USD', 'EUR', 'GBP', 'JPY', 'AUD'];
+        const flagMap = { USD: 'us', EUR: 'eu', GBP: 'gb', JPY: 'jp', AUD: 'au' };
 
         let html = '';
-        Object.keys(flagMap).forEach(code => {
+        majorCurrencies.forEach(code => {
             if(rates[code] && rates.INR) {
                 let flagUrl = `https://flagcdn.com/24x18/${flagMap[code]}.png`;
                 let oneForeignInInr = (rates.INR / rates[code]);
-                // Universal format removes all confusion. E.g., 1 USD = ₹83.50, 1 JPY = ₹0.53
-                html += `<div class="ticker-item"><img src="${flagUrl}" class="ticker-flag"> <span>1 ${code}</span> = ₹${oneForeignInInr.toFixed(2)}</div>`;
+                let isStronger = oneForeignInInr > 1; 
+                let strengthClass = isStronger ? 'curr-strong' : 'curr-weak';
+                let arrow = isStronger ? '🔼' : '🔽';
+                
+                html += `
+                  <div class="ticker-item ${strengthClass}">
+                     <img src="${flagUrl}" class="ticker-flag"> 
+                     <span class="base-cur">1 ${code}</span> = <span class="val">₹${oneForeignInInr.toFixed(2)}</span> <span class="arrow">${arrow}</span>
+                  </div>`;
             }
         });
         
-        document.getElementById('forex-track').innerHTML = html + html + html; 
+        document.getElementById('forex-track').innerHTML = html; 
       } catch(e) {}
     }
     fetchForex();
@@ -689,7 +723,7 @@
     }
     fetchSplitNews();
 
-    // --- 📦 AUTONOMOUS PERMANENT RENAMER (SHRINK TO FIT ROTATION) ---
+    // --- 📦 AUTONOMOUS PERMANENT RENAMER ---
     let images = []; let currentIndex = 0; let renameMap = []; 
     let directoryHandle = null; let cropper = null; 
     let baseCanvas = document.createElement('canvas'); 
@@ -725,7 +759,6 @@
       });
     }
 
-    // SHRINK TO FIT ROTATION: Modifies the actual image layer so the container handles the fit natively
     function manualRotate() {
       if(!cropper) return;
       let newCanvas = document.createElement('canvas');
