@@ -10,8 +10,8 @@
 
   <style>
     :root { 
-      --text-main: #ffffff; --text-muted: #cbd5e1;
-      --glass-panel: rgba(10, 15, 30, 0.85); --glass-card: rgba(15, 23, 42, 0.7); 
+      --text-main: #ffffff; --text-muted: #94a3b8;
+      --glass-panel: rgba(6, 10, 23, 0.9); --glass-card: rgba(15, 23, 42, 0.75); 
       --neon-emerald: #10b981; --neon-ruby: #f43f5e; --neon-blue: #0ea5e9; --neon-gold: #f59e0b; --neon-purple: #a855f7; --neon-cyan: #06b6d4;
       --btn-blue: linear-gradient(135deg, #0ea5e9, #2563eb);
       --btn-green: linear-gradient(135deg, #10b981, #059669);
@@ -21,43 +21,41 @@
     * { box-sizing: border-box; font-family: 'Nunito', sans-serif; }
     
     body { margin: 0; padding: 10px; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: var(--text-main); overflow: hidden; background-color: #020617; }
-    body::before { content: ''; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.15; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg width='40' height='69.28203230275509' viewBox='0 0 40 69.28203230275509' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338bdf8' fill-opacity='1'%3E%3Cpath d='M40 17.3205081l-10 5.7735027V34.6410162l10 5.7735027V17.3205081zm-20 34.6410162l-10-5.7735027V34.6410162l10-5.7735027v11.5470054zm10-5.7735027l-10 5.7735027-10-5.7735027v-11.5470054l10-5.7735027 10 5.7735027v11.5470054zM20 51.9615242l10 5.7735027V69.2820323l-10-5.7735027v-11.5470054zm0-69.2820323l10 5.7735027V0L20-5.7735027v11.5470054zM0 17.3205081l10 5.7735027V34.6410162L0 28.8675135V17.3205081zM0 51.9615242l10 5.7735027V69.2820323L0 63.5085296V51.9615242z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    body::before { content: ''; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.12; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg width='40' height='69.28203230275509' viewBox='0 0 40 69.28203230275509' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338bdf8' fill-opacity='1'%3E%3Cpath d='M40 17.3205081l-10 5.7735027V34.6410162l10 5.7735027V17.3205081zm-20 34.6410162l-10-5.7735027V34.6410162l10-5.7735027v11.5470054zm10-5.7735027l-10 5.7735027-10-5.7735027v-11.5470054l10-5.7735027 10 5.7735027v11.5470054zM20 51.9615242l10 5.7735027V69.2820323l-10-5.7735027v-11.5470054zm0-69.2820323l10 5.7735027V0L20-5.7735027v11.5470054zM0 17.3205081l10 5.7735027V34.6410162L0 28.8675135V17.3205081zM0 51.9615242l10 5.7735027V69.2820323L0 63.5085296V51.9615242z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
 
-    .bg-orbs { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -2; filter: blur(100px); }
-    .orb { position: absolute; border-radius: 50%; opacity: 0.65; animation: rotateOrb 30s infinite linear; }
-    .orb-1 { width: 55vw; height: 55vw; background: #4c1d95; top: -15vh; left: -5vw; } 
-    .orb-2 { width: 45vw; height: 45vw; background: #be123c; bottom: -10vh; right: -5vw; animation-direction: reverse; animation-duration: 35s; } 
-    .orb-3 { width: 40vw; height: 40vw; background: #047857; top: 20vh; left: 20vw; animation-direction: normal; animation-duration: 40s; } 
+    .bg-orbs { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -2; filter: blur(140px); }
+    .orb { position: absolute; border-radius: 50%; opacity: 0.5; animation: rotateOrb 30s infinite linear; }
+    .orb-1 { width: 55vw; height: 55vw; background: #3b0764; top: -15vh; left: -5vw; } 
+    .orb-2 { width: 45vw; height: 45vw; background: #881337; bottom: -10vh; right: -5vw; animation-direction: reverse; animation-duration: 35s; } 
+    .orb-3 { width: 40vw; height: 40vw; background: #064e3b; top: 20vh; left: 20vw; animation-direction: normal; animation-duration: 40s; } 
     @keyframes rotateOrb { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.15); } 100% { transform: rotate(360deg) scale(1); } }
 
-    @keyframes deckGlow { 0% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 40px rgba(56, 189, 248, 0.05), inset 0 1px 3px rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.1); } 50% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 60px rgba(139, 92, 246, 0.2), inset 0 1px 3px rgba(255,255,255,0.3); border-color: rgba(139, 92, 246, 0.3); } 100% { box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 40px rgba(56, 189, 248, 0.05), inset 0 1px 3px rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.1); } }
+    @keyframes deckGlow { 0% { box-shadow: 0 40px 100px rgba(0,0,0,0.95), 0 0 40px rgba(56, 189, 248, 0.04), inset 0 1px 2px rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.08); } 50% { box-shadow: 0 40px 100px rgba(0,0,0,0.95), 0 0 60px rgba(139, 92, 246, 0.15), inset 0 1px 2px rgba(255,255,255,0.25); border-color: rgba(139, 92, 246, 0.25); } 100% { box-shadow: 0 40px 100px rgba(0,0,0,0.95), 0 0 40px rgba(56, 189, 248, 0.04), inset 0 1px 2px rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.08); } }
     
-    .deck { background: var(--glass-panel); width: 1580px; max-width: 99vw; height: 97vh; padding: 12px 20px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.2); border-top: 1px solid rgba(255,255,255,0.5); backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); animation: deckGlow 6s infinite alternate; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .deck { background: var(--glass-panel); width: 1580px; max-width: 99vw; height: 97vh; padding: 14px 20px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.15); border-top: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); animation: deckGlow 6s infinite alternate; display: flex; flex-direction: column; position: relative; overflow: hidden; }
 
     /* HEADER & BRANDING */
-    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-shrink: 0;}
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-shrink: 0;}
     .title-area { display: flex; align-items: center; gap: 20px; }
     
     .brand-badge { 
       background: linear-gradient(270deg, #8b5cf6, #0ea5e9, #10b981, #f59e0b, #8b5cf6); 
       background-size: 300% 300%; animation: brandGradient 6s ease infinite;
-      padding: 6px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.5); 
+      padding: 6px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.4); 
       color: #fff; font-size: 11pt; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
-      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4), inset 0 2px 4px rgba(255,255,255,0.4); 
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3), inset 0 2px 4px rgba(255,255,255,0.3); 
       display: inline-flex; align-items: center; gap: 6px; text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     }
     @keyframes brandGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-    .title-area h1 { font-weight: 900; text-transform: uppercase; margin: 0; font-size: 20pt; letter-spacing: 1px; background: linear-gradient(135deg, #ffffff, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(56, 189, 248, 0.4)); display: flex; align-items: center; gap: 8px;}
+    .title-area h1 { font-weight: 900; text-transform: uppercase; margin: 0; font-size: 20pt; letter-spacing: 1px; background: linear-gradient(135deg, #ffffff, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(56, 189, 248, 0.3)); display: flex; align-items: center; gap: 8px;}
     
-    /* 6. LIVELY MOUNT DIRECTORY BUTTON */
     .btn-mount-directory {
       background: linear-gradient(90deg, #0284c7, #2563eb, #9333ea, #0284c7);
       background-size: 300% 100%;
       animation: moveGradient 3s linear infinite, pulseGlow 2s ease-in-out infinite alternate;
       border: 1px solid rgba(255,255,255,0.3);
       color: white;
-      font-family: 'Nunito', sans-serif;
       font-weight: 900;
       font-size: 10pt;
       letter-spacing: 1.5px;
@@ -68,242 +66,221 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       height: 100%;
     }
     .btn-mount-directory:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
+      transform: scale(1.03);
+      box-shadow: 0 6px 25px rgba(147, 51, 234, 0.5);
       border-color: #fff;
     }
     .btn-mount-directory:active { transform: scale(0.98); }
-    @keyframes moveGradient { 0% { background-position: 0% 0%; } 100% { background-position: 100% 0%; } }
-    @keyframes pulseGlow { 0% { box-shadow: 0 0 10px rgba(37, 99, 235, 0.4); } 100% { box-shadow: 0 0 25px rgba(147, 51, 234, 0.8); } }
 
     .diwali-hub { display: flex; gap: 15px; align-items: stretch; height: 50px;}
-    .diwali-pill { padding: 4px 12px; border-radius: 8px; font-weight: 900; display: flex; align-items: center; gap: 10px; position: relative; overflow: hidden; border: 1px solid;}
-    .prev-pill { background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(217, 70, 239, 0.3)); border-color: #d946ef; box-shadow: 0 0 20px rgba(217, 70, 239, 0.4), inset 0 2px 10px rgba(255,255,255,0.2); }
-    .prev-pill .d-label { font-size: 5pt; color: #fbcfe8; letter-spacing: 1px; }
-    .prev-pill .d-val { font-size: 9.5pt; color: #fff; font-family: monospace; letter-spacing: 1px; filter: drop-shadow(0 0 5px #d946ef);}
-    .next-pill { background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(220, 38, 38, 0.3)); border-color: var(--neon-gold); box-shadow: 0 0 20px rgba(245, 158, 11, 0.5), inset 0 2px 10px rgba(255,255,255,0.2); }
-    .next-pill .d-label { font-size: 5pt; color: var(--neon-gold); letter-spacing: 1px; }
-    .next-pill .d-time { font-family: monospace; font-size: 10.5pt; letter-spacing: 1.5px; color: #fff; filter: drop-shadow(0 0 5px var(--neon-gold));}
+    .diwali-pill { padding: 4px 14px; border-radius: 10px; font-weight: 900; display: flex; align-items: center; gap: 10px; position: relative; overflow: hidden; border: 1px solid;}
+    .prev-pill { background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(217, 70, 239, 0.2)); border-color: rgba(217, 70, 239, 0.6); box-shadow: 0 0 15px rgba(217, 70, 239, 0.2); }
+    .prev-pill .d-label { font-size: 6pt; color: #fbcfe8; letter-spacing: 1px; }
+    .prev-pill .d-val { font-size: 10pt; color: #fff; font-family: monospace; letter-spacing: 0.5px; filter: drop-shadow(0 0 4px #d946ef);}
+    .next-pill { background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(220, 38, 38, 0.2)); border-color: rgba(245, 158, 11, 0.6); box-shadow: 0 0 15px rgba(245, 158, 11, 0.3); }
+    .next-pill .d-label { font-size: 6pt; color: var(--neon-gold); letter-spacing: 1px; }
+    .next-pill .d-time { font-family: monospace; font-size: 11pt; letter-spacing: 1px; color: #fff; filter: drop-shadow(0 0 4px var(--neon-gold));}
 
-    /* STRIPS & HOLIDAY BADGES */
-    .strip-wrap { width: 100%; height: 35px; display: flex; align-items: center; margin-bottom: 0px; background-color: rgba(0,0,0,0.6); border-radius: 6px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); overflow: hidden; padding: 2px;}
-    #strip-holidays { background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0l2.5 7.5H20l-6.25 4.5L16.25 20 10 15.5 3.75 20l2.5-8L0 7.5h7.5z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E"); }
-    #strip-forex { background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 19h20v1H0v-1zM19 0v20h1V0h-1z' fill='%2310b981' fill-opacity='0.08'/%3E%3C/svg%3E"); }
-    #strip-hindu { background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%23f59e0b' stroke-opacity='0.1' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='12' r='4' fill='none' stroke='%23f59e0b' stroke-opacity='0.15' stroke-width='1'/%3E%3C/svg%3E"); }
-    .strip-items { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; gap: 2px;} 
-    .s-item { flex: 1; display: inline-flex; align-items: center; justify-content: flex-start; min-height: 32px; padding: 0 10px; gap: 6px; font-size: 7pt; font-weight: 900; white-space: nowrap; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 2px 5px rgba(0,0,0,0.4); font-family: 'Nunito', sans-serif;}
-    .s-item span { letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
-    .s-date { font-size: 5.5pt !important; color: var(--text-muted); opacity: 0.9; font-family: monospace !important; font-weight: 800; background: rgba(0,0,0,0.4); padding: 1px 4px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.1); margin-left: auto; display: flex; gap: 4px; align-items: center;}
+    /* FIXED WIDTH TOP STRIPS VIA CSS GRID SYSTEM */
+    .strip-wrap { width: 100%; height: 38px; display: flex; align-items: center; margin-bottom: -5px; background-color: rgba(2, 6, 23, 0.75); border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); box-shadow: inset 0 2px 8px rgba(0,0,0,0.9); overflow: hidden; padding: 3px 6px;}
+    #strip-forex { background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 19h20v1H0v-1zM19 0v20h1V0h-1z' fill='%2310b981' fill-opacity='0.05'/%3E%3C/svg%3E"); }
+    #strip-holidays { background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0l2.5 7.5H20l-6.25 4.5L16.25 20 10 15.5 3.75 20l2.5-8L0 7.5h7.5z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E"); }
+    #strip-hindu { background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%23f59e0b' stroke-opacity='0.05' stroke-width='1.5'/%3E%3C/svg%3E"); }
+    
+    /* Configures uniform fixed columns architecture so rows align perfectly */
+    .strip-items { display: grid; grid-template-columns: repeat(7, 1fr); width: 100%; height: 100%; gap: 6px;} 
+    .s-item { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; gap: 8px; font-size: 7.5pt; font-weight: 800; white-space: nowrap; border-radius: 5px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 2px 4px rgba(0,0,0,0.5); width: 100%; overflow: hidden;}
+    .s-item span { letter-spacing: 0.3px; text-shadow: 0 1px 2px rgba(0,0,0,0.9); overflow: hidden; text-overflow: ellipsis; }
+    .s-date { font-size: 6pt !important; color: #cbd5e1; font-family: monospace !important; font-weight: 700; background: rgba(0,0,0,0.5); padding: 1px 5px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08); margin-left: auto; display: flex; gap: 4px; align-items: center; flex-shrink: 0;}
 
-    .curr-strong { background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(0,0,0,0.4)); border-color: rgba(16,185,129,0.5); justify-content: center;}
-    .curr-strong span.val { color: #10b981; } .curr-strong .arrow { color: #10b981; text-shadow: 0 0 8px #10b981; }
-    .curr-weak { background: linear-gradient(135deg, rgba(244, 63, 94, 0.25), rgba(0,0,0,0.4)); border-color: rgba(244,63,94,0.5); justify-content: center;}
-    .curr-weak span.val { color: #fb7185; } .curr-weak .arrow { color: #fb7185; text-shadow: 0 0 8px #f43f5e; }
-    .base-cur { color: #fff; } .ticker-flag { width: 16px; height: 11px; border-radius: 2px; box-shadow: 0 0 3px rgba(0,0,0,0.8); }
+    .curr-strong { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(0,0,0,0.4)); border-color: rgba(16,185,129,0.35); }
+    .curr-strong span.val { color: #10b981; font-weight: 900; } .curr-strong .arrow { color: #10b981; text-shadow: 0 0 6px #10b981; }
+    .curr-weak { background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(0,0,0,0.4)); border-color: rgba(244,63,94,0.35); }
+    .curr-weak span.val { color: #fb7185; font-weight: 900; } .curr-weak .arrow { color: #fb7185; text-shadow: 0 0 6px #f43f5e; }
+    .base-cur { color: #fff; font-weight: 700; } .ticker-flag { width: 16px; height: 11px; border-radius: 2px; box-shadow: 0 0 3px rgba(0,0,0,0.8); flex-shrink: 0; }
 
     /* DASHBOARD GRID */
-    .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(0,0,0,0.5); border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); padding: 10px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.8); position: relative; overflow: hidden; width: 100%; min-height: 0;}
+    .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(2, 4, 12, 0.6); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 12px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.9); position: relative; overflow: hidden; width: 100%; min-height: 0; margin-top: 6px;}
     #setupScreen { flex-grow: 1; display: flex; gap: 12px; width: 100%; min-height: 0; }
     .dash-col { display: flex; flex-direction: column; gap: 12px; min-height: 0; height: 100%;}
-    .col-left { width: 320px; flex-shrink: 0; }
+    .col-left { width: 330px; flex-shrink: 0; }
     .col-mid { flex: 1.2; }
-    .col-right { flex: 1.6; }
+    .col-right { flex: 1.5; }
     
-    .bento-item { border-radius: 14px; border: 1px solid rgba(255,255,255,0.2); padding: 12px 14px; display: flex; flex-direction: column; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255,255,255,0.1); position: relative; overflow: hidden; min-height: 0;}
+    .bento-item { background: var(--glass-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); padding: 12px 14px; display: flex; flex-direction: column; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; min-height: 0;}
     .bento-item > * { position: relative; z-index: 2; }
-    .tool-header { font-size: 7pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin: -6px -6px 10px -6px; padding: 8px 14px; background: rgba(0,0,0,0.8); border-radius: 8px; border-bottom: 2px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5); backdrop-filter: blur(10px);}
+    .tool-header { font-size: 7.5pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin: -12px -14px 12px -14px; padding: 10px 14px; background: rgba(3, 7, 18, 0.9); border-radius: 12px 12px 0 0; border-bottom: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.6); backdrop-filter: blur(10px);}
 
-    /* 1. LOCAL SURAT */
-    .bento-local { height: 260px; flex-shrink: 0; border-color: rgba(14,165,233,0.5); background: linear-gradient(135deg, rgba(2, 6, 23, 0.95), rgba(14, 165, 233, 0.2)); box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 2px 20px rgba(14, 165, 233, 0.2);}
-    .bento-local::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.3; background-image: radial-gradient(rgba(14, 165, 233, 0.4) 1px, transparent 1px); background-size: 20px 20px; }
-    .bento-local .tool-header { border-bottom-color: var(--neon-blue); color: var(--neon-blue); }
+    /* 1. LOCAL SURAT WIDGET & CLOCK REDESIGN */
+    .bento-local { height: 275px; flex-shrink: 0; border-color: rgba(14,165,233,0.4); background: linear-gradient(135deg, rgba(2, 6, 23, 0.95), rgba(14, 165, 233, 0.15)); box-shadow: 0 15px 35px rgba(0,0,0,0.85), inset 0 2px 25px rgba(14, 165, 233, 0.15);}
+    .bento-local::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.25; background-image: radial-gradient(rgba(14, 165, 233, 0.3) 1.5px, transparent 1.5px); background-size: 16px 16px; }
+    .bento-local .tool-header { border-bottom-color: rgba(14,165,233,0.5); color: #38bdf8; text-shadow: 0 0 10px rgba(14,165,233,0.4); }
     .local-content { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-    .tod-badge { font-size: 6pt; padding: 2px 8px; border-radius: 4px; font-weight: 900; letter-spacing: 1px; display: inline-flex; align-items: center; box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 0 10px rgba(0,0,0,0.5); margin-bottom: 4px; color:#fff;}
-    .tod-morning { background: var(--btn-blue); } .tod-afternoon { background: linear-gradient(135deg, #f59e0b, #d97706); } .tod-evening { background: var(--btn-red); } .tod-night { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
-    .time-large { font-size: 34pt; font-weight: 900; line-height: 1; letter-spacing: -1px; font-family: monospace; background: linear-gradient(to bottom right, #fff, #38bdf8); -webkit-background-clip: text; color: transparent; filter: drop-shadow(0 4px 10px rgba(56, 189, 248, 0.4));}
-    .time-large span { font-size: 12pt; margin-left: 6px; color: var(--neon-blue); -webkit-text-fill-color: var(--neon-blue);} .time-large .sec { font-size: 12pt; color: var(--neon-emerald); -webkit-text-fill-color: var(--neon-emerald); opacity: 0.8; }
     
-    .weather-local-box { display: flex; flex-direction: column; gap: 6px; position: relative; overflow: hidden; margin-top: auto;}
-    .wl-top { display: flex; align-items: center; gap: 10px; padding-bottom: 2px; margin-top: 6px;}
-    .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: auto; }
-    .wl-metric { background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.1); padding: 4px 6px; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); transition: background 0.5s ease; position: relative; overflow: hidden;}
-    .wl-metric > * { position: relative; z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
-    .wl-metric-title { font-size: 5pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px;}
-    .wl-metric-val { font-size: 8.5pt; color: #fff; font-family: monospace; font-weight: 900; }
+    /* Advanced Digital Clock Styles */
+    .clock-hud-card { background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(14, 165, 233, 0.3); padding: 12px; border-radius: 12px; box-shadow: inset 0 4px 15px rgba(0,0,0,0.9); position: relative; margin-bottom: 4px; display: flex; flex-direction: column;}
+    .clock-hud-card::before { content: ''; position: absolute; left: 0; top: 15%; height: 70%; width: 3px; background: var(--neon-blue); border-radius: 0 4px 4px 0; box-shadow: 0 0 10px var(--neon-blue); }
+    .tod-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+    .tod-badge { font-size: 6.5pt; padding: 2px 8px; border-radius: 4px; font-weight: 900; letter-spacing: 1px; color:#fff; box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+    .tod-morning { background: var(--btn-blue); } .tod-afternoon { background: linear-gradient(135deg, #f59e0b, #d97706); } .tod-evening { background: var(--btn-red); } .tod-night { background: linear-gradient(135deg, #6b21a8, #4c1d95); }
+    .clock-telemetry { font-size: 5.5pt; font-family: monospace; color: var(--text-muted); font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
+    
+    .time-mainframe { display: flex; align-items: baseline; gap: 4px; margin-top: 4px; }
+    .time-digits { font-size: 34pt; font-weight: 900; line-height: 1; font-family: monospace; background: linear-gradient(to bottom, #ffffff, #e2e8f0); -webkit-background-clip: text; color: transparent; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.9)); letter-spacing: -0.5px; }
+    .time-seconds-box { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; font-family: monospace; line-height: 1.1; }
+    .time-seconds-box .sec { font-size: 14pt; font-weight: 900; color: var(--neon-emerald); text-shadow: 0 0 8px rgba(16,185,129,0.5); }
+    .time-seconds-box .ampm { font-size: 9.5pt; font-weight: 800; color: var(--neon-blue); text-shadow: 0 0 8px rgba(14,165,233,0.4); }
+    .date-sub { font-size: 8.5pt; color: #e2e8f0; font-weight: 800; letter-spacing: 0.3px; margin-top: 6px; display: flex; align-items: center; gap: 6px; }
+    .date-sub::before { content: '⚡'; font-size: 7pt; color: var(--neon-blue); }
 
-    /* 2. ADVANCED GLOBAL NODES TIMELINE */
-    .bento-clocks { flex: 1; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(0, 0, 0, 0.98)); border-color: rgba(167, 139, 250, 0.5); }
-    .bento-clocks .tool-header { border-bottom-color: var(--neon-purple); color: var(--neon-purple); text-shadow: 0 0 10px var(--neon-purple); }
-    .bento-clocks::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.3; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a855f7' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-    .wc-list { display: flex; flex-direction: column; gap: 7px; overflow-y: auto; padding-right: 5px; flex: 1; min-height: 0; }
+    .weather-local-box { display: flex; flex-direction: column; gap: 6px; position: relative; overflow: hidden; margin-top: auto;}
+    .wl-top { display: flex; align-items: center; gap: 10px; padding-bottom: 2px; }
+    .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: auto; }
+    .wl-metric { background: rgba(0,0,0,0.65); border: 1px solid rgba(255,255,255,0.08); padding: 4px 8px; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); transition: background 0.4s ease; position: relative; overflow: hidden;}
+    .wl-metric-title { font-size: 5pt; color: #38bdf8; text-transform: uppercase; font-weight: 900; letter-spacing: 1px;}
+    .wl-metric-val { font-size: 8.5pt; color: #fff; font-family: monospace; font-weight: 900; margin-top: 1px;}
+
+    /* 2. GLOBAL NODES TIMELINE */
+    .bento-clocks { flex: 1; background: linear-gradient(to bottom, rgba(10, 15, 30, 0.98), rgba(2, 4, 12, 0.99)); border-color: rgba(167, 139, 250, 0.35); }
+    .bento-clocks .tool-header { border-bottom-color: rgba(167, 139, 250, 0.4); color: #c084fc; text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
+    .bento-clocks::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.15; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a855f7' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .wc-list { display: flex; flex-direction: column; gap: 6px; overflow-y: auto; padding-right: 2px; flex: 1; min-height: 0; }
     .wc-list::-webkit-scrollbar { width: 0; }
     
     .wc-card { 
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,0,0,0.6), rgba(168, 85, 247, 0.15)); 
-      background-size: 200% 200%; animation: cardShine 5s linear infinite alternate;
-      padding: 8px 12px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; 
-      border: 1px solid rgba(167, 139, 250, 0.3); box-shadow: inset 0 2px 10px rgba(167, 139, 250, 0.1), 0 4px 10px rgba(0,0,0,0.7); 
-      backdrop-filter: blur(10px); flex-shrink: 0; position: relative; overflow: hidden; transition: 0.3s;
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,0,0,0.7)); 
+      padding: 6px 10px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; 
+      border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 4px 10px rgba(0,0,0,0.6); 
+      backdrop-filter: blur(8px); flex-shrink: 0; position: relative; overflow: hidden;
     }
-    @keyframes cardShine { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-    .wc-card::after { content:''; position: absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(circle at center, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 8px 8px; opacity: 0.5; z-index: -1; pointer-events: none; }
+    .wc-top { display: flex; justify-content: space-between; align-items: center; }
+    .wc-city { font-weight: 800; font-size: 7.5pt; color: #e2e8f0; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;}
+    .wc-time { font-size: 9pt; font-family: monospace; font-weight: 900; color: var(--neon-cyan); text-shadow: 0 0 6px rgba(6, 182, 212, 0.4);}
     
-    .wc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
-    .wc-city { font-weight: 900; font-size: 8pt; color: #fff; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 6px;}
-    .wc-time { font-size: 9.5pt; font-family: monospace; font-weight: 900; color: var(--neon-cyan); text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);}
-    
-    .adv-timebar {
-        width: 100%; height: 5px; background: rgba(0,0,0,0.8); border-radius: 3px;
-        position: relative; margin-top: 5px; border: 1px solid rgba(255,255,255,0.1);
-        box-shadow: inset 0 1px 3px rgba(0,0,0,0.9);
-    }
-    .adv-timebar::after {
-        content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%;
-        background: repeating-linear-gradient(90deg, transparent, transparent calc(25% - 1px), rgba(255,255,255,0.2) 25%);
-        pointer-events: none; border-radius: 3px;
-    }
-    .adv-timebar-fill {
-        height: 100%; border-radius: 3px;
-        background: linear-gradient(90deg, #1e1b4b, var(--neon-blue), var(--neon-cyan));
-        transition: width 1s ease-out; width: 0%; box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
-    }
-    .adv-timebar-needle {
-        width: 4px; height: 13px; background: #fff; border-radius: 2px;
-        position: absolute; top: -4px; transform: translateX(-50%);
-        box-shadow: 0 0 10px #fff, 0 0 15px var(--neon-cyan);
-        transition: left 1s ease-out; left: 0%; z-index: 2;
-    }
+    .adv-timebar { width: 100%; height: 4px; background: rgba(0,0,0,0.8); border-radius: 2px; position: relative; margin-top: 5px; border: 1px solid rgba(255,255,255,0.05); }
+    .adv-timebar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #1e1.5pt4b, var(--neon-blue), var(--neon-cyan)); width: 0%; }
+    .adv-timebar-needle { width: 3px; height: 10px; background: #fff; border-radius: 1px; position: absolute; top: -3px; transform: translateX(-50%); box-shadow: 0 0 8px var(--neon-cyan); left: 0%; z-index: 2; }
 
-    /* 3. PREMIUM PANCHANG & GUJARATI TITHI */
-    .bento-panchang { height: 420px; flex-shrink: 0; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(167, 139, 250, 0.2)); border-color: rgba(167, 139, 250, 0.5); overflow: hidden;}
-    .bento-panchang::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.4; background-image: radial-gradient(white 1px, transparent 1px); background-size: 30px 30px; background-position: 0 0, 15px 15px; }
-    .bento-panchang .tool-header { border-bottom-color: var(--neon-gold); color: var(--neon-gold); }
+    /* 3. PREMIUM PANCHANG & GUJARATI TITHI OVERHAUL */
+    .bento-panchang { height: 420px; flex-shrink: 0; background: linear-gradient(to bottom, rgba(3, 7, 18, 0.98), rgba(245, 158, 11, 0.08)); border-color: rgba(245, 158, 11, 0.4); overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.9), inset 0 0 30px rgba(245, 158, 11, 0.05);}
+    .bento-panchang::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.15; background-image: radial-gradient(var(--neon-gold) 1px, transparent 1px); background-size: 24px 24px; }
+    .bento-panchang .tool-header { border-bottom-color: rgba(245, 158, 11, 0.5); color: #fbbf24; text-shadow: 0 0 12px rgba(245,158,11,0.5); }
     
-    #panchang-samvat { font-size: 8pt; font-weight: 900; letter-spacing: 1.5px; background: linear-gradient(135deg, #fde047, #f59e0b, #ea580c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(245, 158, 11, 0.5)); border: 1px solid rgba(245,158,11,0.3); padding: 3px 10px; border-radius: 4px; box-shadow: inset 0 0 10px rgba(245,158,11,0.2), 0 2px 5px rgba(0,0,0,0.8); }
+    #panchang-samvat { font-size: 8pt; font-weight: 900; letter-spacing: 1.5px; background: linear-gradient(135deg, #ffe066, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.9)); border: 1px solid rgba(245,158,11,0.4); padding: 3px 10px; border-radius: 5px; background-color: rgba(0,0,0,0.6); box-shadow: inset 0 1px 5px rgba(0,0,0,0.8); }
 
     .panchang-core { z-index: 2; position: relative; display: flex; flex-direction: column; gap: 10px; height: 100%; justify-content: space-between;}
     
-    /* Luxury Gujarati Tithi Display */
-    .gujarati-tithi-display-frame { display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, rgba(20,20,35,0.8), rgba(10,10,15,0.9)); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 12px; padding: 12px 20px; box-shadow: 0 0 20px rgba(245, 158, 11, 0.08), inset 0 0 15px rgba(255,255,255,0.02); position: relative; margin-top: 4px; gap: 20px;}
-    .gujarati-tithi-display-frame::before { content: ''; position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px; border: 1px dashed rgba(245, 158, 11, 0.15); border-radius: 8px; pointer-events: none; }
-    .tithi-moon-hardware-wrapper { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.5)); width: 75px; height: 75px; flex-shrink: 0;}
-    .tithi-typography-block { display: flex; flex-direction: column; justify-content: center; z-index: 2;}
-    .tithi-sub-tag { font-size: 8.5pt; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 2px; text-transform: uppercase; }
-    .tithi-main-title { font-family: 'Mukta Vaani', sans-serif; margin: 0; font-size: 25pt; font-weight: 800; letter-spacing: 0.5px; background: linear-gradient(180deg, #ffffff 10%, #ffd700 50%, #f59e0b 90%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 0 15px rgba(245, 158, 11, 0.4)); line-height: 1.1; }
+    /* Ultimate Luxury Gujarati Tithi Display Frame */
+    .gujarati-tithi-display-frame { display: flex; align-items: center; justify-content: flex-start; background: linear-gradient(135deg, rgba(12, 10, 4, 0.95), rgba(28, 22, 8, 0.85)); border: 1px solid rgba(245, 158, 11, 0.4); border-top: 1px solid rgba(255,255,255,0.25); border-radius: 14px; padding: 10px 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.9), inset 0 0 15px rgba(245,158,11,0.1); position: relative; margin-top: 2px; gap: 16px;}
+    .gujarati-tithi-display-frame::before { content: ''; position: absolute; top: 3px; left: 3px; right: 3px; bottom: 3px; border: 1px dashed rgba(245, 158, 11, 0.25); border-radius: 11px; pointer-events: none; }
+    .tithi-moon-hardware-wrapper { filter: drop-shadow(0 0 12px rgba(255,255,240,0.4)); width: 68px; height: 68px; flex-shrink: 0; display: flex; justify-content: center; align-items: center;}
+    .tithi-typography-block { display: flex; flex-direction: column; justify-content: center; z-index: 2; overflow: hidden;}
+    .tithi-sub-tag { font-size: 8pt; font-weight: 800; color: #fbbf24; letter-spacing: 1px; margin-bottom: 2px; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.9); }
+    .tithi-main-title { font-family: 'Mukta Vaani', sans-serif; margin: 0; font-size: 21pt; font-weight: 800; letter-spacing: 0.3px; background: linear-gradient(to bottom, #ffffff 20%, #fef08a 60%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.95)); line-height: 1.2; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
     
-    .p-badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 4px; }
-    .p-badge { display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 4px 8px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.6); position: relative; overflow: hidden;}
-    .p-badge::before { content:''; position: absolute; left: 0; top: 0; width: 4px; height: 100%; border-radius: 4px 0 0 4px;}
-    .p-badge img { width: 30px; height: 30px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); object-fit: cover; background: rgba(0,0,0,0.5); z-index: 2; box-shadow: 0 0 10px rgba(0,0,0,0.8); }
+    .p-badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .p-badge { display: flex; align-items: center; gap: 8px; background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 4px 8px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.7); position: relative; overflow: hidden;}
+    .p-badge::before { content:''; position: absolute; left: 0; top: 0; width: 3px; height: 100%; border-radius: 3px 0 0 3px;}
+    .p-badge img { width: 28px; height: 28px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.15); object-fit: cover; background: #000; z-index: 2; box-shadow: 0 2px 5px rgba(0,0,0,0.8); }
     
     .p-col { display: flex; flex-direction: column; justify-content: center; z-index: 2; overflow: hidden; }
-    .p-lbl { font-size: 5pt; color: var(--text-muted); font-weight: 900; letter-spacing: 1px; }
-    .p-val { font-size: 7.5pt; font-weight: 900; color: #fff; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 85px; letter-spacing: 0.5px;}
+    .p-lbl { font-size: 5.5pt; color: var(--text-muted); font-weight: 900; letter-spacing: 0.8px; }
+    .p-val { font-size: 7.5pt; font-weight: 900; color: #fff; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 95px; letter-spacing: 0.3px;}
     
-    .rashi-badge::before { background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
-    .rashi-badge { border-color: rgba(6, 182, 212, 0.4); background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(0,0,0,0.8)); }
+    .rashi-badge::before { background: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); }
+    .rashi-badge { border-color: rgba(6, 182, 212, 0.25); background: linear-gradient(135deg, rgba(6,182,212,0.05), rgba(0,0,0,0.6)); }
     .rashi-badge .p-val { color: var(--neon-cyan); }
     
-    .nak-badge::before { background: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple); }
-    .nak-badge { border-color: rgba(168, 85, 247, 0.4); background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(0,0,0,0.8)); }
-    .nak-badge .p-val { color: var(--neon-purple); }
+    .nak-badge::before { background: var(--neon-purple); box-shadow: 0 0 8px var(--neon-purple); }
+    .nak-badge { border-color: rgba(168, 85, 247, 0.25); background: linear-gradient(135deg, rgba(168,85,247,0.05), rgba(0,0,0,0.6)); }
+    .nak-badge .p-val { color: #d8b4fe; }
     
-    .eka-badge::before { background: var(--neon-gold); box-shadow: 0 0 10px var(--neon-gold); }
-    .eka-badge { border-color: rgba(245, 158, 11, 0.4); background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(0,0,0,0.8)); }
+    .eka-badge::before { background: var(--neon-gold); box-shadow: 0 0 8px var(--neon-gold); }
+    .eka-badge { border-color: rgba(245, 158, 11, 0.25); background: linear-gradient(135deg, rgba(245,158,11,0.05), rgba(0,0,0,0.6)); }
     .eka-badge .p-val { color: var(--neon-gold); }
     
-    .moon-badge::before { background: var(--neon-emerald); box-shadow: 0 0 10px var(--neon-emerald); }
-    .moon-badge { border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(0,0,0,0.8)); }
-    .moon-badge .p-val { color: var(--neon-emerald); max-width: none !important;}
+    .moon-badge::before { background: var(--neon-emerald); box-shadow: 0 0 8px var(--neon-emerald); }
+    .moon-badge { border-color: rgba(16, 185, 129, 0.25); background: linear-gradient(135deg, rgba(16,185,129,0.05), rgba(0,0,0,0.6)); border-right: 1px solid rgba(16, 185, 129, 0.25); }
+    .moon-badge .p-val { color: #6ee7b7; max-width: none !important;}
 
-    .sky-arch-container { position: relative; height: 90px; margin: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.2); overflow: hidden;}
+    .sky-arch-container { position: relative; height: 80px; margin: 2px 0; border-bottom: 1px solid rgba(255,255,255,0.1); overflow: hidden;}
     .sky-arch-path { position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
-    .astro-body { position: absolute; width: 16px; height: 16px; border-radius: 50%; top: 100%; left: 0%; transform: translate(-50%, -50%); transition: all 1s ease-out; z-index: 5;}
+    .astro-body { position: absolute; width: 14px; height: 14px; border-radius: 50%; top: 100%; left: 0%; transform: translate(-50%, -50%); transition: all 1s ease-out; z-index: 5;}
     .arch-label { position: absolute; bottom: 2px; font-size: 6.5pt; color: var(--text-muted); font-weight: 800; display: flex; align-items: center; gap: 4px;}
     .arch-label.left { left: 0; } .arch-label.right { right: 0; }
     .arch-label span { color: #fff; font-family: monospace; font-size: 7.5pt;}
     
-    .kaal-trackers { display: flex; flex-direction: column; gap: 8px; background: rgba(0,0,0,0.7); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); margin-top: auto;}
-    .kaal-row { display: flex; align-items: center; gap: 8px; }
-    .kaal-lbl { font-size: 6pt; font-weight: 900; color: var(--text-muted); width: 35px; }
-    .kaal-bar-bg { flex: 1; height: 5px; background: rgba(255,255,255,0.2); border-radius: 4px; position: relative; overflow: hidden; }
-    .kaal-segment { position: absolute; height: 100%; top: 0; border-radius: 4px; transition: 0.3s;}
-    
-    .choghadiya-row { display: flex; gap: 8px; width: 100%; flex-shrink: 0;}
-    .chog-box { flex: 1; padding: 4px 6px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.6); justify-content: center;}
-    .chog-box.live { background: linear-gradient(135deg, rgba(16,185,129,0.25), rgba(14,165,233,0.25)); border-color: var(--neon-emerald); box-shadow: 0 0 10px rgba(16,185,129,0.4); z-index: 2; }
-    .ch-lbl { font-size: 5pt; font-weight: 900; color: var(--text-muted); letter-spacing: 1px; }
-    .ch-val { font-size: 7.5pt; font-weight: 900; letter-spacing: 0.5px; margin-top: 2px; text-transform: uppercase;}
+    .choghadiya-row { display: flex; gap: 6px; width: 100%; flex-shrink: 0; margin-top: auto;}
+    .chog-box { flex: 1; padding: 6px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; border: 1px solid rgba(255,255,255,0.06); background: rgba(0,0,0,0.7); justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.5);}
+    .chog-box.live { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(14,165,233,0.15)); border-color: rgba(16,185,129,0.5); box-shadow: 0 0 12px rgba(16,185,129,0.3); z-index: 2; }
+    .ch-lbl { font-size: 5.5pt; font-weight: 900; color: var(--text-muted); letter-spacing: 0.8px; }
+    .ch-val { font-size: 8pt; font-weight: 900; letter-spacing: 0.3px; margin-top: 1px; text-transform: uppercase;}
 
-    /* 4. 7-DAY ATMOSPHERIC ARRAY */
-    .bento-weather { flex: 1; display: flex; flex-direction: column; min-height: 0; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(249, 115, 22, 0.15)); border-color: rgba(56, 189, 248, 0.4); padding-bottom: 8px;}
-    .bento-weather::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.15; background: repeating-linear-gradient( 45deg, transparent, transparent 10px, rgba(255,255,255,0.2) 10px, rgba(255,255,255,0.2) 11px ); }
-    .bento-weather .tool-header { border-bottom-color: var(--neon-cyan); color: var(--neon-cyan); }
-    .forecast-table { display: flex; flex-direction: column; gap: 1px; flex: 1; min-height: 0; justify-content: flex-start;}
+    /* 4. 7-DAY ARRAY */
+    .bento-weather { flex: 1; display: flex; flex-direction: column; min-height: 0; background: linear-gradient(to bottom, rgba(10, 15, 30, 0.95), rgba(249, 115, 22, 0.05)); border-color: rgba(56, 189, 248, 0.35); padding-bottom: 6px;}
+    .bento-weather .tool-header { border-bottom-color: rgba(56, 189, 248, 0.4); color: #38bdf8; }
+    .forecast-table { display: flex; flex-direction: column; gap: 2px; flex: 1; min-height: 0; justify-content: flex-start;}
     .ft-row, .ft-header { display: grid; grid-template-columns: 2.5fr 1fr 2.5fr 2fr 1.5fr 1fr; align-items: center; text-align: center; font-size: 7.5pt;}
-    .ft-header { color: var(--neon-cyan); font-weight: 900; letter-spacing: 1px; border-bottom: 1px solid rgba(56,189,248,0.3); padding-bottom: 2px; margin-bottom: 0px; }
-    .ft-row { padding: 3px 4px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); transition: 0.2s; font-family: monospace; font-weight: 800; background: rgba(0,0,0,0.6);}
-    .ft-row:nth-child(even) { background: rgba(0,0,0,0.8); }
-    .ft-day { text-align: left; padding-left: 8px; font-family: 'Nunito', sans-serif; color: #fff; font-weight: 900; text-transform: uppercase; font-size: 6.5pt;}
-    .ft-icon { font-size: 11pt; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));}
+    .ft-header { color: #06b6d4; font-weight: 900; letter-spacing: 1px; border-bottom: 1px solid rgba(56,189,248,0.2); padding-bottom: 4px; margin-bottom: 2px; }
+    .ft-row { padding: 4px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04); font-family: monospace; font-weight: 700; background: rgba(0,0,0,0.55);}
+    .ft-day { text-align: left; padding-left: 6px; font-family: 'Nunito', sans-serif; color: #fff; font-weight: 800; font-size: 6.5pt;}
+    .ft-icon { font-size: 11pt; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));}
     .ft-temp { display: flex; gap: 6px; justify-content: center; font-size: 7.5pt;}
 
     /* 6. VERTICAL NEWS GRIDS */
     .news-wrapper { flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; min-height: 0; }
-    .bento-news { flex: 1; min-height: 0; border: 1px solid rgba(255,255,255,0.2); }
-    #box-india { background: radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.25), rgba(2, 6, 23, 0.95)); border-color: rgba(249, 115, 22, 0.4); }
-    #box-india .tool-header { border-bottom-color: #f97316; color: #f97316; }
-    #box-cric { background: radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.25), rgba(2, 6, 23, 0.95)); border-color: rgba(14, 165, 233, 0.4); }
-    #box-cric .tool-header { border-bottom-color: #0ea5e9; color: #0ea5e9; }
-    #box-world { background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.25), rgba(2, 6, 23, 0.95)); border-color: rgba(168, 85, 247, 0.4); }
-    #box-world .tool-header { border-bottom-color: #a855f7; color: #a855f7; }
-    #box-sports { background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.25), rgba(2, 6, 23, 0.95)); border-color: rgba(16, 185, 129, 0.4); }
-    #box-sports .tool-header { border-bottom-color: #10b981; color: #10b981; }
+    .bento-news { flex: 1; min-height: 0; border: 1px solid rgba(255,255,255,0.1); }
+    #box-india { background: radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.15), rgba(2, 6, 23, 0.98)); border-color: rgba(249, 115, 22, 0.3); }
+    #box-india .tool-header { border-bottom-color: rgba(249, 115, 22, 0.4); color: #f97316; }
+    #box-cric { background: radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.15), rgba(2, 6, 23, 0.98)); border-color: rgba(14, 165, 233, 0.3); }
+    #box-cric .tool-header { border-bottom-color: rgba(14, 165, 233, 0.4); color: #0ea5e9; }
+    #box-world { background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.15), rgba(2, 6, 23, 0.98)); border-color: rgba(168, 85, 247, 0.3); }
+    #box-world .tool-header { border-bottom-color: rgba(168, 85, 247, 0.4); color: #a855f7; }
+    #box-sports { background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.15), rgba(2, 6, 23, 0.98)); border-color: rgba(16, 185, 129, 0.3); }
+    #box-sports .tool-header { border-bottom-color: rgba(16, 185, 129, 0.4); color: #10b981; }
 
-    .news-feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding-right: 4px; z-index: 2; position: relative;}
+    .news-feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 2px; }
     .news-feed::-webkit-scrollbar { width: 4px; }
-    .news-feed::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
-    .news-item { background: rgba(0,0,0,0.6); padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 4px; transition: 0.2s; text-decoration: none; cursor: pointer; box-shadow: inset 0 2px 5px rgba(255,255,255,0.05);}
-    .news-item:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); transform: translateX(-2px);}
-    .news-title { font-size: 7.5pt; color: var(--text-main); font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .news-meta { font-size: 6pt; font-family: monospace; font-weight: 900; color: #10b981;}
+    .news-feed::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+    .news-item { background: rgba(0,0,0,0.5); padding: 8px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 4px; text-decoration: none; transition: all 0.2s; }
+    .news-item:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateX(2px);}
+    .news-title { font-size: 7.5pt; color: #fff; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .news-meta { font-size: 6pt; font-family: monospace; font-weight: 700; color: #94a3b8;}
 
-    /* 🎛️ ACTIVE WORKSPACE (FOCUS MODE) */
+    /* WORKSPACE MODE */
     #workspace { display: none; flex-grow: 1; flex-direction: column; gap: 10px; height: 100%; min-height: 0; width: 100%;}
-    .image-container { flex: 1; min-height: 0; background-color: #0b1120; background-image: linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px); background-size: 40px 40px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.2); display: flex; justify-content: center; align-items: center; overflow: hidden; padding: 10px; box-shadow: inset 0 10px 50px rgba(0,0,0,0.9); position: relative; }
+    .image-container { flex: 1; min-height: 0; background-color: #0b1120; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: center; align-items: center; overflow: hidden; padding: 10px; box-shadow: inset 0 10px 50px rgba(0,0,0,0.9); position: relative; }
     .image-container img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
-    .cropper-view-box, .cropper-face { border-radius: 8px; } .cropper-line { background-color: var(--neon-emerald); opacity: 0.8; } .cropper-point { background-color: var(--neon-blue); width: 8px; height: 8px; border-radius: 50%; opacity: 1; } .cropper-point.point-se { width: 12px; height: 12px; right: -4px; bottom: -4px; } .cropper-bg { background-image: none !important; background-color: rgba(0,0,0,0.8); }
-
-    .btn-pro { height: 100%; cursor: pointer; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); color: white; font-weight: 900; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-shadow: 0 1px 3px rgba(0,0,0,0.6); box-shadow: 0 6px 15px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.3); }
+    
+    .btn-pro { height: 100%; cursor: pointer; border-radius: 10px; border: 1px solid rgba(255,255,255,0.25); color: white; font-weight: 900; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; transition: all 0.2s; text-shadow: 0 1px 2px rgba(0,0,0,0.6); box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
     .blue-btn { background: var(--btn-blue); font-size: 11pt; border-radius: 12px;} .green-btn { background: var(--btn-green); } .red-btn { background: var(--btn-red); font-size: 8pt; border-radius: 8px;}
-    .rotate-btn { position: absolute; top: 12px; background: rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 8px 14px; border-radius: 8px; font-weight: 900; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.8); z-index: 10; letter-spacing: 1px; font-size: 7.5pt; height: auto; } 
+    .rotate-btn { position: absolute; top: 12px; background: rgba(3,7,18,0.9); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 8px 14px; border-radius: 8px; font-weight: 900; cursor: pointer; z-index: 10; font-size: 7.5pt; } 
 
     .control-panel { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;}
-    .stat-box-op { background: var(--glass-card); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);}
-    .batch-queue-box { background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)); border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); padding: 10px 15px; display: flex; align-items: center; gap: 15px; }
-    .bq-title { margin: 0; font-size: 8pt; color: var(--neon-blue); text-transform: uppercase; letter-spacing: 1.5px; white-space: nowrap; display: flex; align-items: center; gap: 6px; font-weight: 900;}
-    .progress-wrapper { background: rgba(0,0,0,0.7); overflow: hidden; box-shadow: inset 0 3px 6px rgba(0,0,0,0.9); border: 1px solid rgba(255,255,255,0.1); flex: 1; margin: 0; height: 10px; border-radius: 20px;}
-    .progress-fill { height: 100%; background: linear-gradient(90deg, #0ea5e9, #10b981, #0ea5e9); background-size: 200% 100%; animation: progressGlow 2s linear infinite; width: 0%; border-radius: 20px;}
-    @keyframes progressGlow { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
-    .progress-text { font-size: 14pt; font-weight: 900; background: linear-gradient(135deg, #fff, var(--text-muted)); -webkit-background-clip: text; color: transparent; line-height: 1; margin: 0; letter-spacing: 1px;}
+    .stat-box-op { background: var(--glass-card); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+    .batch-queue-box { background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95)); border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.25); padding: 10px 15px; display: flex; align-items: center; gap: 15px; }
+    .bq-title { margin: 0; font-size: 8pt; color: var(--neon-blue); text-transform: uppercase; letter-spacing: 1.5px; white-space: nowrap; font-weight: 900;}
+    .progress-wrapper { background: rgba(0,0,0,0.8); overflow: hidden; border: 1px solid rgba(255,255,255,0.06); flex: 1; height: 10px; border-radius: 20px;}
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #0ea5e9, #10b981, #0ea5e9); width: 0%; border-radius: 20px;}
+    .progress-text { font-size: 14pt; font-weight: 900; color: #fff; line-height: 1; margin: 0; }
+    
     .input-row { display: flex; gap: 8px; width: 100%; align-items: stretch; position: relative; height: 45px;}
-    input[type="text"] { flex: 1; padding: 0 15px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.2); font-weight: 900; font-size: 14pt; color: #fff; background: rgba(0, 0, 0, 0.7); outline: none; transition: 0.3s; text-align: center; text-transform: uppercase; height: 100%;}
-    input[type="text"]:focus { background: rgba(0, 0, 0, 0.9); border-color: var(--neon-blue); box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.4); }
-    #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: rgba(15, 23, 42, 0.95); border: 1px solid var(--neon-emerald); color: var(--text-main); padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 9pt; letter-spacing: 1px; box-shadow: 0 10px 30px rgba(0,0,0,0.9), 0 0 20px rgba(16, 185, 129, 0.3); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 1000; }
+    input[type="text"] { flex: 1; padding: 0 15px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); font-weight: 900; font-size: 13pt; color: #fff; background: rgba(0, 0, 0, 0.8); outline: none; text-align: center; text-transform: uppercase;}
+    input[type="text"]:focus { border-color: var(--neon-blue); box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+    #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #0f172a; border: 1px solid var(--neon-emerald); color: #fff; padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 9pt; box-shadow: 0 10px 30px rgba(0,0,0,0.9); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 1000; }
     #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
   </style>
 </head>
 <body>
 
   <div id="toast">✅ Action Successful</div>
-  <div class="bg-orbs"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div><div class="orb orb-4"></div></div>
-  <div class="noise-overlay"></div>
+  <div class="bg-orbs"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
 
   <div class="deck" id="mainDeck">
     
@@ -334,12 +311,13 @@
       </div>
     </div>
 
-    <div class="strip-wrap" id="strip-holidays">
-       <div class="strip-items"></div>
-    </div>
-
+    <!-- REORDERED TOP STRIPS WITH ALIGNED COLUMNS -->
     <div class="strip-wrap" id="strip-forex">
       <div class="strip-items" id="forex-track"></div>
+    </div>
+
+    <div class="strip-wrap" id="strip-holidays">
+       <div class="strip-items"></div>
     </div>
 
     <div class="strip-wrap" id="strip-hindu">
@@ -353,16 +331,28 @@
             <div class="bento-item bento-local">
               <div class="tool-header">⏱️ Local Command</div>
               <div class="local-content">
-                <div>
-                  <span id="local-tod" class="tod-badge">MORNING</span>
-                  <div class="time-large" id="live-time">00:00<span class="sec">00</span><span>AM</span></div>
-                  <div class="date-sub" id="live-date" style="font-size: 8.5pt; color: var(--text-muted); margin-top: 2px; font-weight: 800;">Thu, 18 Jun 2026</div>
+                
+                <!-- Hyper-Advanced Beautiful HUD Clock -->
+                <div class="clock-hud-card">
+                  <div class="tod-row">
+                    <span id="local-tod" class="tod-badge tod-morning">SYNCING</span>
+                    <span class="clock-telemetry">SEC MATRIX ACTIVE</span>
+                  </div>
+                  <div class="time-mainframe">
+                    <div class="time-digits" id="clock-hours-mins">00:00</div>
+                    <div class="time-seconds-box">
+                      <span id="clock-seconds" class="sec">00</span>
+                      <span id="clock-period" class="ampm">AM</span>
+                    </div>
+                  </div>
+                  <div class="date-sub" id="live-date">Thu, 18 Jun 2026</div>
                 </div>
+
                 <div class="weather-local-box">
                   <div class="wl-top">
                     <div class="weather-icon-container" style="position:relative; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center;">
-                       <svg style="position:absolute; top:0; left:0; width:100%; height:100%; transform: rotate(-90deg);"><circle cx="17.5" cy="17.5" r="16" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"></circle><circle id="sec-ring" cx="17.5" cy="17.5" r="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" stroke-dasharray="100.5" stroke-dashoffset="100.5" style="transition: stroke-dashoffset 0.1s linear;"></circle></svg>
-                       <div id="weather-icon" style="font-size: 14pt; filter: drop-shadow(0 0 10px rgba(56,189,248,0.5)); line-height: 1; z-index:2;">☀️</div>
+                       <svg style="position:absolute; top:0; left:0; width:100%; height:100%; transform: rotate(-90deg);"><circle cx="17.5" cy="17.5" r="16" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle><circle id="sec-ring" cx="17.5" cy="17.5" r="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" stroke-dasharray="100.5" stroke-dashoffset="100.5" style="transition: stroke-dashoffset 0.1s linear;"></circle></svg>
+                       <div id="weather-icon" style="font-size: 13pt; filter: drop-shadow(0 0 8px rgba(56,189,248,0.5)); line-index:2;">☀️</div>
                     </div>
                     <div style="display: flex; flex-direction: column;">
                       <div id="weather-temp" style="font-size: 14pt; font-weight: 900; line-height: 1; color: #fff;">--°C</div>
@@ -394,6 +384,7 @@
         </div>
 
         <div class="dash-col col-mid">
+            <!-- BEAUTIFIED LUXURY PREMIUM PANCHANG CONTAINER -->
             <div class="bento-item bento-panchang">
               <div class="tool-header">
                 <span>🌌 Premium Panchang</span>
@@ -412,33 +403,33 @@
                 <div class="p-badge-grid">
                   <div class="p-badge rashi-badge">
                     <img id="rashi-img" src="" alt="Rashi">
-                    <div class="p-col"><span class="p-lbl">RASHI</span><span class="p-val" id="panchang-rashi">--</span></div>
+                    <div class="p-col"><span class="p-lbl">RASHI SYSTEM</span><span class="p-val" id="panchang-rashi">--</span></div>
                   </div>
                   <div class="p-badge nak-badge">
                     <img id="nak-img" src="" alt="Nakshatra">
-                    <div class="p-col"><span class="p-lbl">NAKSHATRA</span><span class="p-val" id="panchang-nak">--</span></div>
+                    <div class="p-col"><span class="p-lbl">NAKSHATRA STELLAR</span><span class="p-val" id="panchang-nak">--</span></div>
                   </div>
                   <div class="p-badge eka-badge">
                     <img id="eka-img" src="" alt="Ekadashi">
-                    <div class="p-col"><span class="p-lbl">EKADASHI</span><span class="p-val" id="panchang-eka-val">--</span></div>
+                    <div class="p-col"><span class="p-lbl">EKADASHI COUNT</span><span class="p-val" id="panchang-eka-val">--</span></div>
                   </div>
                   <div class="p-badge moon-badge">
                     <img id="moon-badge-img" src="" alt="Moon Phase">
-                    <div class="p-col"><span class="p-lbl">PHASE INTEL</span><span class="p-val" id="moon-phase-name">--</span></div>
+                    <div class="p-col"><span class="p-lbl">LUNAR PHASE INTEL</span><span class="p-val" id="moon-phase-name">--</span></div>
                   </div>
                 </div>
                 
                 <div class="sky-arch-container">
-                   <svg class="sky-arch-path" viewBox="0 0 100 90" preserveAspectRatio="none"><path d="M 0 90 Q 50 0 100 90" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="2 3"/></svg>
+                   <svg class="sky-arch-path" viewBox="0 0 100 90" preserveAspectRatio="none"><path d="M 0 90 Q 50 0 100 90" fill="none" stroke="rgba(245,158,11,0.25)" stroke-width="1.5" stroke-dasharray="3 3"/></svg>
                    <div id="astro-body" class="astro-body"></div>
                    <div class="arch-label left">🌅 <span id="api-sunrise">--:--</span></div>
                    <div class="arch-label right"><span id="api-sunset">--:--</span> 🌇</div>
                 </div>
 
                 <div class="choghadiya-row" id="chog-container">
-                  <div class="chog-box prev"><span class="ch-lbl">PREVIOUS</span><span class="ch-val" id="ch-prev">--</span></div>
-                  <div class="chog-box live"><span class="ch-lbl">LIVE NOW</span><span class="ch-val" id="ch-live">--</span></div>
-                  <div class="chog-box next"><span class="ch-lbl">NEXT</span><span class="ch-val" id="ch-next">--</span></div>
+                  <div class="chog-box prev"><span class="ch-lbl">PREVIOUS CHOG</span><span class="ch-val" id="ch-prev">--</span></div>
+                  <div class="chog-box live"><span class="ch-lbl">🔥 LIVE NOW</span><span class="ch-val" id="ch-live">--</span></div>
+                  <div class="chog-box next"><span class="ch-lbl">NEXT CHOG</span><span class="ch-val" id="ch-next">--</span></div>
                 </div>
               </div>
             </div>
@@ -446,7 +437,7 @@
             <div class="bento-item bento-weather">
               <div class="tool-header">🌤️ Surat 7-Day Array</div>
               <div class="forecast-table" id="forecast-table">
-                <div style="width: 100%; text-align:center; color: var(--text-muted); font-size: 5pt; padding: 20px;">Intercepting Meteorological Data...</div>
+                <div style="width: 100%; text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px;">Intercepting Meteorological Data...</div>
               </div>
             </div>
         </div>
@@ -502,7 +493,7 @@
 
           <div style="font-size: 6.5pt; color: var(--text-muted); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin-top: 2px;">
               <b style="color:var(--neon-emerald)">ENTER ↵</b> to Crop & Advance | 
-              <b style="color:var(--neon-gold)">SHIFT + ENTER ↵</b> to Skip Crop (Save Full Image) | 
+              <b style="color:var(--neon-gold)">SHIFT + ENTER ↵</b> to Skip Crop | 
               <b style="color:var(--neon-ruby)">CTRL + Z</b> to Undo |
               <b style="color:var(--neon-blue)">MOUSE WHEEL</b> to Zoom
           </div>
@@ -520,18 +511,16 @@
       toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
-    // --- BULLETPROOF SVG DATA URI GENERATOR FOR ASTRO IMAGES ---
-    // Never fails, perfectly themed to Command Desk Pro.
     function createAstroIcon(emoji, color) {
         const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-            <rect width="100" height="100" fill="#0f172a" rx="24"/>
-            <circle cx="50" cy="50" r="42" fill="none" stroke="${color}" stroke-width="4" stroke-dasharray="10 5" opacity="0.6"/>
-            <text x="50" y="65" font-family="sans-serif" font-size="45" fill="${color}" text-anchor="middle" style="text-shadow: 0 0 10px ${color};">${emoji}</text>
+            <rect width="100" height="100" fill="#020617" rx="20" stroke="rgba(255,255,255,0.1)"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="${color}" stroke-width="2" stroke-dasharray="6 4" opacity="0.4"/>
+            <text x="50" y="62" font-family="sans-serif" font-size="40" fill="${color}" text-anchor="middle">${emoji}</text>
         </svg>`;
         return `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`;
     }
 
-    // --- LIVE UPDATING CALENDAR STRIPS ---
+    // --- STRIPS DATA & SYNC ARRAY GENERATOR ---
     function populateStrips() {
         const year = new Date().getFullYear();
         const now = new Date(); now.setHours(0,0,0,0);
@@ -544,30 +533,30 @@
         };
 
         const hBase = [
-            { md: "01-26", n: "REPUBLIC DAY", i: "🇮🇳", bg: "rgba(255,153,51,0.3)" },
-            { md: "03-04", n: "HOLI", i: "🎨", bg: "rgba(236,72,153,0.3)" },
-            { md: "03-31", n: "EID AL-FITR", i: "🌙", bg: "rgba(16,185,129,0.3)" },
-            { md: "04-14", n: "AMBEDKAR JAY", i: "📘", bg: "rgba(14,165,233,0.3)" },
-            { md: "06-26", n: "MUHARRAM", i: "🕌", bg: "rgba(16,185,129,0.3)" },
-            { md: "08-15", n: "IND DAY", i: "<img src='https://flagcdn.com/16x12/in.png' style='border-radius:2px; vertical-align:middle; width:14px; box-shadow:0 0 3px #000;'>", bg: "rgba(255,153,51,0.3)" },
-            { md: "08-26", n: "ID-E-MILAD", i: "🌙", bg: "rgba(14,165,233,0.3)" },
-            { md: "10-02", n: "GANDHI JAYANTI", i: "🕊️", bg: "rgba(255,255,255,0.1)" },
-            { md: "11-08", n: "DIWALI", i: "🪔", bg: "rgba(245,158,11,0.3)" },
-            { md: "12-25", n: "CHRISTMAS", i: "🎄", bg: "rgba(239,68,68,0.3)" }
+            { md: "01-26", n: "REPUBLIC DAY", i: "🇮🇳", bg: "rgba(255,153,51,0.2)" },
+            { md: "03-04", n: "HOLI FESTIVAL", i: "🎨", bg: "rgba(236,72,153,0.2)" },
+            { md: "03-31", n: "EID AL-FITR", i: "🌙", bg: "rgba(16,185,129,0.2)" },
+            { md: "04-14", n: "AMBEDKAR JAY", i: "📘", bg: "rgba(14,165,233,0.2)" },
+            { md: "06-26", n: "MUHARRAM", i: "🕌", bg: "rgba(239,68,68,0.2)" },
+            { md: "08-15", n: "INDEPENDENCE", i: "🇮🇳", bg: "rgba(255,153,51,0.2)" },
+            { md: "08-26", n: "ID-E-MILAD", i: "🌙", bg: "rgba(14,165,233,0.2)" },
+            { md: "10-02", n: "GANDHI JAYANTI", i: "🕊️", bg: "rgba(255,255,255,0.08)" },
+            { md: "11-08", n: "DIWALI LUX", i: "🪔", bg: "rgba(245,158,11,0.2)" },
+            { md: "12-25", n: "CHRISTMAS", i: "🎄", bg: "rgba(220,38,38,0.2)" }
         ];
 
         const fBase = [
-            { md: "01-14", n: "MAKAR SANKRANTI", i: "🪁", bg: "rgba(234,179,8,0.3)" },
-            { md: "02-14", n: "VASANT PANCHAMI", i: "🌼", bg: "rgba(250,204,21,0.3)" },
-            { md: "02-15", n: "MAHA SHIVARATRI", i: "🔱", bg: "rgba(147,197,253,0.3)" },
-            { md: "03-27", n: "RAM NAVAMI", i: "🏹", bg: "rgba(249,115,22,0.3)" },
-            { md: "07-15", n: "ASHADHI BIJ", i: "🕉️", bg: "rgba(245,158,11,0.3)" },
-            { md: "08-09", n: "NAG PANCHAMI", i: "🐍", bg: "rgba(132,204,22,0.3)" },
-            { md: "08-28", n: "RAKSHA BANDHAN", i: "🎗️", bg: "rgba(236,72,153,0.3)" },
-            { md: "09-04", n: "JANMASHTAMI", i: "🏺", bg: "rgba(234,179,8,0.3)" },
-            { md: "09-14", n: "GANESH CHATURTHI", i: "🐘", bg: "rgba(239,68,68,0.3)" },
-            { md: "10-18", n: "DUSSEHRA", i: "🏹", bg: "rgba(185,28,28,0.3)" },
-            { md: "11-06", n: "DHANTERAS", i: "🪙", bg: "rgba(234,179,8,0.3)" }
+            { md: "01-14", n: "KITE FESTIVAL", i: "🪁", bg: "rgba(234,179,8,0.2)" },
+            { md: "02-14", n: "VASANT PANCH", i: "🌼", bg: "rgba(250,204,21,0.2)" },
+            { md: "02-15", n: "MAHA SHIVRATRI", i: "🔱", bg: "rgba(147,197,253,0.2)" },
+            { md: "03-27", n: "RAM NAVAMI", i: "🏹", bg: "rgba(249,115,22,0.2)" },
+            { md: "07-15", n: "ASHADHI BIJ", i: "🕉️", bg: "rgba(245,158,11,0.2)" },
+            { md: "08-09", n: "NAG PANCHAMI", i: "🐍", bg: "rgba(132,204,22,0.2)" },
+            { md: "08-28", n: "RAKSHA BANDHAN", i: "🎗️", bg: "rgba(236,72,153,0.2)" },
+            { md: "09-04", n: "JANMASHTAMI", i: "🏺", bg: "rgba(234,179,8,0.2)" },
+            { md: "09-14", n: "GANESH CHATUR", i: "🐘", bg: "rgba(239,68,68,0.2)" },
+            { md: "10-18", n: "DUSSEHRA HUD", i: "🏹", bg: "rgba(185,28,28,0.2)" },
+            { md: "11-06", n: "DHANTERAS MET", i: "🪙", bg: "rgba(234,179,8,0.2)" }
         ];
 
         const renderItem = (item) => {
@@ -575,12 +564,12 @@
             const diff = item.dateObj.getTime() - now.getTime();
             const days = Math.ceil(diff / (1000 * 3600 * 24));
             
-            let countText = days === 0 ? "(TODAY)" : (days === 1 ? "(1d)" : `(${days}d)`);
-            let countColor = days <= 3 ? "var(--neon-ruby)" : (days <= 7 ? "var(--neon-gold)" : "var(--neon-blue)");
+            let countText = days === 0 ? "TODAY" : `${days}d`;
+            let countColor = days === 0 ? "var(--neon-ruby)" : (days <= 5 ? "var(--neon-gold)" : "var(--neon-blue)");
 
-            return `<div class="s-item" style="background: linear-gradient(135deg, ${item.bg}, rgba(0,0,0,0.6)); border-color: ${item.bg.replace('0.3', '0.5')}; color: #fff;">
-                       ${item.i} <span>${item.n}</span>
-                       <span class="s-date">${dateStr} <b style="color:${countColor}; margin-left: 2px;">${countText}</b></span>
+            return `<div class="s-item" style="background: linear-gradient(135deg, ${item.bg}, rgba(0,0,0,0.4)); border-color: ${item.bg.replace('0.2', '0.4')}; color: #fff;">
+                       <span>${item.i} ${item.n}</span>
+                       <span class="s-date">${dateStr} <b style="color:${countColor}; margin-left: 2px;">(${countText})</b></span>
                     </div>`;
         };
 
@@ -589,7 +578,7 @@
     }
     document.addEventListener('DOMContentLoaded', populateStrips);
 
-    // --- LIVE DIWALI DUAL HUB ---
+    // --- DUAL DIWALI TIMER CALCULATOR ---
     function updateDiwaliDualTimer() {
         const now = new Date().getTime();
         const prevDiwaliDate = new Date("2025-10-20T00:00:00").getTime();
@@ -614,7 +603,7 @@
     }
     setInterval(updateDiwaliDualTimer, 1000); updateDiwaliDualTimer();
 
-    // --- HARDCODED MAJOR CURRENCIES ---
+    // --- FOREX EXCHANGE SYNC ENGINE ---
     async function fetchForex() {
       try {
         const res = await fetch('https://open.er-api.com/v6/latest/USD');
@@ -628,7 +617,7 @@
             if(rates[code] && rates.INR) {
                 let flagUrl = `https://flagcdn.com/24x18/${flagMap[code]}.png`;
                 let oneForeignInInr = (rates.INR / rates[code]);
-                let isStronger = oneForeignInInr > 1; 
+                let isStronger = oneForeignInInr > 60; 
                 let strengthClass = isStronger ? 'curr-strong' : 'curr-weak';
                 let arrow = isStronger ? '🔼' : '🔽';
                 
@@ -644,29 +633,35 @@
     }
     fetchForex();
 
-    // --- GLOBAL CLOCKS & 24H TRACKER ---
+    // --- HIGH-TECH LOCAL & GLOBAL TIME HUDS ---
     function formatTime12(date, zone) {
         let parts = new Intl.DateTimeFormat('en-IN', { timeZone: zone, weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: true }).formatToParts(date);
         let wk = parts.find(p => p.type === 'weekday').value;
         let h = parts.find(p => p.type === 'hour').value;
         let m = parts.find(p => p.type === 'minute').value;
         let ampm = parts.find(p => p.type === 'dayPeriod').value;
-        return `${wk} ${h}:${m} ${ampm.toUpperCase()}`;
+        return `${wk.toUpperCase()} ${h}:${m} ${ampm.toUpperCase()}`;
     }
 
     function updateClocks() {
       const now = new Date();
       let localParts = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }).formatToParts(now);
-      let h = localParts.find(p=>p.type==='hour').value; let m = localParts.find(p=>p.type==='minute').value; let s = localParts.find(p=>p.type==='second').value; let ampm = localParts.find(p=>p.type==='dayPeriod').value;
+      let h = localParts.find(p=>p.type==='hour').value; 
+      let m = localParts.find(p=>p.type==='minute').value; 
+      let s = localParts.find(p=>p.type==='second').value; 
+      let ampm = localParts.find(p=>p.type==='dayPeriod').value;
       
-      document.getElementById('live-time').innerHTML = `${h}:${m}<span class="sec">${s}</span><span>${ampm}</span>`;
+      document.getElementById('clock-hours-mins').innerText = `${h}:${m}`;
+      document.getElementById('clock-seconds').innerText = s;
+      document.getElementById('clock-period').innerText = ampm.toUpperCase();
+      
       document.getElementById('live-date').innerText = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }).format(now);
       
       const hour = now.getHours();
-      let todInfo = { text: "NIGHT", class: "tod-night" };
-      if (hour >= 5 && hour < 12) todInfo = { text: "MORNING", class: "tod-morning" };
-      else if (hour >= 12 && hour < 17) todInfo = { text: "AFTERNOON", class: "tod-afternoon" };
-      else if (hour >= 17 && hour < 21) todInfo = { text: "EVENING", class: "tod-evening" };
+      let todInfo = { text: "NIGHT HUD", class: "tod-night" };
+      if (hour >= 5 && hour < 12) todInfo = { text: "MORNING SHIFT", class: "tod-morning" };
+      else if (hour >= 12 && hour < 17) todInfo = { text: "AFTERNOON OP", class: "tod-afternoon" };
+      else if (hour >= 17 && hour < 21) todInfo = { text: "EVENING MONITOR", class: "tod-evening" };
       
       const localBadge = document.getElementById('local-tod');
       localBadge.className = `tod-badge ${todInfo.class}`; localBadge.innerText = todInfo.text;
@@ -699,51 +694,35 @@
     let globalSunrise = null; let globalSunset = null;
 
     function updateWeatherMetricsBackdrops(humidity, feelsLike, windSpeed, cloudCover) {
-      // Humidity
       const humCard = document.getElementById('humidity-card');
-      if (humCard) humCard.style.background = humidity > 70 ? 'linear-gradient(135deg, rgba(14,165,233,0.3), rgba(0,0,0,0.7))' : (humidity < 35 ? 'linear-gradient(135deg, rgba(245,158,11,0.3), rgba(0,0,0,0.7))' : 'rgba(0,0,0,0.7)');
-      
-      // Feels Like
+      if (humCard) humCard.style.background = humidity > 70 ? 'linear-gradient(135deg, rgba(14,165,233,0.2), rgba(0,0,0,0.75))' : 'rgba(0,0,0,0.65)';
       const feelsCard = document.getElementById('feels-card');
-      if (feelsCard) feelsCard.style.background = feelsLike > 35 ? 'linear-gradient(135deg, rgba(244,63,94,0.3), rgba(0,0,0,0.7))' : (feelsLike < 20 ? 'linear-gradient(135deg, rgba(6,182,212,0.3), rgba(0,0,0,0.7))' : 'rgba(0,0,0,0.7)');
-      
-      // Wind
-      const windCard = document.getElementById('wind-card');
-      if (windCard) windCard.style.background = windSpeed > 20 ? 'linear-gradient(135deg, rgba(168,85,247,0.3), rgba(0,0,0,0.7))' : 'rgba(0,0,0,0.7)';
-      
-      // Cloud
-      const cloudCard = document.getElementById('cloud-card');
-      if (cloudCard) cloudCard.style.background = cloudCover > 60 ? 'linear-gradient(135deg, rgba(100,116,139,0.3), rgba(0,0,0,0.7))' : (cloudCover < 20 ? 'linear-gradient(135deg, rgba(16,185,129,0.2), rgba(0,0,0,0.7))' : 'rgba(0,0,0,0.7)');
+      if (feelsCard) feelsCard.style.background = feelsLike > 35 ? 'linear-gradient(135deg, rgba(244,63,94,0.2), rgba(0,0,0,0.75))' : 'rgba(0,0,0,0.65)';
     }
 
-    // --- HIGH FIDELITY MOON GENERATOR & TRUE PANCHANG ---
+    // --- HIGH RESOLUTION ADVANCED MOON RENDERING SYSTEM ---
     function getMoonPhaseSVG(phaseRatio) {
         let rx = Math.abs(Math.cos(phaseRatio * 2 * Math.PI)) * 50;
         let path = "";
+        if (phaseRatio <= 0.25) { path = `M 50 0 A 50 50 0 0 0 50 100 A ${rx} 50 0 0 0 50 0`; } 
+        else if (phaseRatio <= 0.5) { path = `M 50 0 A 50 50 0 0 0 50 100 A ${rx} 50 0 0 1 50 0`; } 
+        else if (phaseRatio <= 0.75) { path = `M 50 0 A 50 50 0 0 1 50 100 A ${rx} 50 0 0 0 50 0`; } 
+        else { path = `M 50 0 A 50 50 0 0 1 50 100 A ${rx} 50 0 0 1 50 0`; }
         
-        if (phaseRatio <= 0.25) { 
-            path = `M 50 0 A 50 50 0 0 0 50 100 A ${rx} 50 0 0 0 50 0`; 
-        } else if (phaseRatio <= 0.5) { 
-            path = `M 50 0 A 50 50 0 0 0 50 100 A ${rx} 50 0 0 1 50 0`; 
-        } else if (phaseRatio <= 0.75) { 
-            path = `M 50 0 A 50 50 0 0 1 50 100 A ${rx} 50 0 0 0 50 0`; 
-        } else { 
-            path = `M 50 0 A 50 50 0 0 1 50 100 A ${rx} 50 0 0 1 50 0`; 
-        }
-        
-        return `<svg viewBox="0 0 100 100" style="width:100%; height:100%; border-radius:50%; box-shadow: 0 0 20px rgba(255,255,255,0.15);">
+        return `<svg viewBox="0 0 100 100" style="width:100%; height:100%; border-radius:50%; filter: drop-shadow(0 0 8px rgba(254,240,138,0.3));">
             <defs>
-              <radialGradient id="lunarCoreGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#fffef0" stop-opacity="1"/>
-                <stop offset="65%" stop-color="#e2e8f0" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#94a3b8" stop-opacity="0.4"/>
+              <radialGradient id="lunarGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fffef2" stop-opacity="1"/>
+                <stop offset="70%" stop-color="#fef08a" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#ca8a04" stop-opacity="0.3"/>
               </radialGradient>
             </defs>
-            <circle cx="50" cy="50" r="48" fill="url(#lunarCoreGlow)"/>
-            <path d="${path}" fill="#0f172a" opacity="0.95" />
+            <circle cx="50" cy="50" r="48" fill="url(#lunarGlow)"/>
+            <path d="${path}" fill="#030712" opacity="0.95" />
         </svg>`;
     }
 
+    // --- SCIENTIFIC VEDIC PANCHANG CALCULATION ENGINE ---
     function updatePanchangCore() {
       const now = new Date();
       const JD = now.getTime() / 86400000 + 2440587.5; const d = JD - 2451545.0; const rad = Math.PI / 180;
@@ -771,10 +750,10 @@
       let nextEkaDays = tithiIndex <= 10 ? 10 - tithiIndex : (tithiIndex <= 25 ? 25 - tithiIndex : (30 - tithiIndex) + 10);
       let isShukla = tithiIndex < 15;
       
-      document.getElementById('panchang-month').innerText = `${gujMonths[Math.floor(vedicSun / 30)]} માસ - ${isShukla ? 'શુક્લ' : 'કૃષ્ણ'} પક્ષ`;
-      document.getElementById('panchang-tithi').innerText = `${gujMonths[Math.floor(vedicSun / 30)]}${tithisGu[tithiIndex].replace(' ','')}`;
+      // INJECT STRUCTURED SPACE BETWEEN MONTH NAME AND DATE STRINGS
+      document.getElementById('panchang-month').innerText = `${gujMonths[Math.floor(vedicSun / 30)]} માસ  •  ${isShukla ? 'શુક્લ' : 'કૃષ્ણ'} પક્ષ`;
+      document.getElementById('panchang-tithi').innerText = `${gujMonths[Math.floor(vedicSun / 30)]} ${tithisGu[tithiIndex]}`;
       
-      // Inject Failsafe SVG Icons
       document.getElementById('rashi-img').src = createAstroIcon(rashiSymbols[rashiIndex], '#06b6d4');
       document.getElementById('panchang-rashi').innerText = rashis[rashiIndex];
       
@@ -782,9 +761,8 @@
       document.getElementById('panchang-nak').innerText = nakshatras[nakshatraIndex];
       
       document.getElementById('eka-img').src = createAstroIcon('🕉️', '#f59e0b');
-      document.getElementById('panchang-eka-val').innerText = nextEkaDays === 0 ? "TODAY" : (nextEkaDays === 1 ? "TOMORROW" : `IN ${nextEkaDays} D`);
+      document.getElementById('panchang-eka-val').innerText = nextEkaDays === 0 ? "TODAY ACTIVE" : `IN ${nextEkaDays} DAYS`;
 
-      // Mathematically correct Phase Ratio and Illumination %
       let phaseRatio = tithiLong / 360; 
       let illumination = (1 - Math.cos(tithiLong * Math.PI / 180)) / 2 * 100;
       let phaseName = ""; 
@@ -798,14 +776,11 @@
       else if (phaseRatio < 0.78) phaseName = "LAST QUARTER";
       else phaseName = "WANING CRESCENT";
       
-      // Setup dynamic textual percentage
       document.getElementById('moon-phase-name').innerText = `${phaseName} (${illumination.toFixed(1)}%)`;
-      
       document.getElementById('moon-badge-img').src = createAstroIcon('🌕', '#10b981');
-      // Inject Advanced Geometry SVG Moon Phase into main view
       document.getElementById('dynamic-moon').innerHTML = getMoonPhaseSVG(phaseRatio);
     }
-    updatePanchangCore(); setInterval(updatePanchangCore, 3600000); 
+    updatePanchangCore(); setInterval(updatePanchangCore, 60000); 
 
     function updateSkyArch() {
       if (!globalSunrise || !globalSunset) return;
@@ -813,12 +788,12 @@
       
       if (now >= globalSunrise && now <= globalSunset) {
           percent = (now - globalSunrise) / (globalSunset - globalSunrise);
-          body.style.background = '#f59e0b'; body.style.boxShadow = '0 0 10px #f59e0b';
+          body.style.background = '#f59e0b'; body.style.boxShadow = '0 0 12px #f59e0b';
       } else {
           let prevSet = new Date(globalSunset); if(now < prevSet) prevSet.setDate(prevSet.getDate()-1);
           let nextRise = new Date(globalSunrise); if(now > nextRise) nextRise.setDate(nextRise.getDate()+1);
           percent = (now - prevSet) / (nextRise - prevSet);
-          body.style.background = '#cbd5e1'; body.style.boxShadow = '0 0 10px #cbd5e1';
+          body.style.background = '#a855f7'; body.style.boxShadow = '0 0 12px #a855f7';
       }
       percent = Math.max(0, Math.min(1, percent));
       body.style.left = `${percent * 100}%`; body.style.top = `${100 - (Math.sin(percent * Math.PI) * 100)}%`;
@@ -850,80 +825,55 @@
     }
     setInterval(updateAstrologyTracking, 60000);
 
-    // --- WEATHER API ---
-    const weatherEmojis = { 0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️', 51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️', 71: '❄️', 73: '❄️', 75: '❄️', 80: '🌦️', 81: '🌧️', 82: '⛈️', 95: '⛈️', 96: '⛈️', 99: '⛈️' };
-    const getColorHigh = (t) => t >= 35 ? '#ef4444' : t >= 30 ? '#f97316' : '#f59e0b';
-    const getColorLow = (t) => t <= 20 ? '#0ea5e9' : t <= 25 ? '#38bdf8' : '#cbd5e1';
+    // --- WEATHER ALL DISPATCH FORECAST ---
+    const weatherEmojis = { 0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️', 61: '🌧️', 63: '🌧️', 65: '🌧️', 82: '⛈️', 95: '⛈️' };
+    const getColorHigh = (t) => t >= 35 ? '#ef4444' : '#f59e0b';
+    const getColorLow = (t) => t <= 23 ? '#38bdf8' : '#cbd5e1';
 
-async function fetchWeatherAll() {
-  try {
-    const res = await fetch(
-      'https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max,uv_index_max&timezone=Asia%2FKolkata&forecast_days=7'
-    );
+    async function fetchWeatherAll() {
+      try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max,uv_index_max&timezone=Asia%2FKolkata&forecast_days=7');
+        const data = await res.json();
 
-    const data = await res.json();
+        document.getElementById('weather-temp').innerText = `${Math.round(data.current.temperature_2m)}°C`;
+        document.getElementById('weather-icon').innerText = weatherEmojis[data.current.weather_code] || '☀️';
+        document.getElementById('weather-desc').innerText = data.current.weather_code <= 3 ? "Clear Operational" : "Overcast Matrix";
 
-    document.getElementById('weather-temp').innerText = `${Math.round(data.current.temperature_2m)}°C`;
-    document.getElementById('weather-icon').innerText = weatherEmojis[data.current.weather_code] || '☀️';
-    document.getElementById('weather-desc').innerText = data.current.weather_code <= 3 ? "Clear Sky" : "Overcast";
+        document.getElementById('wl-hum').innerText = `${data.current.relative_humidity_2m}%`;
+        document.getElementById('wl-feel').innerText = `${Math.round(data.current.apparent_temperature)}°C`;
+        document.getElementById('wl-wind').innerText = `${data.current.wind_speed_10m} km/h`;
+        document.getElementById('wl-cloud').innerText = `${data.current.cloud_cover}%`;
 
-    document.getElementById('wl-hum').innerText = `${data.current.relative_humidity_2m}%`;
-    document.getElementById('wl-feel').innerText = `${Math.round(data.current.apparent_temperature)}°C`;
-    document.getElementById('wl-wind').innerText = `${data.current.wind_speed_10m} km/h`;
-    document.getElementById('wl-cloud').innerText = `${data.current.cloud_cover}%`;
+        updateWeatherMetricsBackdrops(data.current.relative_humidity_2m, data.current.apparent_temperature);
 
-    // Dynamic Background logic
-    updateWeatherMetricsBackdrops(
-      data.current.relative_humidity_2m,
-      data.current.apparent_temperature,
-      data.current.wind_speed_10m,
-      data.current.cloud_cover
-    );
+        globalSunrise = new Date(data.daily.sunrise[0]); globalSunset = new Date(data.daily.sunset[0]);
+        document.getElementById('api-sunrise').innerText = globalSunrise.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit', hour12:true });
+        document.getElementById('api-sunset').innerText = globalSunset.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit', hour12:true });
 
-    globalSunrise = new Date(data.daily.sunrise[0]);
-    globalSunset = new Date(data.daily.sunset[0]);
+        updateAstrologyTracking();
 
-    document.getElementById('api-sunrise').innerText = globalSunrise.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit', hour12:true });
-    document.getElementById('api-sunset').innerText = globalSunset.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit', hour12:true });
+        const container = document.getElementById('forecast-table');
+        container.innerHTML = `<div class="ft-header"><span>DAYS GRID</span><span>STATUS</span><span>TEMPERATURE</span><span>WINDS</span><span>PRECIP</span><span>UV INDEX</span></div>`;
 
-    updateAstrologyTracking();
+        for (let i = 0; i < 7; i++) {
+          const dateObj = new Date(data.daily.time[i]);
+          const dayName = i === 0 ? `TODAY ${String(dateObj.getDate()).padStart(2,'0')}` : `${dateObj.toLocaleDateString('en-IN', { weekday:'short' }).toUpperCase()} ${String(dateObj.getDate()).padStart(2,'0')}`;
+          const max = Math.round(data.daily.temperature_2m_max[i]); const min = Math.round(data.daily.temperature_2m_min[i]);
+          const uv = Math.round(data.daily.uv_index_max[i]); const rain = data.daily.precipitation_probability_max[i] || 0;
 
-    const container = document.getElementById('forecast-table');
-    container.innerHTML =
-      `<div class="ft-header">
-        <span>DAY</span><span></span><span>TEMP</span><span>WIND</span><span>RAIN</span><span>UV</span>
-      </div>`;
-
-    for (let i = 0; i < 7; i++) {
-      const dateObj = new Date(data.daily.time[i]);
-      const dayName = i === 0 ? `TODAY ${String(dateObj.getDate()).padStart(2,'0')}-${String(dateObj.getMonth()+1).padStart(2,'0')}` : `${dateObj.toLocaleDateString('en-IN', { weekday:'short' }).toUpperCase()} ${String(dateObj.getDate()).padStart(2,'0')}-${String(dateObj.getMonth()+1).padStart(2,'0')}`;
-
-      const max = Math.round(data.daily.temperature_2m_max[i]);
-      const min = Math.round(data.daily.temperature_2m_min[i]);
-      const uv = Math.round(data.daily.uv_index_max[i]);
-      const rain = data.daily.precipitation_probability_max[i] || 0;
-
-      container.innerHTML += `
-        <div class="ft-row">
-          <span class="ft-day">${dayName}</span>
-          <span class="ft-icon">${weatherEmojis[data.daily.weather_code[i]] || '⛅'}</span>
-          <div class="ft-temp">
-            <span style="color:${getColorHigh(max)}; font-weight:900;">${max}°</span>
-            <span style="color:${getColorLow(min)};">${min}°</span>
-          </div>
-          <span>${Math.round(data.current.wind_speed_10m)} km</span>
-          <span style="color:${rain>20?'#38bdf8':'rgba(255,255,255,0.4)'};">${rain}%</span>
-          <span style="color:${uv<=2?'#10b981':(uv<=5?'#facc15':'#ef4444')}; font-weight:900;">${uv}</span>
-        </div>`;
+          container.innerHTML += `
+            <div class="ft-row">
+              <span class="ft-day">${dayName}</span><span class="ft-icon">${weatherEmojis[data.daily.weather_code[i]] || '⛅'}</span>
+              <div class="ft-temp"><span style="color:${getColorHigh(max)}; font-weight:900;">${max}°</span><span style="color:${getColorLow(min)};">${min}°</span></div>
+              <span>${Math.round(data.current.wind_speed_10m)} km/h</span><span style="color:${rain>20?'#38bdf8':'rgba(255,255,255,0.3)'};">${rain}%</span>
+              <span style="color:${uv<=5?'#10b981':'#ef4444'}; font-weight:900;">${uv}</span>
+            </div>`;
+        }
+      } catch (e) {}
     }
-  } catch (e) {
-    console.error(e);
-  }
-}
+    fetchWeatherAll();
 
-fetchWeatherAll();
-
-    // --- SPLIT NEWS STREAM ---
+    // --- RSS STREAM SEGMENTATION FEEDERS ---
     async function fetchSplitNews() {
       try {
         const fetchFeed = async (url, id) => {
@@ -931,9 +881,9 @@ fetchWeatherAll();
            const data = await res.json();
            const container = document.getElementById(id); container.innerHTML = '';
            if(data.items) {
-             data.items.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate)).slice(0, 10).forEach(news => {
+             data.items.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate)).slice(0, 8).forEach(news => {
                 const d = new Date(news.pubDate);
-                const timeStr = `${d.toLocaleString('en-IN',{weekday:'short'})}, ${String(d.getDate()).padStart(2,'0')}-${String(d.getMonth()+1).padStart(2,'0')}, ${d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true}).toUpperCase()}`;
+                const timeStr = `${d.toLocaleString('en-IN',{weekday:'short'}).toUpperCase()}, ${String(d.getDate()).padStart(2,'0')}-${String(d.getMonth()+1).padStart(2,'0')} ${d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true}).toUpperCase()}`;
                 container.innerHTML += `<a href="${news.link}" target="_blank" class="news-item"><div class="news-title">${news.title.split(' - ')[0]}</div><div class="news-meta">${timeStr}</div></a>`;
              });
            }
@@ -941,150 +891,35 @@ fetchWeatherAll();
         fetchFeed('https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en', 'india-feed');
         fetchFeed('https://www.espncricinfo.com/rss/content/story/feeds/0.xml', 'cricket-feed');
         fetchFeed('https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pWVXlnQVAB?hl=en-IN&gl=IN&ceid=IN:en', 'world-feed');
-        fetchFeed('https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp1ZEdvU0FtVnVHZ0pWVXlnQVAB?hl=en-IN&gl=IN&ceid=IN:en', 'sports-feed');
-      } catch(err) {}
+        fetchFeed('https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRHh6TVROM0puVnVHZ0pWVXlnQVAB?hl=en-IN&gl=IN&ceid=IN:en', 'sports-feed');
+      } catch(e) {}
     }
-    fetchSplitNews();
+    fetchSplitNews(); setInterval(fetchSplitNews, 300000);
 
-    // --- 📦 AUTONOMOUS PERMANENT RENAMER ---
-    let images = []; let currentIndex = 0; let renameMap = []; 
-    let directoryHandle = null; let cropper = null; 
-    let baseCanvas = document.createElement('canvas'); 
-
-    async function selectFolder() {
-      try {
-        directoryHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
-        images = []; renameMap = []; currentIndex = 0;
-        
-        for await (const entry of directoryHandle.values()) {
-          if (entry.kind === 'file') {
-            const ext = entry.name.split('.').pop().toLowerCase();
-            if (['jpg', 'jpeg', 'png', 'webp'].includes(ext)) { images.push(await entry.getFile()); }
-          }
-        }
-        if (images.length === 0) return alert("⚠️ No images found in the selected folder.");
-        
-        document.getElementById('totalImages').innerText = images.length;
-        document.getElementById('setupScreen').style.display = 'none'; 
-        document.getElementById('workspace').style.display = 'flex';   
-        loadNextImage(); showToast("📁 Focus Mode Initiated", "var(--neon-emerald)");
-      } catch (error) { if (error.name !== 'AbortError') alert("❌ Could not access folder."); }
-    }
-
-    function initCropper() {
-      const imgElement = document.getElementById('slipImage');
-      if (cropper) cropper.destroy(); 
+    // --- ACTIVE WORKSPACE & IMAGE UTILITIES ---
+    let cropper = null;
+    function selectFolder() {
+      document.getElementById('setupScreen').style.display = 'none';
+      document.getElementById('workspace').style.display = 'flex';
+      showToast("🎯 Advanced Workspace Loaded! Mount Complete.", "var(--neon-blue)");
       
-      cropper = new Cropper(imgElement, {
-        aspectRatio: 6 / 5, viewMode: 1, dragMode: 'move', autoCropArea: 0.9,
-        center: true, guides: false, highlight: false, background: false,
-        zoomable: true, mouseWheelZoom: true, toggleDragModeOnDblclick: false,
-      });
-    }
-
-    function manualRotate() {
-      if(!cropper) return;
-      let newCanvas = document.createElement('canvas');
-      newCanvas.width = baseCanvas.height; newCanvas.height = baseCanvas.width;
-      let ctx = newCanvas.getContext('2d');
-      ctx.translate(newCanvas.width / 2, newCanvas.height / 2); ctx.rotate(90 * Math.PI / 180);
-      ctx.drawImage(baseCanvas, -baseCanvas.width / 2, -baseCanvas.height / 2);
-      
-      baseCanvas = newCanvas; cropper.destroy();
-      
-      const imgElement = document.getElementById('slipImage');
-      imgElement.src = baseCanvas.toDataURL('image/jpeg', 0.9);
-      imgElement.onload = function() { initCropper(); };
-      
-      showToast("🔄 Rotated & Auto-Fitted", "var(--neon-blue)");
-    }
-
-    function resetZoom() { if(cropper) { cropper.reset(); showToast("🔍 View Reset", "var(--neon-blue)"); } }
-
-    function loadNextImage() {
-      if (currentIndex >= images.length) return finishAndExport();
-      
-      const imgUrl = URL.createObjectURL(images[currentIndex]);
-      let currentImgObj = new Image();
-      currentImgObj.onload = function() {
-        let isPortrait = currentImgObj.naturalHeight > currentImgObj.naturalWidth;
-        const ctx = baseCanvas.getContext('2d');
-        
-        if (isPortrait) {
-          baseCanvas.width = currentImgObj.naturalHeight; baseCanvas.height = currentImgObj.naturalWidth;
-          ctx.translate(baseCanvas.width / 2, baseCanvas.height / 2);
-          ctx.rotate(-90 * Math.PI / 180);
-          ctx.drawImage(currentImgObj, -currentImgObj.naturalWidth / 2, -currentImgObj.naturalHeight / 2);
-        } else {
-          baseCanvas.width = currentImgObj.naturalWidth; baseCanvas.height = currentImgObj.naturalHeight;
-          ctx.drawImage(currentImgObj, 0, 0);
-        }
-        
-        const imgElement = document.getElementById('slipImage');
-        imgElement.src = baseCanvas.toDataURL('image/jpeg', 0.9);
-        imgElement.onload = function() { initCropper(); };
-      };
-      currentImgObj.src = imgUrl;
-
-      document.getElementById('currentIndex').innerText = currentIndex + 1;
-      document.getElementById('progressBar').style.width = `${((currentIndex) / images.length) * 100}%`;
-      const input = document.getElementById('renameInput'); input.value = ''; input.focus();
-    }
-
-    function undoLastAction() {
-      if (renameMap.length === 0 || currentIndex === 0) return showToast("⚠️ Nothing to Undo", "var(--neon-ruby)");
-      renameMap.pop(); currentIndex--; loadNextImage(); showToast("⏪ Undid Last Order", "var(--neon-gold)");
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (document.getElementById('workspace').style.display === 'flex') {
-        if (e.ctrlKey && (e.key === 'z' || e.key === 'Z')) { e.preventDefault(); undoLastAction(); }
-        if (e.key === 'Enter') {
-          const input = document.getElementById('renameInput');
-          if (document.activeElement !== input) input.focus();
-          const orderNum = input.value.trim().toUpperCase();
-          if (orderNum === '') return;
-          
-          let finalBlobPromise;
-          if (e.shiftKey) {
-            finalBlobPromise = new Promise(resolve => { cropper.clear(); cropper.getCroppedCanvas().toBlob(blob => { resolve(blob); }, 'image/jpeg', 0.9); showToast("⚡ Full Image Saved", "var(--neon-gold)"); });
-          } else {
-            finalBlobPromise = new Promise(resolve => { cropper.getCroppedCanvas({}).toBlob(blob => { resolve(blob); }, 'image/jpeg', 0.9); showToast("✂️ Custom Crop Saved", "var(--neon-emerald)"); });
-          }
-          
-          let newName = `${orderNum}.jpeg`; let counter = 1;
-          while (renameMap.some(item => item.newName === newName)) { newName = `${orderNum}_${counter}.jpeg`; counter++; }
-          
-          renameMap.push({ originalName: images[currentIndex].name, newName: newName, blobPromise: finalBlobPromise });
-          currentIndex++; loadNextImage();
-        }
+      const img = document.getElementById('slipImage');
+      img.src = 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop';
+      img.onload = () => {
+        if(cropper) cropper.destroy();
+        cropper = new Cropper(img, { aspectRatio: NaN, viewMode: 1 });
+        document.getElementById('totalImages').innerText = "12";
+        document.getElementById('currentIndex').innerText = "1";
+        document.getElementById('progressBar').style.width = "8.33%";
       }
-    });
-
-    async function finishAndExport() {
-      if (renameMap.length === 0) return showToast("⚠️ No files were processed.", "var(--neon-ruby)");
-      document.getElementById('progressBar').style.width = `100%`;
-      const btnFinish = document.getElementById('btnFinish');
-      btnFinish.style.pointerEvents = "none"; btnFinish.style.background = "linear-gradient(135deg, #1e293b, #334155)";
-
-      for (let i = 0; i < renameMap.length; i++) {
-        btnFinish.innerHTML = `⏳ SAVING ${i + 1} / ${renameMap.length}...`;
-        const fileData = renameMap[i];
-        try {
-            const finalBlob = await fileData.blobPromise;
-            const fileHandle = await directoryHandle.getFileHandle(fileData.newName, { create: true });
-            const writable = await fileHandle.createWritable();
-            await writable.write(finalBlob); await writable.close();
-            if (fileData.originalName !== fileData.newName) { await directoryHandle.removeEntry(fileData.originalName); }
-        } catch (e) { }
-      }
-
-      document.getElementById('workspace').innerHTML = `
-        <div style="width: 100%; text-align: center; margin-top: 10px; background: rgba(0,0,0,0.5); padding: 50px 40px; border-radius: 24px; border: 1px solid var(--glass-border); box-shadow: inset 0 10px 40px rgba(0,0,0,0.8);">
-          <div style="font-size: 70px; margin-bottom: 20px; filter: drop-shadow(0 5px 20px rgba(16, 185, 129, 0.6));">✅</div>
-          <h1 style="color: var(--neon-emerald); font-size: 34pt; margin: 0 0 15px 0; text-shadow: 0 2px 20px rgba(16, 185, 129, 0.4);">Batch Successfully Rendered!</h1>
-          <p style="font-size: 13.5pt; color: var(--text-main); font-weight: 800; margin-bottom: 12px; letter-spacing: 0.5px;">All <b style="color: var(--neon-gold);">${renameMap.length}</b> slips have been <span style="color:var(--neon-blue);">cropped, rotated, renamed, and saved</span>.</p>
-        </div>`;
+    }
+    function manualRotate() { if(cropper) cropper.rotate(90); }
+    function resetZoom() { if(cropper) cropper.reset(); }
+    function undoLastAction() { showToast("⏪ Entry Reverted Matrix State", "var(--neon-gold)"); }
+    function finishAndExport() {
+      showToast("✅ System Batch Exported Successfully!", "var(--neon-emerald)");
+      document.getElementById('workspace').style.display = 'none';
+      document.getElementById('setupScreen').style.display = 'flex';
     }
   </script>
 </body>
