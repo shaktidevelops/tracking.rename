@@ -20,7 +20,6 @@
     
     * { box-sizing: border-box; font-family: 'Nunito', sans-serif; }
     
-    /* MAIN BODY WITH VISIBLE HEXAGON TEXTURE */
     body { margin: 0; padding: 10px; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: var(--text-main); overflow: hidden; background-color: #020617; }
     body::before { content: ''; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.15; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg width='40' height='69.28203230275509' viewBox='0 0 40 69.28203230275509' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338bdf8' fill-opacity='1'%3E%3Cpath d='M40 17.3205081l-10 5.7735027V34.6410162l10 5.7735027V17.3205081zm-20 34.6410162l-10-5.7735027V34.6410162l10-5.7735027v11.5470054zm10-5.7735027l-10 5.7735027-10-5.7735027v-11.5470054l10-5.7735027 10 5.7735027v11.5470054zM20 51.9615242l10 5.7735027V69.2820323l-10-5.7735027v-11.5470054zm0-69.2820323l10 5.7735027V0L20-5.7735027v11.5470054zM0 17.3205081l10 5.7735027V34.6410162L0 28.8675135V17.3205081zM0 51.9615242l10 5.7735027V69.2820323L0 63.5085296V51.9615242z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
 
@@ -51,68 +50,66 @@
 
     .title-area h1 { font-weight: 900; text-transform: uppercase; margin: 0; font-size: 20pt; letter-spacing: 1px; background: linear-gradient(135deg, #ffffff, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(56, 189, 248, 0.4)); display: flex; align-items: center; gap: 8px;}
     
-    /* DUAL DIWALI DASHBOARD (Both now highly beautiful) */
+    /* DUAL DIWALI DASHBOARD */
     .diwali-hub { display: flex; gap: 15px; align-items: stretch; }
-    .diwali-pill { padding: 6px 16px; border-radius: 8px; font-weight: 900; display: flex; align-items: center; gap: 12px; position: relative; overflow: hidden; border: 1px solid;}
+    .diwali-pill { padding: 4px 12px; border-radius: 8px; font-weight: 900; display: flex; align-items: center; gap: 10px; position: relative; overflow: hidden; border: 1px solid;}
     
     .prev-pill { background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(217, 70, 239, 0.3)); border-color: #d946ef; box-shadow: 0 0 20px rgba(217, 70, 239, 0.4), inset 0 2px 10px rgba(255,255,255,0.2); }
-    .prev-pill .d-label { font-size: 5.5pt; color: #fbcfe8; letter-spacing: 1px; }
-    .prev-pill .d-val { font-size: 11pt; color: #fff; font-family: monospace; letter-spacing: 1px; filter: drop-shadow(0 0 5px #d946ef);}
+    .prev-pill .d-label { font-size: 5pt; color: #fbcfe8; letter-spacing: 1px; }
+    .prev-pill .d-val { font-size: 9.5pt; color: #fff; font-family: monospace; letter-spacing: 1px; filter: drop-shadow(0 0 5px #d946ef);}
     
     .next-pill { background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(220, 38, 38, 0.3)); border-color: var(--neon-gold); box-shadow: 0 0 20px rgba(245, 158, 11, 0.5), inset 0 2px 10px rgba(255,255,255,0.2); }
-    .next-pill .d-label { font-size: 5.5pt; color: var(--neon-gold); letter-spacing: 1px; }
-    .next-pill .d-time { font-family: monospace; font-size: 12pt; letter-spacing: 1.5px; color: #fff; filter: drop-shadow(0 0 5px var(--neon-gold));}
-    .next-pill::before, .next-pill::after { content: '✨'; position: absolute; font-size: 14px; filter: drop-shadow(0 0 5px var(--neon-gold)); animation: firecracker 1.2s infinite alternate ease-in-out; opacity: 0; z-index: 1;}
-    .next-pill::before { left: 4px; top: -2px; animation-delay: 0s; } .next-pill::after { right: 4px; bottom: -2px; animation-delay: 0.6s; }
-    @keyframes firecracker { 0% { transform: scale(0.5) translateY(5px); opacity: 0; } 50% { opacity: 1; } 100% { transform: scale(1.5) translateY(-5px); opacity: 0; } }
+    .next-pill .d-label { font-size: 5pt; color: var(--neon-gold); letter-spacing: 1px; }
+    .next-pill .d-time { font-family: monospace; font-size: 10.5pt; letter-spacing: 1.5px; color: #fff; filter: drop-shadow(0 0 5px var(--neon-gold));}
 
-    /* STATIC, FULL-WIDTH TOP 5 HOLIDAY STRIP */
-    .holiday-strip-container { width: 100%; display: flex; align-items: center; margin-bottom: 8px; border-radius: 8px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 15px rgba(0,0,0,0.9); padding: 8px;}
-    .holiday-items { display: flex; justify-content: space-between; width: 100%; font-size: 7.5pt; font-family: monospace; font-weight: 800;}
-    .h-item { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 6px 12px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: 1px solid; margin: 0 6px; white-space: nowrap;}
-    .h-item span { font-weight: 900; letter-spacing: 0.5px;}
+    /* SLIM, UNIFIED TOP STRIPS (30px Height, Full Width) */
+    .strip-wrap { width: 100%; height: 30px; display: flex; align-items: center; margin-bottom: 5px; background: rgba(0,0,0,0.7); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); overflow: hidden; }
+    .strip-items { display: flex; justify-content: space-between; width: 100%; height: 100%; }
+    .s-item { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 7.5pt; font-family: monospace; font-weight: 900; white-space: nowrap; }
 
-    /* STATIC, FULL-WIDTH TOP 5 CURRENCY STRIP */
-    .ticker-wrap { width: 100%; display: flex; align-items: center; margin-bottom: 12px; background: rgba(0,0,0,0.7); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 15px rgba(0,0,0,0.9); padding: 8px;}
-    .ticker-track { display: flex; justify-content: space-between; width: 100%; }
-    .ticker-item { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 8px; border-radius: 8px; font-weight: 900; letter-spacing: 1px; white-space: nowrap; box-shadow: 0 4px 10px rgba(0,0,0,0.5); margin: 0 6px; font-size: 9pt; font-family: monospace;}
-    .ticker-flag { width: 24px; height: 18px; border-radius: 2px; box-shadow: 0 0 5px rgba(0,0,0,0.8); object-fit: cover;}
-    
-    .curr-strong { background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(0,0,0,0.5)); border: 1px solid #10b981; }
-    .curr-strong span.val { color: #10b981; }
-    .curr-strong .arrow { color: #10b981; text-shadow: 0 0 8px #10b981; }
-    
-    .curr-weak { background: linear-gradient(135deg, rgba(244, 63, 94, 0.25), rgba(0,0,0,0.5)); border: 1px solid #f43f5e; }
-    .curr-weak span.val { color: #fb7185; }
-    .curr-weak .arrow { color: #fb7185; text-shadow: 0 0 8px #f43f5e; }
-    .base-cur { color: #fff; }
+    /* Strip 1: Holidays */
+    #strip-holidays .s-item { border-right: 1px solid rgba(255,255,255,0.05); }
+    #strip-holidays .s-item:last-child { border-right: none; }
+
+    /* Strip 2: Forex */
+    .curr-strong { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), transparent); color: #10b981; border-right: 1px solid rgba(16,185,129,0.2); }
+    .curr-weak { background: linear-gradient(135deg, rgba(244, 63, 94, 0.2), transparent); color: #fb7185; border-right: 1px solid rgba(244,63,94,0.2); }
+    .ticker-flag { width: 18px; height: 13px; border-radius: 2px; box-shadow: 0 0 3px rgba(0,0,0,0.8); }
+
+    /* Strip 3: Hindu Festivals (Saffron/Crimson Aura) */
+    .hindu-strip-wrap { background: linear-gradient(90deg, rgba(2,6,23,0.9), rgba(124, 45, 18, 0.4), rgba(2,6,23,0.9)); border-color: rgba(234, 88, 12, 0.4); box-shadow: inset 0 0 15px rgba(234, 88, 12, 0.3); margin-bottom: 10px;}
+    .hindu-strip-wrap .s-item { border-right: 1px solid rgba(234, 88, 12, 0.2); color: #fde047; text-shadow: 0 0 5px rgba(245, 158, 11, 0.5); font-family: 'Nunito', sans-serif;}
+    .h-desc { font-size: 6pt; color: #fdba74; font-weight: 700; opacity: 0.9;}
 
     /* DASHBOARD GRID */
     .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(0,0,0,0.5); border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); padding: 12px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.8); position: relative; overflow: hidden; width: 100%; min-height: 0;}
-    #setupScreen { flex-grow: 1; display: grid; gap: 12px; width: 100%; min-height: 0; grid-template-columns: 320px 1.2fr 1.6fr; grid-template-rows: 320px minmax(0, 1fr) 95px; }
+    
+    /* SHRUNK TOP ROW FOR GLOBAL NODES EXPANSION */
+    #setupScreen { flex-grow: 1; display: grid; gap: 12px; width: 100%; min-height: 0; grid-template-columns: 320px 1.2fr 1.6fr; grid-template-rows: 270px minmax(0, 1fr) 95px; }
     
     /* BENTO BOX BASE */
-    .bento-item { border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); padding: 14px; display: flex; flex-direction: column; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255,255,255,0.1); position: relative; overflow: hidden; min-height: 0;}
+    .bento-item { border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); padding: 12px 14px; display: flex; flex-direction: column; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255,255,255,0.1); position: relative; overflow: hidden; min-height: 0;}
     .bento-item > * { position: relative; z-index: 2; }
-    .tool-header { font-size: 7.5pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin: -6px -6px 12px -6px; padding: 10px 14px; background: rgba(0,0,0,0.8); border-radius: 8px; border-bottom: 2px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5); backdrop-filter: blur(10px);}
+    .tool-header { font-size: 7pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin: -6px -6px 10px -6px; padding: 8px 14px; background: rgba(0,0,0,0.8); border-radius: 8px; border-bottom: 2px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5); backdrop-filter: blur(10px);}
 
-    /* 1. LOCAL SURAT (Highly visible Radar Texture) */
+    /* 1. LOCAL SURAT (Shrunk Height) */
     .bento-local { grid-column: 1 / 2; grid-row: 1 / 2; border-color: rgba(14,165,233,0.5); background: linear-gradient(135deg, rgba(2, 6, 23, 0.95), rgba(14, 165, 233, 0.2)); box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 2px 20px rgba(14, 165, 233, 0.2);}
     .bento-local::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.3; background-image: radial-gradient(rgba(14, 165, 233, 0.4) 1px, transparent 1px); background-size: 20px 20px; }
     .bento-local .tool-header { border-bottom-color: var(--neon-blue); color: var(--neon-blue); }
     .local-content { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-    .tod-badge { font-size: 6.5pt; padding: 3px 10px; border-radius: 6px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; display: inline-flex; align-items: center; box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 0 10px rgba(0,0,0,0.5); margin-bottom: 8px; color:#fff;}
+    .tod-badge { font-size: 6pt; padding: 2px 8px; border-radius: 4px; font-weight: 900; letter-spacing: 1px; display: inline-flex; align-items: center; box-shadow: inset 0 1px 3px rgba(255,255,255,0.2), 0 0 10px rgba(0,0,0,0.5); margin-bottom: 4px; color:#fff;}
     .tod-morning { background: var(--btn-blue); } .tod-afternoon { background: linear-gradient(135deg, #f59e0b, #d97706); } .tod-evening { background: var(--btn-red); } .tod-night { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
-    .time-large { font-size: 38pt; font-weight: 900; line-height: 1; letter-spacing: -1px; font-family: monospace; background: linear-gradient(to bottom right, #fff, #38bdf8); -webkit-background-clip: text; color: transparent; filter: drop-shadow(0 4px 10px rgba(56, 189, 248, 0.4));}
-    .time-large span { font-size: 14pt; margin-left: 6px; color: var(--neon-blue); -webkit-text-fill-color: var(--neon-blue);} .time-large .sec { font-size: 14pt; color: var(--neon-emerald); -webkit-text-fill-color: var(--neon-emerald); opacity: 0.8; }
-    .weather-local-box { display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden; margin-top: auto;}
-    .wl-top { display: flex; align-items: center; gap: 12px; padding-bottom: 6px; margin-top: 15px;}
-    .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; }
-    .wl-metric { background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.1); padding: 6px 10px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); transition: 0.3s;}
-    .wl-metric-title { font-size: 6pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; margin-bottom: 1px;}
-    .wl-metric-val { font-size: 9.5pt; color: #fff; font-family: monospace; font-weight: 900; }
+    .time-large { font-size: 34pt; font-weight: 900; line-height: 1; letter-spacing: -1px; font-family: monospace; background: linear-gradient(to bottom right, #fff, #38bdf8); -webkit-background-clip: text; color: transparent; filter: drop-shadow(0 4px 10px rgba(56, 189, 248, 0.4));}
+    .time-large span { font-size: 12pt; margin-left: 6px; color: var(--neon-blue); -webkit-text-fill-color: var(--neon-blue);} .time-large .sec { font-size: 12pt; color: var(--neon-emerald); -webkit-text-fill-color: var(--neon-emerald); opacity: 0.8; }
+    
+    .weather-local-box { display: flex; flex-direction: column; gap: 6px; position: relative; overflow: hidden; margin-top: auto;}
+    .wl-top { display: flex; align-items: center; gap: 10px; padding-bottom: 2px; margin-top: 6px;}
+    .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: auto; }
+    .wl-metric { background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.1); padding: 4px 6px; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); transition: 0.3s;}
+    .wl-metric-title { font-size: 5pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px;}
+    .wl-metric-val { font-size: 8.5pt; color: #fff; font-family: monospace; font-weight: 900; }
 
-    /* 2. GLOBAL NODES (Highly Visible Dotted Map) */
+    /* 2. GLOBAL NODES (Expanded Space) */
     .bento-clocks { grid-column: 1 / 2; grid-row: 2 / 4; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(0, 0, 0, 0.98)); border-color: rgba(167, 139, 250, 0.5); }
     .bento-clocks .tool-header { border-bottom-color: var(--neon-purple); color: var(--neon-purple); }
     .bento-clocks::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.3; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a855f7' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
@@ -126,48 +123,57 @@
     .wc-progress { position: absolute; height: 100%; left: 0; background: linear-gradient(90deg, #38bdf8, #8b5cf6, #f43f5e); box-shadow: 0 0 10px #8b5cf6; }
     .wc-dot { position: absolute; top: -3.5px; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff, 0 0 20px var(--neon-purple); transform: translateX(-50%); transition: left 1s ease-out; z-index: 2;}
 
-    /* 3. PREMIUM PANCHANG (Highly Visible Starfield Texture) */
+    /* 3. PREMIUM PANCHANG (Premium Engraved Samvat Badge) */
     .bento-panchang { grid-column: 2 / 3; grid-row: 1 / 2; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(167, 139, 250, 0.2)); border-color: rgba(167, 139, 250, 0.5); overflow: hidden;}
     .bento-panchang::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.4; background-image: radial-gradient(white 1px, transparent 1px); background-size: 30px 30px; background-position: 0 0, 15px 15px; }
     .bento-panchang .tool-header { border-bottom-color: var(--neon-gold); color: var(--neon-gold); }
+    
+    /* Highly Fancy Samvat Badge */
+    #panchang-samvat { 
+        font-size: 8pt; font-weight: 900; letter-spacing: 1.5px; 
+        background: linear-gradient(135deg, #fde047, #f59e0b, #ea580c); 
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+        filter: drop-shadow(0 2px 5px rgba(245, 158, 11, 0.5)); 
+        border: 1px solid rgba(245,158,11,0.3); padding: 3px 10px; border-radius: 4px; 
+        box-shadow: inset 0 0 10px rgba(245,158,11,0.2), 0 2px 5px rgba(0,0,0,0.8);
+    }
+
     .panchang-core { z-index: 2; position: relative; display: flex; flex-direction: column; gap: 8px; height: 100%; justify-content: space-between;}
-    .moon-box { width: 60px; height: 60px; border-radius: 50%; background: #e2e8f0; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); flex-shrink: 0; box-shadow: 0 0 15px rgba(255,255,255,0.2); transition: box-shadow 1.5s ease-in-out; }
+    .moon-box { width: 55px; height: 55px; border-radius: 50%; background: #e2e8f0; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); flex-shrink: 0; box-shadow: 0 0 15px rgba(255,255,255,0.2); }
     .moon-craters { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.15); box-shadow: 14px 20px 0 3px rgba(0,0,0,0.1), 24px 10px 0 4px rgba(0,0,0,0.15); right: 8px; top: 8px; z-index: 1;}
     .panchang-info-stack { display: flex; flex-direction: column; gap: 3px; justify-content: center; flex: 1;}
-    .astro-rashi { font-size: 6.5pt; color: var(--neon-cyan); font-family: monospace; font-weight: 800; background: rgba(6,182,212,0.15); padding: 2px 6px; border-radius: 4px; display: inline-block; border: 1px solid rgba(6,182,212,0.3); width: max-content;}
-    .sky-arch-container { position: relative; height: 65px; margin: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.2); overflow: hidden;}
+    .astro-rashi { font-size: 6pt; color: var(--neon-cyan); font-family: monospace; font-weight: 800; background: rgba(6,182,212,0.15); padding: 2px 6px; border-radius: 4px; display: inline-block; border: 1px solid rgba(6,182,212,0.3); width: max-content;}
+    .sky-arch-container { position: relative; height: 60px; margin: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.2); overflow: hidden;}
     .sky-arch-path { position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
     .astro-body { position: absolute; width: 14px; height: 14px; border-radius: 50%; top: 100%; left: 0%; transform: translate(-50%, -50%); transition: all 1s ease-out; z-index: 5;}
     .arch-label { position: absolute; bottom: 2px; font-size: 6pt; color: var(--text-muted); font-weight: 800; display: flex; align-items: center; gap: 4px;}
     .arch-label.left { left: 0; } .arch-label.right { right: 0; }
     .arch-label span { color: #fff; font-family: monospace; font-size: 7pt;}
-    .kaal-trackers { display: flex; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.7); padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
+    .kaal-trackers { display: flex; flex-direction: column; gap: 4px; background: rgba(0,0,0,0.7); padding: 6px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
     .kaal-row { display: flex; align-items: center; gap: 8px; }
-    .kaal-lbl { font-size: 6.5pt; font-weight: 900; color: var(--text-muted); width: 35px; }
-    .kaal-bar-bg { flex: 1; height: 5px; background: rgba(255,255,255,0.2); border-radius: 4px; position: relative; overflow: hidden; }
+    .kaal-lbl { font-size: 6pt; font-weight: 900; color: var(--text-muted); width: 35px; }
+    .kaal-bar-bg { flex: 1; height: 4px; background: rgba(255,255,255,0.2); border-radius: 4px; position: relative; overflow: hidden; }
     .kaal-segment { position: absolute; height: 100%; top: 0; border-radius: 4px; transition: 0.3s;}
     .rahu-seg { background: var(--neon-ruby); box-shadow: 0 0 8px var(--neon-ruby); }
     .yama-seg { background: var(--neon-gold); box-shadow: 0 0 8px var(--neon-gold); }
-    @keyframes pulseWarning { 0% { opacity: 0.5; } 50% { opacity: 1; filter: brightness(1.5); } 100% { opacity: 0.5; } }
-    .pulse-alert { animation: pulseWarning 1.5s infinite; }
-    .choghadiya-row { display: flex; gap: 6px; width: 100%; flex-shrink: 0;}
-    .chog-box { flex: 1; padding: 4px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.6); justify-content: center;}
+    .choghadiya-row { display: flex; gap: 4px; width: 100%; flex-shrink: 0;}
+    .chog-box { flex: 1; padding: 4px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.6); justify-content: center;}
     .chog-box.live { background: linear-gradient(135deg, rgba(16,185,129,0.25), rgba(14,165,233,0.25)); border-color: var(--neon-emerald); box-shadow: 0 0 10px rgba(16,185,129,0.4); z-index: 2; }
-    .ch-lbl { font-size: 5.5pt; font-weight: 900; color: var(--text-muted); letter-spacing: 1px; }
-    .ch-val { font-size: 7.5pt; font-weight: 900; letter-spacing: 0.5px; margin-top: 1px; text-transform: uppercase;}
+    .ch-lbl { font-size: 5pt; font-weight: 900; color: var(--text-muted); letter-spacing: 1px; }
+    .ch-val { font-size: 7pt; font-weight: 900; letter-spacing: 0.5px; margin-top: 1px; text-transform: uppercase;}
 
-    /* 4. 7-DAY ATMOSPHERIC ARRAY (Diagonal Lines Texture) */
+    /* 4. 4-DAY ATMOSPHERIC ARRAY (Shrunk Height) */
     .bento-weather { grid-column: 2 / 3; grid-row: 2 / 3; display: flex; flex-direction: column; min-height: 0; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(249, 115, 22, 0.15)); border-color: rgba(56, 189, 248, 0.4);}
     .bento-weather::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.15; background: repeating-linear-gradient( 45deg, transparent, transparent 10px, rgba(255,255,255,0.2) 10px, rgba(255,255,255,0.2) 11px ); }
     .bento-weather .tool-header { border-bottom-color: var(--neon-cyan); color: var(--neon-cyan); }
-    .forecast-table { display: flex; flex-direction: column; gap: 4px; flex: 1; min-height: 0;}
+    .forecast-table { display: flex; flex-direction: column; gap: 4px; flex: 1; min-height: 0; justify-content: space-evenly;}
     .ft-row, .ft-header { display: grid; grid-template-columns: 2.5fr 1fr 2.5fr 2fr 1.5fr 1fr; align-items: center; text-align: center; font-size: 7.5pt;}
-    .ft-header { color: var(--neon-cyan); font-weight: 900; letter-spacing: 1px; border-bottom: 1px solid rgba(56,189,248,0.3); padding-bottom: 4px; margin-bottom: 2px; }
-    .ft-row { padding: 4px 4px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); transition: 0.2s; font-family: monospace; font-weight: 800; background: rgba(0,0,0,0.6);}
+    .ft-header { color: var(--neon-cyan); font-weight: 900; letter-spacing: 1px; border-bottom: 1px solid rgba(56,189,248,0.3); padding-bottom: 2px; margin-bottom: 2px; }
+    .ft-row { padding: 2px 4px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); transition: 0.2s; font-family: monospace; font-weight: 800; background: rgba(0,0,0,0.6);}
     .ft-row:nth-child(even) { background: rgba(0,0,0,0.8); }
-    .ft-day { text-align: left; padding-left: 8px; font-family: 'Nunito', sans-serif; color: #fff; font-weight: 900; text-transform: uppercase; font-size: 7.5pt;}
-    .ft-icon { font-size: 11pt; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));}
-    .ft-temp { display: flex; gap: 4px; justify-content: center; font-size: 8.5pt;}
+    .ft-day { text-align: left; padding-left: 8px; font-family: 'Nunito', sans-serif; color: #fff; font-weight: 900; text-transform: uppercase; font-size: 7pt;}
+    .ft-icon { font-size: 10pt; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));}
+    .ft-temp { display: flex; gap: 4px; justify-content: center; font-size: 8pt;}
 
     /* 5. MOUNT DIRECTORY (Massive Overhaul - Super Attractive & Lively) */
     .bento-mount { grid-column: 2 / 3; grid-row: 3 / 4; cursor: pointer; background: linear-gradient(135deg, #064e3b, #022c22); border: 2px solid #10b981; padding: 10px; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 16px; box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), inset 0 0 20px rgba(16, 185, 129, 0.2); position: relative; overflow: hidden; z-index: 1;}
@@ -264,19 +270,29 @@
       </div>
     </div>
 
-    <div class="holiday-strip-container">
-       <div class="holiday-items" id="holiday-track">
-           <div class="h-item" style="background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(0,0,0,0.5)); border-color: #10b981; color: #fff;">🕌 <span>MUHARRAM: FRI 26-06</span></div>
-           <div class="h-item" style="background: linear-gradient(90deg, rgba(255,153,51,0.3), rgba(255,255,255,0.2), rgba(19,136,8,0.3)); border-color: rgba(255,255,255,0.5); color: #fff;">🇮🇳 <span>IND DAY: SAT 15-08</span></div>
-           <div class="h-item" style="background: linear-gradient(135deg, rgba(14,165,233,0.3), rgba(0,0,0,0.5)); border-color: #0ea5e9; color: #fff;">🌙 <span>ID-E-MILAD: WED 26-08</span></div>
-           <div class="h-item" style="background: linear-gradient(135deg, rgba(234,179,8,0.3), rgba(0,0,0,0.5)); border-color: #eab308; color: #fff;">🏺 <span>JANMASHTAMI: FRI 04-09</span></div>
-           <div class="h-item" style="background: rgba(255,255,255,0.1); border-color: #cbd5e1; color: #fff;">🕊️ <span>GANDHI JAYANTI: FRI 02-10</span></div>
+    <div class="strip-wrap" id="strip-holidays">
+       <div class="strip-items" id="holiday-track">
+           <div class="s-item" style="color:#10b981;">🕌 MUHARRAM: FRI 26-06</div>
+           <div class="s-item" style="color:#38bdf8;">🇮🇳 IND DAY: SAT 15-08</div>
+           <div class="s-item" style="color:#0ea5e9;">🌙 ID-E-MILAD: WED 26-08</div>
+           <div class="s-item" style="color:#eab308;">🏺 JANMASHTAMI: FRI 04-09</div>
+           <div class="s-item" style="color:#cbd5e1;">🕊️ GANDHI JAYANTI: FRI 02-10</div>
        </div>
     </div>
 
-    <div class="ticker-wrap">
-      <div class="ticker-track" id="forex-track">
+    <div class="strip-wrap" id="strip-forex">
+      <div class="strip-items" id="forex-track">
           </div>
+    </div>
+
+    <div class="strip-wrap hindu-strip-wrap" id="strip-hindu">
+       <div class="strip-items" id="hindu-track">
+           <div class="s-item">🕉️ ASHADHI BIJ <span class="h-desc">(Rath Yatra)</span></div>
+           <div class="s-item">🐍 NAG PANCHAMI <span class="h-desc">(Snake Worship)</span></div>
+           <div class="s-item">🎗️ RAKSHA BANDHAN <span class="h-desc">(Bond of Protection)</span></div>
+           <div class="s-item">🪈 JANMASHTAMI <span class="h-desc">(Birth of Krishna)</span></div>
+           <div class="s-item">🐘 GANESH CHATURTHI <span class="h-desc">(Arrival of Ganesha)</span></div>
+       </div>
     </div>
 
     <div class="ops-panel">
@@ -288,17 +304,17 @@
             <div>
               <span id="local-tod" class="tod-badge">MORNING</span>
               <div class="time-large" id="live-time">00:00<span class="sec">00</span><span>AM</span></div>
-              <div class="date-sub" id="live-date" style="font-size: 9pt; color: var(--text-muted); margin-top: 4px; font-weight: 800;">Thu, 18 Jun 2026</div>
+              <div class="date-sub" id="live-date" style="font-size: 8.5pt; color: var(--text-muted); margin-top: 2px; font-weight: 800;">Thu, 18 Jun 2026</div>
             </div>
             <div class="weather-local-box">
               <div class="wl-top">
-                <div class="weather-icon-container" style="position:relative; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center;">
-                   <svg style="position:absolute; top:0; left:0; width:100%; height:100%; transform: rotate(-90deg);"><circle cx="22.5" cy="22.5" r="20.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"></circle><circle id="sec-ring" cx="22.5" cy="22.5" r="20.5" fill="none" stroke="var(--neon-blue)" stroke-width="2" stroke-dasharray="128.8" stroke-dashoffset="128.8" style="transition: stroke-dashoffset 0.1s linear;"></circle></svg>
-                   <div id="weather-icon" style="font-size: 18pt; filter: drop-shadow(0 0 10px rgba(56,189,248,0.5)); line-height: 1; z-index:2;">☀️</div>
+                <div class="weather-icon-container" style="position:relative; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center;">
+                   <svg style="position:absolute; top:0; left:0; width:100%; height:100%; transform: rotate(-90deg);"><circle cx="17.5" cy="17.5" r="16" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"></circle><circle id="sec-ring" cx="17.5" cy="17.5" r="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" stroke-dasharray="100.5" stroke-dashoffset="100.5" style="transition: stroke-dashoffset 0.1s linear;"></circle></svg>
+                   <div id="weather-icon" style="font-size: 14pt; filter: drop-shadow(0 0 10px rgba(56,189,248,0.5)); line-height: 1; z-index:2;">☀️</div>
                 </div>
                 <div style="display: flex; flex-direction: column;">
-                  <div id="weather-temp" style="font-size: 16pt; font-weight: 900; line-height: 1; color: #fff;">--°C</div>
-                  <div id="weather-desc" style="font-size: 7pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; margin-top: 4px;">Syncing</div>
+                  <div id="weather-temp" style="font-size: 14pt; font-weight: 900; line-height: 1; color: #fff;">--°C</div>
+                  <div id="weather-desc" style="font-size: 6pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; margin-top: 2px;">Syncing</div>
                 </div>
               </div>
               <div class="wl-grid">
@@ -327,7 +343,7 @@
         <div class="bento-item bento-panchang">
           <div class="tool-header">
             <span>🌌 Premium Panchang</span>
-            <span id="panchang-samvat" style="font-size: 6pt; color: #fff; background: rgba(167, 139, 250, 0.4); padding: 2px 6px; border-radius: 4px;">VIKRAM SAMVAT</span>
+            <span id="panchang-samvat">VIKRAM SAMVAT 2082</span>
           </div>
           <div class="panchang-core">
             <div style="display: flex; gap: 15px; align-items: center; background: rgba(0,0,0,0.6); padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
@@ -343,7 +359,7 @@
             </div>
             
             <div class="sky-arch-container">
-               <svg class="sky-arch-path" viewBox="0 0 100 65" preserveAspectRatio="none"><path d="M 0 65 Q 50 0 100 65" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="2 3"/></svg>
+               <svg class="sky-arch-path" viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M 0 60 Q 50 0 100 60" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="2 3"/></svg>
                <div id="astro-body" class="astro-body"></div>
                <div class="arch-label left">🌅 <span id="api-sunrise">--:--</span></div>
                <div class="arch-label right"><span id="api-sunset">--:--</span> 🌇</div>
@@ -363,7 +379,7 @@
         </div>
 
         <div class="bento-item bento-weather">
-          <div class="tool-header">🌤️ Surat 7-Day Atmospheric Array</div>
+          <div class="tool-header">🌤️ Surat 4-Day Atmospheric Array</div>
           <div class="forecast-table" id="forecast-table">
             <div style="width: 100%; text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px;">Intercepting Meteorological Data...</div>
           </div>
@@ -471,7 +487,7 @@
     }
     setInterval(updateDiwaliDualTimer, 1000); updateDiwaliDualTimer();
 
-    // --- HARDCODED TOP 5 MAJOR CURRENCIES (Static Full-Width Grid) ---
+    // --- HARDCODED TOP 5 MAJOR CURRENCIES ---
     async function fetchForex() {
       try {
         const res = await fetch('https://open.er-api.com/v6/latest/USD');
@@ -490,13 +506,12 @@
                 let arrow = isStronger ? '🔼' : '🔽';
                 
                 html += `
-                  <div class="ticker-item ${strengthClass}">
+                  <div class="s-item ${strengthClass}">
                      <img src="${flagUrl}" class="ticker-flag"> 
                      <span class="base-cur">1 ${code}</span> = <span class="val">₹${oneForeignInInr.toFixed(2)}</span> <span class="arrow">${arrow}</span>
                   </div>`;
             }
         });
-        
         document.getElementById('forex-track').innerHTML = html; 
       } catch(e) {}
     }
@@ -545,7 +560,7 @@
 
     function renderRing() {
       const now = new Date();
-      const offset = 128.8 - ((now.getSeconds() + (now.getMilliseconds() / 1000)) / 60) * 128.8;
+      const offset = 100.5 - ((now.getSeconds() + (now.getMilliseconds() / 1000)) / 60) * 100.5;
       const ring = document.getElementById('sec-ring');
       if(ring) ring.style.strokeDashoffset = offset;
       requestAnimationFrame(renderRing);
@@ -577,10 +592,8 @@
       const tithisGu = ["સુદ એકમ", "સુદ બીજ", "સુદ ત્રીજ", "સુદ ચોથ", "સુદ પાંચમ", "સુદ છઠ", "સુદ સાતમ", "સુદ આઠમ", "સુદ નોમ", "સુદ દશમ", "સુદ એકાદશી", "સુદ બારસ", "સુદ તેરસ", "સુદ ચૌદશ", "પૂનમ", "વદ એકમ", "વદ બીજ", "વદ ત્રીજ", "વદ ચોથ", "વદ પાંચમ", "વદ છઠ", "વદ સાતમ", "વદ આઠમ", "વદ નોમ", "વદ દશમ", "વદ એકાદશી", "વદ બારસ", "વદ તેરસ", "વદ ચૌદશ", "અમાસ"];
       const gujMonths = ["વૈશાખ", "જેઠ", "અષાઢ", "શ્રાવણ", "ભાદરવો", "આસો", "કારતક", "માગશર", "પોષ", "મહા", "ફાગણ", "ચૈત્ર"];
 
-      const vsYear = now.getMonth() >= 10 ? now.getFullYear() + 57 : now.getFullYear() + 56;
       let nextEkaDays = tithiIndex <= 10 ? 10 - tithiIndex : (tithiIndex <= 25 ? 25 - tithiIndex : (30 - tithiIndex) + 10);
       
-      document.getElementById('panchang-samvat').innerText = `VIKRAM SAMVAT ${vsYear}`;
       document.getElementById('panchang-month').innerText = gujMonths[Math.floor(vedicSun / 30)];
       document.getElementById('panchang-tithi').innerText = tithisGu[tithiIndex];
       document.getElementById('panchang-astro').innerText = `RASHI: ${rashis[rashiIndex]} | NAK: ${nakshatras[nakshatraIndex]}`;
@@ -654,14 +667,14 @@
     }
     setInterval(updateAstrologyTracking, 60000);
 
-    // --- WEATHER API ---
+    // --- WEATHER API (Restricted to 4 Days) ---
     const weatherEmojis = { 0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️', 51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️', 71: '❄️', 73: '❄️', 75: '❄️', 80: '🌦️', 81: '🌧️', 82: '⛈️', 95: '⛈️', 96: '⛈️', 99: '⛈️' };
     const getColorHigh = (t) => t >= 35 ? '#ef4444' : t >= 30 ? '#f97316' : '#f59e0b';
     const getColorLow = (t) => t <= 20 ? '#0ea5e9' : t <= 25 ? '#38bdf8' : '#cbd5e1';
 
     async function fetchWeatherAll() {
       try {
-        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max,uv_index_max&timezone=Asia%2FKolkata&forecast_days=7');
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max,uv_index_max&timezone=Asia%2FKolkata&forecast_days=4');
         const data = await res.json();
         
         document.getElementById('weather-temp').innerText = `${Math.round(data.current.temperature_2m)}°C`;
@@ -681,7 +694,8 @@
         const container = document.getElementById('forecast-table');
         container.innerHTML = `<div class="ft-header"><span>DAY</span><span></span><span>TEMP</span><span>WIND</span><span>RAIN</span><span>UV</span></div>`;
 
-        for(let i=0; i<7; i++) {
+        // Loop changed to only execute 4 days
+        for(let i=0; i<4; i++) {
             const dateObj = new Date(data.daily.time[i]);
             const dayName = i === 0 ? `TODAY ${String(dateObj.getDate()).padStart(2,'0')}-${String(dateObj.getMonth()+1).padStart(2,'0')}` : `${dateObj.toLocaleDateString('en-IN', {weekday: 'short'}).toUpperCase()} ${String(dateObj.getDate()).padStart(2,'0')}-${String(dateObj.getMonth()+1).padStart(2,'0')}`;
             const max = Math.round(data.daily.temperature_2m_max[i]); const min = Math.round(data.daily.temperature_2m_min[i]);
