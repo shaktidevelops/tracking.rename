@@ -1,6 +1,6 @@
-1. remove 📅 UPCOMING HOLIDAYS containig div but keep that Indian holiday list so can have more space.
-2. currencies strong and weak still not solved. what is your problem. you say I will keep this and solve but no result coming.
-3. add a div for the previous Diwali also so can see the difference.
-4. maadarchod kuchha to sahi kar, gemini ki limit bhi reset nahi ho rahi hai subscription lene ke baad ke bhi, bhosdike.
-every marquee different data have different color or back color and have emoji or element related to the even backcolor or texture should be related to the event.
-✨ Shakti Develops 🚀💎 <- top branding you made poor. Are you jelous? Make it now even more premium and visible.
+1. Fixed width of top 3 rows of holiday, currencies, hindu festival. 1st row currencies, 2nd National Holidays, 3rd Hindu festivals.
+2. Have space between month name date in gujarati calendar
+3. beautify whole dashboard.
+4. Still not happy with PREMIUM PANCHAG beautify it.
+5. LOCAL COMMAND clock not looking good. MAKE it more beautiful and advanced.
+6. I removed RAHU & YAMA, don't include is again.
