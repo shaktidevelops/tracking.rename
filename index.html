@@ -45,7 +45,7 @@
       display: flex; flex-direction: column; position: relative; overflow: hidden;
     }
 
-    /* HEADER */
+    /* HEADER & DIWALI COUNTDOWN */
     .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-shrink: 0;}
     .title-area { display: flex; align-items: center; gap: 15px; }
     .title-area h1 { font-weight: 900; text-transform: uppercase; margin: 0; font-size: 22pt; letter-spacing: 1px; background: linear-gradient(135deg, #ffffff, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 5px rgba(56, 189, 248, 0.4)); display: flex; align-items: center; gap: 8px;}
@@ -57,23 +57,28 @@
     }
     @keyframes brandGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-    .status-pill { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--neon-emerald); padding: 6px 12px; border-radius: 8px; font-size: 7.5pt; font-weight: 900; color: #fff; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); text-transform: uppercase; }
-    .status-dot { width: 8px; height: 8px; background: var(--neon-emerald); border-radius: 50%; box-shadow: 0 0 10px var(--neon-emerald); animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.5); } 100% { opacity: 1; transform: scale(1); } }
+    .status-pill { border: 1px solid var(--neon-gold); background: rgba(245, 158, 11, 0.15); box-shadow: 0 0 15px rgba(245, 158, 11, 0.3); padding: 6px 12px; border-radius: 8px; font-size: 7.5pt; font-weight: 900; color: var(--neon-gold); letter-spacing: 1px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; }
 
-    /* GLOBAL TICKER MARQUEE - FOREX UPGRADE */
-    .ticker-wrap { width: 100%; background: rgba(0,0,0,0.8); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; height: 35px; margin-bottom: 12px; display: flex; align-items: center; box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; flex-shrink: 0; }
-    .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; width: 80px; height: 100%; z-index: 2; pointer-events: none;}
-    .ticker-wrap::before { left: 0; background: linear-gradient(90deg, rgba(10,15,30,1), transparent); }
-    .ticker-wrap::after { right: 0; background: linear-gradient(-90deg, rgba(10,15,30,1), transparent); }
+    /* GLOBAL TICKER MARQUEE - 20 CURRENCIES (DYNAMIC WEAK/STRONG LOGIC) */
+    .ticker-wrap { width: 100%; height: 32px; background: rgba(0,0,0,0.9); border-radius: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden; margin-bottom: 12px; display: flex; align-items: center; box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; flex-shrink: 0; }
+    .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; width: 60px; height: 100%; z-index: 2; pointer-events: none;}
+    .ticker-wrap::before { left: 0; background: linear-gradient(90deg, rgba(0,0,0,1), transparent); }
+    .ticker-wrap::after { right: 0; background: linear-gradient(-90deg, rgba(0,0,0,1), transparent); }
+    .ticker-track { display: flex; gap: 40px; width: max-content; animation: scrollTicker 150s linear infinite; font-size: 8pt; font-family: monospace; align-items: center; height: 100%; padding-right: 40px;}
+    .ticker-item { display: inline-flex; align-items: center; gap: 10px; padding: 4px 14px; border-radius: 20px; font-weight: 900; letter-spacing: 1px; color: #fff;}
+    .ticker-item:nth-child(even) { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); }
+    .ticker-item:nth-child(odd) { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); }
+    .ticker-flag { width: 20px; height: 14px; border-radius: 2px; box-shadow: 0 0 5px rgba(0,0,0,0.8); object-fit: cover;}
+    .ticker-item span { color: var(--neon-emerald); }
+    @keyframes scrollTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* DASHBOARD GRID */
     .ops-panel { flex: 1; display: flex; flex-direction: column; background: rgba(0,0,0,0.4); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 12px; box-shadow: inset 0 10px 40px rgba(0,0,0,0.8); position: relative; overflow: hidden; width: 100%; min-height: 0;}
     
     #setupScreen { 
       flex-grow: 1; display: grid; gap: 12px; width: 100%; min-height: 0;
-      grid-template-columns: 320px 1.4fr 1.1fr 340px; 
-      grid-template-rows: 290px minmax(0, 1fr) 95px;
+      grid-template-columns: 320px 1.2fr 1.6fr; 
+      grid-template-rows: 320px minmax(0, 1fr) 85px;
     }
     
     .bento-item { background: var(--glass-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); padding: 14px; display: flex; flex-direction: column; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,255,0.05); position: relative; overflow: hidden; min-height: 0;}
@@ -82,7 +87,7 @@
     .tool-header { font-size: 8pt; font-weight: 900; color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
 
     /* 1. LOCAL SURAT */
-    .bento-local { grid-column: 1 / 2; grid-row: 1 / 2; background-color: rgba(0,0,0,0.7); border-color: rgba(14,165,233,0.3); }
+    .bento-local { grid-column: 1 / 2; grid-row: 1 / 2; background: rgba(10, 15, 30, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-color: rgba(14,165,233,0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 2px 20px rgba(14, 165, 233, 0.15);}
     .bento-local::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(circle at center, rgba(14,165,233,0.1) 0, transparent 60%), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 100% 100%, 25px 25px, 25px 25px; }
     .local-content { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding-top: 5px; }
     
@@ -93,54 +98,56 @@
     .time-large span { font-size: 14pt; margin-left: 6px; color: var(--neon-blue); -webkit-text-fill-color: var(--neon-blue);} 
     .time-large .sec { font-size: 14pt; color: var(--neon-emerald); -webkit-text-fill-color: var(--neon-emerald); opacity: 0.8; }
     
-    .weather-local-box { display: flex; flex-direction: column; gap: 8px; background: rgba(0,0,0,0.6); padding: 12px; border-radius: 12px; border: 1px solid rgba(56,189,248,0.2); box-shadow: inset 0 2px 10px rgba(0,0,0,0.8); position: relative; overflow: hidden;}
-    .weather-local-box::after { content:''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background: linear-gradient(90deg, transparent, var(--neon-blue), transparent); opacity: 0.5;}
+    .weather-local-box { display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden; margin-top: auto;}
     
-    .wl-top { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;}
-    .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-    .wl-metric { font-size: 7.5pt; color: var(--text-muted); font-weight: 800; display: flex; justify-content: space-between; background: rgba(255,255,255,0.03); padding: 4px 8px; border-radius: 6px; }
-    .wl-metric span { color: #fff; font-family: monospace; font-weight: 900; }
+    .wl-top { display: flex; align-items: center; gap: 12px; padding-bottom: 6px;}
+    
+    /* RESTORED 2x2 GRID FOR WEATHER METRICS */
+    .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto; }
+    .wl-metric { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; box-shadow: inset 0 2px 5px rgba(0,0,0,0.6); transition: 0.3s;}
+    .wl-metric:hover { border-color: rgba(56,189,248,0.4); background: rgba(0,0,0,0.7); transform: translateY(-1px);}
+    .wl-metric-title { font-size: 6.5pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; margin-bottom: 2px;}
+    .wl-metric-val { font-size: 10pt; color: #fff; font-family: monospace; font-weight: 900; }
 
-    /* 2. WORLD CLOCKS (HORIZON BARS UPGRADE) */
+    /* 2. GLOBAL NODES */
     .bento-clocks { grid-column: 1 / 2; grid-row: 2 / 4; border-color: rgba(255,255,255,0.1); }
     .bento-clocks::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px); background-size: 16px 16px;}
-    .wc-list { display: flex; flex-direction: column; gap: 10px; overflow-y: auto; padding-right: 5px; flex: 1; min-height: 0; }
+    .wc-list { display: flex; flex-direction: column; gap: 8px; overflow-y: auto; padding-right: 5px; flex: 1; min-height: 0; }
     .wc-list::-webkit-scrollbar { width: 0; }
     
-    .wc-card { background: rgba(0,0,0,0.4); padding: 10px 12px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 2px 5px rgba(255,255,255,0.02), 0 4px 10px rgba(0,0,0,0.3); flex-shrink: 0; position: relative; overflow: hidden;}
-    .wc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .wc-city { font-weight: 900; font-size: 8.5pt; color: #fff; text-transform: uppercase; letter-spacing: 1px;}
-    .wc-time { font-size: 10pt; font-family: monospace; font-weight: 900; color: var(--neon-blue); }
+    .wc-card { background: rgba(0,0,0,0.4); padding: 8px 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 2px 5px rgba(255,255,255,0.02), 0 4px 10px rgba(0,0,0,0.3); flex-shrink: 0; position: relative; overflow: hidden;}
+    .wc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+    .wc-city { font-weight: 900; font-size: 8pt; color: #fff; text-transform: uppercase; letter-spacing: 1px;}
+    .wc-time { font-size: 9.5pt; font-family: monospace; font-weight: 900; color: var(--neon-blue); }
     
     .wc-bar-container { position: relative; height: 4px; background: linear-gradient(90deg, rgba(15,23,42,1) 0%, rgba(14,165,233,1) 20%, rgba(252,211,77,1) 50%, rgba(244,63,94,1) 80%, rgba(15,23,42,1) 100%); border-radius: 4px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.8); }
     .wc-dot { position: absolute; top: -3px; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff, 0 0 20px var(--neon-blue); transform: translateX(-50%); transition: left 1s ease-out; z-index: 2;}
     .wc-dot::after { content:''; position: absolute; width: 2px; height: 15px; background: rgba(255,255,255,0.5); left: 4px; top: -15px; pointer-events: none; }
 
-    /* 3. MACRO COMMODITIES & FREIGHT (TRADINGVIEW LIVE) */
-    .bento-market { grid-column: 2 / 3; grid-row: 1 / 2; border-color: rgba(245,158,11,0.2); }
-    .bento-market::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); }
-    .bento-market .tool-header { color: var(--neon-gold); border-bottom-color: rgba(245,158,11,0.2);}
-    .market-grid { flex: 1; min-height: 0; width: 100%; overflow: hidden; border-radius: 8px; }
-
-    /* 4. PREMIUM PANCHANG (ASTROLOGY UPGRADE) */
-    .bento-panchang { grid-column: 3 / 4; grid-row: 1 / 2; background-color: rgba(0,0,0,0.7); border-color: rgba(167, 139, 250, 0.3); overflow: hidden;}
+    /* 3. PREMIUM PANCHANG (VEDIC ASTROLOGY + DYNAMIC MOON) */
+    .bento-panchang { grid-column: 2 / 3; grid-row: 1 / 2; background-color: rgba(0,0,0,0.7); border-color: rgba(167, 139, 250, 0.3); overflow: hidden;}
     .bento-panchang::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 20px 20px;}
     .bento-panchang .tool-header { color: var(--neon-purple); border-bottom-color: rgba(167, 139, 250, 0.2); margin-bottom: 6px;}
     
     .panchang-core { z-index: 2; position: relative; display: flex; flex-direction: column; gap: 8px; height: 100%; justify-content: space-between;}
-    .moon-box { width: 45px; height: 45px; border-radius: 50%; background: #1e293b; box-shadow: inset -8px 0px 6px #f8fafc, inset -15px 0px 10px rgba(255,255,255,0.4), 0 0 10px rgba(255,255,255,0.2); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0;}
-    .moon-craters { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.08); box-shadow: 12px 18px 0 2px rgba(0,0,0,0.08), 20px 8px 0 4px rgba(0,0,0,0.1); right: 8px; top: 8px; }
+    
+    .moon-box { width: 42px; height: 42px; border-radius: 50%; background: #e2e8f0; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); flex-shrink: 0; box-shadow: 0 0 15px rgba(255,255,255,0.2); transition: box-shadow 1.5s ease-in-out; }
+    .moon-craters { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: rgba(0,0,0,0.15); box-shadow: 10px 15px 0 2px rgba(0,0,0,0.1), 18px 8px 0 3px rgba(0,0,0,0.15); right: 6px; top: 6px; z-index: 1;}
     
     .astro-rashi { font-size: 7pt; color: var(--neon-cyan); font-family: monospace; font-weight: 800; background: rgba(6,182,212,0.1); padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px; border: 1px solid rgba(6,182,212,0.2);}
     
-    .sun-box { display: flex; justify-content: space-between; background: rgba(0,0,0,0.5); border-radius: 8px; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.05); }
-    .sun-item { display: flex; align-items: center; gap: 6px; font-size: 7.5pt; font-weight: 800; color: #fff;}
-    .sun-item span { color: var(--neon-gold); font-family: monospace;}
-    
+    /* Sun Arch Canvas Area - Height Increased to 65px */
+    .sky-arch-container { position: relative; height: 65px; margin: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); overflow: hidden;}
+    .sky-arch-path { position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
+    .astro-body { position: absolute; width: 14px; height: 14px; border-radius: 50%; top: 100%; left: 0%; transform: translate(-50%, -50%); transition: all 1s ease-out; z-index: 5;}
+    .arch-label { position: absolute; bottom: 2px; font-size: 6pt; color: var(--text-muted); font-weight: 800; display: flex; align-items: center; gap: 4px;}
+    .arch-label.left { left: 0; } .arch-label.right { right: 0; }
+    .arch-label span { color: #fff; font-family: monospace; font-size: 7pt;}
+
     .kaal-trackers { display: flex; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.4); padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
     .kaal-row { display: flex; align-items: center; gap: 8px; }
     .kaal-lbl { font-size: 6.5pt; font-weight: 900; color: var(--text-muted); width: 35px; }
-    .kaal-bar-bg { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative; overflow: hidden; }
+    .kaal-bar-bg { flex: 1; height: 5px; background: rgba(255,255,255,0.1); border-radius: 4px; position: relative; overflow: hidden; }
     .kaal-segment { position: absolute; height: 100%; top: 0; border-radius: 4px; transition: 0.3s;}
     .rahu-seg { background: var(--neon-ruby); box-shadow: 0 0 8px var(--neon-ruby); }
     .yama-seg { background: var(--neon-gold); box-shadow: 0 0 8px var(--neon-gold); }
@@ -153,40 +160,40 @@
     .ch-lbl { font-size: 5.5pt; font-weight: 900; color: var(--text-muted); letter-spacing: 1px; }
     .ch-val { font-size: 7.5pt; font-weight: 900; letter-spacing: 0.5px; margin-top: 1px; text-transform: uppercase;}
 
-    .next-vrat { text-align: center; font-size: 6.5pt; font-weight: 900; color: var(--neon-purple); letter-spacing: 1px; text-transform: uppercase; background: rgba(167, 139, 250, 0.1); border: 1px dashed rgba(167, 139, 250, 0.4); padding: 4px; border-radius: 4px; }
-
-    /* 5. 4-DAY ATMOSPHERIC ARRAY */
-    .bento-weather { grid-column: 2 / 4; grid-row: 2 / 3; display: flex; flex-direction: column; min-height: 0; background-color: rgba(0,0,0,0.8); border-color: rgba(56, 189, 248, 0.2);}
+    /* 4. 7-DAY ATMOSPHERIC ARRAY */
+    .bento-weather { grid-column: 2 / 3; grid-row: 2 / 3; display: flex; flex-direction: column; min-height: 0; background-color: rgba(0,0,0,0.8); border-color: rgba(56, 189, 248, 0.2);}
     .bento-weather::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: repeating-radial-gradient(circle at 0 0, transparent 0, rgba(255,255,255,0.03) 10px, transparent 11px, transparent 20px); }
-    .bento-weather .tool-header { color: var(--neon-blue); border-bottom-color: rgba(56,189,248,0.2);}
+    .bento-weather .tool-header { color: var(--neon-blue); border-bottom-color: rgba(56,189,248,0.2); margin-bottom: 4px;}
     
-    .forecast-row { display: flex; justify-content: space-between; gap: 10px; flex: 1; align-items: stretch; min-height: 0; }
-    .fc-day { flex: 1; background-color: rgba(255,255,255,0.03); background-image: repeating-radial-gradient(circle at center, transparent 0, rgba(255,255,255,0.02) 8px, transparent 9px, transparent 15px); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; padding: 10px 5px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; position: relative; overflow: hidden; min-height: 0; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.4); backdrop-filter: blur(10px);}
-    .fc-day:hover { border-color: rgba(56,189,248,0.4); transform: translateY(-2px); background-color: rgba(255,255,255,0.06);}
-    .fc-lbl { font-size: 8pt; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px;}
-    .fc-icon { font-size: 24pt; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); margin: 2px 0;}
+    .forecast-table { display: flex; flex-direction: column; gap: 4px; flex: 1; min-height: 0;}
+    .ft-row, .ft-header { display: grid; grid-template-columns: 2.5fr 1fr 2.5fr 2fr 1.5fr 1fr; align-items: center; text-align: center; font-size: 7.5pt;}
+    .ft-header { color: var(--neon-blue); font-weight: 900; letter-spacing: 1px; border-bottom: 1px solid rgba(56,189,248,0.2); padding-bottom: 4px; margin-bottom: 2px; }
     
-    .fc-temps { display: flex; align-items: center; gap: 8px;}
-    .fc-high { font-size: 11pt; font-weight: 900; color: #fff; font-family: monospace;}
-    .fc-low { font-size: 9pt; font-weight: 800; color: rgba(255,255,255,0.4); font-family: monospace;}
+    .ft-row { padding: 6px 4px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03); transition: 0.2s; font-family: monospace; font-weight: 800; background: rgba(255,255,255,0.01);}
+    .ft-row:nth-child(even) { background: rgba(255,255,255,0.04); }
+    .ft-row:hover { background: rgba(255,255,255,0.08); transform: translateY(-1px); border-color: rgba(56,189,248,0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
     
-    .fc-stats { display: flex; gap: 4px; margin-top: 4px; width: 100%; padding: 0 5px; justify-content: space-between;}
-    .fc-xtra { font-size: 6.5pt; font-weight: 800; color: var(--text-muted); display: flex; flex-direction: column; align-items: center; gap: 2px; background: rgba(0, 0, 0, 0.4); padding: 4px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.05); flex:1;}
-    .fc-xtra span { color: #fff; font-family: monospace;}
+    .ft-day { text-align: left; padding-left: 8px; font-family: 'Nunito', sans-serif; color: #fff; font-weight: 900; text-transform: uppercase; font-size: 7.5pt;}
+    .ft-icon { font-size: 11pt; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));}
+    .ft-temp { display: flex; gap: 4px; justify-content: center; font-size: 8.5pt;}
 
-    /* 6. MOUNT BUTTON */
-    .bento-mount { grid-column: 2 / 4; grid-row: 3 / 4; cursor: pointer; background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(16, 185, 129, 0.2)); border: 1px solid var(--neon-blue); display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: inset 0 0 20px rgba(14, 165, 233, 0.1); padding: 10px;}
-    .bento-mount::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(rgba(255,255,255,0.1) 1.5px, transparent 1.5px); background-size: 12px 12px; }
-    .bento-mount:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4), inset 0 0 30px rgba(16, 185, 129, 0.2); border-color: var(--neon-emerald); }
-    .bento-mount:active { transform: translateY(2px); }
-    .mount-icon { font-size: 32pt; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); animation: bounce 3s infinite;}
+    /* 5. MOUNT BUTTON */
+    .bento-mount { grid-column: 2 / 3; grid-row: 3 / 4; cursor: pointer; background: #0f172a; border: 2px solid #334155; padding: 10px; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; transition: all 0.1s; border-radius: 16px; box-shadow: 0 8px 0 #020617, 0 15px 20px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; z-index: 1;}
+    .bento-mount::before { content: ''; position: absolute; width: 150%; height: 150%; background: conic-gradient(from 0deg, transparent, var(--neon-emerald), transparent 30%); top: -25%; left: -25%; animation: rotateGlow 4s linear infinite; z-index: -1; opacity: 0.5;}
+    .bento-mount::after { content: ''; position: absolute; inset: 2px; background: #0f172a; border-radius: 14px; z-index: -1; box-shadow: inset 0 5px 20px rgba(0,0,0,0.5); }
+    @keyframes rotateGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    
+    .bento-mount:hover { filter: brightness(1.1); box-shadow: 0 8px 0 #020617, 0 20px 25px rgba(16, 185, 129, 0.2), inset 0 1px 1px rgba(255,255,255,0.1); }
+    .bento-mount:active { transform: translateY(8px); box-shadow: 0 0 0 #020617, 0 5px 10px rgba(0,0,0,0.5), inset 0 1px 5px rgba(0,0,0,0.8); }
+    
+    .mount-icon { font-size: 28pt; filter: drop-shadow(0 0 10px var(--neon-emerald)); animation: pulseLight 2s infinite;}
     .mount-text { display: flex; flex-direction: column; text-align: left; }
-    .m-title { font-weight: 900; color: #fff; font-size: 14pt; text-transform: uppercase; letter-spacing: 1px; }
-    .m-sub { font-size: 8pt; font-weight: 800; color: var(--neon-emerald); letter-spacing: 2px; }
-    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    .m-title { font-weight: 900; color: #fff; font-size: 13pt; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);}
+    .m-sub { font-size: 7.5pt; font-weight: 800; color: var(--neon-emerald); letter-spacing: 2px; }
+    @keyframes pulseLight { 0%, 100% { filter: drop-shadow(0 0 5px var(--neon-emerald)); } 50% { filter: drop-shadow(0 0 20px var(--neon-emerald)); } }
 
-    /* 7. VERTICAL NEWS (CLEAN REVERT FORMAT) */
-    .news-wrapper { grid-column: 4 / 5; grid-row: 1 / 4; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+    /* 6. VERTICAL NEWS */
+    .news-wrapper { grid-column: 3 / 4; grid-row: 1 / 4; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; min-height: 0; }
     .bento-news { flex: 1; min-height: 0; border-color: rgba(255,255,255,0.08); background: rgba(0,0,0,0.6);}
     .bento-news::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.8; background-image: radial-gradient(rgba(255,255,255,0.06) 1.5px, transparent 1.5px); background-size: 16px 16px;}
     
@@ -194,22 +201,24 @@
     .news-feed::-webkit-scrollbar { width: 4px; }
     .news-feed::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
     
-    .news-item { background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid; display: flex; flex-direction: column; gap: 6px; transition: 0.2s; text-decoration: none; cursor: pointer;}
+    .news-item { background: rgba(255,255,255,0.03); padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid; display: flex; flex-direction: column; gap: 4px; transition: 0.2s; text-decoration: none; cursor: pointer;}
     .news-item:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateX(-2px);}
-    .news-title { font-size: 7.5pt; color: var(--text-main); font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .news-meta { font-size: 6.5pt; font-family: monospace; font-weight: 900; color: #10b981;}
+    .news-title { font-size: 7.5pt; color: var(--text-main); font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .news-meta { font-size: 6pt; font-family: monospace; font-weight: 900; color: #10b981;}
 
-    /* 🎛️ ACTIVE WORKSPACE (FOCUS MODE) */
+    /* 🎛️ ACTIVE WORKSPACE (FOCUS MODE WITH ZOOM & RESET) */
     #workspace { display: none; flex-grow: 1; flex-direction: column; gap: 10px; height: 100%; min-height: 0; width: 100%;}
     
     .image-container { flex: 1; min-height: 0; background-color: #0b1120; background-image: linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px); background-size: 40px 40px; border-radius: 14px; border: 1px solid var(--glass-border); display: flex; justify-content: center; align-items: center; overflow: hidden; padding: 10px; box-shadow: inset 0 10px 50px rgba(0,0,0,0.9); position: relative; }
     .image-container img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
     .cropper-view-box, .cropper-face { border-radius: 8px; } .cropper-line { background-color: var(--neon-emerald); opacity: 0.8; } .cropper-point { background-color: var(--neon-blue); width: 8px; height: 8px; border-radius: 50%; opacity: 1; } .cropper-point.point-se { width: 12px; height: 12px; right: -4px; bottom: -4px; } .cropper-bg { background-image: none !important; background-color: rgba(0,0,0,0.8); }
 
-    .btn-pro { height: auto; cursor: pointer; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); color: white; font-weight: 900; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-shadow: 0 1px 3px rgba(0,0,0,0.6); box-shadow: 0 6px 15px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.3); }
+    .btn-pro { height: 100%; cursor: pointer; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); color: white; font-weight: 900; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-shadow: 0 1px 3px rgba(0,0,0,0.6); box-shadow: 0 6px 15px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.3); }
     .btn-pro:hover { transform: translateY(-2px); filter: brightness(1.15); box-shadow: 0 10px 20px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.4); } .btn-pro:active { transform: translateY(1px); filter: brightness(0.95); box-shadow: none !important; }
-    .blue-btn { background: var(--btn-blue); padding: 14px 30px; font-size: 11pt; border-radius: 12px;} .green-btn { background: var(--btn-green); } .red-btn { background: var(--btn-red); padding: 0 15px; font-size: 8pt; border-radius: 8px;}
-    .rotate-btn { position: absolute; top: 12px; right: 12px; background: var(--btn-blue); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 12px; border-radius: 8px; font-weight: 900; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.8); z-index: 10; letter-spacing: 1px; font-size: 7.5pt; text-shadow: 0 1px 2px rgba(0,0,0,0.8); } .rotate-btn:hover { filter: brightness(1.2); transform: scale(1.05); } .rotate-btn:active { transform: scale(0.95); }
+    .blue-btn { background: var(--btn-blue); font-size: 11pt; border-radius: 12px;} .green-btn { background: var(--btn-green); } .red-btn { background: var(--btn-red); font-size: 8pt; border-radius: 8px;}
+    
+    .rotate-btn { position: absolute; top: 12px; background: var(--btn-blue); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 12px; border-radius: 8px; font-weight: 900; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.8); z-index: 10; letter-spacing: 1px; font-size: 7.5pt; text-shadow: 0 1px 2px rgba(0,0,0,0.8); height: auto; } 
+    .rotate-btn:hover { filter: brightness(1.2); transform: scale(1.05); } .rotate-btn:active { transform: scale(0.95); }
 
     .control-panel { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;}
     .stat-box-op { background: var(--glass-card); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);}
@@ -221,10 +230,9 @@
     @keyframes progressGlow { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
     .progress-text { font-size: 14pt; font-weight: 900; background: linear-gradient(135deg, #fff, var(--text-muted)); -webkit-background-clip: text; color: transparent; line-height: 1; margin: 0; letter-spacing: 1px;}
 
-    .input-row { display: flex; gap: 8px; width: 100%; align-items: stretch; position: relative;}
+    .input-row { display: flex; gap: 8px; width: 100%; align-items: stretch; position: relative; height: 45px;}
     
-    /* UPPERCASE ENFORCEMENT */
-    input[type="text"] { flex: 1; padding: 10px 15px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.2); font-weight: 900; font-size: 14pt; color: #fff; background: rgba(0, 0, 0, 0.7); outline: none; transition: 0.3s; text-align: center; color-scheme: dark; box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.9); text-transform: uppercase; }
+    input[type="text"] { flex: 1; padding: 0 15px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.2); font-weight: 900; font-size: 14pt; color: #fff; background: rgba(0, 0, 0, 0.7); outline: none; transition: 0.3s; text-align: center; color-scheme: dark; box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.9); text-transform: uppercase; height: 100%;}
     input[type="text"]:focus { background: rgba(0, 0, 0, 0.9); border-color: var(--neon-blue); box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.4); }
 
     #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: rgba(15, 23, 42, 0.95); border: 1px solid var(--neon-emerald); color: var(--text-main); padding: 10px 20px; border-radius: 50px; font-weight: 800; font-size: 9pt; letter-spacing: 1px; box-shadow: 0 10px 30px rgba(0,0,0,0.9), 0 0 20px rgba(16, 185, 129, 0.3); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 1000; display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
@@ -253,33 +261,14 @@
         <div class="brand-badge"><span class="sparkle">✨</span> Shakti Develops 🚀💎</div>
         <h1>📦 Dispatch Command</h1>
       </div>
-      <div class="status-pill">
-        <div class="status-dot"></div> ⚡ ALIVE IS AWESOME!
+      <div class="status-pill" id="diwali-countdown">
+        <span style="font-size: 10pt;">🪔</span> <span id="diwali-text">CALCULATING...</span>
       </div>
     </div>
 
-    <div class="ticker-wrap">
-      <div class="tradingview-widget-container" style="width: 100%; height: 100%;">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-          "symbols": [
-            { "proName": "FX_IDC:USDINR", "title": "USD/INR" },
-            { "proName": "FX_IDC:EURINR", "title": "EUR/INR" },
-            { "proName": "FX_IDC:GBPINR", "title": "GBP/INR" },
-            { "proName": "FX_IDC:AEDINR", "title": "AED/INR" },
-            { "proName": "FX_IDC:SGDINR", "title": "SGD/INR" },
-            { "proName": "FX_IDC:CADINR", "title": "CAD/INR" },
-            { "proName": "FX_IDC:AUDINR", "title": "AUD/INR" }
-          ],
-          "showSymbolLogo": true,
-          "isTransparent": true,
-          "displayMode": "adaptive",
-          "colorTheme": "dark",
-          "locale": "in"
-        }
-        </script>
-      </div>
+    <div class="ticker-wrap" id="forex-ticker-wrap">
+      <div class="ticker-track" id="forex-track">
+         </div>
     </div>
 
     <div class="ops-panel">
@@ -297,17 +286,24 @@
             
             <div class="weather-local-box">
               <div class="wl-top">
-                <div id="weather-icon" style="font-size: 26pt; filter: drop-shadow(0 0 10px rgba(56,189,248,0.5)); line-height: 1;">☀️</div>
+                <div class="weather-icon-container" style="position:relative; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center;">
+                   <svg style="position:absolute; top:0; left:0; width:100%; height:100%; transform: rotate(-90deg);">
+                      <circle cx="22.5" cy="22.5" r="20.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"></circle>
+                      <circle id="sec-ring" cx="22.5" cy="22.5" r="20.5" fill="none" stroke="var(--neon-blue)" stroke-width="2" stroke-dasharray="128.8" stroke-dashoffset="128.8" style="transition: stroke-dashoffset 0.1s linear;"></circle>
+                   </svg>
+                   <div id="weather-icon" style="font-size: 18pt; filter: drop-shadow(0 0 10px rgba(56,189,248,0.5)); line-height: 1; z-index:2;">☀️</div>
+                </div>
                 <div style="display: flex; flex-direction: column;">
                   <div id="weather-temp" style="font-size: 16pt; font-weight: 900; line-height: 1; color: #fff;">--°C</div>
-                  <div id="weather-desc" style="font-size: 7.5pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; margin-top: 4px;">Syncing</div>
+                  <div id="weather-desc" style="font-size: 7pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; margin-top: 4px;">Syncing</div>
                 </div>
               </div>
+              
               <div class="wl-grid">
-                  <div class="wl-metric">HUMIDITY <span id="wl-hum">--%</span></div>
-                  <div class="wl-metric">FEELS LIKE <span id="wl-feel">--°C</span></div>
-                  <div class="wl-metric">WIND <span id="wl-wind">-- km/h</span></div>
-                  <div class="wl-metric">CLOUD <span id="wl-cloud">--%</span></div>
+                  <div class="wl-metric"><div class="wl-metric-title">💧 HUMIDITY</div><div class="wl-metric-val" id="wl-hum">--%</div></div>
+                  <div class="wl-metric"><div class="wl-metric-title">🌡️ FEELS</div><div class="wl-metric-val" id="wl-feel">--°C</div></div>
+                  <div class="wl-metric"><div class="wl-metric-title">💨 WIND</div><div class="wl-metric-val" id="wl-wind">-- km/h</div></div>
+                  <div class="wl-metric"><div class="wl-metric-title">☁️ CLOUD</div><div class="wl-metric-val" id="wl-cloud">--%</div></div>
               </div>
             </div>
           </div>
@@ -316,92 +312,47 @@
         <div class="bento-item bento-clocks">
           <div class="tool-header" style="color: var(--neon-purple);">🌐 Global Nodes</div>
           <div class="wc-list">
-            <div class="wc-card" id="node-lon">
-              <div class="wc-top"><span class="wc-city">🎡 London</span><span class="wc-time" id="time-lon">--:--</span></div>
-              <div class="wc-bar-container"><div class="wc-dot" id="dot-lon"></div></div>
-            </div>
-            <div class="wc-card" id="node-ny">
-              <div class="wc-top"><span class="wc-city">🗽 New York</span><span class="wc-time" id="time-ny">--:--</span></div>
-              <div class="wc-bar-container"><div class="wc-dot" id="dot-ny"></div></div>
-            </div>
-            <div class="wc-card" id="node-dxb">
-              <div class="wc-top"><span class="wc-city">🏙️ Dubai</span><span class="wc-time" id="time-dxb">--:--</span></div>
-              <div class="wc-bar-container"><div class="wc-dot" id="dot-dxb"></div></div>
-            </div>
-            <div class="wc-card" id="node-sgp">
-              <div class="wc-top"><span class="wc-city">🦁 Singapore</span><span class="wc-time" id="time-sgp">--:--</span></div>
-              <div class="wc-bar-container"><div class="wc-dot" id="dot-sgp"></div></div>
-            </div>
-            <div class="wc-card" id="node-tyo">
-              <div class="wc-top"><span class="wc-city">🗼 Tokyo</span><span class="wc-time" id="time-tyo">--:--</span></div>
-              <div class="wc-bar-container"><div class="wc-dot" id="dot-tyo"></div></div>
-            </div>
-            <div class="wc-card" id="node-syd">
-              <div class="wc-top"><span class="wc-city">🦘 Sydney</span><span class="wc-time" id="time-syd">--:--</span></div>
-              <div class="wc-bar-container"><div class="wc-dot" id="dot-syd"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bento-item bento-market">
-          <div class="tool-header">📈 Macro & Logistics (Live)</div>
-          <div class="market-grid">
-            <div class="tradingview-widget-container" style="width: 100%; height: 100%;">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-              {
-                "width": "100%",
-                "height": "100%",
-                "symbolsGroups": [
-                  {
-                    "name": "Global Benchmarks",
-                    "symbols": [
-                      { "name": "TVC:UKOIL", "displayName": "Brent Crude" },
-                      { "name": "TVC:USOIL", "displayName": "WTI Crude" },
-                      { "name": "OANDA:XAUUSD", "displayName": "Gold (XAU)" },
-                      { "name": "OANDA:XAGUSD", "displayName": "Silver (XAG)" }
-                    ]
-                  }
-                ],
-                "showSymbolLogo": true,
-                "isTransparent": true,
-                "colorTheme": "dark",
-                "locale": "in"
-              }
-              </script>
-            </div>
+            <div class="wc-card" id="node-sf"><div class="wc-top"><span class="wc-city">🌉 San Francisco</span><span class="wc-time" id="time-sf">--:--</span></div><div class="wc-bar-container"><div class="wc-dot" id="dot-sf"></div></div></div>
+            <div class="wc-card" id="node-ny"><div class="wc-top"><span class="wc-city">🗽 New York</span><span class="wc-time" id="time-ny">--:--</span></div><div class="wc-bar-container"><div class="wc-dot" id="dot-ny"></div></div></div>
+            <div class="wc-card" id="node-lon"><div class="wc-top"><span class="wc-city">🎡 London</span><span class="wc-time" id="time-lon">--:--</span></div><div class="wc-bar-container"><div class="wc-dot" id="dot-lon"></div></div></div>
+            <div class="wc-card" id="node-par"><div class="wc-top"><span class="wc-city">🥐 Paris</span><span class="wc-time" id="time-par">--:--</span></div><div class="wc-bar-container"><div class="wc-dot" id="dot-par"></div></div></div>
+            <div class="wc-card" id="node-dxb"><div class="wc-top"><span class="wc-city">🏙️ Dubai</span><span class="wc-time" id="time-dxb">--:--</span></div><div class="wc-bar-container"><div class="wc-dot" id="dot-dxb"></div></div></div>
+            <div class="wc-card" id="node-sgp"><div class="wc-top"><span class="wc-city">🦁 Singapore</span><span class="wc-time" id="time-sgp">--:--</span></div><div class="wc-bar-container"><div class="wc-dot" id="dot-sgp"></div></div></div>
+            <div class="wc-card" id="node-syd"><div class="wc-top"><span class="wc-city">🦘 Sydney</span><span class="wc-time" id="time-syd">--:--</span></div><div class="wc-bar-container"><div class="wc-dot" id="dot-syd"></div></div></div>
           </div>
         </div>
 
         <div class="bento-item bento-panchang">
           <div class="tool-header" style="justify-content: space-between;">
             <span>🌌 Premium Panchang</span>
-            <span style="font-size: 6.5pt; color: var(--neon-purple); border: 1px solid var(--neon-purple); padding: 2px 6px; border-radius: 4px;">VIKRAM SAMVAT</span>
+            <span id="panchang-samvat" style="font-size: 6.5pt; color: var(--neon-purple); border: 1px solid var(--neon-purple); padding: 2px 6px; border-radius: 4px;">VIKRAM SAMVAT</span>
           </div>
           
           <div class="panchang-core">
-            <div style="display: flex; gap: 15px; align-items: center; background: rgba(0,0,0,0.5); padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);">
-              <div class="moon-box"><div class="moon-craters"></div></div>
+            <div style="display: flex; gap: 15px; align-items: center; background: rgba(0,0,0,0.5); padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);">
+              
+              <div id="dynamic-moon" class="moon-box"><div class="moon-craters"></div></div>
+              
               <div style="display: flex; flex-direction: column; justify-content: center;">
-                <div style="font-size: 11pt; font-weight: 900; color: var(--neon-gold); letter-spacing: 1px; line-height: 1;">અષાઢ સુદ</div>
-                <div class="astro-rashi">RASHI: VRISHABHA | NAK: ROHINI</div>
+                <div style="font-size: 11pt; font-weight: 900; color: var(--neon-gold); letter-spacing: 1px; line-height: 1;"><span id="panchang-month" style="color:#fff; margin-right:4px;"></span><span id="panchang-tithi">--</span></div>
+                <div id="panchang-astro" class="astro-rashi">RASHI: -- | NAK: --</div>
+                <div id="panchang-eka" style="font-size: 6pt; color: var(--neon-purple); font-weight: 900; letter-spacing: 1px; margin-top: 4px; background: rgba(167, 139, 250, 0.1); padding: 2px 6px; border-radius: 4px; display: inline-block; width: max-content; border: 1px solid rgba(167, 139, 250, 0.2);">NEXT: EKADASHI --</div>
+                <div id="moon-phase-name" style="font-size: 5.5pt; color: var(--text-muted); font-weight: 800; margin-top: 4px; letter-spacing: 1px; text-transform: uppercase;">CALCULATING LUNAR PHASE...</div>
               </div>
             </div>
             
-            <div class="sun-box">
-              <div class="sun-item">🌅 Rise: <span id="api-sunrise">--:--</span></div>
-              <div class="sun-item">🌇 Set: <span id="api-sunset">--:--</span></div>
+            <div class="sky-arch-container">
+               <svg class="sky-arch-path" viewBox="0 0 100 65" preserveAspectRatio="none">
+                 <path d="M 0 65 Q 50 0 100 65" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="2 3"/>
+               </svg>
+               <div id="astro-body" class="astro-body"></div>
+               <div class="arch-label left">🌅 <span id="api-sunrise">--:--</span></div>
+               <div class="arch-label right"><span id="api-sunset">--:--</span> 🌇</div>
             </div>
 
             <div class="kaal-trackers">
-                <div class="kaal-row">
-                   <span class="kaal-lbl">RAHU</span>
-                   <div class="kaal-bar-bg"><div class="kaal-segment rahu-seg" id="rahu-bar" style="width: 0;"></div></div>
-                </div>
-                <div class="kaal-row">
-                   <span class="kaal-lbl">YAMA</span>
-                   <div class="kaal-bar-bg"><div class="kaal-segment yama-seg" id="yama-bar" style="width: 0;"></div></div>
-                </div>
+                <div class="kaal-row"><span class="kaal-lbl">RAHU</span><div class="kaal-bar-bg"><div class="kaal-segment rahu-seg" id="rahu-bar" style="width: 0;"></div></div></div>
+                <div class="kaal-row"><span class="kaal-lbl">YAMA</span><div class="kaal-bar-bg"><div class="kaal-segment yama-seg" id="yama-bar" style="width: 0;"></div></div></div>
             </div>
             
             <div class="choghadiya-row" id="chog-container">
@@ -409,34 +360,40 @@
               <div class="chog-box live"><span class="ch-lbl">LIVE NOW</span><span class="ch-val" id="ch-live">--</span></div>
               <div class="chog-box next"><span class="ch-lbl">NEXT</span><span class="ch-val" id="ch-next">--</span></div>
             </div>
-
-            <div class="next-vrat">NEXT: EKADASHI IN 3 DAYS</div>
           </div>
         </div>
 
         <div class="bento-item bento-weather">
-          <div class="tool-header" style="margin-bottom: 8px;">🌤️ Surat 4-Day Atmospheric Array</div>
-          <div class="forecast-row" id="forecast-row">
+          <div class="tool-header" style="margin-bottom: 4px;">🌤️ Surat 7-Day Atmospheric Array</div>
+          <div class="forecast-table" id="forecast-table">
             <div style="width: 100%; text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px;">Intercepting Meteorological Data...</div>
           </div>
         </div>
 
         <div class="bento-item bento-mount" onclick="selectFolder()">
-          <div class="mount-icon">📁</div>
+          <div class="mount-icon">⚡</div>
           <div class="mount-text">
             <div class="m-title">Mount Directory</div>
-            <div class="m-sub">INITIATE DISPATCH FOCUS MODE</div>
+            <div class="m-sub">INITIATE DISPATCH SEQUENCE</div>
           </div>
         </div>
 
         <div class="news-wrapper">
-          <div class="bento-item bento-news">
-            <div class="tool-header" style="color: #f97316; border-bottom-color: rgba(249,115,22,0.2);">🇮🇳 India Intelligence</div>
-            <div class="news-feed" id="india-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px;">Intercepting National Data...</div></div>
+          <div class="bento-item bento-news" style="grid-column: 1 / 2; grid-row: 1 / 2;">
+            <div class="tool-header" style="color: #f97316; border-bottom-color: rgba(249,115,22,0.2);">🇮🇳 India Intel</div>
+            <div class="news-feed" id="india-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 10px;">Intercepting...</div></div>
           </div>
-          <div class="bento-item bento-news">
-            <div class="tool-header" style="color: var(--neon-blue); border-bottom-color: rgba(14,165,233,0.2);">🏏 Cricket Updates</div>
-            <div class="news-feed" id="cricket-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px;">Intercepting Cricinfo...</div></div>
+          <div class="bento-item bento-news" style="grid-column: 2 / 3; grid-row: 1 / 2;">
+            <div class="tool-header" style="color: var(--neon-blue); border-bottom-color: rgba(14,165,233,0.2);">🏏 Cricket</div>
+            <div class="news-feed" id="cricket-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 10px;">Intercepting...</div></div>
+          </div>
+          <div class="bento-item bento-news" style="grid-column: 1 / 2; grid-row: 2 / 3;">
+            <div class="tool-header" style="color: var(--neon-purple); border-bottom-color: rgba(168,85,247,0.2);">🌍 World Intel</div>
+            <div class="news-feed" id="world-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 10px;">Intercepting...</div></div>
+          </div>
+          <div class="bento-item bento-news" style="grid-column: 2 / 3; grid-row: 2 / 3;">
+            <div class="tool-header" style="color: var(--neon-emerald); border-bottom-color: rgba(16,185,129,0.2);">⚽ Global Sports</div>
+            <div class="news-feed" id="sports-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 10px;">Intercepting...</div></div>
           </div>
         </div>
 
@@ -444,6 +401,7 @@
 
       <div id="workspace">
         <div class="image-container">
+          <button class="rotate-btn" style="right: 130px; background: rgba(0,0,0,0.6);" onclick="resetZoom()" title="Reset Zoom & Center">🔍 RESET</button>
           <button class="rotate-btn" onclick="manualRotate()" title="Rotate Image 90 Degrees">🔄 ROTATE 90°</button>
           <img id="slipImage" src="" alt="Courier Slip Preview">
         </div>
@@ -455,25 +413,25 @@
             <div class="progress-text"><span id="currentIndex">0</span> <span style="color:rgba(255,255,255,0.3); font-size: 11pt; margin: 0 4px;">/</span> <span id="totalImages">0</span></div>
           </div>
 
-          <div style="display: flex; gap: 10px; align-items: stretch; width: 100%;">
-            <div class="stat-box-op" style="flex: 1; padding: 6px 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <div style="display: flex; gap: 10px; align-items: stretch; width: 100%; height: 50px;">
+            <div class="stat-box-op" style="flex: 1; padding: 6px 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 100%;">
               
-              <div style="display: flex; align-items: center; gap: 10px; flex: 1;">
+              <div style="display: flex; align-items: center; gap: 10px; flex: 1; height: 100%;">
                 <h3 style="margin: 0; font-size: 7.5pt; color: #fff; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">🎯 Target Order #</h3>
                 <div class="input-row">
                   <input type="text" id="renameInput" placeholder="TYPE ORDER #" autocomplete="off" oninput="this.value = this.value.toUpperCase()">
+                  <button class="btn-pro red-btn" onclick="undoLastAction()" title="Undo Last Entry"><span>⏪ UNDO</span></button>
                 </div>
               </div>
-
-              <button class="btn-pro red-btn" onclick="undoLastAction()" title="Undo Last Entry"><span>⏪ UNDO</span></button>
             </div>
-            <button class="btn-pro green-btn" id="btnFinish" onclick="finishAndExport()" style="width: auto; flex-shrink: 0;">✅ Export Batch</button>
+            <button class="btn-pro green-btn" id="btnFinish" onclick="finishAndExport()" style="width: auto; flex-shrink: 0; height: 100%;">✅ Export Batch</button>
           </div>
 
           <div style="font-size: 6.5pt; color: var(--text-muted); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin-top: 2px;">
               <b style="color:var(--neon-emerald)">ENTER ↵</b> to Crop & Advance | 
               <b style="color:var(--neon-gold)">SHIFT + ENTER ↵</b> to Skip Crop (Save Full Image) | 
-              <b style="color:var(--neon-ruby)">CTRL + Z</b> to Undo
+              <b style="color:var(--neon-ruby)">CTRL + Z</b> to Undo |
+              <b style="color:var(--neon-blue)">MOUSE WHEEL</b> to Zoom
           </div>
         </div>
       </div>
@@ -501,13 +459,70 @@
       toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500);
     }
 
-    // --- GLOBAL CLOCKS & HORIZON BARS ---
+    // --- LIVE DIWALI COUNTDOWN ---
+    function updateDiwaliCountdown() {
+        const diwaliDates = [
+            new Date("2024-10-31T00:00:00"), 
+            new Date("2025-10-20T00:00:00"),
+            new Date("2026-11-08T00:00:00"),
+            new Date("2027-10-29T00:00:00"),
+            new Date("2028-10-17T00:00:00"),
+            new Date("2029-11-05T00:00:00"),
+            new Date("2030-10-26T00:00:00")
+        ];
+        const now = new Date();
+        let nextDiwali = diwaliDates.find(d => d > now);
+        if(nextDiwali) {
+            const diffTime = Math.abs(nextDiwali - now);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('diwali-text').innerText = `${diffDays} DAYS TO DIWALI`;
+        }
+    }
+    setInterval(updateDiwaliCountdown, 86400000);
+    updateDiwaliCountdown();
+
+    // --- LIVE FOREX TICKER (DYNAMIC STRENGTH FORMATTING) ---
+    async function fetchForex() {
+      try {
+        const res = await fetch('https://open.er-api.com/v6/latest/USD');
+        const data = await res.json();
+        const rates = data.rates;
+        
+        const flagMap = { USD: 'us', EUR: 'eu', GBP: 'gb', JPY: 'jp', CHF: 'ch', CNY: 'cn', AUD: 'au', CAD: 'ca', SGD: 'sg', HKD: 'hk', AED: 'ae', SAR: 'sa', KWD: 'kw', OMR: 'om', BHD: 'bh', QAR: 'qa', THB: 'th', MYR: 'my', IDR: 'id', NZD: 'nz' };
+
+        let html = '';
+        Object.keys(flagMap).forEach(code => {
+            if(rates[code] && rates.INR) {
+                let flagUrl = `https://flagcdn.com/24x18/${flagMap[code]}.png`;
+                let displayHtml = '';
+                let oneForeignInInr = (rates.INR / rates[code]);
+                
+                // Strength Detection
+                if (oneForeignInInr >= 1) {
+                    displayHtml = `<span>${code}</span> ₹${oneForeignInInr.toFixed(2)}`;
+                } else {
+                    let oneInrInForeign = (rates[code] / rates.INR).toFixed(2);
+                    displayHtml = `<span>${code}</span> ₹1 = ${oneInrInForeign}`;
+                }
+                
+                html += `<div class="ticker-item"><img src="${flagUrl}" class="ticker-flag"> ${displayHtml}</div>`;
+            }
+        });
+        
+        const track = document.getElementById('forex-track');
+        track.innerHTML = html + html + html; 
+      } catch(e) { console.error("Forex fetch error:", e); }
+    }
+    fetchForex();
+
+    // --- GLOBAL CLOCKS ---
     function formatTime12(date, zone) {
-        let parts = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: true }).formatToParts(date);
+        let parts = new Intl.DateTimeFormat('en-IN', { timeZone: zone, weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: true }).formatToParts(date);
+        let wk = parts.find(p => p.type === 'weekday').value;
         let h = parts.find(p => p.type === 'hour').value;
         let m = parts.find(p => p.type === 'minute').value;
         let ampm = parts.find(p => p.type === 'dayPeriod').value;
-        return `${h}:${m} ${ampm}`;
+        return `${wk} ${h}:${m} ${ampm.toUpperCase()}`;
     }
 
     function updateClocks() {
@@ -527,30 +542,143 @@
       const localBadge = document.getElementById('local-tod');
       localBadge.className = `tod-badge ${todInfo.class}`; localBadge.innerText = todInfo.text;
 
-      const zones = { 'ny': 'America/New_York', 'lon': 'Europe/London', 'dxb': 'Asia/Dubai', 'sgp': 'Asia/Singapore', 'tyo': 'Asia/Tokyo', 'syd': 'Australia/Sydney' };
+      const zones = { 'sf': 'America/Los_Angeles', 'ny': 'America/New_York', 'lon': 'Europe/London', 'par': 'Europe/Paris', 'dxb': 'Asia/Dubai', 'sgp': 'Asia/Singapore', 'syd': 'Australia/Sydney' };
       
       for (let [id, zone] of Object.entries(zones)) {
-          // Update Text Time
-          document.getElementById(`time-${id}`).innerText = formatTime12(now, zone);
-          
-          // Calculate Horizon Bar Position (24 Hours = 1440 mins)
-          let zoneTimeStr = new Date(now.toLocaleString("en-US", {timeZone: zone}));
-          let minsPassed = (zoneTimeStr.getHours() * 60) + zoneTimeStr.getMinutes();
-          let percentage = (minsPassed / 1440) * 100;
-          document.getElementById(`dot-${id}`).style.left = `${percentage}%`;
+          const elTime = document.getElementById(`time-${id}`);
+          if (elTime) {
+            elTime.innerText = formatTime12(now, zone);
+            let zoneTimeStr = new Date(now.toLocaleString("en-US", {timeZone: zone}));
+            let minsPassed = (zoneTimeStr.getHours() * 60) + zoneTimeStr.getMinutes();
+            let percentage = (minsPassed / 1440) * 100;
+            document.getElementById(`dot-${id}`).style.left = `${percentage}%`;
+          }
       }
     }
     setInterval(updateClocks, 1000); updateClocks();
 
+    function renderRing() {
+      const now = new Date();
+      const s = now.getSeconds();
+      const ms = now.getMilliseconds();
+      const totalSeconds = s + (ms / 1000);
+      const offset = 128.8 - (totalSeconds / 60) * 128.8;
+      const ring = document.getElementById('sec-ring');
+      if(ring) ring.style.strokeDashoffset = offset;
+      requestAnimationFrame(renderRing);
+    }
+    requestAnimationFrame(renderRing);
+
     let globalSunrise = null; let globalSunset = null;
 
-    // --- TRUE LIVE ASTROLOGY CALCULATORS ---
-    function updateAstrologyTracking() {
-      if (!globalSunrise || !globalSunset) return; 
-
+    // --- TRUE LIVE PANCHANG & ASTROLOGY (VEDIC SIDEREAL FIX) ---
+    function updatePanchangCore() {
       const now = new Date();
       
-      // 1. Choghadiya Calculation (Unchanged Logic)
+      const JD = now.getTime() / 86400000 + 2440587.5;
+      const d = JD - 2451545.0;
+      const rad = Math.PI / 180;
+      
+      const q = (280.459 + 0.98564736 * d) % 360;
+      const g = (357.529 + 0.98560028 * d) % 360;
+      let sunLong = (q + 1.915 * Math.sin(g * rad) + 0.020 * Math.sin(2 * g * rad)) % 360;
+      if (sunLong < 0) sunLong += 360;
+      
+      const L_moon = (218.316 + 13.176396 * d) % 360;
+      const M_moon = (134.963 + 13.064993 * d) % 360;
+      const D_moon = (297.850 + 12.190749 * d) % 360;
+      
+      let moonLong = (L_moon + 6.289 * Math.sin(M_moon * rad) - 1.274 * Math.sin((M_moon - 2*D_moon) * rad) + 0.658 * Math.sin(2*D_moon * rad)) % 360;
+      if (moonLong < 0) moonLong += 360;
+      
+      const currentYear = now.getFullYear() + (now.getMonth() / 12);
+      const ayanamsa = 24.1 + (currentYear - 2000) * 0.01396;
+      
+      let vedicSun = sunLong - ayanamsa;
+      if (vedicSun < 0) vedicSun += 360;
+      
+      let vedicMoon = moonLong - ayanamsa;
+      if (vedicMoon < 0) vedicMoon += 360;
+
+      let tithiLong = vedicMoon - vedicSun;
+      if (tithiLong < 0) tithiLong += 360;
+      
+      const tithiIndex = Math.floor(tithiLong / 12); 
+      const nakshatraIndex = Math.floor(vedicMoon / (360/27)); 
+      const rashiIndex = Math.floor(vedicMoon / 30); 
+      
+      const rashis = ["MESHA", "VRISHABHA", "MITHUNA", "KARKA", "SIMHA", "KANYA", "TULA", "VRISHCHIKA", "DHANU", "MAKARA", "KUMBHA", "MEENA"];
+      const nakshatras = ["ASHVINI", "BHARANI", "KRITTIKA", "ROHINI", "MRIGASHIRSHA", "ARDRA", "PUNARVASU", "PUSHYA", "ASHLESHA", "MAGHA", "PURVA PHALGUNI", "UTTARA PHALGUNI", "HASTA", "CHITRA", "SVATI", "VISHAKHA", "ANURADHA", "JYESHTHA", "MULA", "PURVA ASHADHA", "UTTARA ASHADHA", "SHRAVANA", "DHANISHTHA", "SHATABHISHA", "PURVA BHADRAPADA", "UTTARA BHADRAPADA", "REVATI"];
+      const tithisGu = ["સુદ એકમ", "સુદ બીજ", "સુદ ત્રીજ", "સુદ ચોથ", "સુદ પાંચમ", "સુદ છઠ", "સુદ સાતમ", "સુદ આઠમ", "સુદ નોમ", "સુદ દશમ", "સુદ એકાદશી", "સુદ બારસ", "સુદ તેરસ", "સુદ ચૌદશ", "પૂનમ", "વદ એકમ", "વદ બીજ", "વદ ત્રીજ", "વદ ચોથ", "વદ પાંચમ", "વદ છઠ", "વદ સાતમ", "વદ આઠમ", "વદ નોમ", "વદ દશમ", "વદ એકાદશી", "વદ બારસ", "વદ તેરસ", "વદ ચૌદશ", "અમાસ"];
+
+      const gujMonths = ["વૈશાખ", "જેઠ", "અષાઢ", "શ્રાવણ", "ભાદરવો", "આસો", "કારતક", "માગશર", "પોષ", "મહા", "ફાગણ", "ચૈત્ર"];
+      const monthIndex = Math.floor(vedicSun / 30);
+      const currentGujMonth = gujMonths[monthIndex];
+
+      const vsYear = now.getMonth() >= 10 ? now.getFullYear() + 57 : now.getFullYear() + 56;
+      
+      let nextEkadashiDays = 0;
+      if (tithiIndex <= 10) nextEkadashiDays = 10 - tithiIndex;
+      else if (tithiIndex <= 25) nextEkadashiDays = 25 - tithiIndex;
+      else nextEkadashiDays = (30 - tithiIndex) + 10;
+      const ekaStr = nextEkadashiDays === 0 ? "TODAY" : (nextEkadashiDays === 1 ? "TOMORROW" : `IN ${nextEkadashiDays} DAYS`);
+
+      document.getElementById('panchang-samvat').innerText = `VIKRAM SAMVAT ${vsYear}`;
+      document.getElementById('panchang-month').innerText = currentGujMonth;
+      document.getElementById('panchang-tithi').innerText = tithisGu[tithiIndex];
+      document.getElementById('panchang-astro').innerText = `RASHI: ${rashis[rashiIndex]} | NAK: ${nakshatras[nakshatraIndex]}`;
+      document.getElementById('panchang-eka').innerText = `NEXT: EKADASHI ${ekaStr}`;
+
+      let phaseRatio = tithiLong / 360;
+      let phaseName = "";
+      let shadow = "";
+      
+      if (phaseRatio < 0.03 || phaseRatio > 0.97) { phaseName = "NEW MOON"; shadow = "inset 35px 0px 5px rgba(0,0,0,0.95)"; }
+      else if (phaseRatio < 0.22) { phaseName = "WAXING CRESCENT"; shadow = "inset 20px 0px 5px rgba(0,0,0,0.85)"; }
+      else if (phaseRatio < 0.28) { phaseName = "FIRST QUARTER"; shadow = "inset 18px 0px 2px rgba(0,0,0,0.8)"; }
+      else if (phaseRatio < 0.47) { phaseName = "WAXING GIBBOUS"; shadow = "inset 8px 0px 5px rgba(0,0,0,0.6)"; }
+      else if (phaseRatio < 0.53) { phaseName = "FULL MOON"; shadow = "inset 0px 0px 15px rgba(255,255,255,1)"; }
+      else if (phaseRatio < 0.72) { phaseName = "WANING GIBBOUS"; shadow = "inset -8px 0px 5px rgba(0,0,0,0.6)"; }
+      else if (phaseRatio < 0.78) { phaseName = "LAST QUARTER"; shadow = "inset -18px 0px 2px rgba(0,0,0,0.8)"; }
+      else { phaseName = "WANING CRESCENT"; shadow = "inset -20px 0px 5px rgba(0,0,0,0.85)"; }
+      
+      document.getElementById('moon-phase-name').innerText = `${phaseName} (${Math.round(phaseRatio*100)}%)`;
+      document.getElementById('dynamic-moon').style.boxShadow = shadow;
+    }
+    updatePanchangCore();
+    setInterval(updatePanchangCore, 3600000); 
+
+    // --- LIVE SUN & MOON ARCH VISUALIZER ---
+    function updateSkyArch() {
+      if (!globalSunrise || !globalSunset) return;
+      const now = new Date();
+      const body = document.getElementById('astro-body');
+      let percent = 0;
+      
+      if (now >= globalSunrise && now <= globalSunset) {
+          percent = (now - globalSunrise) / (globalSunset - globalSunrise);
+          body.style.background = '#f59e0b';
+          body.style.boxShadow = '0 0 10px #f59e0b';
+      } else {
+          let prevSet = new Date(globalSunset); if(now < prevSet) prevSet.setDate(prevSet.getDate()-1);
+          let nextRise = new Date(globalSunrise); if(now > nextRise) nextRise.setDate(nextRise.getDate()+1);
+          percent = (now - prevSet) / (nextRise - prevSet);
+          body.style.background = '#cbd5e1';
+          body.style.boxShadow = '0 0 10px #cbd5e1';
+      }
+      
+      percent = Math.max(0, Math.min(1, percent));
+      body.style.left = `${percent * 100}%`;
+      const archHeight = Math.sin(percent * Math.PI) * 100;
+      body.style.top = `${100 - archHeight}%`;
+    }
+
+    function updateAstrologyTracking() {
+      if (!globalSunrise || !globalSunset) return; 
+      const now = new Date();
+      
+      updateSkyArch();
+
       const daySeq = [
         [{n:"UDVEG", c:"var(--neon-ruby)"}, {n:"CHAL", c:"var(--neon-blue)"}, {n:"LABH", c:"var(--neon-emerald)"}, {n:"AMRUT", c:"var(--neon-gold)"}, {n:"KAAL", c:"var(--neon-ruby)"}, {n:"SHUBH", c:"var(--neon-emerald)"}, {n:"ROG", c:"var(--neon-ruby)"}, {n:"UDVEG", c:"var(--neon-ruby)"}],
         [{n:"AMRUT", c:"var(--neon-gold)"}, {n:"KAAL", c:"var(--neon-ruby)"}, {n:"SHUBH", c:"var(--neon-emerald)"}, {n:"ROG", c:"var(--neon-ruby)"}, {n:"UDVEG", c:"var(--neon-ruby)"}, {n:"CHAL", c:"var(--neon-blue)"}, {n:"LABH", c:"var(--neon-emerald)"}, {n:"AMRUT", c:"var(--neon-gold)"}],
@@ -602,9 +730,6 @@
       document.getElementById('ch-live').innerText = activeSeq[currentIndex].n; document.getElementById('ch-live').style.color = activeSeq[currentIndex].c;
       document.getElementById('ch-next').innerText = activeSeq[nextIndex].n; document.getElementById('ch-next').style.color = activeSeq[nextIndex].c;
 
-      // 2. Rahu Kaal & Yamaganda Timeline Calculation
-      // Rahu Segments (0=Sun): 8, 2, 7, 5, 6, 4, 3
-      // Yama Segments (0=Sun): 5, 4, 3, 2, 1, 7, 6
       const rahuSegments = [8, 2, 7, 5, 6, 4, 3];
       const yamaSegments = [5, 4, 3, 2, 1, 7, 6];
       
@@ -617,36 +742,27 @@
       let rBar = document.getElementById('rahu-bar');
       let yBar = document.getElementById('yama-bar');
       
-      // Position and Width logic (Width is always 1/8th or 12.5% of daylight)
       rBar.style.width = '12.5%'; rBar.style.left = `${(rahuStartMin / dayTotalMins) * 100}%`;
       yBar.style.width = '12.5%'; yBar.style.left = `${(yamaStartMin / dayTotalMins) * 100}%`;
 
-      // Pulse logic if currently active
-      if (isDay && passedMins >= rahuStartMin && passedMins < (rahuStartMin + segmentMins)) {
-          rBar.classList.add('pulse-alert');
-      } else { rBar.classList.remove('pulse-alert'); }
-
-      if (isDay && passedMins >= yamaStartMin && passedMins < (yamaStartMin + segmentMins)) {
-          yBar.classList.add('pulse-alert');
-      } else { yBar.classList.remove('pulse-alert'); }
+      if (isDay && passedMins >= rahuStartMin && passedMins < (rahuStartMin + segmentMins)) rBar.classList.add('pulse-alert'); else rBar.classList.remove('pulse-alert');
+      if (isDay && passedMins >= yamaStartMin && passedMins < (yamaStartMin + segmentMins)) yBar.classList.add('pulse-alert'); else yBar.classList.remove('pulse-alert');
     }
     setInterval(updateAstrologyTracking, 60000);
 
-    // --- WEATHER API & API SUNRISE/SUNSET ---
-    const weatherEmojis = {
-        0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️',
-        51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️',
-        71: '❄️', 73: '❄️', 75: '❄️', 80: '🌦️', 81: '🌧️', 82: '⛈️',
-        95: '⛈️', 96: '⛈️', 99: '⛈️'
-    };
+    // --- WEATHER API (ADDED DD-MM LOGIC) ---
+    const weatherEmojis = { 0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️', 51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️', 71: '❄️', 73: '❄️', 75: '❄️', 80: '🌦️', 81: '🌧️', 82: '⛈️', 95: '⛈️', 96: '⛈️', 99: '⛈️' };
 
-    function formatApiTime(isoString) {
-        return new Date(isoString).toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit', hour12:true});
-    }
+    function formatApiTime(isoString) { return new Date(isoString).toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit', hour12:true}); }
+    
+    const getColorHigh = (t) => t >= 35 ? '#ef4444' : t >= 30 ? '#f97316' : '#f59e0b';
+    const getColorLow = (t) => t <= 20 ? '#0ea5e9' : t <= 25 ? '#38bdf8' : '#cbd5e1';
+    const getColorRain = (r) => r > 50 ? '#0ea5e9' : r > 20 ? '#38bdf8' : 'rgba(255,255,255,0.4)';
+    const getColorUV = (u) => u <= 2 ? '#10b981' : u <= 5 ? '#facc15' : u <= 7 ? '#f97316' : '#ef4444';
 
     async function fetchWeatherAll() {
       try {
-        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max,uv_index_max&timezone=Asia%2FKolkata');
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=21.1702&longitude=72.8311&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,cloud_cover&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max,uv_index_max&timezone=Asia%2FKolkata&forecast_days=7');
         const data = await res.json();
         
         const curr = data.current;
@@ -656,7 +772,7 @@
         
         document.getElementById('wl-hum').innerText = `${curr.relative_humidity_2m}%`;
         document.getElementById('wl-feel').innerText = `${Math.round(curr.apparent_temperature)}°C`;
-        document.getElementById('wl-wind').innerText = `${curr.wind_speed_10m} kph`;
+        document.getElementById('wl-wind').innerText = `${curr.wind_speed_10m} km/h`;
         document.getElementById('wl-cloud').innerText = `${curr.cloud_cover}%`;
 
         globalSunrise = new Date(data.daily.sunrise[0]);
@@ -664,33 +780,40 @@
         document.getElementById('api-sunrise').innerText = formatApiTime(globalSunrise);
         document.getElementById('api-sunset').innerText = formatApiTime(globalSunset);
         
-        updateAstrologyTracking(); // Trigger calculation
+        updateAstrologyTracking();
 
-        const container = document.getElementById('forecast-row');
-        container.innerHTML = '';
-        for(let i=0; i<4; i++) {
+        const container = document.getElementById('forecast-table');
+        container.innerHTML = `<div class="ft-header"><span>DAY</span><span></span><span>TEMP</span><span>WIND</span><span>RAIN</span><span>UV</span></div>`;
+
+        for(let i=0; i<7; i++) {
             const [y, m, d] = data.daily.time[i].split('-');
             const dateObj = new Date(y, m - 1, d);
             
-            const dayName = i === 0 ? 'TODAY' : dateObj.toLocaleDateString('en-IN', {weekday: 'short'}).toUpperCase();
+            const dayShort = dateObj.toLocaleDateString('en-IN', {weekday: 'short'}).toUpperCase();
+            const dd = String(dateObj.getDate()).padStart(2, '0');
+            const mm = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const dayName = i === 0 ? `TODAY ${dd}-${mm}` : `${dayShort} ${dd}-${mm}`;
+            
             const icon = weatherEmojis[data.daily.weather_code[i]] || '⛅';
             const max = Math.round(data.daily.temperature_2m_max[i]);
             const min = Math.round(data.daily.temperature_2m_min[i]);
-            const uv = data.daily.uv_index_max[i];
+            const uv = Math.round(data.daily.uv_index_max[i]);
             const rain = data.daily.precipitation_probability_max[i] || 0;
+            const wind = Math.round(data.current.wind_speed_10m); 
+            
+            const highColor = getColorHigh(max);
+            const lowColor = getColorLow(min);
+            const rainColor = getColorRain(rain);
+            const uvColor = getColorUV(uv);
             
             container.innerHTML += `
-              <div class="fc-day">
-                  <span class="fc-lbl">${dayName}</span>
-                  <span class="fc-icon">${icon}</span>
-                  <div class="fc-temps">
-                     <span class="fc-high">${max}°</span>
-                     <span class="fc-low">${min}°</span>
-                  </div>
-                  <div class="fc-stats">
-                    <div class="fc-xtra" style="color: var(--neon-gold);">UV <span>${Math.round(uv)}</span></div>
-                    <div class="fc-xtra" style="color: var(--neon-blue);">RAIN <span>${rain}%</span></div>
-                  </div>
+              <div class="ft-row">
+                  <span class="ft-day">${dayName}</span>
+                  <span class="ft-icon">${icon}</span>
+                  <div class="ft-temp"><span style="color:${highColor}; font-weight:900;">${max}°</span> <span style="color:${lowColor};">${min}°</span></div>
+                  <span>${wind} km</span>
+                  <span style="color:${rainColor};">${rain}%</span>
+                  <span style="color:${uvColor}; font-weight:900;">${uv}</span>
               </div>
             `;
         }
@@ -698,30 +821,32 @@
     }
     fetchWeatherAll();
 
-    // --- SPLIT NEWS STREAM (CLEAN DATE FORMAT) ---
+    // --- SPLIT NEWS STREAM ---
     function formatNewsDate(isoString) {
         const d = new Date(isoString);
         const wk = d.toLocaleString('en-IN', {weekday:'short'});
         const day = String(d.getDate()).padStart(2,'0');
-        const month = d.toLocaleString('en-IN', {month:'short'});
+        const month = String(d.getMonth()+1).padStart(2,'0');
         const timeStr = d.toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit', hour12:true}).toUpperCase();
-        return `(${wk}, ${day}-${month}, ${timeStr})`;
+        return `${wk}, ${day}-${month}, ${timeStr}`;
     }
 
     async function fetchSplitNews() {
       try {
-        const [indRes, cricRes] = await Promise.all([
+        const [indRes, cricRes, worldRes, sportsRes] = await Promise.all([
           fetch('https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en'),
-          fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.espncricinfo.com/rss/content/story/feeds/0.xml')
+          fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.espncricinfo.com/rss/content/story/feeds/0.xml'),
+          fetch('https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pWVXlnQVAB?hl=en-IN&gl=IN&ceid=IN:en'),
+          fetch('https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp1ZEdvU0FtVnVHZ0pWVXlnQVAB?hl=en-IN&gl=IN&ceid=IN:en')
         ]);
-        const indData = await indRes.json();
-        const cricData = await cricRes.json();
         
-        const renderNews = (data, containerId) => {
+        const renderNews = async (res, containerId) => {
+          const data = await res.json();
           const container = document.getElementById(containerId);
           container.innerHTML = '';
           if (data.items) {
-            data.items.slice(0, 10).forEach(news => {
+            let sortedNews = data.items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+            sortedNews.slice(0, 10).forEach(news => {
               let cleanTitle = news.title.split(' - ')[0];
               const timeFormatted = formatNewsDate(news.pubDate);
               container.innerHTML += `
@@ -732,13 +857,16 @@
             });
           }
         };
-        renderNews(indData, 'india-feed'); 
-        renderNews(cricData, 'cricket-feed'); 
+        
+        renderNews(indRes, 'india-feed'); 
+        renderNews(cricRes, 'cricket-feed'); 
+        renderNews(worldRes, 'world-feed'); 
+        renderNews(sportsRes, 'sports-feed'); 
       } catch (err) { }
     }
     fetchSplitNews();
 
-    // --- 📦 AUTONOMOUS PERMANENT RENAMER + 1x1 CROPPER ENGINE ---
+    // --- 📦 AUTONOMOUS PERMANENT RENAMER (DUPLICATE CHECK ENHANCED) ---
     let images = []; 
     let currentIndex = 0; 
     let renameMap = []; 
@@ -785,6 +913,8 @@
         guides: false,
         highlight: false,
         background: false,
+        zoomable: true,
+        mouseWheelZoom: true,
         toggleDragModeOnDblclick: false,
         ready: function () {
           const containerData = cropper.getContainerData();
@@ -797,6 +927,10 @@
 
     function manualRotate() {
       if(cropper) { cropper.rotate(90); showToast("🔄 Rotated 90°", "var(--neon-blue)"); }
+    }
+
+    function resetZoom() {
+      if(cropper) { cropper.reset(); showToast("🔍 View Reset", "var(--neon-blue)"); }
     }
 
     function loadNextImage() {
@@ -851,7 +985,7 @@
           if (orderNum === '') return;
           
           const currentFile = images[currentIndex];
-          let extension = currentFile.name.split('.').pop();
+          let extension = 'jpg'; 
           let finalBlobPromise;
 
           if (e.shiftKey) {
@@ -860,16 +994,22 @@
                cropper.getCroppedCanvas().toBlob(blob => { resolve(blob); }, 'image/jpeg', 0.9);
                showToast("⚡ Full Image Saved", "var(--neon-gold)");
             });
-            extension = 'jpg';
           } else {
             finalBlobPromise = new Promise(resolve => {
                cropper.getCroppedCanvas({}).toBlob(blob => { resolve(blob); }, 'image/jpeg', 0.9);
                showToast("✂️ Custom Crop Saved", "var(--neon-emerald)");
             });
-            extension = 'jpg';
           }
           
-          renameMap.push({ originalName: currentFile.name, newName: `${orderNum}.${extension}`, blobPromise: finalBlobPromise });
+          // INTELLIGENT DUPLICATE NAME SAFEGUARD
+          let newName = `${orderNum}.${extension}`;
+          let counter = 1;
+          while (renameMap.some(item => item.newName === newName)) {
+             newName = `${orderNum}_${counter}.${extension}`;
+             counter++;
+          }
+          
+          renameMap.push({ originalName: currentFile.name, newName: newName, blobPromise: finalBlobPromise });
           currentIndex++; loadNextImage();
         }
       }
