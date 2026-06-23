@@ -154,10 +154,10 @@ document.getElementById('clock-period').innerText = ampm.toUpperCase();
 document.getElementById('live-date').innerText = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }).format(now);
 
 const hour = now.getHours();
-let todInfo = { text: "NIGHT HUD", class: "tod-night" };
-if (hour >= 5 && hour < 12) todInfo = { text: "MORNING SHIFT", class: "tod-morning" };
-else if (hour >= 12 && hour < 17) todInfo = { text: "AFTERNOON OP", class: "tod-afternoon" };
-else if (hour >= 17 && hour < 21) todInfo = { text: "EVENING MONITOR", class: "tod-evening" };
+let todInfo = { text: "NIGHT", class: "tod-night" };
+if (hour >= 5 && hour < 12) todInfo = { text: "MORNING", class: "tod-morning" };
+else if (hour >= 12 && hour < 17) todInfo = { text: "AFTERNOON", class: "tod-afternoon" };
+else if (hour >= 17 && hour < 21) todInfo = { text: "EVENING", class: "tod-evening" };
 
 const localBadge = document.getElementById('local-tod');
 localBadge.className = `tod-badge ${todInfo.class}`; localBadge.innerText = todInfo.text;
@@ -397,7 +397,7 @@ try {
   fetchFeed('https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en', 'india-feed');
   fetchFeed('https://www.espncricinfo.com/rss/content/story/feeds/0.xml', 'cricket-feed');
   fetchFeed('https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pWVXlnQVAB?hl=en-IN&gl=IN&ceid=IN:en', 'world-feed');
-  fetchFeed('https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRHh6TVROM0puVnVHZ0pWVXlnQVAB?hl=en-IN&gl=IN&ceid=IN:en', 'sports-feed');
+  fetchFeed('https://news.google.com/rss/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFp1ZEdvU0JXVnVMVWRDR2dKSlRpZ0FQAQ?hl=en-IN&gl=IN&ceid=IN:en', 'sports-feed');
 } catch(e) {}
 }
 fetchSplitNews(); setInterval(fetchSplitNews, 300000);
@@ -517,7 +517,7 @@ function loadNextImage() {
     }
     
     const imgElement = document.getElementById('slipImage');
-    imgElement.src = baseCanvas.toDataURL('image/jpeg', 0.9);
+    imgElement.src = baseCanvas.toDataURL('image/jpeg', 1);
     imgElement.onload = function() { initCropper(); };
   };
   
