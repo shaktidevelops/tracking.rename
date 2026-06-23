@@ -445,24 +445,29 @@ async function selectFolder() {
   }
 }
 
-function initCropper() {
-  const imgElement = document.getElementById('slipImage');
-  if (cropper) cropper.destroy(); 
-  
-  cropper = new Cropper(imgElement, {
-    aspectRatio: 6 / 5, 
-    viewMode: 1, 
-    dragMode: 'move', 
-    autoCropArea: 1,
-    center: true, 
-    guides: false, 
-    highlight: false, 
-    background: false,
-    zoomable: true, 
-    mouseWheelZoom: true, 
-    toggleDragModeOnDblclick: false,
-  });
-}
+    function initCropper() {
+      const imgElement = document.getElementById('slipImage');
+      if (cropper) { cropper.destroy(); } 
+      
+      cropper = new Cropper(imgElement, {
+        aspectRatio: 1,
+        viewMode: 1,
+        dragMode: 'move',
+        autoCropArea: 1,
+        center: true,
+        guides: false,
+        highlight: false,
+        background: false,
+        toggleDragModeOnDblclick: false,
+        ready: function () {
+          const containerData = cropper.getContainerData();
+          const cropBoxData = cropper.getCropBoxData();
+          // Move crop box 20% to the right
+          cropBoxData.left = containerData.width * 0.35;
+          cropper.setCropBoxData(cropBoxData);
+        }
+      });
+    }
 
 function manualRotate() {
   if(!cropper) return;
