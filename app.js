@@ -462,8 +462,8 @@ async function selectFolder() {
         ready: function () {
           const containerData = cropper.getContainerData();
           const cropBoxData = cropper.getCropBoxData();
-          // Move crop box 20% to the right
-          cropBoxData.left = containerData.width * 0.35;
+          // Move crop box 40% to the right
+          cropBoxData.left = containerData.width * 0.40
           cropper.setCropBoxData(cropBoxData);
         }
       });
