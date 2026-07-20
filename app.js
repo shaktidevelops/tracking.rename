@@ -450,7 +450,7 @@ async function selectFolder() {
       if (cropper) { cropper.destroy(); } 
       
       cropper = new Cropper(imgElement, {
-        aspectRatio: 4:3,
+        aspectRatio: 1,
         viewMode: 1,
         dragMode: 'move',
         autoCropArea: 1,
