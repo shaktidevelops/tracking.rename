@@ -450,7 +450,7 @@ async function selectFolder() {
       if (cropper) { cropper.destroy(); } 
       
       cropper = new Cropper(imgElement, {
-        aspectRatio: 1,
+        aspectRatio: 7/6,
         viewMode: 1,
         dragMode: 'move',
         autoCropArea: 1,
@@ -463,7 +463,7 @@ async function selectFolder() {
           const containerData = cropper.getContainerData();
           const cropBoxData = cropper.getCropBoxData();
           // Move crop box 40% to the right
-          cropBoxData.left = containerData.width * 0.40
+          cropBoxData.left = containerData.width * 0.35
           cropper.setCropBoxData(cropBoxData);
         }
       });
