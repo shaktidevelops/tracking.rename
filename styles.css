@@ -302,7 +302,7 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 
 /* 3. 🕉️ PANCHANG (TALL SKY ARC & RICH DETAILS) */
 .bento-panchang { 
-  height: 380px; flex-shrink: 0; 
+  height: 360px; flex-shrink: 0; 
   background: linear-gradient(135deg, rgba(255, 253, 249, 0.55) 0%, rgba(255, 243, 224, 0.5) 100%);
 }
 .bento-panchang .tool-header {
@@ -319,7 +319,7 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 .gujarati-tithi-display-frame { 
   display: flex; align-items: center; 
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(253, 245, 230, 0.85)); 
-  border: 1.5px solid var(--zari-gold); border-radius: 12px; padding: 15px 12px; 
+  border: 1.5px solid var(--zari-gold); border-radius: 12px; padding: 10px 12px; 
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.18); gap: 12px;
 }
 .tithi-sub-tag { font-size: 7pt; font-weight: 900; color: var(--zari-dark); text-transform: uppercase; margin-bottom: 2px;}
@@ -334,13 +334,13 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
   border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 8px; padding: 3px 5px;
 }
 .p-badge img { width: 20px; height: 20px; border-radius: 4px; object-fit: cover; }
-.p-lbl { font-size: 7pt; color: var(--text-muted); font-weight: 900; }
-.p-val { font-size: 10pt; font-weight: 900; color: var(--sindoor-red); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.p-lbl { font-size: 6pt; color: var(--text-muted); font-weight: 900; }
+.p-val { font-size: 8pt; font-weight: 900; color: var(--sindoor-red); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 
 /* 🚀 INCREASED SKY ARCH HEIGHT */
 .sky-arch-container { 
   position: relative; 
-  height: 100px; /* Increased height */
+  height: 90px; /* Increased height */
   margin: 4px 0; 
   border-bottom: 1.5px dashed rgba(212,175,55,0.45); 
 }
@@ -369,7 +369,7 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
   border-color: var(--emerald-green); box-shadow: 0 2px 8px rgba(27, 94, 32, 0.2); 
 }
 .ch-lbl { font-size: 5pt; font-weight: 900; color: var(--text-muted); }
-.ch-val { font-size: 7.5pt; font-weight: 900; margin-top: 1px; text-transform: uppercase; color: var(--sindoor-red);}
+.ch-val { font-size: 10pt; font-weight: 900; margin-top: 1px; text-transform: uppercase; color: var(--sindoor-red);}
 
 /* 4. WEATHER ARRAY */
 .bento-weather { 
@@ -386,7 +386,7 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 .forecast-table { display: flex; flex-direction: column; gap: 2px; flex: 1; min-height: 0; }
 .ft-row, .ft-header { display: grid; grid-template-columns: 2.5fr 1fr 2.5fr 2fr 1.5fr 1fr; align-items: center; text-align: center; font-size: 7pt;}
 .ft-header { color: #854d0e; font-weight: 900; border-bottom: 1px solid rgba(212,175,55,0.4); padding-bottom: 3px; }
-.ft-row { padding: 5px; border-radius: 6px; border: 1px solid rgba(212,175,55,0.2); font-weight: 700; background: rgba(255, 255, 255, 0.7);}
+.ft-row { padding: 3.5px; border-radius: 6px; border: 1px solid rgba(212,175,55,0.2); font-weight: 700; background: rgba(255, 255, 255, 0.7);}
 .ft-day { text-align: left; padding-left: 4px; color: var(--text-main); font-weight: 800;}
 
 /* 5. NEWS GRIDS */
