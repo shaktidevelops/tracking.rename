@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shakti Develops | Command Desk Pro</title>
+  <title>Shakti Develops | Rename Tracking Images 📦</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Mukta+Vaani:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Rozha+One&family=Mukta:wght@400;700&display=swap" rel="stylesheet">
   
   <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
@@ -15,25 +15,43 @@
 <body>
 
   <div id="toast">✅ Action Successful</div>
-  <div class="bg-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
+  
+  <!-- 🪷 16 Floating Background Emojis -->
+  <div class="bg-animation" id="bgAnimation"></div>
 
   <div class="deck" id="mainDeck">
+
+    <!-- 🌿 Traditional Festoon Toran Banner -->
+    <div class="toran-banner">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 45" preserveAspectRatio="none" style="width:100%; height:100%;">
+        <path d="M0,8 Q75,36 150,8 Q225,36 300,8 Q375,36 450,8 Q525,36 600,8 Q675,36 750,8 Q825,36 900,8 Q975,36 1050,8 Q1125,36 1200,8" fill="none" stroke="#d4af37" stroke-width="3" opacity="0.95"/>
+        <g fill-rule="evenodd">
+          <circle cx="150" cy="18" r="6" fill="#8b0000" stroke="#d4af37" stroke-width="1"/>
+          <circle cx="300" cy="18" r="6" fill="#b89020" stroke="#d4af37" stroke-width="1"/>
+          <circle cx="450" cy="18" r="6" fill="#1b5e20" stroke="#d4af37" stroke-width="1"/>
+          <circle cx="600" cy="20" r="7.5" fill="#8b0000" stroke="#d4af37" stroke-width="1.5"/>
+          <circle cx="750" cy="18" r="6" fill="#1b5e20" stroke="#d4af37" stroke-width="1"/>
+          <circle cx="900" cy="18" r="6" fill="#b89020" stroke="#d4af37" stroke-width="1"/>
+          <circle cx="1050" cy="18" r="6" fill="#8b0000" stroke="#d4af37" stroke-width="1"/>
+        </g>
+      </svg>
+    </div>
     
+    <!-- 🏛️ LIVELY & BEAUTIFUL ROYAL HEADER -->
     <div class="header">
       <div class="title-area">
-        <div class="brand-badge"><span class="sparkle">✨</span> Shakti Develops 🚀💎</div>
-        <h1>📦 Dispatch Command</h1>
+        <div class="header-meta-row">
+          <span class="royal-motto">🪔 ૐ શ્રી ગણેશાય નમઃ • TEXTILE HUB 🧵</span>
+          <span class="live-pulse-badge"><span class="pulse-dot"></span> LIVE ENGINE</span>
+        </div>
+        <h1><span class="title-icon">🏷️</span> Rename Tracking Images <span class="title-icon">📦⚡</span></h1>
       </div>
       
       <div class="diwali-hub">
         <button class="btn-mount-directory" onclick="selectFolder()">⚡ MOUNT DIRECTORY</button>
 
         <div class="diwali-pill prev-pill">
-          <span style="font-size: 14pt;">🔙</span> 
+          <span style="font-size: 13pt;">🔙</span> 
           <div style="display:flex; flex-direction:column; align-items:flex-start;">
             <span class="d-label">LAST DIWALI (20 OCT 25)</span>
             <span class="d-val" id="prev-diwali-timer">-- DAYS AGO</span>
@@ -41,8 +59,8 @@
         </div>
         
         <div class="diwali-pill next-pill">
-          <span style="font-size: 14pt; z-index: 2;">🪔</span> 
-          <div style="display:flex; flex-direction:column; align-items:flex-start; z-index: 2;">
+          <span style="font-size: 13pt;">🪔</span> 
+          <div style="display:flex; flex-direction:column; align-items:flex-start;">
             <span class="d-label">NEXT DIWALI (08 NOV 26)</span>
             <span class="d-time" id="next-diwali-timer">--D --:--:--</span>
           </div>
@@ -50,6 +68,7 @@
       </div>
     </div>
 
+    <!-- STRIPS -->
     <div class="strip-wrap" id="strip-forex">
       <div class="strip-items" id="forex-track"></div>
     </div>
@@ -66,154 +85,235 @@
       <div id="setupScreen">
         
         <div class="dash-col col-left">
+            <!-- ⏱️ SURAT COMMAND • IST -->
             <div class="bento-item bento-local">
-              <div class="tool-header">⏱️ Local Command</div>
+              <div class="tool-header">⏱️ Surat Command • IST 🏛️💎</div>
               <div class="local-content">
                 <div class="clock-hud-card">
-                  <div class="tod-row">
-                    <span id="local-tod" class="tod-badge tod-morning">SYNCING</span><span class="date-sub" id="live-date">Thu, 18 Jun 2026</span>
+                  <div class="tod-row" style="display: flex; justify-content: space-between; align-items: center;">
+                    <span id="local-tod" class="tod-badge tod-morning">SYNCING</span>
+                    <span class="date-sub" id="live-date">--</span>
                   </div>
-                  <div class="time-mainframe">
+                  <div class="time-mainframe" style="display: flex; align-items: baseline; gap: 4px; margin-top: 3px;">
                     <div class="time-digits" id="clock-hours-mins">00:00</div>
-                    <div class="time-seconds-box">
+                    <div class="time-seconds-box" style="display: flex; flex-direction: column;">
                       <span id="clock-seconds" class="sec">00</span>
                       <span id="clock-period" class="ampm">AM</span>
                     </div>
                   </div>
+                  
+                  <div class="local-meta-bar" id="local-meta">
+                    DAY --/365 • WK -- • IST (UTC+5:30)
+                  </div>
                 </div>
+
                 <div class="weather-local-box">
-                  <div class="wl-top">
-                    <div class="weather-icon-container" style="position:relative; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center;">
-                       <svg style="position:absolute; top:0; left:0; width:100%; height:100%; transform: rotate(-90deg);"><circle cx="17.5" cy="17.5" r="16" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle><circle id="sec-ring" cx="17.5" cy="17.5" r="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" stroke-dasharray="100.5" stroke-dashoffset="100.5" style="transition: stroke-dashoffset 0.1s linear;"></circle></svg>
-                       <div id="weather-icon" style="font-size: 13pt; filter: drop-shadow(0 0 8px rgba(56,189,248,0.5)); line-height:1; z-index:2;">☀️</div>
-                    </div>
-                    <div style="display: flex; flex-direction: column;">
-                      <div id="weather-temp" style="font-size: 14pt; font-weight: 900; line-height: 1; color: #fff;">--°C</div>
-                      <div id="weather-desc" style="font-size: 6pt; color: var(--neon-blue); text-transform: uppercase; font-weight: 900; letter-spacing: 1px; margin-top: 2px;">Syncing</div>
+                  <div class="wl-top" style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                    <div id="weather-icon" style="font-size: 18pt;">☀️</div>
+                    <div>
+                      <div id="weather-temp" style="font-size: 13pt; font-weight: 900; color: var(--sindoor-red);">--°C</div>
+                      <div id="weather-desc" style="font-size: 6.5pt; color: var(--text-muted); font-weight: 800; text-transform: uppercase;">Syncing</div>
                     </div>
                   </div>
                   <div class="wl-grid">
-                      <div class="wl-metric" id="humidity-card"><div class="wl-metric-title">💧 HUMIDITY</div><div class="wl-metric-val" id="wl-hum">--%</div></div>
-                      <div class="wl-metric" id="feels-card"><div class="wl-metric-title">🌡️ FEELS</div><div class="wl-metric-val" id="wl-feel">--°C</div></div>
-                      <div class="wl-metric" id="wind-card"><div class="wl-metric-title">💨 WIND</div><div class="wl-metric-val" id="wl-wind">-- km/h</div></div>
-                      <div class="wl-metric" id="cloud-card"><div class="wl-metric-title">☁️ CLOUD</div><div class="wl-metric-val" id="wl-cloud">--%</div></div>
+                      <div class="wl-metric"><div class="wl-metric-title">💧 HUMIDITY</div><div class="wl-metric-val" id="wl-hum">--%</div></div>
+                      <div class="wl-metric"><div class="wl-metric-title">🌡️ FEELS</div><div class="wl-metric-val" id="wl-feel">--°C</div></div>
+                      <div class="wl-metric"><div class="wl-metric-title">💨 WIND</div><div class="wl-metric-val" id="wl-wind">-- km/h</div></div>
+                      <div class="wl-metric"><div class="wl-metric-title">☁️ CLOUD</div><div class="wl-metric-val" id="wl-cloud">--%</div></div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- 🌐 GLOBAL CENTERS (9 CITIES WITH ZURICH) -->
             <div class="bento-item bento-clocks">
-              <div class="tool-header">🌐 Global Nodes</div>
+              <div class="tool-header">🌐 Global Centers ✈️🌍</div>
               <div class="wc-list">
-                <div class="wc-card" id="node-ny"><div class="wc-top"><span class="wc-city"><img src="https://flagcdn.com/w20/us.png" style="width:16px; border-radius:2px;"> New York</span><span class="wc-time" id="time-ny">--:--</span></div><div class="adv-timebar"><div class="adv-timebar-fill" id="fill-ny"></div><div class="adv-timebar-needle" id="needle-ny"></div></div></div>
-                <div class="wc-card" id="node-lon"><div class="wc-top"><span class="wc-city"><img src="https://flagcdn.com/w20/gb.png" style="width:16px; border-radius:2px;"> London</span><span class="wc-time" id="time-lon">--:--</span></div><div class="adv-timebar"><div class="adv-timebar-fill" id="fill-lon"></div><div class="adv-timebar-needle" id="needle-lon"></div></div></div>
-                <div class="wc-card" id="node-dxb"><div class="wc-top"><span class="wc-city"><img src="https://flagcdn.com/w20/ae.png" style="width:16px; border-radius:2px;"> Dubai</span><span class="wc-time" id="time-dxb">--:--</span></div><div class="adv-timebar"><div class="adv-timebar-fill" id="fill-dxb"></div><div class="adv-timebar-needle" id="needle-dxb"></div></div></div>
-                <div class="wc-card" id="node-tyo"><div class="wc-top"><span class="wc-city"><img src="https://flagcdn.com/w20/jp.png" style="width:16px; border-radius:2px;"> Tokyo</span><span class="wc-time" id="time-tyo">--:--</span></div><div class="adv-timebar"><div class="adv-timebar-fill" id="fill-tyo"></div><div class="adv-timebar-needle" id="needle-tyo"></div></div></div>
-                <div class="wc-card" id="node-sgp"><div class="wc-top"><span class="wc-city"><img src="https://flagcdn.com/w20/sg.png" style="width:16px; border-radius:2px;"> Singapore</span><span class="wc-time" id="time-sgp">--:--</span></div><div class="adv-timebar"><div class="adv-timebar-fill" id="fill-sgp"></div><div class="adv-timebar-needle" id="needle-sgp"></div></div></div>
-                <div class="wc-card" id="node-syd"><div class="wc-top"><span class="wc-city"><img src="https://flagcdn.com/w20/au.png" style="width:16px; border-radius:2px;"> Sydney</span><span class="wc-time" id="time-syd">--:--</span></div><div class="adv-timebar"><div class="adv-timebar-fill" id="fill-syd"></div><div class="adv-timebar-needle" id="needle-syd"></div></div></div>
-                <div class="wc-card" id="node-sf"><div class="wc-top"><span class="wc-city"><img src="https://flagcdn.com/w20/us.png" style="width:16px; border-radius:2px;"> San Francisco</span><span class="wc-time" id="time-sf">--:--</span></div><div class="adv-timebar"><div class="adv-timebar-fill" id="fill-sf"></div><div class="adv-timebar-needle" id="needle-sf"></div></div></div>
+                <div class="wc-card">
+                  <div class="wc-top">
+                    <span class="wc-city"><img src="https://flagcdn.com/w20/us.png" style="width:13px;"> New York</span>
+                    <span class="wc-time" id="time-ny">--:--</span>
+                  </div>
+                  <div class="adv-timebar"><div class="adv-timebar-fill" id="fill-ny"></div><div class="adv-timebar-needle" id="needle-ny"></div></div>
+                </div>
+                <div class="wc-card">
+                  <div class="wc-top">
+                    <span class="wc-city"><img src="https://flagcdn.com/w20/gb.png" style="width:13px;"> London</span>
+                    <span class="wc-time" id="time-lon">--:--</span>
+                  </div>
+                  <div class="adv-timebar"><div class="adv-timebar-fill" id="fill-lon"></div><div class="adv-timebar-needle" id="needle-lon"></div></div>
+                </div>
+                <div class="wc-card">
+                  <div class="wc-top">
+                    <span class="wc-city"><img src="https://flagcdn.com/w20/fr.png" style="width:13px;"> Paris</span>
+                    <span class="wc-time" id="time-par">--:--</span>
+                  </div>
+                  <div class="adv-timebar"><div class="adv-timebar-fill" id="fill-par"></div><div class="adv-timebar-needle" id="needle-par"></div></div>
+                </div>
+                <div class="wc-card">
+                  <div class="wc-top">
+                    <span class="wc-city"><img src="https://flagcdn.com/w20/ch.png" style="width:13px;"> Zurich</span>
+                    <span class="wc-time" id="time-zrh">--:--</span>
+                  </div>
+                  <div class="adv-timebar"><div class="adv-timebar-fill" id="fill-zrh"></div><div class="adv-timebar-needle" id="needle-zrh"></div></div>
+                </div>
+                <div class="wc-card">
+                  <div class="wc-top">
+                    <span class="wc-city"><img src="https://flagcdn.com/w20/ae.png" style="width:13px;"> Dubai</span>
+                    <span class="wc-time" id="time-dxb">--:--</span>
+                  </div>
+                  <div class="adv-timebar"><div class="adv-timebar-fill" id="fill-dxb"></div><div class="adv-timebar-needle" id="needle-dxb"></div></div>
+                </div>
+                <div class="wc-card">
+                  <div class="wc-top">
+                    <span class="wc-city"><img src="https://flagcdn.com/w20/sg.png" style="width:13px;"> Singapore</span>
+                    <span class="wc-time" id="time-sgp">--:--</span>
+                  </div>
+                  <div class="adv-timebar"><div class="adv-timebar-fill" id="fill-sgp"></div><div class="adv-timebar-needle" id="needle-sgp"></div></div>
+                </div>
+                <div class="wc-card">
+                  <div class="wc-top">
+                    <span class="wc-city"><img src="https://flagcdn.com/w20/hk.png" style="width:13px;"> Hong Kong</span>
+                    <span class="wc-time" id="time-hkg">--:--</span>
+                  </div>
+                  <div class="adv-timebar"><div class="adv-timebar-fill" id="fill-hkg"></div><div class="adv-timebar-needle" id="needle-hkg"></div></div>
+                </div>
+                <div class="wc-card">
+                  <div class="wc-top">
+                    <span class="wc-city"><img src="https://flagcdn.com/w20/jp.png" style="width:13px;"> Tokyo</span>
+                    <span class="wc-time" id="time-tyo">--:--</span>
+                  </div>
+                  <div class="adv-timebar"><div class="adv-timebar-fill" id="fill-tyo"></div><div class="adv-timebar-needle" id="needle-tyo"></div></div>
+                </div>
+                <div class="wc-card">
+                  <div class="wc-top">
+                    <span class="wc-city"><img src="https://flagcdn.com/w20/au.png" style="width:13px;"> Sydney</span>
+                    <span class="wc-time" id="time-syd">--:--</span>
+                  </div>
+                  <div class="adv-timebar"><div class="adv-timebar-fill" id="fill-syd"></div><div class="adv-timebar-needle" id="needle-syd"></div></div>
+                </div>
               </div>
             </div>
         </div>
 
         <div class="dash-col col-mid">
+            <!-- 🕉️ EXTENDED GUJARATI PANCHANG WITH SOARING ARCH -->
             <div class="bento-item bento-panchang">
               <div class="tool-header">
-                <span>🌌 Premium Panchang</span>
-                <span id="panchang-samvat">VIKRAM SAMVAT 2082</span>
+                <span>🕉️ ગુજરાતી પંચાંગ 🪔</span>
+                <span id="panchang-samvat">સંવત</span>
               </div>
               <div class="panchang-core">
                 
                 <div class="gujarati-tithi-display-frame">
-                  <div class="tithi-moon-hardware-wrapper" id="dynamic-moon"></div>
+                  <div class="tithi-moon-hardware-wrapper" id="dynamic-moon" style="width:46px; height:46px; flex-shrink:0;"></div>
                   <div class="tithi-typography-block">
-                    <div class="tithi-sub-tag" id="panchang-month">--</div>
-                    <h2 class="tithi-main-title" id="panchang-tithi">--</h2>
+                    <div class="tithi-sub-tag" id="panchang-month">SYNCING...</div>
+                    <h2 class="tithi-main-title" id="panchang-tithi">SYNCING...</h2>
                   </div>
                 </div>
                 
+                <!-- 6 Astronomical Badges -->
                 <div class="p-badge-grid">
-                  <div class="p-badge rashi-badge">
+                  <div class="p-badge">
                     <img id="rashi-img" src="" alt="Rashi">
-                    <div class="p-col"><span class="p-lbl">RASHI SYSTEM</span><span class="p-val" id="panchang-rashi">--</span></div>
+                    <div><div class="p-lbl">ચંદ્ર રાશિ</div><div class="p-val" id="panchang-rashi">--</div></div>
                   </div>
-                  <div class="p-badge nak-badge">
+                  <div class="p-badge">
                     <img id="nak-img" src="" alt="Nakshatra">
-                    <div class="p-col"><span class="p-lbl">NAKSHATRA STELLAR</span><span class="p-val" id="panchang-nak">--</span></div>
+                    <div><div class="p-lbl">નક્ષત્ર</div><div class="p-val" id="panchang-nak">--</div></div>
                   </div>
-                  <div class="p-badge eka-badge">
-                    <img id="eka-img" src="" alt="Ekadashi">
-                    <div class="p-col"><span class="p-lbl">EKADASHI COUNT</span><span class="p-val" id="panchang-eka-val">--</span></div>
+                  <div class="p-badge">
+                    <img id="yoga-img" src="" alt="Yoga">
+                    <div><div class="p-lbl">યોગ</div><div class="p-val" id="panchang-yoga">--</div></div>
                   </div>
-                  <div class="p-badge moon-badge">
-                    <img id="moon-badge-img" src="" alt="Moon Phase">
-                    <div class="p-col"><span class="p-lbl">LUNAR PHASE INTEL</span><span class="p-val" id="moon-phase-name">--</span></div>
+                  <div class="p-badge">
+                    <img id="karana-img" src="" alt="Karan">
+                    <div><div class="p-lbl">કરણ</div><div class="p-val" id="panchang-karana">--</div></div>
+                  </div>
+                  <div class="p-badge">
+                    <img id="surya-img" src="" alt="Surya Rashi">
+                    <div><div class="p-lbl">સૂર્ય રાશિ</div><div class="p-val" id="panchang-surya">--</div></div>
+                  </div>
+                  <div class="p-badge">
+                    <img id="disha-img" src="" alt="Disha Shool">
+                    <div><div class="p-lbl">દિશા શૂળ</div><div class="p-val" id="panchang-disha">--</div></div>
                   </div>
                 </div>
                 
+                <!-- 🚀 SOARING SKY ARCH (84px Height) -->
                 <div class="sky-arch-container">
-                   <svg class="sky-arch-path" viewBox="0 0 100 90" preserveAspectRatio="none"><path d="M 0 90 Q 50 0 100 90" fill="none" stroke="rgba(245,158,11,0.25)" stroke-width="1.5" stroke-dasharray="3 3"/></svg>
+                   <svg class="sky-arch-path" viewBox="0 0 100 80" preserveAspectRatio="none"><path d="M 0 80 Q 50 0 100 80" fill="none" stroke="rgba(212,175,55,0.45)" stroke-width="2" stroke-dasharray="3 3"/></svg>
                    <div id="astro-body" class="astro-body"></div>
                    <div class="arch-label left">🌅 <span id="api-sunrise">--:--</span></div>
                    <div class="arch-label right"><span id="api-sunset">--:--</span> 🌇</div>
                 </div>
 
+                <div class="rahu-yama-bar">
+                  <span>⚠️ રાહુકાળ: <b id="rahu-timing" style="color:var(--sindoor-red);">--</b></span>
+                  <span>✨ ચોઘડિયું</span>
+                </div>
+
                 <div class="choghadiya-row" id="chog-container">
-                  <div class="chog-box prev"><span class="ch-lbl">PREVIOUS CHOG</span><span class="ch-val" id="ch-prev">--</span></div>
-                  <div class="chog-box live"><span class="ch-lbl">🔥 LIVE NOW</span><span class="ch-val" id="ch-live">--</span></div>
-                  <div class="chog-box next"><span class="ch-lbl">NEXT CHOG</span><span class="ch-val" id="ch-next">--</span></div>
+                  <div class="chog-box"><span class="ch-lbl">પહેલાં</span><span class="ch-val" id="ch-prev">--</span></div>
+                  <div class="chog-box live"><span class="ch-lbl">🔥 ચાલુ ચોઘડિયું</span><span class="ch-val" id="ch-live">--</span></div>
+                  <div class="chog-box"><span class="ch-lbl">પછીનું</span><span class="ch-val" id="ch-next">--</span></div>
                 </div>
               </div>
             </div>
 
+            <!-- 🌤️ SURAT WEATHER (GOLDEN AMBER GRADIENT) -->
             <div class="bento-item bento-weather">
-              <div class="tool-header">🌤️ Surat 7-Day Array</div>
+              <div class="tool-header">🌤️ Surat 7-Day Forecast 🌡️🌦️</div>
               <div class="forecast-table" id="forecast-table">
-                <div style="width: 100%; text-align:center; color: var(--text-muted); font-size: 8pt; padding: 20px;">Intercepting Meteorological Data...</div>
+                <div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 15px;">Loading Meteorological Data...</div>
               </div>
             </div>
         </div>
 
         <div class="dash-col col-right">
+            <!-- 📰 NEWS GRIDS WITH THEMATIC HEADERS & TINTED HOLDERS -->
             <div class="news-wrapper">
               <div class="bento-item bento-news" id="box-india">
-                <div class="tool-header">🇮🇳 India Intel</div>
-                <div class="news-feed" id="india-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 10px;">Intercepting...</div></div>
+                <div class="tool-header">🇮🇳 National Intel 📢</div>
+                <div class="news-feed" id="india-feed"><div style="text-align:center; color: var(--text-muted); font-size: 7.5pt; padding: 10px;">Intercepting...</div></div>
               </div>
               <div class="bento-item bento-news" id="box-cric">
-                <div class="tool-header">🏏 Cricket</div>
-                <div class="news-feed" id="cricket-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 10px;">Intercepting...</div></div>
+                <div class="tool-header">🏏 Cricket Hub 🏆</div>
+                <div class="news-feed" id="cricket-feed"><div style="text-align:center; color: var(--text-muted); font-size: 7.5pt; padding: 10px;">Intercepting...</div></div>
               </div>
               <div class="bento-item bento-news" id="box-world">
-                <div class="tool-header">🌍 World Intel</div>
-                <div class="news-feed" id="world-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 10px;">Intercepting...</div></div>
+                <div class="tool-header">🌍 World News 🌐</div>
+                <div class="news-feed" id="world-feed"><div style="text-align:center; color: var(--text-muted); font-size: 7.5pt; padding: 10px;">Intercepting...</div></div>
               </div>
               <div class="bento-item bento-news" id="box-sports">
-                <div class="tool-header">⚽ Global Sports</div>
-                <div class="news-feed" id="sports-feed"><div style="text-align:center; color: var(--text-muted); font-size: 8pt; padding: 10px;">Intercepting...</div></div>
+                <div class="tool-header">⚽ Sports Intel 🏅</div>
+                <div class="news-feed" id="sports-feed"><div style="text-align:center; color: var(--text-muted); font-size: 7.5pt; padding: 10px;">Intercepting...</div></div>
               </div>
             </div>
         </div>
       </div>
 
+      <!-- WORKSPACE MODE -->
       <div id="workspace">
         <div class="image-container">
-          <button class="rotate-btn" style="right: 130px;" onclick="resetZoom()" title="Reset Zoom & Center">🔍 RESET VIEW</button>
-          <button class="rotate-btn" style="right: 10px;" onclick="manualRotate()" title="Rotate Image 90 Degrees">🔄 ROTATE 90°</button>
+          <button class="rotate-btn" id="btnOrientationMode" style="right: 255px;" onclick="toggleOrientationMode()" title="Toggle Auto-Orientation for images">📐 AUTO-ROTATE: ON (7/5)</button>
+          <button class="rotate-btn" style="right: 130px;" onclick="resetZoom()" title="Reset Zoom">🔍 RESET VIEW</button>
+          <button class="rotate-btn" style="right: 10px;" onclick="manualRotate()" title="Rotate 90 Degrees">🔄 ROTATE 90°</button>
           <img id="slipImage" src="" alt="Courier Slip Preview">
         </div>
         
         <div class="control-panel">
           <div class="batch-queue-box">
-            <h3 class="bq-title"><span class="icon">⚡</span> Batch Queue</h3>
+            <h3 class="bq-title">⚡ Batch Queue</h3>
             <div class="progress-wrapper"><div class="progress-fill" id="progressBar"></div></div>
-            <div class="progress-text"><span id="currentIndex">0</span> <span style="color:rgba(255,255,255,0.3); font-size: 11pt; margin: 0 4px;">/</span> <span id="totalImages">0</span></div>
+            <div class="progress-text"><span id="currentIndex">0</span> <span style="opacity:0.3; margin: 0 3px;">/</span> <span id="totalImages">0</span></div>
           </div>
 
-          <div style="display: flex; gap: 10px; align-items: stretch; width: 100%; height: 50px;">
-            <div class="stat-box-op" style="flex: 1; padding: 6px 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 100%;">
+          <div style="display: flex; gap: 10px; align-items: stretch; width: 100%; height: 46px;">
+            <div class="stat-box-op" style="flex: 1; padding: 4px 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 100%;">
               <div style="display: flex; align-items: center; gap: 10px; flex: 1; height: 100%;">
-                <h3 style="margin: 0; font-size: 7.5pt; color: #fff; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">🎯 Target Order #</h3>
+                <h3 style="margin: 0; font-size: 7.5pt; color: var(--sindoor-red); text-transform: uppercase; letter-spacing: 0.8px; white-space: nowrap; font-weight:900;">🎯 Target Order #</h3>
                 <div class="input-row">
                   <input type="text" id="renameInput" placeholder="TYPE ORDER #" autocomplete="off" oninput="this.value = this.value.toUpperCase()">
                   <button class="btn-pro red-btn" onclick="undoLastAction()" title="Undo Last Entry"><span>⏪ UNDO</span></button>
@@ -224,15 +324,58 @@
           </div>
 
           <div style="font-size: 6.5pt; color: var(--text-muted); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin-top: 2px;">
-              <b style="color:var(--neon-emerald)">ENTER ↵</b> to Crop & Advance | 
-              <b style="color:var(--neon-gold)">SHIFT + ENTER ↵</b> to Skip Crop | 
-              <b style="color:var(--neon-ruby)">CTRL + Z</b> to Undo |
-              <b style="color:var(--neon-blue)">MOUSE WHEEL</b> to Zoom
+              <b style="color:var(--emerald-green)">ENTER ↵</b> to Crop & Advance | 
+              <b style="color:var(--zari-dark)">SHIFT + ENTER ↵</b> to Skip Crop | 
+              <b style="color:var(--sindoor-red)">CTRL + Z</b> to Undo |
+              <b style="color:var(--royal-indigo)">MOUSE WHEEL</b> to Zoom
           </div>
         </div>
       </div>
 
     </div>
+
+    <!-- 🏷️ INLINED BRANDING SIGNATURE -->
+    <div class="sd-brand-container" id="signatureContainer">
+      <div class="sd-brand-signature">
+        <div class="sd-logo-node">
+          <svg viewBox="0 0 34 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sdGradPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF3D00" />
+                <stop offset="50%" stop-color="#FF6D00" />
+                <stop offset="100%" stop-color="#FF9100" />
+              </linearGradient>
+              <linearGradient id="sdGradCoreSlash" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFD600" />
+                <stop offset="50%" stop-color="#FF9100" />
+                <stop offset="100%" stop-color="#FF3D00" />
+              </linearGradient>
+              <linearGradient id="sdGradShieldFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0F172A" />
+                <stop offset="100%" stop-color="#1E293B" />
+              </linearGradient>
+            </defs>
+            <polygon points="17,3 31,10 31,22 17,29 3,22 3,10" stroke="url(#sdGradPrimary)" stroke-width="2" stroke-linejoin="round" fill="url(#sdGradShieldFill)"/>
+            <path d="M11 3V0.5M23 3V0.5M11 29V31.5M23 29V31.5M3 16H0.5M31 16H33.5" stroke="url(#sdGradPrimary)" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="17" cy="3" r="1.3" fill="url(#sdGradPrimary)"/>
+            <circle cx="31" cy="10" r="1.3" fill="url(#sdGradPrimary)"/>
+            <circle cx="31" cy="22" r="1.3" fill="url(#sdGradPrimary)"/>
+            <circle cx="17" cy="29" r="1.3" fill="url(#sdGradPrimary)"/>
+            <circle cx="3" cy="22" r="1.3" fill="url(#sdGradPrimary)"/>
+            <circle cx="3" cy="10" r="1.3" fill="url(#sdGradPrimary)"/>
+            <path d="M11.5 11.5L8.5 16L11.5 20.5" stroke="url(#sdGradPrimary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22.5 11.5L25.5 16L22.5 20.5" stroke="url(#sdGradPrimary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18.5 10.5L15.5 21.5" stroke="url(#sdGradCoreSlash)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="sd-circuit-divider"></div>
+        <div class="sd-brand-text">
+          <span class="sd-shakti">SHAKTI</span>
+          <span class="sd-develops">DEVELOPS</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script src="app.js"></script>
