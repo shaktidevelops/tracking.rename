@@ -110,7 +110,7 @@ function updateDiwaliDualTimer() {
   }
 }
 
-// --- FOREX ENGINE (EXACTLY 10 CURRENCIES) ---
+// --- FOREX ENGINE (10 CURRENCIES) ---
 async function fetchForex() {
   try {
     const res = await fetch('https://open.er-api.com/v6/latest/USD');
@@ -178,7 +178,7 @@ function updateClocks() {
   const weekNum = Math.ceil(dayOfYear / 7);
   const localMeta = document.getElementById('local-meta');
   if (localMeta) {
-    localMeta.innerText = `DAY ${dayOfYear}/365 • WK ${weekNum} • IST (UTC+5:30)`;
+    localMeta.innerText = `DAY ${dayOfYear}/365 • WK ${weekNum} • IST (UTC+5:30) • 📍 21.17°N 72.83°E`;
   }
 
   let todInfo = { text: "NIGHT", class: "tod-night" };
@@ -192,7 +192,7 @@ function updateClocks() {
     localBadge.innerText = todInfo.text;
   }
 
-  // 🌐 GLOBAL CENTERS (9 CITIES INCLUDING ZURICH)
+  // 🌐 GLOBAL CENTERS (10 CITIES INCL. ZURICH)
   const zones = { 
     'ny': 'America/New_York', 
     'lon': 'Europe/London', 
@@ -202,7 +202,8 @@ function updateClocks() {
     'sgp': 'Asia/Singapore',
     'hkg': 'Asia/Hong_Kong',
     'tyo': 'Asia/Tokyo', 
-    'syd': 'Australia/Sydney'
+    'syd': 'Australia/Sydney',
+    'la': 'America/Los_Angeles'
   };
 
   for (let [id, zone] of Object.entries(zones)) {
@@ -234,7 +235,7 @@ function getMoonPhaseSVG(phaseRatio) {
 }
 
 // ==========================================
-// 🕉️ ACCURATE GUJARATI AMANTA PANCHANG
+// 🕉️ ACCURATE GUJARATI AMANTA PANCHANG (EXTENDED)
 // ==========================================
 function updatePanchangCore() {
   const now = new Date();
@@ -274,7 +275,7 @@ function updatePanchangCore() {
   const nakshatras = ["અશ્વિની", "ભરણી", "કૃતિકા", "રોહિણી", "મૃગશીર્ષ", "આર્દ્રા", "પુનર્વસુ", "પુષ્ય", "આશ્લેષા", "મઘા", "પૂર્વા ફાલ્ગુની", "ઉત્તરા ફાલ્ગુની", "હસ્ત", "ચિત્રા", "સ્વાતિ", "વિશાખા", "અનુરાધા", "જ્યેષ્ઠા", "મૂળ", "પૂર્વાષાઢા", "ઉત્તરાષાઢા", "શ્રવણ", "ધનિષ્ઠા", "શતભિષા", "પૂર્વ ભાદ્રપદ", "ઉત્તર ભાદ્રપદ", "રેવતી"];
   const tithisGu = ["સુદ એકમ", "સુદ બીજ", "સુદ ત્રીજ", "સુદ ચોથ", "સુદ પાંચમ", "સુદ છઠ", "સુદ સાતમ", "સુદ આઠમ", "સુદ નોમ", "સુદ દશમ", "સુદ અગિયારસ", "સુદ બારસ", "સુદ તેરસ", "સુદ ચૌદશ", "પૂનમ", "વદ એકમ", "વદ બીજ", "વદ ત્રીજ", "વદ ચોથ", "વદ પાંચમ", "વદ છઠ", "વદ સાતમ", "વદ આઠમ", "વદ નોમ", "વદ દશમ", "વદ અગિયારસ", "વદ બારસ", "વદ તેરસ", "વદ ચૌદશ", "અમાસ"];
   
-  const yogasGu = ["વિષ્કંભ", "પ્રીતિ", "આયુષ્માન", "સૌભાગ્ય", "શોભન", "અતિગંડ", "સુકર્મા", "ધૃતિ", "શૂલ", "ગંડ", "વૃદ્ધિ", "ધ્રુવ", "વ્યાઘાત", "હર્ષણ", "વજ્ર", "સિદ્ધિ", "વ્યતીપાત", "વરીયાન", "પરિઘ", "શિવ", "સિદ્ધ", "સાધ્ય", "શુભ", "શુક્લ", "બ્રહ્મ", "ઇન્દ્ર", "વૈધૃતિ"];
+  const yogasGu = ["વિષ્કંભ", "પ્રીતિ", "આયુષ્માન", "સૌભાગ્ય", "શોભન", "અતિગંડ", "સુકર્મા", "ધૃતિ", "શૂલ", "ગંડ", "વૃદ્ધિ", "ધ્રુવ", "વ્યાઘાત", "હર્ષણ", "વજ્ર", "સિદ્ધિ", "વ્યતીપાત", "વરીયાન", "પરિઘ", "શિવ", "સિદ્ધ", "સાધ્ય", "શુભ", "શુક્લ", "બ્રહમ", "ઇન્દ્ર", "વૈધૃતિ"];
   const karanasRepeating = ["બવ", "બાલવ", "કૌલવ", "તૈતિલ", "ગર", "વણિજ", "વિષ્ટિ (ભદ્રા)"];
   let karanaName = "";
   if (karanaIndex === 0) karanaName = "કિંસ્તુઘ્ન";
@@ -326,12 +327,7 @@ function updatePanchangCore() {
   document.getElementById('disha-img').src = createAstroIcon('🧭', '#dc2626');
   document.getElementById('panchang-disha').innerText = currentDishaShool;
 
-  let nextEkaDays = tithiIndex <= 10 ? 10 - tithiIndex : (tithiIndex <= 25 ? 25 - tithiIndex : (30 - tithiIndex) + 10);
-
   let phaseRatio = tithiLong / 360;
-  let illumination = (1 - Math.cos(tithiLong * Math.PI / 180)) / 2 * 100;
-  let phaseName = phaseRatio < 0.05 || phaseRatio > 0.95 ? "અમાસ" : (phaseRatio < 0.5 ? "શુક્લ" : "કૃષ્ણ");
-
   document.getElementById('dynamic-moon').innerHTML = getMoonPhaseSVG(phaseRatio);
 }
 
@@ -347,13 +343,13 @@ function updateSkyArch() {
   if (now >= globalSunrise && now <= globalSunset) {
       percent = (now - globalSunrise) / (globalSunset - globalSunrise);
       body.style.background = '#d4af37'; 
-      body.style.boxShadow = '0 0 14px #d4af37';
+      body.style.boxShadow = '0 0 16px #d4af37';
   } else {
       let prevSet = new Date(globalSunset); if (now < prevSet) prevSet.setDate(prevSet.getDate()-1);
       let nextRise = new Date(globalSunrise); if (now > nextRise) nextRise.setDate(nextRise.getDate()+1);
       percent = (now - prevSet) / (nextRise - prevSet);
       body.style.background = '#8b0000'; 
-      body.style.boxShadow = '0 0 14px #8b0000';
+      body.style.boxShadow = '0 0 16px #8b0000';
   }
   percent = Math.max(0, Math.min(1, percent));
   body.style.left = `${percent * 100}%`; 
@@ -416,7 +412,7 @@ async function fetchWeatherAll() {
 
     for (let i = 0; i < 7; i++) {
       const dateObj = new Date(data.daily.time[i]);
-      const dayName = i === 0 ? `TODAY` : `${String(dateObj.getDate()).padStart(2, '0')}-${String(dateObj.getMonth() + 1).padStart(2, '0')} | ${dateObj.toLocaleDateString('en-IN', { weekday:'long' }).toUpperCase()}`;
+      const dayName = i === 0 ? `TODAY` : `${String(dateObj.getDate()).padStart(2, '0')}-${String(dateObj.getMonth() + 1).padStart(2, '0')} | ${dateObj.toLocaleDateString('en-IN', { weekday:'short' }).toUpperCase()}`;
       const max = Math.round(data.daily.temperature_2m_max[i]); 
       const min = Math.round(data.daily.temperature_2m_min[i]);
       const uv = Math.round(data.daily.uv_index_max[i]); 
@@ -492,7 +488,6 @@ let directoryHandle = null;
 let cropper = null; 
 let baseCanvas = document.createElement('canvas');
 
-// Constant Fixed 7/5 (1.4:1) Ratio Across Every Single Step
 const EXPORT_WIDTH = 1400;
 const EXPORT_HEIGHT = 1000;
 const STRICT_FIXED_RATIO = 7 / 5;
