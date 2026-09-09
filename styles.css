@@ -98,21 +98,21 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
   z-index: 10;
 }
 
-/* 🏛️ LIVELY & BEAUTIFUL ROYAL HEADER */
+/* 🏛️ LIVELY, ROYAL & DYNAMIC HEADER */
 .header { 
   display: flex; justify-content: space-between; align-items: center; 
   margin-bottom: 8px; flex-shrink: 0; 
   border-bottom: 1px dashed rgba(212, 175, 55, 0.4); padding-bottom: 8px;
 }
-.title-area { display: flex; flex-direction: column; gap: 2px; }
+.title-area { display: flex; flex-direction: column; gap: 3px; }
 
 .header-meta-row {
   display: flex; align-items: center; gap: 8px;
 }
 .royal-motto {
-  font-size: 7.5pt; font-weight: 900; letter-spacing: 1px;
+  font-size: 7.5pt; font-weight: 900; letter-spacing: 0.8px;
   color: var(--zari-dark); text-transform: uppercase;
-  display: flex; align-items: center; gap: 4px;
+  display: flex; align-items: center; gap: 5px;
 }
 .live-pulse-badge {
   display: inline-flex; align-items: center; gap: 5px;
@@ -217,9 +217,9 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
   display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;
 }
 
-/* 1. ⏱️ SURAT COMMAND • IST ENHANCED */
+/* 1. ⏱️ SURAT COMMAND • IST (BEAUTIFIED & RICH METRICS) */
 .bento-local { 
-  height: 285px; flex-shrink: 0; 
+  height: 295px; flex-shrink: 0; 
   background: linear-gradient(135deg, rgba(255, 253, 249, 0.5) 0%, rgba(255, 248, 225, 0.45) 100%);
 }
 .bento-local .tool-header {
@@ -229,7 +229,7 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 }
 
 .clock-hud-card { 
-  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(250,244,235,0.8)); 
+  background: linear-gradient(135deg, rgba(255,255,255,0.88), rgba(250,244,235,0.85)); 
   border: 1px solid rgba(212, 175, 55, 0.55); padding: 8px 10px; border-radius: 10px; 
   box-shadow: 0 3px 8px rgba(139, 115, 85, 0.08); margin-bottom: 4px;
 }
@@ -255,8 +255,9 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 
 .local-meta-bar {
   display: flex; justify-content: space-between; align-items: center;
-  font-size: 6.5pt; font-weight: 800; color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.6); padding: 3px 6px; border-radius: 6px; margin-top: 4px;
+  font-size: 6.2pt; font-weight: 800; color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.65); padding: 3px 6px; border-radius: 6px; margin-top: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
 }
 
 .wl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: auto; }
@@ -267,7 +268,7 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 .wl-metric-title { font-size: 5.5pt; color: var(--text-muted); text-transform: uppercase; font-weight: 900; }
 .wl-metric-val { font-size: 8.5pt; color: var(--sindoor-red); font-weight: 900; font-family: 'Plus Jakarta Sans', sans-serif;}
 
-/* 2. 🌐 GLOBAL CENTERS (9 HUBS WITH ZURICH) */
+/* 2. 🌐 GLOBAL CENTERS (10 CITIES INCL. ZURICH) */
 .bento-clocks { 
   flex: 1; 
   background: linear-gradient(135deg, rgba(240, 249, 255, 0.65) 0%, rgba(224, 242, 254, 0.5) 100%);
@@ -279,9 +280,9 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
   border-bottom: 1.5px solid #38bdf8;
 }
 
-.wc-list { display: flex; flex-direction: column; gap: 3.5px; overflow-y: auto; flex: 1; min-height: 0; }
+.wc-list { display: flex; flex-direction: column; gap: 3px; overflow-y: auto; flex: 1; min-height: 0; }
 .wc-card { 
-  background: rgba(255, 255, 255, 0.75); padding: 5px 8px; border-radius: 7px; 
+  background: rgba(255, 255, 255, 0.75); padding: 4px 8px; border-radius: 7px; 
   border: 1px solid rgba(2, 132, 199, 0.25); box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 .wc-top { 
@@ -289,11 +290,11 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
   white-space: nowrap; gap: 6px; 
 }
 .wc-city { 
-  font-weight: 800; font-size: 7pt; color: var(--text-main); text-transform: uppercase; 
+  font-weight: 800; font-size: 6.8pt; color: var(--text-main); text-transform: uppercase; 
   display: flex; align-items: center; gap: 5px; flex-shrink: 0; 
 }
 .wc-time { 
-  font-size: 7.8pt; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; 
+  font-size: 7.6pt; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; 
   color: #0369a1; margin-left: auto; text-align: right; 
 }
 .adv-timebar { width: 100%; height: 2.5px; background: rgba(0,0,0,0.08); border-radius: 2px; position: relative; margin-top: 2px; }
@@ -302,7 +303,7 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 
 /* 3. 🕉️ PANCHANG (TALL SKY ARC & RICH DETAILS) */
 .bento-panchang { 
-  height: 360px; flex-shrink: 0; 
+  height: 380px; flex-shrink: 0; 
   background: linear-gradient(135deg, rgba(255, 253, 249, 0.55) 0%, rgba(255, 243, 224, 0.5) 100%);
 }
 .bento-panchang .tool-header {
@@ -318,8 +319,8 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 
 .gujarati-tithi-display-frame { 
   display: flex; align-items: center; 
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(253, 245, 230, 0.85)); 
-  border: 1.5px solid var(--zari-gold); border-radius: 12px; padding: 10px 12px; 
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(253, 245, 230, 0.88)); 
+  border: 1.5px solid var(--zari-gold); border-radius: 12px; padding: 6px 12px; 
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.18); gap: 12px;
 }
 .tithi-sub-tag { font-size: 7pt; font-weight: 900; color: var(--zari-dark); text-transform: uppercase; margin-bottom: 2px;}
@@ -330,25 +331,25 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 
 .p-badge-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin: 4px 0; }
 .p-badge { 
-  display: flex; align-items: center; gap: 5px; background: rgba(255, 255, 255, 0.7); 
+  display: flex; align-items: center; gap: 5px; background: rgba(255, 255, 255, 0.75); 
   border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 8px; padding: 3px 5px;
 }
 .p-badge img { width: 20px; height: 20px; border-radius: 4px; object-fit: cover; }
-.p-lbl { font-size: 6pt; color: var(--text-muted); font-weight: 900; }
-.p-val { font-size: 8pt; font-weight: 900; color: var(--sindoor-red); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.p-lbl { font-size: 4.8pt; color: var(--text-muted); font-weight: 900; }
+.p-val { font-size: 6.8pt; font-weight: 900; color: var(--sindoor-red); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 
-/* 🚀 INCREASED SKY ARCH HEIGHT */
+/* 🚀 SOARING SKY ARC CONTAINER (110px TALL) */
 .sky-arch-container { 
   position: relative; 
-  height: 90px; /* Increased height */
+  height: 110px; /* Elevated height as requested */
   margin: 4px 0; 
   border-bottom: 1.5px dashed rgba(212,175,55,0.45); 
 }
 .sky-arch-path { position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
 .astro-body { 
-  position: absolute; width: 15px; height: 15px; border-radius: 50%; 
+  position: absolute; width: 16px; height: 16px; border-radius: 50%; 
   transform: translate(-50%, -50%); z-index: 5; 
-  background: var(--zari-gold); box-shadow: 0 0 14px var(--zari-gold);
+  background: var(--zari-gold); box-shadow: 0 0 16px var(--zari-gold);
 }
 .arch-label { position: absolute; bottom: 3px; font-size: 6.5pt; color: var(--text-muted); font-weight: 800; }
 .arch-label.left { left: 0; } .arch-label.right { right: 0; }
@@ -369,7 +370,7 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
   border-color: var(--emerald-green); box-shadow: 0 2px 8px rgba(27, 94, 32, 0.2); 
 }
 .ch-lbl { font-size: 5pt; font-weight: 900; color: var(--text-muted); }
-.ch-val { font-size: 10pt; font-weight: 900; margin-top: 1px; text-transform: uppercase; color: var(--sindoor-red);}
+.ch-val { font-size: 7.5pt; font-weight: 900; margin-top: 1px; text-transform: uppercase; color: var(--sindoor-red);}
 
 /* 4. WEATHER ARRAY */
 .bento-weather { 
