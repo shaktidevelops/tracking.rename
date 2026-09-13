@@ -239,12 +239,6 @@ body.time-night input[type="text"] { background: rgba(20, 10, 8, 0.85); color: #
 .tod-evening { background: var(--btn-red); }
 .tod-night { background: var(--btn-purple); }
 
-.surat-hub-ribbon {
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 6.5pt; font-weight: 900; color: var(--sindoor-red);
-  margin-top: 3px; border-top: 1px dashed rgba(212, 175, 55, 0.35); padding-top: 3px;
-}
-
 .time-digits { 
   font-size: 30pt; font-weight: 900; line-height: 1; font-family: 'Rozha One', serif; 
   color: var(--sindoor-red); 
